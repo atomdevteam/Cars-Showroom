@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../img/logo.png"
 import facebook from "../img/facebook.png"
 import Instagram from "../img/Instagram.png"
 import youtube from "../img/youtube.png"

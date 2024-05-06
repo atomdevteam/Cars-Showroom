@@ -22,8 +22,8 @@ function Header() {
             <img className='md:hidden absolute w-10 top-5 right-5 bg-transparent cursor-pointer' src={Lupa} alt="" />
         </div>
         <div className='md:m-28 bg-slate-950 m-10'>
-          <h1 className='md:text-[3rem] text-3xl bg-transparent mb-7'>Preguntas más frecuentes</h1>
-          <h3 className='md:text-[2rem] text-2xl bg-transparent'>Homepage - Preguntas más frecuentes</h3>
+          <h1 className='md:text-[3rem] text-3xl bg-transparent mb-7'>Ford F-250 Super Duty</h1>
+          <h3 className='md:text-[2rem] text-2xl bg-transparent'>Homepage - Ford F-250 Super Duty</h3>
         </div>
     </div>
   )
