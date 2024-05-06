@@ -152,7 +152,7 @@ function Principal() {
            
             <div data-aos="fade-up" className='  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Jeep} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Jeep} alt="Jeep Wrangler Unlimited Islander" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Usado</button>
@@ -192,7 +192,7 @@ function Principal() {
 
             <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Audi} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Audi} alt="Audi e-tron Premium" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Usado</button>
@@ -232,7 +232,7 @@ function Principal() {
 
             <div data-aos="zoom-out-down" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={LandRover} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={LandRover} alt="Land Rover Range Rover Velar R-Dynamic S" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className=" border-blue-500 text-blue-500 px-5" >Usado</button>
@@ -273,7 +273,7 @@ function Principal() {
 
             <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Toyota} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Toyota} alt="Toyota Mirai" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Usado</button>
