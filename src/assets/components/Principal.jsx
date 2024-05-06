@@ -1,4 +1,3 @@
-import React from 'react'
 import Tesla from "../img/Tesla.png";
 import { useEffect, useState } from "react";
 import Calender from "../img/Calender.png"
@@ -17,7 +16,7 @@ import list from "../img/list.png"
 import listwo from "../img/listwo.png"
 import flechatop from "../img/flechatop.png"
 import "aos/dist/aos.css"
-function PrincipalSection() {
+function Principal() {
     const [open, setOpen]= useState(false);
     const [opentwo, setOpenTwo]= useState(false);
     const Change =()=>{
@@ -193,7 +192,7 @@ function PrincipalSection() {
 
             <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Ford} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Ford} alt="Ford F-250 Super Duty" />
                 </div>
                 <button className=' absolute -rotate-[40deg] top-5 -left-10 border bg-blue-500 py-1 w-40'>Destacado</button>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
@@ -237,7 +236,7 @@ function PrincipalSection() {
 
             <div data-aos="zoom-out-down" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Honda} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Honda} alt="Honda Pilot Touring 7-Passenger" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
@@ -278,7 +277,7 @@ function PrincipalSection() {
 
             <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className='   w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Chevrolet} alt="Tesla Car" />
+                    <img className='   w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Chevrolet} alt="Chevrolet Equinox LS" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
@@ -319,11 +318,11 @@ function PrincipalSection() {
 
             <div data-aos="fade-up" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Kia} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Kia} alt="Kia Sorento S" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem] md:text-[1.2rem]" >MINI Clubman Cooper S</h2>
+                    <h2 className="text-[2rem] md:text-[1.2rem]" >Kia Sorento S</h2>
                     <span className="text-blue-500 text-[1.5rem]">$29,791</span>
                     <h4>SFM, DO</h4>
                     <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
@@ -358,13 +357,13 @@ function PrincipalSection() {
             </div>
 
 
-            <div data-aos="fade-up-right" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
+            <div data-aos="fade-up" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={coupe} alt="Tesla Car" />
+                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={coupe} alt="MINI Clubman Cooper S" />
                 </div>
-                <div className=' lg:w-96 md:mt-3 mt-5 '>
+                <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem]" >MINI Clubman Cooper S</h2>
+                    <h2 className="text-[2rem] md:text-[1.2rem]" >MINI Clubman Cooper S</h2>
                     <span className="text-blue-500 text-[1.5rem]">$35,850</span>
                     <h4>SFM, DO</h4>
                     <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
@@ -409,4 +408,4 @@ function PrincipalSection() {
   )
 }
 
-export default PrincipalSection
+export default Principal

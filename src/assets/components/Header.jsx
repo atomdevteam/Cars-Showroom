@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logotwo from "../img/logotwo.png"
 import flechaone from "../img/flechaone.png";
 import user from "../img/user.png";
 import world from "../img/world.png";
 import hambmenu from "../img/hambmenu.png";
 import Lupa from "../img/Lupa.png"
-function Header() {
+function HeaderSection() {
+    const [Open, setOpen]= useState(false)
+    const Change =()=>{
+        setOpen(!Open)
+    }
   return (
     <div className=' relative md:bg-slate-950'>
         <div className='md:flex bg-transparent justify-start'>
@@ -18,7 +22,7 @@ function Header() {
                 <li className='bg-transparent items-center m-auto lg:max-w-full flex gap-5 hover:bg-gray-400 hover:text-blue-500 px-2 py-2 transition-all rounded-sm'><img className='rightimg ' src={user} alt="Ver" />Sign IN</li>
                 <li className='bg-transparent text-center m-auto lg:max-w-full flex gap-5 hover:bg-gray-400 hover:text-blue-500 px-2 py-2 transition-all rounded-sm'><img src={world} className='rightimg ' alt="Ver" />EN <img className='flecha rightimg rotate-90 bg-transparent ' src={flechaone} alt="Ver" /></li>
             </ul>
-            <img className=' md:hidden absolute w-16 top-5 left-5 z-10 bg-transparent cursor-pointer' src={hambmenu} alt="Menu" />
+            <img className=' md:hidden absolute w-16 top-5 left-5 z-10 bg-transparent cursor-pointer' onClick={Change} src={hambmenu} alt="Menu" />
             <img className=' md:hidden absolute w-10 top-5 right-5 bg-transparent cursor-pointer' src={Lupa} alt="" />
         </div>
         <div className=' md:m-28 bg-transparent m-10'>
@@ -29,4 +33,4 @@ function Header() {
   )
 }
 
-export default Header
+export default HeaderSection
