@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 const Navbar = ({background}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
