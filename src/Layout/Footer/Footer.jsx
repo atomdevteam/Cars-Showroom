@@ -1,8 +1,12 @@
 import React from 'react'
-import CarLogo from '../../assets/Logo/CarLogo.png'
+
+import CarLogo from '../../assets/Footer/CarLogo.png'
+
 import Facebook from '../../assets/Footer/Facebook.png'
 import Instagram from '../../assets/Footer/instagram.png'
 import Youtube from '../../assets/Footer/youtube.png'
+
+
 const Footer = () => {
     return (
         <footer className="bg-[#12232E] text-white p-4 text-center">
