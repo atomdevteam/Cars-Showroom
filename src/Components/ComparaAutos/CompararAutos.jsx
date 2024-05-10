@@ -2,7 +2,7 @@
 const ComprarAutos = () => {
 
     return (
-        <div className="flex justify-center items-center px-17 py-3 max-md:px-5 bg-[#0B0C10]">
+        <div className=" bg-transparent flex justify-center items-center px-17 py-3 max-md:px-5 bg-[#0B0C10]">
 
             <div className="flex flex-col mt-10 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full ">
 

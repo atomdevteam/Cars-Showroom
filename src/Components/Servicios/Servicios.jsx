@@ -1,12 +1,12 @@
 
 const Servicios = () => {
     return (
-        <div className="flex flex-col self-center justify-center items-center mt-20 w-full  max-md:mt-10 max-md:max-w-full bg-[#0B0C10]">
-            <div className="text-2xl font-bold text-zinc-300 max-md:max-w-full">
+        <div className="bg-transparent flex flex-col self-center justify-center items-center mt-20 w-full  max-md:mt-10 max-md:max-w-full bg-[#0B0C10]">
+            <div className="bg-transparent text-2xl font-bold text-zinc-300 max-md:max-w-full">
                 Nuestro servicio
             </div>
 
-            <div className="px-px mt-7 max-md:max-w-full">
+            <div className="bg-transparent px-px mt-7 max-md:max-w-full">
                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     <button className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
 
@@ -16,7 +16,7 @@ const Servicios = () => {
                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/0e9f552b1b9dbed70ddbc2bea9c5b490daad4ff9db8346ead42fee009970bbc3?"
                                 className="self-center w-12 aspect-square"
                             />
-                            <p className="mt-3.5">Comprar un auto nuevo</p>
+                            <p className="bg-transparent mt-3.5">Comprar un auto nuevo</p>
 
 
                         </div>
@@ -30,7 +30,7 @@ const Servicios = () => {
                                 className="self-center w-12 aspect-square"
                             />
 
-                            <p className="mt-3.5">comprar un auto usado</p>
+                            <p className="bg-transparent mt-3.5">comprar un auto usado</p>
                         </div>
                     </button>
 
@@ -41,7 +41,7 @@ const Servicios = () => {
                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/8db7bbb2f228a3e2dd1dbc3ff5effec1ebcf26ffb88ef187d70ede740e8844f2?"
                                 className="self-center w-12 aspect-square"
                             />
-                            <p className="mt-3.5">Vender mi carro</p>
+                            <p className="bg-transparent mt-3.5">Vender mi carro</p>
                         </div>
                     </button>
                 </div>
