@@ -1,14 +1,19 @@
 import { useState } from 'react'
-import Footer from './assets/components/Footer'
-import Header from './assets/components/Header'
-import Principal from './assets/components/Principal'
-
+import { HashRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'
+import MainScreen from './Layout/Screens/MainScreen/MainScreen'
+import UserCar from './Layout/Screens/UserCar/UserCar'
+import NewCar from './Layout/Screens/NewCar/NewCar'
 function App() {
 
   return (
     <>
-
-      <MainScreen />
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainScreen />} />
+          <Route path="/CarrosUsados" element={<UserCar />} />
+          <Route path="/CarrosNuevo" element={<NewCar />} />
+        </Routes>
+      </Router>
     </>
   )
 }
