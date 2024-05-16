@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Routes, Navigate, useNavigate } from 'reac
 import MainScreen from './Layout/Screens/MainScreen/MainScreen'
 import UserCar from './Layout/Screens/UserCar/UserCar'
 import NewCar from './Layout/Screens/NewCar/NewCar'
+import CarSaleLayout from './Layout/CarSale/CarSaleLayout'
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<MainScreen />} />
           <Route path="/CarrosUsados" element={<UserCar />} />
           <Route path="/CarrosNuevo" element={<NewCar />} />
+          <Route path="/vender" element={<CarSaleLayout />} />
         </Routes>
       </Router>
     </>
