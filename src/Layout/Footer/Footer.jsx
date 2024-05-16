@@ -38,7 +38,7 @@ const Footer = () => {
                     </div>
                     <div className='bg-[#12232E] grid lg:grid-cols-1 w-full items-center'>
                         <div className='flex bg-[#12232E] items-center justify-center'>
-                                 <p class="line-clamp-3 w-[10rem] bg-[#12232E]">#12 Av. Antonio G.,
+                                 <p className="line-clamp-3 w-[10rem] bg-[#12232E]">#12 Av. Antonio G.,
                             San Frac., Duarte,
                             31000,
                             Rep. Domicana</p>
