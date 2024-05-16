@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../../../assets/img/logo.png'
-import facebook from "../../../assets/img/facebook.png"
+import facebook from '../../../assets/img/facebook.png'
+// import facebook from "../../../assets/img/facebook.png"
 import Instagram from "../../../assets/img/Instagram.png"
 import youtube from "../../../assets/img/youtube.png"
 import logotwo from "../../../assets/img/logotwo.png"
