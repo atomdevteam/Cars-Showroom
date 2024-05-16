@@ -1,10 +1,10 @@
 import React from 'react'
-import logotwo from "../img/logotwo.png"
-import flechaone from "../img/flechaone.png";
-import user from "../img/user.png";
-import world from "../img/world.png";
-import hambmenu from "../img/hambmenu.png";
-import Lupa from "../img/Lupa.png"
+import logotwo from "../../../assets/img/logotwo.png"
+import flechaone from "../../../assets/img/flechaone.png";
+import user from "../../../assets/img/user.png";
+import world from "../../../assets/img/world.png";
+import hambmenu from "../../../assets/img/hambmenu.png";
+import Lupa from "../../../assets/img/Lupa.png"
 function Header() {
   return (
     <div className='bg-slate-950'>
