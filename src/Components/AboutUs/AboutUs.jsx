@@ -10,8 +10,8 @@ const AboutUs = () => {
 
                 <p className="px-8 mt-8 mb-12 text-lg text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut placeat nobis distinctio dolores incidunt id esse velit labore atque debitis doloribus accusamus libero similique, animi alias reprehenderit totam corporis repudiandae?</p>
 
-                <div class="bg-[#0B0C10] border-solid rounded-lg border-2 border-sky-500p-4" >
-                    <p class="text-lg font-semibold text-white p-2">7 de mayo de 2024</p>
+                <div className="bg-[#0B0C10] border-solid rounded-lg border-2 border-sky-500p-4" >
+                    <p className="text-lg font-semibold text-white p-2">7 de mayo de 2024</p>
                 </div>
             </div>
 
@@ -67,9 +67,9 @@ const AboutUs = () => {
 
 
 
-                    <div class="flex flex-col self-stretch py-20 mt-28 font-semibold text-white bg-slate-900 max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
+                    <div className="flex flex-col self-stretch py-20 mt-28 font-semibold text-white bg-slate-900 max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
 
-                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:flex-col">
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:flex-col">
 
                             <div className="flex z-10 px-5 flex-col mt-0 max-w-full w-[420px] max-md:mt-0">
 
@@ -120,7 +120,7 @@ const AboutUs = () => {
                             </div>
 
 
-                            <div class="">
+                            <div className="">
                                 <div className="flex flex-col ml-5 w-[75%] mt-20 max-md:ml-0 max-md:w-full">
                                     <img
                                         loading="lazy"

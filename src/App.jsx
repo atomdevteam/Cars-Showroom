@@ -16,6 +16,7 @@ import FrequentQuestions from './Layout/FrequentQuestions/FrequentQuestions'
 import SingIn from './Layout/SignInLayout/SignInLayout'
 import LogInLayout from './Layout/LogInLayout/LogInLayout'
 import ProductFord from './Layout/ProductFord/ProductFord'
+import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path='/ProductLorem' element={<ProductLorem />} />
           <Route path='/FrequentQuestions' element={<FrequentQuestions />} />
           <Route path='/ProductFord' element={<ProductFord />} />
+          <Route path='/AboutUS' element={<AboutUSLayout />} />
           <Route path='/SingIn' element={<SingIn />} />
           <Route path='/LogIn' element={<LogInLayout />} />
         </Routes>

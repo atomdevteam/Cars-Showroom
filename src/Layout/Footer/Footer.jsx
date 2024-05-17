@@ -5,6 +5,7 @@ import Instagram from '../../assets/Footer/instagram.png'
 import Youtube from '../../assets/Footer/youtube.png'
 
 const Footer = () => {
+ 
     return (
         <footer className="bg-[#12232E] text-white p-4 text-center">
             <div className="bg-[#12232E] container mx-auto">
@@ -14,9 +15,9 @@ const Footer = () => {
                 <div className='border border-gray-600 my-8'></div>
                 <div className='bg-[#12232E] grid lg:grid-cols-3  justify-center   w-full'>
                     <div className='bg-[#12232E] grid lg:grid-cols-1 items-center w-full'>
-                        <div className='mb-4 bg-[#12232E] '>
+                        <a href='#/AboutUS' className='mb-4 bg-[#12232E] cursor-pointer' >
                             SOBRE NOSOTROS
-                        </div>
+                        </a>
                         <div className='mb-4 bg-[#12232E]'>
                             FAQ
                         </div>
@@ -38,12 +39,12 @@ const Footer = () => {
                     </div>
                     <div className='grid lg:grid-cols-1 w-full items-center'>
                         <div className='flex  items-center justify-center'>
-                                 <p className="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
-                            San Frac., Duarte,
-                            31000,
-                            Rep. Domicana</p>
+                            <p className="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
+                                San Frac., Duarte,
+                                31000,
+                                Rep. Domicana</p>
                         </div>
-                   
+
 
 
                         <div className='mt-4 '>
