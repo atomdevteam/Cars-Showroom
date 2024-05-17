@@ -16,7 +16,14 @@ import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import FordF from '../../assets/TeslaModel/FordF.png'
 import Honda from '../../assets/TeslaModel/Honda.png'
+import { useNavigate } from 'react-router-dom'
 const Ourreviews = () => {
+const navigate = useNavigate()
+
+const handleOpenFord = () => {
+    navigate('/ProductFord')
+}
+
     return (
         <div className='  text-white mb-8'>
             <div className=' mr-8  mt-12'>
@@ -144,7 +151,7 @@ const Ourreviews = () => {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-4">
 
-                            <div className="bg-[#12232E] ">
+                            <div onClick={() => handleOpenFord()} className="bg-[#12232E] cursor-pointer">
                                 <div className="grid grid-cols-1 relative">
                                     <img className="w-full h-48  object-cover" src={FordF} />
                                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#004A77] flex items-center justify-center h-16 w-16 rounded-full">
