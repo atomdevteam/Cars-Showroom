@@ -1,18 +1,9 @@
 import { useState } from 'react'
-
-import Footer from './assets/components/Footer'
-import Header from './assets/components/Header'
-import Principal from './assets/components/Principal'
-
-
+import SearchResultsTwo from './Layout/SearchResultsTwo/SearchResultsTwo'
 function App() {
-
-
   return (
     <>
-      <Header/>
-      <Principal/>
-      <Footer/>
+      <SearchResultsTwo/>
     </>
   )
 }
