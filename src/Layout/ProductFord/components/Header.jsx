@@ -21,7 +21,7 @@ function Header() {
             <img className=' md:hidden absolute w-16 top-5 left-5 z-10 bg-transparent cursor-pointer' src={hambmenu} alt="Menu" />
             <img className=' md:hidden absolute w-10 top-5 right-5 bg-transparent cursor-pointer' src={Lupa} alt="" />
         </div>
-        <div className='md:py-28 md:px-12 bg-transparent px-10 py-10'>
+        <div className='md:py-28 md:px-12 bg-black px-10 py-10'>
           <h1 className='md:text-[3rem] text-[1.9rem] bg-transparent'>Ford F-250 Super Duty</h1>
           <h3 className='md:text-[2rem] bg-transparent'>Homepage - Ford F-250 Super Duty</h3>
         </div>
