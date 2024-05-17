@@ -6,7 +6,6 @@ import ProductTeslaModel from './Layout/ProductTeslaLayout/ProductTeslaLayout'
 import Footer from './Layout/Footer/Footer'
 function App() {
 
-
   return (
     <>
       <Router>
@@ -18,7 +17,9 @@ function App() {
       </Router>
       <Footer />
     </>
+
   )
 }
 
 export default App
+
