@@ -1,16 +1,16 @@
 import React from 'react'
-import Maclaren from "../img/Maclaren.png"
-import Mustang from "../img/Mustang.png"
-import Userone from "../img/Userone.png"
-import phone from "../img/phone.png"
-import Message from "../img/Message.png"
-import newmessage from "../img/newmessage.png"
-import usertwo from "../img/usertwo.png"
-import firstcar from "../img/firstcar.png"
-import secondcar from "../img/secondcar.png"
+import Maclaren from "../../../assets/img/Maclaren.png"
+import Mustang from "../../../assets/img/Mustang.png"
+import Userone from "../../../assets/img/Userone.png"
+import phone from "../../../assets/img/phone.png"
+import Message from "../../../assets/img/Message.png"
+import newmessage from "../../../assets/img/newmessage.png"
+import usertwo from "../../../assets/img/usertwo.png"
+import firstcar from "../../../assets/img/firstcar.png"
+import secondcar from "../../../assets/img/secondcar.png"
 function PrincipalSection() {
   return (
-    <div className='md:m-10 m-3'>
+    <div className='md:px-10 bg-black text-white md:py-10 px-3 py-3'>
         <div data-aos="zoom-out-down" className='max-w-full'>
             <img className='w-full' src={Maclaren} alt="Maclaren" />
         </div>
