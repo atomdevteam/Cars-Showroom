@@ -8,7 +8,6 @@ function FrequentQuestions() {
     <div>
         <Header/>
         <PrincipalSection/>
-        <Footer/>
     </div>
   )
 }
