@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Navbar = ({ background }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
 
         <nav className={`bg-[#12232E] border-gray-200 ${background}`}>
