@@ -12,6 +12,9 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
     "aos": "^2.3.4",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.17",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "react": "^18.2.0",
@@ -29,5 +32,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
+
+
   }
+
+  
 }
