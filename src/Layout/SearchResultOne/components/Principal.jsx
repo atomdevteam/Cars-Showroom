@@ -33,7 +33,7 @@ function Principal() {
     }
     
   return (
-    <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:m-0 xl:px-20 xl:py-20 gap-7 md:px-5 md:py-5 bg-black text-white'>
+    <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:m-0 xl:px-20 xl:py-20 gap-7 md:px-5 md:py-5 px-5 py-5 bg-black text-white'>
         <section data-aos="flip-up" className=" xl:w-[28rem]  ">
             <section className=' xl:py-5 xl:px-6 bg-[#071620] md:py-5 md:px-6 md:text-2xl px-5 py-10 '>
                 <div className=' bg-transparent xl:text-[2rem] border-b md:text-2xl text-2xl'>Filtrar</div>
