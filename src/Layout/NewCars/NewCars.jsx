@@ -9,7 +9,6 @@ function NewCars() {
     <div>
         <Header/>
         <Principal/>
-        <Footer/>
     </div>
   )
 }
