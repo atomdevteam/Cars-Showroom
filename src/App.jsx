@@ -4,6 +4,7 @@ import CarSale from './Layout/CarSale/CarSaleLayout'
 import BuyCar from './Layout/BuyCarLayout/BuyCarLayout'
 import ProductTeslaModel from './Layout/ProductTeslaLayout/ProductTeslaLayout'
 import ContactUS from './Layout/ContactLayout/ContactLayout'
+import CarInspection from './Layout/CarinspectionLayout/CarinspectionLayout'
 import Footer from './Layout/Footer/Footer'
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
           <Route path='/CarSale' element={<CarSale />} />
           <Route path='/BuyCar' element={<BuyCar />} />
           <Route path='/ProductTeslaModel' element={<ProductTeslaModel />} />
-          <Route path='/' element={<ContactUS />} />
+          <Route path='/ContactUS' element={<ContactUS />} />
+          <Route path='/' element={<CarInspection />} />
         </Routes>
       </Router>
       <Footer />
