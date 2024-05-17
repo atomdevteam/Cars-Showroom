@@ -52,15 +52,15 @@ const Ourreviews = () => {
                                         <img src={Startv} className='mr-1 w-6 h-6' />
                                     </div>
 
-                                    <div className='flex flex-row items-center justify-between w-full  p-2'>
+                                    <div className='grid grid-cols-2 lg:grid-cols-3 items-center justify-between w-full ml-4 lg:ml-0'>
                                         <div className='flex flex-row items-center'>
                                             <img
                                                 alt="user 2"
                                                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
                                                 class="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
-                                            />  <div className='text-sm text-[#004A77] ml-4 mr-4'>By Carla Bastista</div>
+                                            />  <div className='text-sm text-[#004A77] ml-2 mr-2'>By Carla Bastista</div>
                                         </div>
-                                        <div className='flex flex-row  p-2'>
+                                        <div className='flex flex-row '>
 
                                             <div className='flex flex-row items-center text-[#004A77]'>
                                                 <img src={Comments} className='h-4 w-4' />
@@ -68,9 +68,10 @@ const Ourreviews = () => {
                                             </div>
 
                                         </div>
-                                        <div className='bg-[#4DA8DA] mt-4 ml-2 inline-block text-auto p-2'>
+                                        <div className='bg-[#4DA8DA] w-[6.5rem] py-2 pl-1 mt-4 lg:mt-0'>
                                             June, 01 2021
                                         </div>
+
 
                                     </div>
 
@@ -99,15 +100,15 @@ const Ourreviews = () => {
                                         <img src={Startv} className='mr-1 w-6 h-6' />
                                     </div>
 
-                                    <div className='flex flex-row items-center justify-between w-full  p-2'>
+                                    <div className='grid grid-cols-2 lg:grid-cols-3 items-center justify-between w-full ml-4 lg:ml-0'>
                                         <div className='flex flex-row items-center'>
                                             <img
                                                 alt="user 2"
                                                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
                                                 class="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
-                                            />  <div className='text-sm text-[#004A77] ml-4 mr-4'>By Carla Bastista</div>
+                                            />  <div className='text-sm text-[#004A77] ml-2 mr-2'>By Carla Bastista</div>
                                         </div>
-                                        <div className='flex flex-row  p-2'>
+                                        <div className='flex flex-row '>
 
                                             <div className='flex flex-row items-center text-[#004A77]'>
                                                 <img src={Comments} className='h-4 w-4' />
@@ -115,9 +116,10 @@ const Ourreviews = () => {
                                             </div>
 
                                         </div>
-                                        <div className='bg-[#4DA8DA] mt-4 ml-2 inline-block text-auto p-2'>
+                                        <div className='bg-[#4DA8DA] w-[6.5rem] py-2 pl-1 mt-4 lg:mt-0'>
                                             June, 01 2021
                                         </div>
+
 
                                     </div>
 
@@ -154,19 +156,29 @@ const Ourreviews = () => {
                                     <button className="text-[#007CC7] border border-[#007CC7] mb-2 px-3">New</button>
                                     <div className="font-bold text-xl mb-2">Ford F-250 Super Duty</div>
                                     <div className="text-[#007CC7] font-bold text-xl mt-4">$82,098 - $92,050</div>
-                                    <div className="grid  mb-6 lg:grid-cols-2">
-                                        <div className="flex flex-row items-center">
-                                            <FaRegCalendarAlt className="mr-2 text-[#007CC7]" size={20} /> 2021
+
+                                    <div className="flex flex-row items-center justify-between text-xs mt-4">
+                                        <div className="flex flex-col">
+                                            <div className="flex flex-row items-center mb-4">
+                                                <FaRegCalendarAlt className="mr-2 text-[#007CC7]" size={20} /> 2021
+                                            </div>
+                                            <div className="flex flex-row items-center">
+                                                <BsFillFuelPumpDieselFill className="mr-2 text-[#007CC7]" size={20} /> Diesel
+                                            </div>
                                         </div>
-                                        <div className="flex flex-row items-center">
-                                            <TbSteeringWheel className="mr-2 text-[#007CC7]" size={40} /> Tracción en las cuatro ruedas
+
+                                        <div className="flex flex-col items-start justify-between mb-4">
+                                            <div className="flex flex-row items-center mb-4">
+                                                <TbSteeringWheel className="mr-2 text-[#007CC7]" size={20} /> Tracción en las cuatro ruedas
+                                            </div>
+
+                                            <div className="flex flex-row items-center">
+                                                <BsFillPeopleFill className="mr-2 text-[#007CC7]" size={20} /> 5
+                                            </div>
                                         </div>
-                                        <div className="flex flex-row items-center">
-                                            <BsFillFuelPumpDieselFill className="mr-2 text-[#007CC7]" size={20} /> Diesel
-                                        </div>
-                                        <div className="flex flex-row items-center">
-                                            <BsFillPeopleFill className="mr-2 text-[#007CC7]" size={20} /> 5
-                                        </div>
+
+
+
                                     </div>
 
                                 </div>
@@ -193,18 +205,24 @@ const Ourreviews = () => {
                                     <button className="text-[#007CC7] border border-[#007CC7] mb-2 px-3">New</button>
                                     <div className="font-bold text-xl mb-2">Ford F-250 Super Duty</div>
                                     <div className="text-[#007CC7] font-bold text-xl mt-4">$82,098 - $92,050</div>
-                                    <div className="grid  mb-6 lg:grid-cols-2">
-                                        <div className="flex flex-row items-center">
-                                            <FaRegCalendarAlt className="mr-2 text-[#007CC7]" size={20} /> 2021
+                                    <div className="flex flex-row items-center justify-between text-xs mt-4">
+                                        <div className="flex flex-col">
+                                            <div className="flex flex-row items-center mb-4">
+                                                <FaRegCalendarAlt className="mr-2 text-[#007CC7]" size={20} /> 2021
+                                            </div>
+                                            <div className="flex flex-row items-center">
+                                                <BsFillFuelPumpDieselFill className="mr-2 text-[#007CC7]" size={20} /> Diesel
+                                            </div>
                                         </div>
-                                        <div className="flex flex-row items-center">
-                                            <TbSteeringWheel className="mr-2 text-[#007CC7]" size={40} /> Tracción en las cuatro ruedas
-                                        </div>
-                                        <div className="flex flex-row items-center">
-                                            <BsFillFuelPumpDieselFill className="mr-2 text-[#007CC7]" size={20} /> Diesel
-                                        </div>
-                                        <div className="flex flex-row items-center">
-                                            <BsFillPeopleFill className="mr-2 text-[#007CC7]" size={20} /> 5
+
+                                        <div className="flex flex-col items-start justify-between mb-4">
+                                            <div className="flex flex-row items-center mb-4">
+                                                <TbSteeringWheel className="mr-2 text-[#007CC7]" size={20} /> Tracción en las cuatro ruedas
+                                            </div>
+
+                                            <div className="flex flex-row items-center">
+                                                <BsFillPeopleFill className="mr-2 text-[#007CC7]" size={20} /> 5
+                                            </div>
                                         </div>
                                     </div>
 
