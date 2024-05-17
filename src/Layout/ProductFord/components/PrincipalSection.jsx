@@ -1,19 +1,19 @@
 import React from 'react'
-import usertwo from "../img/usertwo.png"
-import Calender from "../img/Calender.png"
-import Honda from "../img/Honda.png"
-import Tesla from "../img/Tesla.png"
-import star from "../img/star.png"
-import estrella from "../img/estrella.png"
-import emptystar from "../img/emptystar.png"
-import flechatop from "../img/flechatop.png"
-import userthree from "../img/userthree.png"
-import bigford from "../img/bigford.png"
+import usertwo from "../../../assets/img/usertwo.png"
+import Calender from "../../../assets/img/Calender.png"
+import Honda from "../../../assets/img/Honda.png"
+import Tesla from "../../../assets/img/Tesla.png"
+import star from "../../../assets/img/star.png"
+import estrella from "../../../assets/img/estrella.png"
+import emptystar from "../../../assets/img/emptystar.png"
+import flechatop from "../../../assets/img/flechatop.png"
+import userthree from "../../../assets/img/userthree.png"
+import bigford from "../../../assets/img/bigford.png"
 function PrincipalSection() {
 
 
   return (
-    <div className='md:m-10 m-3 '>
+    <div className='md:px-10 md:py-10 px-3 py-3 bg-black text-white '>
         <div data-aos="zoom-out-down" className='max-w-full overflow-hidden rounded-lg'>
             <img className='w-full hover:scale-125 transition-all cursor-pointer rounded-lg' src={bigford} alt="Ford" />
         </div>
