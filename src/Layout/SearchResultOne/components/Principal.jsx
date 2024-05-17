@@ -36,7 +36,7 @@ function Principal() {
     <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:m-0 xl:px-20 xl:py-20 gap-7 md:px-5 md:py-5 bg-black text-white'>
         <section data-aos="flip-up" className=" xl:w-[28rem]  ">
             <section className=' xl:py-5 xl:px-6 bg-[#071620] md:py-5 md:px-6 md:text-2xl px-5 py-10 '>
-                <div className=' bg-gray-800 xl:text-[2rem] border-b md:text-2xl text-2xl'>Filtrar</div>
+                <div className=' bg-transparent xl:text-[2rem] border-b md:text-2xl text-2xl'>Filtrar</div>
                  <div className=' xl:flex xl:w-full xl:gap-5 items-center xl:mt-4 xl:h-9 xl:px-7 flex px-5 py-3 gap-5 text-2xl xl:py-1 lg:px-2 md:flex md:px-3 md:gap-2 md:py-1 md:items-center bg-[#152836] mt-4 '>
                     <img className="bg-transparent md:w-5 md:h-5 w-5 h-5" src={Lupa} alt="Buscar" /> 
                     <input className=" bg-transparent xl:text-2xl" type="text" placeholder='Buscar' />
@@ -135,17 +135,17 @@ function Principal() {
 
         </section>
         <section className=' xl:w-[50rem] mt-10 m-10'>
-                <div className=' flex xl:flex xl:justify-between xl:items-center xl:h-16 items-center xl:bg-gray-800 xl:w-full px-5 gap-4 text-2xl py-3 xl:gap-6 md:flex md:gap-4 md:px-4 md:py-3 md:text-2xl md:items-center bg-gray-700'>
+                <div className=' flex xl:flex xl:justify-between xl:items-center xl:h-16 items-center hidden xl:bg-gray-800 xl:w-full px-5 gap-4 text-2xl py-3 xl:gap-6 md:flex md:gap-4 md:px-4 md:py-3 md:text-2xl md:items-center bg-gray-700'>
                     <img className="xl:w-4 w-7 h-7 bg-gray-700 xl:h-4 xl:ml-4 xl:bg-transparent md:w-4 md:h-4 md:bg-transparent" src={Lupa} alt="" />
                     <input className="xl:text-3xl w-full bg-gray-700 xl:w-full  xl:bg-transparent xl:focus:outline-none md:bg-transparent" type="text" placeholder='Buscar' />
                 </div>
-            <div className=' xl:mx-auto xl:mt-8 xl:mb-8 mt-5 mb-5'>
+            <div className=' xl:mx-auto xl:mt-8 xl:mb-8 mt-5 mb-5 '>
                 <div className=' flex justify-between w-full xl:flex xl:justify-between items-center gap-2 lg:justify-between xl:items-center xl:gap-6 md:w-full xl:relative md:flex md:justify-between md:relative md:gap-1 md:items-center md:mt-3 md:mb-3'>
                     <div>
                         <h2 className=" xl:top-0 xl:left-0 mr-10 xl:mt-2 xl:mb-2 xl:ml-2 xl:mr-2 xl:text-3xl xl:text-center md:left-0 md:text-[1rem] md:mr-1">12 Resultados</h2>
                
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="md:flex items-center gap-2 hidden">
                         <select className="xl:w-64 cursor-pointer md:px-2 xl:bg-gray-800 w-40 xl:border-none md:w-[8rem] bg-gray-700 md:py-1" name="Orden" id="Orden">
                             <option value="Ordenar">Ordenar Por</option>
                         </select>
