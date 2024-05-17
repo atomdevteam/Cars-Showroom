@@ -57,7 +57,7 @@ const Ourreviews = () => {
                                             <img
                                                 alt="user 2"
                                                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
-                                                class="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
+                                                className="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
                                             />  <div className='text-sm text-[#004A77] ml-2 mr-2'>By Carla Bastista</div>
                                         </div>
                                         <div className='flex flex-row '>
@@ -105,7 +105,7 @@ const Ourreviews = () => {
                                             <img
                                                 alt="user 2"
                                                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
-                                                class="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
+                                                className="relative inline-block h-12 w-12 rounded-full border-2 border-white object-cover object-center hover:z-10 focus:z-10"
                                             />  <div className='text-sm text-[#004A77] ml-2 mr-2'>By Carla Bastista</div>
                                         </div>
                                         <div className='flex flex-row '>
