@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Hero = () => {
@@ -17,7 +18,7 @@ const Hero = () => {
                     Encuentra el coche de tus sueños
                 </div>
 
-                
+
                 <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.{""}
                 </div>
@@ -129,9 +130,9 @@ const Hero = () => {
                             </div>
                         </div>
 
-                        <button className="justify-center px-16 py-4 text-base font-semibold text-center text-white whitespace-nowrap bg-sky-600 rounded max-md:px-5">
+                        <Link to='/SearchResultOne' className="justify-center px-16 py-4 text-base font-semibold text-center text-white whitespace-nowrap bg-sky-600 rounded max-md:px-5">
                             Buscar
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
