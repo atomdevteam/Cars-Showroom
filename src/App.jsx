@@ -7,8 +7,6 @@ import ContactUS from './Layout/ContactLayout/ContactLayout'
 import CarInspection from './Layout/CarinspectionLayout/CarinspectionLayout'
 import Footer from './Layout/Footer/Footer'
 function App() {
-
-
   return (
     <>
       <Router>
