@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import Footer from './Layout/Footer/Footer'
-import CarSaleLayout from './Layout/CarSale/CarSaleLayout'
+import { HashRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 
 function App() {
 
 
   return (
     <>
-      <div className=''>
-        <CarSaleLayout />
-      </div>
-      <Footer />
+      <Router>
+        <Routes> 
+          
+        </Routes>
+      </Router>
     </>
   )
 }
