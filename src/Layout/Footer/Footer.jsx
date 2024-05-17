@@ -37,7 +37,7 @@ const Footer = () => {
                     </div>
                     <div className='grid lg:grid-cols-1 w-full items-center'>
                         <div className='flex  items-center justify-center'>
-                                 <p class="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
+                                 <p className="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
                             San Frac., Duarte,
                             31000,
                             Rep. Domicana</p>
