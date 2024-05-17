@@ -57,7 +57,7 @@ const Navbar = ({background}) => {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                                <a href="#/CarInspection" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
                                                     Revisión de coches
                                                 </a>
                                             </li>
