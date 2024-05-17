@@ -25,64 +25,56 @@ const CharacteristicsCar = () => {
                                 Control de crucero
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid  lg:grid-cols-3'>
+                                <div className='grid grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                        Opcional
                                     </div>
                                     <div>
                                     Estándar 
                                     </div>
-                                    <div>
-
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div className='bg-[#12232E] text-center block w-full p-2.5'>
                             Asiento de calefacción
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                        No
                                     </div>
                                     <div>
                                         Si
                                     </div>
-                                    <div>
-
-                                    </div>
+                                 
                                 </div>
                             </div>
                             <div className='bg-[#12232E] text-center block w-full p-2.5'>
                             Sensor de aparcamiento delantero 
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                         No
                                     </div>
                                     <div>
                                         Si
                                     </div>
-                                    <div>
-
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                 Bluetooth
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6  grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                         Si
                                     </div>
                                     <div>
                                         Si
                                     </div>
-                                    <div>
-
-                                    </div>
+                                  
                                 </div>
                             </div>
 
@@ -90,32 +82,28 @@ const CharacteristicsCar = () => {
                                 Techo corredizo
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                         Si
                                     </div>
                                     <div>
                                         Si
                                     </div>
-                                    <div>
-
-                                    </div>
+                                   
                                 </div>
                             </div>
                             <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                 Upholstery
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                         Vinilo
                                     </div>
                                     <div>
                                         Leather
                                     </div>
-                                    <div>
-
-                                    </div>
+                                 
                                 </div>
                             </div>
 
@@ -123,7 +111,7 @@ const CharacteristicsCar = () => {
                                 Otro
                             </div>
                             <div className='bg-transparent text-center block w-full p-2'>
-                                <div className='grid gap-6  lg:grid-cols-3'>
+                                <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                     <div>
                                         Aire acondicionado. Asientos traseros
                                         abatible, Arranque sin llave, Sistema de sonido, Wifi, Puerto USB.
@@ -131,9 +119,7 @@ const CharacteristicsCar = () => {
                                     <div>
                                     Dirección Asistida, Alarma, Wifi, Puerto USB
                                     </div>
-                                    <div>
-
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

@@ -24,39 +24,35 @@ const EnginedetailsInfo = () => {
                                     Kilometraje
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid  lg:grid-cols-3'>
+                                    <div className='grid  grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                             778 km
                                         </div>
                                         <div>
                                             722 km
                                         </div>
-                                        <div>
-                                            
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                     Transmisión
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                         Automático 
                                         </div>
                                         <div>
                                         Automático 
                                         </div>
-                                        <div>
-                                          
-                                        </div>
+                                      
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                     Capacidad del motor
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6  grid-cols-3 '>
                                         <div>
                                             6700 cc
                                         </div>

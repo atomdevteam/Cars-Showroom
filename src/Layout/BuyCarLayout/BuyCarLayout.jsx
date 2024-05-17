@@ -15,7 +15,7 @@ const BuyCarLayout = () => {
         <Navbar background={'dark:bg-[#0B0C10]'}/>
             <div className='bg-[#0B0C10] max-h-full '>
                 <div className='h-[10rem] bg-[#0B0C10] text-white mb-16'>
-                    <div className='ml-[8rem] flex flex-col'>
+                    <div className='ml-10 lg:ml-[8rem] flex flex-col'>
                         <h1 className='mt-8 text-4xl'>
                             Comprar coche
                         </h1>
@@ -25,7 +25,7 @@ const BuyCarLayout = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col ml-[6rem] mr-[6rem] '>
+                <div className='flex flex-col mx-4 lg:ml-[6rem] lg:mr-[6rem] '>
                     <CarCompra />
                     <Generalinformation />
                     <EnginedetailsInfo />

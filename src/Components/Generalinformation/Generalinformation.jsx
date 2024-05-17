@@ -24,7 +24,7 @@ const Generalinformation = () => {
                                     Tipo de cuerpo
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid  lg:grid-cols-3'>
+                                    <div className='grid grid-cols-3'>
                                         <div>
                                             Camioneta
                                         </div>
@@ -40,7 +40,7 @@ const Generalinformation = () => {
                                     Color exterior
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6  grid-cols-3'>
                                         <div>
                                             Ngra
                                         </div>

@@ -24,64 +24,56 @@ const Dimensiondetails = () => {
                                     Longitud
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid  lg:grid-cols-3'>
+                                    <div className='grid  grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                             6350 mm
                                         </div>
                                         <div>
                                             4991 mm
                                         </div>
-                                        <div>
-
-                                        </div>
+                                     
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                     Ancho
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                             2689 mm
                                         </div>
                                         <div>
                                             1966 mm
                                         </div>
-                                        <div>
-
-                                        </div>
+                                      
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                     Alto
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6  grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                             2014 mm
                                         </div>
                                         <div>
                                             1793 mm
                                         </div>
-                                        <div>
-
-                                        </div>
+                                 
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
                                     Volumen de carga
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  lg:grid-cols-3'>
+                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
                                             1475 L
                                         </div>
                                         <div>
                                             1325 L
                                         </div>
-                                        <div>
-
-                                        </div>
+                                     
                                     </div>
                                 </div>
                             </div>
