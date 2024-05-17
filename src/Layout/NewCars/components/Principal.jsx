@@ -1,10 +1,6 @@
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
 import React from 'react'
 import Jeep from "../../../assets/img/Jeep.png"
 import Audi from "../../../assets/img/Audi.png"
-========
-import Tesla from "../../../assets/img/Tesla.png"
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
 import { useEffect, useState } from "react";
 import Calender from "../../../assets/img/Calender.png"
 import volante from "../../../assets/img/volante.png"
@@ -12,24 +8,13 @@ import Combustible from "../../../assets/img/Combustible.png"
 import usuarios from "../../../assets/img/usuarios.png"
 import estrella from "../../../assets/img/estrella.png"
 import emptystar from "../../../assets/img/emptystar.png"
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
 import LandRover from "../../../assets/img/LandRover.png"
 import Toyota from "../../../assets/img/Toyota.png"
-========
-import Ford from "../../../assets/img/Ford.png"
-import Honda from "../../../assets/img/Honda.png"
-import Chevrolet from "../../../assets/img/Chevrolet.png"
-import Kia from "../../../assets/img/Kia.png"
-import coupe from "../../../assets/img/coupe.png"
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
 import Lupa from "../../../assets/img/Lupa.png"
 import list from "../../../assets/img/list.png"
 import listwo from "../../../assets/img/listwo.png"
 import flechatop from "../../../assets/img/flechatop.png"
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
 
-========
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
 import "aos/dist/aos.css"
 function Principal() {
     const [open, setOpen]= useState(false);
@@ -42,11 +27,7 @@ function Principal() {
     }
     
   return (
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
     <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:py-20 xl:px-20 xl:m-0 py-5 px-5   gap-7 md:px-5 md:py-5 bg-black text-white'>
-========
-    <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:px-20 xl:py-20 bg-black xl:m-0  gap-7 md:py-5 md:px-5 py-5 px-5 text-white'>
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
          <section data-aos="flip-up" className=" xl:w-[28rem]  ">
             <section className=' xl:py-5 xl:px-6 bg-[#071620] md:py-5 md:px-6 md:text-2xl px-5 py-10 '>
                 <div className=' bg-transparent xl:text-[2rem] border-b md:text-2xl text-2xl'>Filtrar</div>
@@ -249,59 +230,9 @@ function Principal() {
                 </div>
             </div>
 
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
             <div data-aos="zoom-out-down" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
                     <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={LandRover} alt="Land Rover Range Rover Velar R-Dynamic S" />
-========
-            <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
-                <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Ford} alt="Ford F-250 Super Duty" />
-                </div>
-                <button className=' absolute -rotate-[40deg] top-5 -left-10 border bg-blue-500 py-1 w-40'>Destacado</button>
-                <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
-                    <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem] md:text-[1.2rem]" >Ford F-250 Super Duty</h2>
-                    <div className="flex items-center">
-                        <span className="text-blue-500 text-[1.5rem]">$82,089</span>
-                        <p className="line-through">$83,500</p>
-                    </div>
-                    <h4>SFM, DO</h4>
-                    <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Calender} alt="Calendario" />
-                            <h5>2021</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
-                            <img className="w-5 h-5" src={volante} alt="Volante" />
-                            <h5 className="bg-transparent">Tracción Trasera</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Combustible} alt="Combustible" />
-                            <h5>Diesel</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
-                            <h5>5</h5>
-                        </div>
-                    </div>
-
-                    <hr/>
-                    <section className=' lg:flex md:flex flex'>
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={emptystar} alt="Estrellas" />
-                        <h4>(12 Reviews)</h4>
-                    </section>
-                </div>
-            </div>
-
-            <div data-aos="zoom-out-down" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
-                <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Honda} alt="Honda Pilot Touring 7-Passenger" />
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Usado</button>
@@ -323,50 +254,6 @@ function Principal() {
                         </div>
                         <div className=' lg:flex gap-1 md:flex items-center flex'>
                             <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
-========
-                            <h5>7</h5>
-                        </div>
-                    </div>
-
-                    <hr/>
-                    <section className=' lg:flex md:flex flex'>
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={emptystar} alt="Estrellas" />
-                        <h4>(12 Reviews)</h4>
-                    </section>
-                </div>
-            </div>
-
-
-            <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
-                <div className=' overflow-hidden'>
-                    <img className='   w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Chevrolet} alt="Chevrolet Equinox LS" />
-                </div>
-                <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
-                    <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem] md:text-[1.2rem]" >Chevrolet Equinox LS</h2>
-                    <span className="text-blue-500 text-[1.5rem]">$17,978</span>
-                    <h4>SFM, DO</h4>
-                    <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Calender} alt="Calendario" />
-                            <h5>2017</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
-                            <img className="w-5 h-5" src={volante} alt="Volante" />
-                            <h5 className="bg-transparent">Tracción Trasera</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Combustible} alt="Combustible" />
-                            <h5>Gasolina</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
                             <h5>5</h5>
                         </div>
                     </div>
@@ -386,21 +273,12 @@ function Principal() {
 
             <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                 <div className=' overflow-hidden'>
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
                     <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Toyota} alt="Toyota Mirai" />
                 </div>
                 <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
                     <button className="border border-blue-500 text-blue-500 px-5" >Usado</button>
                     <h2 className="text-[2rem] md:text-[1.2rem]" >Toyota Mirai</h2>
                     <span className="text-blue-500 text-[1.5rem]">$71,415</span>
-========
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Kia} alt="Kia Sorento S" />
-                </div>
-                <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
-                    <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem] md:text-[1.2rem]" >Kia Sorento S</h2>
-                    <span className="text-blue-500 text-[1.5rem]">$29,791</span>
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
                     <h4>SFM, DO</h4>
                     <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
                         <div className=' lg:flex gap-1 md:flex items-center flex'>
@@ -413,52 +291,7 @@ function Principal() {
                         </div>
                         <div className=' lg:flex gap-1 md:flex items-center flex'>
                             <img className="w-5 h-5" src={Combustible} alt="Combustible" />
-<<<<<<<< HEAD:src/Layout/UsedCars/components/Principal.jsx
                             <h5>Eléctrico</h5>
-========
-                            <h5>Gasolina</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
-                            <h5>7</h5>
-                        </div>
-                    </div>
-
-                    <hr/>
-                    <section className=' lg:flex md:flex flex'>
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={estrella} alt="Estrellas" />
-                        <img src={emptystar} alt="Estrellas" />
-                        <h4>(12 Reviews)</h4>
-                    </section>
-                </div>
-            </div>
-
-
-            <div data-aos="fade-up" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
-                <div className=' overflow-hidden'>
-                    <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-[21.3rem] hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={coupe} alt="MINI Clubman Cooper S" />
-                </div>
-                <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
-                    <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                    <h2 className="text-[2rem] md:text-[1.2rem]" >MINI Clubman Cooper S</h2>
-                    <span className="text-blue-500 text-[1.5rem]">$35,850</span>
-                    <h4>SFM, DO</h4>
-                    <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Calender} alt="Calendario" />
-                            <h5>2022</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
-                            <img className="w-5 h-5" src={volante} alt="Volante" />
-                            <h5 className="bg-transparent">Tracción Trasera</h5>
-                        </div>
-                        <div className=' lg:flex gap-1 md:flex items-center flex'>
-                            <img className="w-5 h-5" src={Combustible} alt="Combustible" />
-                            <h5>Gasolina</h5>
->>>>>>>> 0707ddf1ce1c55012106ae0cb302d6f8cc50f80e:src/Layout/NewCars/components/Principal.jsx
                         </div>
                         <div className=' lg:flex gap-1 md:flex items-center flex'>
                             <img className="w-5 h-5" src={usuarios} alt="Usuarios" />

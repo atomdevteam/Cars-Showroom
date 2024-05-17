@@ -6,6 +6,7 @@ import ProductTeslaModel from './Layout/ProductTeslaLayout/ProductTeslaLayout'
 import ContactUS from './Layout/ContactLayout/ContactLayout'
 import CarInspection from './Layout/CarinspectionLayout/CarinspectionLayout'
 import UserCar from './Layout/UsedCars/UsedCars'
+import NewCar from './Layout/NewCars/NewCars'
 import Footer from './Layout/Footer/Footer'
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/ContactUS' element={<ContactUS />} />
           <Route path='/CarInspection' element={<CarInspection />} />
           <Route path='/UserCar' element={<UserCar />} />
+          <Route path='/NewCar' element={<NewCar />} />
         </Routes>
       </Router>
       <Footer />
