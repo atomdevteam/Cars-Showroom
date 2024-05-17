@@ -5,7 +5,7 @@ const LogInLayout = () => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar background={'dark:bg-[#12232E]'}/>
             <LogIn />
         </div>
     )

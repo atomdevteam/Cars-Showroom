@@ -12,7 +12,7 @@ import Navbar from '../NavBar/NavBar'
 const CarSaleLayout = () => {
     return (
         <>
-            <Navbar background={'dark:bg-[#0B0C10]'}/>
+            <Navbar background={'dark:bg-[#0B0C10]'} />
             <div className='bg-[#0B0C10] max-h-full '>
                 <div className='h-[10rem] bg-[#12232E] text-white mb-16'>
                     <div className='ml-10 lg:ml-[8rem] flex flex-col'>
