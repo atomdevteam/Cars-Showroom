@@ -1,12 +1,12 @@
 import React from "react"
 import Navbar from "../NavBar/NavBar"
-import SingIn from '../../Component/SingIn'
+import LogIn from "../../Components/LogIn/LogIn"
 const LogInLayout = () => {
 
-    return(
+    return (
         <div>
             <Navbar />
-          
+            <LogIn />
         </div>
     )
 }

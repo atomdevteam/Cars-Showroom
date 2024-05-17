@@ -44,7 +44,7 @@ const SignIn = () => {
 
                             <div className="self-center mt-7 text-center text-blue-400">
                                 Ya tienes una cuenta?{" "}
-                                <button className="font-bold text-blue-400">Login</button>
+                                <a href="#/LogIn" className="font-bold text-blue-400">Login</a>
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const LogIn = () =>{
 
                             <div className="self-center mt-7 text-center text-blue-400">
                                 No tienes una cuenta?{" "}
-                                <button className="font-bold text-blue-400">Registrarte</button>
+                                <a href="#/SingIn" className="font-bold text-blue-400">Registrarte</a>
                             </div>
                         </div>
                     </div>
