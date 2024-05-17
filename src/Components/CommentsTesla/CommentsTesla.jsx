@@ -5,7 +5,7 @@ import Letter from '../../assets/TeslaModel/Letter.png'
 import Comments from '../../assets/TeslaModel/Comment.png'
 const CommentsTesla = () => {
     return (
-        <div className='my-8'>
+        <div className='my-8 mr-4'>
             <div className='border border-gray-600 my-4'></div>
             <div className='text-white'>
                 <div className='bg-[#4DA8DA] inline-block text-auto px-2 py-1'>
