@@ -13,7 +13,7 @@ const CarDetails = () => {
         setCapacity(capacity + 1);
     };
     return (
-        <div className='bg-[#071620]  text-white mb-8'>
+        <div className='bg-[#071620] w-auto  text-white mb-8'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
                 <div className='text-left'>
                     <h3 className=' underline text-2xl'>Detalles del colche</h3>
