@@ -7,12 +7,14 @@ import ContactUS from './Layout/ContactLayout/ContactLayout'
 import CarInspection from './Layout/CarinspectionLayout/CarinspectionLayout'
 import UserCar from './Layout/UsedCars/UsedCars'
 import NewCar from './Layout/NewCars/NewCars'
+import MainScreen from './Layout/MainScreen/MainScreen'
 import Footer from './Layout/Footer/Footer'
 function App() {
   return (
     <>
       <Router>
         <Routes>
+        <Route path='/' element={<MainScreen />} />
           <Route path='/CarSale' element={<CarSale />} />
           <Route path='/BuyCar' element={<BuyCar />} />
           <Route path='/ProductTeslaModel' element={<ProductTeslaModel />} />
