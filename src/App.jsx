@@ -11,6 +11,7 @@ import MainScreen from './Layout/MainScreen/MainScreen'
 import SearchResultOne from './Layout/SearchResultOne/SearchResultOne'
 import DetailsAutos from './Layout/DetailsAutos/DetailsAuto'
 import NewLayout from './Layout/News/NewsLayout'
+import ProductLorem from './Layout/ProductLorem/ProductLorem'
 import Footer from './Layout/Footer/Footer'
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/SearchResultOne' element={<SearchResultOne />} />
           <Route path='/Noticias' element={<NewLayout />} />
           <Route path='/DetailsAutos' element={<DetailsAutos />} />
+          <Route path='/ProductLorem' element={<ProductLorem />} />
         </Routes>
       </Router>
       <Footer />

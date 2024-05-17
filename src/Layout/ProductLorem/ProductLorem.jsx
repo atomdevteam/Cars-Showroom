@@ -8,7 +8,7 @@ function ProductLorem() {
     <div>
         <Header/>
         <PrincipalSection/>
-        <Footer/>
+
     </div>
   )
 }
