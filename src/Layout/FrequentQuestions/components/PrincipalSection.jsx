@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import flechatop from "../img/flechatop.png"
+import flechatop from "../../../assets/img/flechatop.png"
 function PrincipalSection() {
     const [open, setOpen] = useState(false)
     const [opentwo, setOpenTwo] = useState(false)
@@ -16,7 +16,7 @@ function PrincipalSection() {
         setOpenThree(!openthree)
     }
   return (
-    <div data-aos="fade-up-right" className='md:m-16 h-[90rem] md:h-[60rem] xl:m-48'>
+    <div data-aos="fade-up-right" className='md:px-16 md:py-16 py-16 px-16 h-[90rem] m-0 md:h-[60rem] xl:px-48 xl:py-48 xl:m-0 bg-black text-white'>
         <h1 className='md:text-5xl mb-16 text-4xl m-16'>Lorem</h1>
         <section className='md:flex md:justify-between gap-10'>
             <div data-aos="fade-down-right" className='md:px-5 md:py-5 lg:px-5 lg:py-5 m-auto max-w-40 md:m-5'>

@@ -1,18 +1,11 @@
 import { useState } from 'react'
-
-import Footer from './assets/components/Footer'
-import Header from './assets/components/Header'
-import PrincipalSection from './assets/components/PrincipalSection'
-
+import FrequentQuestions from './Layout/FrequentQuestions/FrequentQuestions'
 
 function App() {
 
-
   return (
     <>
-      <Header/>
-      <PrincipalSection/>
-      <Footer/>
+      <FrequentQuestions/>
     </>
   )
 }
