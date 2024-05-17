@@ -10,7 +10,7 @@ const ContactLayout = () => {
       <div className='bg-[#0B0C10] max-h-full '>
 
 
-        <div className='flex flex-col ml-[6rem] mr-[6rem] '>
+        <div className='flex flex-col mx-4 lg:ml-[6rem] lg:mr-[6rem] '>
           <Contact />
           <Location />
         </div>
