@@ -7,19 +7,19 @@ const ProductDetails = () => {
 
     return (
 
-        <div>
-       
-                <div className=" text-white flex flex-col justify-center items-start px-16 py-14 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
-                    <div className="flex flex-col ml-16 max-md:max-w-full">
-                        <div className="text-5xl max-md:max-w-full max-md:text-4xl">
-                            Tesla Model 3 Standard Range Plus
-                        </div>
-                        <div className="mt-8 text-lg max-md:max-w-full">
-                            Homepage - Lista de autos nuevos - Detalle del auto
-                        </div>
+        <div className=' bg-gray-900'>
+
+            <div className=" text-white flex flex-col justify-center items-start px-16 py-14 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
+                <div className="flex flex-col ml-16 max-md:max-w-full">
+                    <div className="text-5xl max-md:max-w-full max-md:text-4xl">
+                        Tesla Model 3 Standard Range Plus
+                    </div>
+                    <div className="mt-8 text-lg max-md:max-w-full">
+                        Homepage - Lista de autos nuevos - Detalle del auto
                     </div>
                 </div>
-           
+            </div>
+
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 {/* <!-- Carousel wrapper --> */}
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -74,9 +74,14 @@ const ProductDetails = () => {
             </div>
 
 
-            <div className=" flex flex-col self-stretch py-20 mt-28 font-semibold text-white bg-[#0B0C10] max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
+
+
+
+
+
+            <div className=" flex flex-col self-stretch py-20 mt-32 font-semibold text-white bg-[#0B0C10] max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:flex-col">
-                    <div className="p-9">
+                    <div className="p-32">
 
                         <div className="flex flex-col grow mt-1.5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-2xl font-bold text-zinc-300 max-md:max-w-full">
@@ -166,6 +171,7 @@ const ProductDetails = () => {
 
                                         </div>
                                     </div>
+
                                     <div className="flex flex-col ml-5 w-[37%] max-md:ml-0 max-md:w-full">
                                         <div className="flex gap-3 justify-center p-4 w-full text-lg text-white rounded bg-slate-900 max-md:px-5 max-md:mt-3">
                                             <img
@@ -176,6 +182,7 @@ const ProductDetails = () => {
                                             <div>360° Camera</div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -316,9 +323,35 @@ const ProductDetails = () => {
 
                         </div>
 
+
+                        <div className="flex flex-col mt-20  px-5 max-w-[664px]">
+                            <div className="w-full text-2xl font-bold text-zinc-300 max-md:max-w-full">
+                                Ubicación
+                            </div>
+                            <div className="mt-6 w-full text-sm text-white max-md:max-w-full">
+                                Av. Pdte. Antonio Guzmán Fernández, San Francisco de Macorís, RD.
+                            </div>
+                            <img
+                                loading="lazy"
+                                srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/79abf7b29d0fe1122f331ef413b3f4db486098f834d1b103413e5afa0bc5fee3?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
+                                className="mt-2.5 w-full aspect-[2.04] max-md:max-w-full"
+                            />
+                        </div>
+
+
+
+
+
                     </div>
 
-                    <div className="">
+
+
+
+                    <div className="p-32 ">
+
+                        <div className="justify-center items-center mx-32 py-4 text-2xl font-bold text-center text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid max-w-[395px]">
+                            $56,690
+                        </div>
                         <div className="flex flex-col p-6 mt-12 w-full bg-gray-900 rounded max-md:px-5 max-md:mt-10">
                             <div className="text-xl font-bold text-white">Detalles del auto</div>
                             <div className="flex gap-5 justify-between py-1.5 mt-5 whitespace-nowrap">
@@ -352,8 +385,11 @@ const ProductDetails = () => {
                                     Color exterior
                                 </div>
                                 <div className="text-lg text-right text-white">Red</div>
+                                
                             </div>
-                            <div className="mt-16 text-xl font-bold text-white max-md:mt-10">
+                            <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+
+                            <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
                                 Motor
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-5 whitespace-nowrap">
@@ -393,7 +429,9 @@ const ProductDetails = () => {
                                     283 hp (211 kW)
                                 </div>
                             </div>
-                            <div className="mt-16 text-xl font-bold text-white max-md:mt-10">
+                            <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+                            
+                            <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
                                 Batería y carga
                                 <br />
                             </div>
@@ -423,7 +461,9 @@ const ProductDetails = () => {
                                 </div>
                                 <div className="text-lg text-right text-white">330 mnt</div>
                             </div>
-                            <div className="mt-12 text-xl font-bold text-white max-md:mt-10">
+                            <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+
+                            <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
                                 Dimensión
                                 <br />
                             </div>
@@ -484,6 +524,97 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
+
+
+            <div className="p-20">
+                <div className="flex flex-col px-5 bg-gray-900 mt-5 ">
+                    <div className="w-full mx-6 text-2xl  font-bold text-zinc-300 max-md:max-w-full">
+                        Simulación de crédito
+                    </div>
+                    <div className="px-6 py-5 mt-5 w-full bg-gray-900 max-md:px-5 max-md:max-w-full ">
+                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+                            <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
+                                <div className="flex flex-col grow text-white max-md:mt-10 max-md:max-w-full">
+                                    <div className="flex gap-5 max-md:flex-wrap">
+                                        <div className="flex flex-col flex-1 whitespace-nowrap">
+
+                                            <label for="price" class="block text-sm font-medium leading-6 text-white">Precio</label>
+
+                                            <div class="relative mt-2 rounded-md shadow-sm">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <span class="text-gray-500 sm:text-sm">$</span>
+                                                </div>
+
+                                                <input type="text" name="price" id="price" class="block w-full h-12 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset bg-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" placeholder="0.00"/>
+                                            </div>
+                                        </div>
+
+
+                                        <div className="flex flex-col flex-1">
+                                            <div className="text-base font-medium">
+                                                Tasa de interés (%)
+                                            </div>
+                                            <input type="text" name="interes" id="interes" class="block mt-2 w-full h-12 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset bg-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" placeholder="0.00"/>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-5 mt-6 max-md:flex-wrap">
+                                        <div className="flex flex-col flex-1">
+                                            <div className="text-base font-medium">Periodo en meses</div>
+                                            <div className="flex gap-0 justify-center px-4 py-3 mt-2 text-sm font-semibold bg-gray-800 rounded">
+                                                <div className="flex-1 my-auto">12 Months</div>
+                                                <img
+                                                    loading="lazy"
+                                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/246c30e83f954f8197e4bd33f668d40cf778517d27c1ae4f7411edeeecb42dae?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
+                                                    className="shrink-0 w-6 aspect-square"
+                                                />
+                                            </div>
+                                        </div>
+                                          <div className="flex flex-col flex-1 whitespace-nowrap">
+
+                                            <label for="price" class="block text-sm font-medium leading-6 text-white">Depósito</label>
+
+                                            <div class="relative mt-2 rounded-md shadow-sm">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <span class="text-gray-500 sm:text-sm">$</span>
+                                                </div>
+
+                                                <input type="text" name="price" id="price" class="block w-full h-12 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset bg-gray-800 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" placeholder="0.00"/>
+                                            </div>
+                                        </div>
+                                        {/* <div className="flex flex-col flex-1 whitespace-nowrap">
+                                            <div className="text-base font-medium">Depósito</div>
+                                            <div className="justify-center items-start px-4 py-4 mt-2 text-base font-semibold bg-gray-800 rounded max-md:pr-5">
+                                                $24,480
+                                            </div>
+                                        </div> */}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col ml-5 w-[59%] max-md:ml-0 max-md:w-full">
+                                <div className="flex grow justify-center items-center px-16 py-4 mt-7 w-full whitespace-nowrap rounded border border-sky-600 border-solid bg-slate-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                                    <div className="flex flex-col items-center w-36 max-w-full">
+                                        <div className="text-base font-medium text-white">
+                                            Mensualidad
+                                            <br />
+                                        </div>
+                                        <div className="shrink-0 self-stretch mt-2 h-0.5 bg-sky-900 rounded" />
+                                        <div className="shrink-0 h-0.5 bg-sky-900 rounded w-[72px]" />
+                                        <div className="mt-2 text-2xl font-bold text-center text-sky-600">
+                                            $2,878
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
 
 
 
