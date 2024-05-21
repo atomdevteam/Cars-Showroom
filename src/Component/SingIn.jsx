@@ -1,5 +1,25 @@
-
+import React, { useState, useEffect } from "react";
+import { useContextCar } from "../Context/Context";
 const SignIn = () => {
+
+    const { SignInAuth } = useContextCar()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
+
+    const handleSubmit = () => {
+        const datos = {
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+            role: 'user'
+        }
+        console.log(datos)
+        SignInAuth(datos)
+    }
+
     return (
         <div className="flex flex-col items-center px-16 pt-20 pb-2.5 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
             <div className="mt-5 w-full max-w-[1060px] max-md:max-w-full">
@@ -13,32 +33,52 @@ const SignIn = () => {
                             </div>
 
                             <div className="py-5">
-                                <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre completo</label>
-                                <input type="nombre" name="nombre" id="nombre" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre completo" required />
-                                
+                                <label htmlFor="nombre" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre completo</label>
+                                <input
+                                    type="text"
+                                    name="nombre"
+                                    id="nombre"
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre completo" required />
+
                             </div>
 
                             <div className="py-2">
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
-                                
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
+
                             </div>
 
                             <div className="py-2">
-                                <label for="telefono" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
-                                <input type="telefono" name="telefono" id="telefono" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Teléfono" required />
-                                
+                                <label htmlFor="telefono" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teléfono</label>
+                                <input 
+                                type="text" 
+                                name="telefono" 
+                                id="telefono" 
+                                onChange={(e) => setPhone(e.target.value)}
+                                className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Teléfono" required />
+
                             </div>
 
-                            
+
                             <div className="py-2">
-                                <label for="contraseña" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Constaseña</label>
-                                <input type="constaseña" name="constaseña" id="constaseña" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Constaseña" required />
-                                
+                                <label htmlFor="contraseña" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Constaseña</label>
+                                <input 
+                                type="password" 
+                                name="constaseña" 
+                                id="constaseña" 
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Constaseña" required />
+
                             </div>
 
-                            
-                            <button className="justify-center items-center px-14 py-4 mt-12 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+
+                            <button onClick={() => handleSubmit()} className="justify-center items-center px-14 py-4 mt-12 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
                                 Registrar
                             </button>
 

@@ -18,9 +18,14 @@ import LogInLayout from './Layout/LogInLayout/LogInLayout'
 import ProductFord from './Layout/ProductFord/ProductFord'
 import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
+import { useContextCar } from './Context/Context'
 function App() {
+
+
+
   return (
     <>
+
       <Router>
         <Routes>
           <Route path='/' element={<MainScreen />} />
@@ -39,7 +44,7 @@ function App() {
           <Route path='/ProductFord' element={<ProductFord />} />
           <Route path='/AboutUS' element={<AboutUSLayout />} />
           <Route path='/SingIn' element={<SingIn />} />
-          <Route path='/LogIn' element={<LogInLayout />} />
+          <Route path='/LognIn' element={<LogInLayout />} />
         </Routes>
       </Router>
       <Footer />
