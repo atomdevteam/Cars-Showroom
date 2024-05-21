@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 const mapStyles = {
     height: '300px',
@@ -8,7 +8,15 @@ const defaultCenter = {
     lat: 37.7749,
     lng: -122.4194,
 };
-const Location = () => {
+const Location = ({LocationDatos}) => {
+    const [Ubicacion, setUbicacion] = useState('')
+
+    useEffect(() => {
+      if (Ubicacion.trim()) {
+        LocationDatos.Ubicacion = Ubicacion
+      }
+    }, [Ubicacion])
+
     return (
         <div className='bg-[#071620]  text-white mb-12'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
@@ -20,7 +28,7 @@ const Location = () => {
                         <div className='mb-4 grid gap-6  lg:grid-cols-1 w-full'>
                             <div className='mb-8'>
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dirección </label>
-                                <input type="text" className="bg-[#12232E] text-sm block w-full p-2.5" required />
+                                <input onChange={(e) => setUbicacion(e.target.value)} type="text" className="bg-[#12232E] text-sm block w-full p-2.5" required />
                             </div>
                         </div>
 

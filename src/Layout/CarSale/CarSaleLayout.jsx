@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CarDetails from '../../Components/CarDetails/CarDetails'
 import EngineDetails from '../../Components/EngineDetails/EngineDetails'
 import Dimension from '../../Components/Dimension/Dimension'
@@ -8,7 +8,8 @@ import Price from '../../Components/Price/Price'
 import Audiovisual from '../../Components/Audiovisual/Audiovisual'
 import Vehiclehistory from '../../Components/Vehiclehistory/Vehiclehistory'
 import Navbar from '../NavBar/NavBar'
-
+import { useContextCar } from '../../Context/Context'
+import { validateCarSaleDatos } from './Validations'
 const CarSaleDatos = {
     Sale: {
         IdCarSale: "",
@@ -59,9 +60,49 @@ const CarSaleDatos = {
             Historial: ""
         }
     }
-};
+}
 
 const CarSaleLayout = () => {
+    const { SaveCarSale, user } = useContextCar()
+    const [newFeature, setNewFeature] = useState('');
+    const updateCarDetails = (updatedDetails) => {
+        CarSaleDatos.Sale.DetalleCoche = updatedDetails;
+        console.log(CarSaleDatos.Sale.DetalleCoche)
+    }
+
+    const updateEngineDetails = (updatedDetails) => {
+        CarSaleDatos.Sale.DetalleMotor = updatedDetails;
+        console.log(CarSaleDatos.Sale.DetalleMotor)
+    }
+
+    const updateDimension = (updatedDetails) => {
+        CarSaleDatos.Sale.Dimension = updatedDetails
+        console.log(CarSaleDatos.Sale.Dimension)
+    }
+
+    function splitTextByComma(text) {
+        if (newFeature.trim()) {
+            return newFeature.split(',').map(item => item.trim());
+        }
+    }
+
+    const handleSale = (e) => {
+        e.preventDefault();
+        splitTextByComma()
+        const featuresArray = splitTextByComma()
+        if (newFeature.trim()) {
+               CarSaleDatos.Sale.Features.Features = [...CarSaleDatos.Sale.Features.Features, ...featuresArray]
+        }
+        console.log(CarSaleDatos.Sale)
+        if (validateCarSaleDatos(CarSaleDatos.Sale)) {
+            SaveCarSale(CarSaleDatos, user.uid)
+            alert("Guardado")
+        } else {
+            alert('Por favor completa todos los campos.');
+        }
+    }
+
+
     return (
         <>
             <Navbar background={'dark:bg-[#0B0C10]'} />
@@ -78,16 +119,16 @@ const CarSaleLayout = () => {
                 </div>
 
                 <div className='flex flex-col mx-4 lg:ml-[6rem] lg:mr-[6rem] '>
-                    <CarDetails CarDetailsDatos={CarSaleDatos.Sale.DetalleCoche}/>
-                    <EngineDetails CarMotorDatos={CarSaleDatos.Sale.DetalleMotor}/>
-                    <Dimension DimensionDatos={CarSaleDatos.Sale.Dimension}/>
-                    <Feature FeatureDatos={CarSaleDatos.Sale.Features}/>
-                    <Location LocationDatos={CarSaleDatos.Sale.Direccion}/>
-                    <Price PriceDatos={CarSaleDatos.Sale.Precio}/>
-                    <Audiovisual AudiovisualDatos={CarSaleDatos.Sale.Multimedia}/>
-                    <Vehiclehistory HistorialDatos={CarSaleDatos.Sale.Historial}/>
+                    <CarDetails updateCarDetails={updateCarDetails} />
+                    <EngineDetails updateEngineDetails={updateEngineDetails} />
+                    <Dimension updateDimension={updateDimension} />
+                    <Feature FeatureDatos={CarSaleDatos.Sale.Features} newFeature={newFeature} setNewFeature={setNewFeature} />
+                    <Location LocationDatos={CarSaleDatos.Sale.Direccion} />
+                    <Price PriceDatos={CarSaleDatos.Sale.Precio} />
+                    <Audiovisual AudiovisualDatos={CarSaleDatos.Sale.Multimedia} />
+                    <Vehiclehistory HistorialDatos={CarSaleDatos.Sale.Historial} />
                     <div className='flex justify-center'>
-                        <button className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                        <button onClick={(e) => handleSale(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
                             Vender mi auto
                         </button>
                     </div>
