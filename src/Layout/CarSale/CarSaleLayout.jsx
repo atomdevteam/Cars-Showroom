@@ -9,6 +9,58 @@ import Audiovisual from '../../Components/Audiovisual/Audiovisual'
 import Vehiclehistory from '../../Components/Vehiclehistory/Vehiclehistory'
 import Navbar from '../NavBar/NavBar'
 
+const CarSaleDatos = {
+    Sale: {
+        IdCarSale: "",
+        DetalleCoche: {
+            Titulo: "",
+            Condicion: "",
+            TipoCuerpo: "",
+            Marca: "",
+            Modelo: "",
+            Year: "",
+            Capacidad: "",
+            Color: "",
+            Descripcion: ""
+        },
+        DetalleMotor: {
+            TipoCombustimble: "",
+            Kilometraje: "",
+            Transmision: "",
+            DriverTrain: "",
+            CapacidadMotor: "",
+            Power: "",
+        },
+        Dimension: {
+            Longitud: "",
+            Ancho: "",
+            Altura: "",
+            VolumenCarga: ""
+        },
+
+        Features: {
+            Features: []
+        },
+
+        Direccion: {
+            Ubicacion: ""
+        },
+
+        Precio: {
+            Precio: ""
+        },
+
+        Multimedia: {
+            Imagen: '',
+            Video: ''
+
+        },
+        Historial: {
+            Historial: ""
+        }
+    }
+};
+
 const CarSaleLayout = () => {
     return (
         <>
@@ -26,14 +78,23 @@ const CarSaleLayout = () => {
                 </div>
 
                 <div className='flex flex-col mx-4 lg:ml-[6rem] lg:mr-[6rem] '>
-                    <CarDetails />
-                    <EngineDetails />
-                    <Dimension />
-                    <Feature />
-                    <Location />
-                    <Price />
-                    <Audiovisual />
-                    <Vehiclehistory />
+                    <CarDetails CarDetailsDatos={CarSaleDatos.Sale.DetalleCoche}/>
+                    <EngineDetails CarMotorDatos={CarSaleDatos.Sale.DetalleMotor}/>
+                    <Dimension DimensionDatos={CarSaleDatos.Sale.Dimension}/>
+                    <Feature FeatureDatos={CarSaleDatos.Sale.Features}/>
+                    <Location LocationDatos={CarSaleDatos.Sale.Direccion}/>
+                    <Price PriceDatos={CarSaleDatos.Sale.Precio}/>
+                    <Audiovisual AudiovisualDatos={CarSaleDatos.Sale.Multimedia}/>
+                    <Vehiclehistory HistorialDatos={CarSaleDatos.Sale.Historial}/>
+                    <div className='flex justify-center'>
+                        <button className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                            Vender mi auto
+                        </button>
+                    </div>
+
+
+
+
                 </div>
             </div>
         </>
@@ -42,3 +103,5 @@ const CarSaleLayout = () => {
 }
 
 export default CarSaleLayout
+
+

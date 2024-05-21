@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 //Functions
 import { SignInAuth, LognInAuth, logout } from "../Functions/Authentication/Authentication"
+import { SaveCarSale } from "../Functions/Sales/Sales"
 const Context = createContext()
 
 export const useContextCar = () => {
@@ -31,7 +32,8 @@ export function ProviderContext({ children }){
             SignInAuth,
             LognInAuth,
             user,
-            logout
+            logout,
+            SaveCarSale
           }}
         >
           {children}
