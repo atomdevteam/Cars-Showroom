@@ -46,23 +46,32 @@ export const SaveArchivo = (file, userId, setLinkUrl) => {
     });
 }
 
-export const ListCarSale = async () => {
+export const ListCarSale = async (setLisCarNew, setLisCarUsed) => {
 
     try {
         const ref = collection(dbFire, "CarSale");
 
         const docsSnap = await getDocs(ref);
 
+        const newCars = [];
+        const usedCars = [];
+        const CarSale = []
 
-        const CarSales = [];
         docsSnap.forEach(doc => {
-
             const data = doc.data();
-            const eventId = doc.id;
-            data.eventId = eventId;
-            CarSales.push(data);
-        });
+            const IdCarSale = doc.id;
+            data.IdCarSale = IdCarSale;
 
+            if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
+                newCars.push(data)
+                setLisCarNew(newCars)
+                console.log(newCars)
+                
+            }else if (data.Sale.DetalleCoche.Condicion === "Usado") {
+                usedCars.push(data)
+                setLisCarUsed(usedCars)
+            }
+        });
 
     } catch (error) {
         console.error("Error al obtener los datos de la colección 'events':", error);

@@ -17,7 +17,9 @@ import flechatop from "../../../assets/img/flechatop.png"
 import Tesla from "../../../assets/img/Tesla.png"
 import "aos/dist/aos.css"
 import { useNavigate } from 'react-router-dom';
+import { useContextCar } from '../../../Context/Context';
 function Principal() {
+    const { LisCarNew } = useContextCar()
     const [open, setOpen] = useState(false);
     const [opentwo, setOpenTwo] = useState(false);
     const navigate = useNavigate()
@@ -156,45 +158,59 @@ function Principal() {
                     </div>
                 </div>
 
-                <div onClick={() => handleOpenTesla()} data-aos="fade-up" className='cursor-pointer  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
-                    <div className=' overflow-hidden'>
-                        <img className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Tesla} alt="Jeep Wrangler Unlimited Islander" />
-                    </div>
-                    <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
-                        <button className="border border-blue-500 text-blue-500 px-5" >Nuevo</button>
-                        <h2 className="text-[2rem] md:text-[1.2rem]" >Tesla Model 3 Standard Range Plus</h2>
-                        <span className="text-blue-500 text-[1.5rem]">$50,370</span>
-                        <h4>SFM, DO</h4>
-                        <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
-                            <div className=' lg:flex gap-1 md:flex items-center flex'>
-                                <img className="w-5 h-5" src={Calender} alt="Calendario" />
-                                <h5>2021</h5>
+                {
+                    LisCarNew.map((dato, index) => (
+                        <div key={index} onClick={() => handleOpenTesla()} data-aos="fade-up" className='cursor-pointer  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
+                            <div className=' overflow-hidden'>
+                                <img src={dato.Sale.Multimedia.Imagen} className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full'  alt="Jeep Wrangler Unlimited Islander" />
                             </div>
-                            <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
-                                <img className="w-5 h-5" src={volante} alt="Volante" />
-                                <h5 className="bg-transparent">Tracción Trasera</h5>
-                            </div>
-                            <div className=' lg:flex gap-1 md:flex items-center flex'>
-                                <img className="w-5 h-5" src={Combustible} alt="Combustible" />
-                                <h5>Hibrido</h5>
-                            </div>
-                            <div className=' lg:flex gap-1 md:flex items-center flex'>
-                                <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
-                                <h5>5</h5>
+                            <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
+                                {/* Condicion */}
+                                <button className="border border-blue-500 text-blue-500 px-5" >{dato.Sale.DetalleCoche.Condicion}</button>
+                                {/* Titulo */}
+                                <h2 className="text-[2rem] md:text-[1.2rem]" >{dato.Sale.DetalleCoche.Titulo}</h2>
+                                {/* Precio */}
+                                <span className="text-blue-500 text-[1.5rem]">${dato.Sale.Precio.Precio}</span>
+                                {/* Ubicacion */}
+                                <h4>{dato.Sale.Direccion.Ubicacion}</h4>
+                                <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={Calender} alt="Calendario" />
+                                        {/*Year */}
+                                        <h5>{dato.Sale.DetalleCoche.Year}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
+                                        <img className="w-5 h-5" src={volante} alt="Volante" />
+                                        {/* DriverTrain */}
+                                        <h5 className="bg-transparent">{dato.Sale.DetalleMotor.DriverTrain}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={Combustible} alt="Combustible" />
+                                        <h5>{dato.Sale.DetalleMotor.TipoCombustimble}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
+                                        {/* Capacidad de pasajero */}
+                                        <h5>{dato.Sale.DetalleCoche.Capacidad}</h5>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <section className=' lg:flex md:flex flex'>
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={emptystar} alt="Estrellas" />
+                                    <h4>(12 Reviews)</h4>
+                                </section>
                             </div>
                         </div>
+                    ))
+                }
 
-                        <hr />
-                        <section className=' lg:flex md:flex flex'>
-                            <img src={estrella} alt="Estrellas" />
-                            <img src={estrella} alt="Estrellas" />
-                            <img src={estrella} alt="Estrellas" />
-                            <img src={estrella} alt="Estrellas" />
-                            <img src={emptystar} alt="Estrellas" />
-                            <h4>(12 Reviews)</h4>
-                        </section>
-                    </div>
-                </div>
+
+                {/*                
                 <div data-aos="fade-up" className='  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
                     <div className=' overflow-hidden'>
                         <img className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Jeep} alt="Jeep Wrangler Unlimited Islander" />
@@ -314,7 +330,7 @@ function Principal() {
                             <h4>(12 Reviews)</h4>
                         </section>
                     </div>
-                </div>
+                </div> 
 
 
                 <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
@@ -355,7 +371,7 @@ function Principal() {
                             <h4>(12 Reviews)</h4>
                         </section>
                     </div>
-                </div>
+                </div>*/}
                 <div className=' lg:flex justify-center gap-5 md:flex flex items-center'>
                     <a href="#"><img className=' -rotate-90 border border-blue-500 px-2 md:w-[5rem] md:h-[3rem]' src={flechatop} alt="Anterior" /></a>
                     <a href="#"><button className=' border bg-blue-500 border-blue-500 w-[4rem] h-[3rem] py-3'>1</button></a>

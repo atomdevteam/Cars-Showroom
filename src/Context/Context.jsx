@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 //Functions
 import { SignInAuth, LognInAuth, logout } from "../Functions/Authentication/Authentication"
-import { SaveCarSale, SaveMedia, SaveArchivo } from "../Functions/Sales/Sales"
+import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
 const Context = createContext()
 
 export const useContextCar = () => {
@@ -12,34 +12,45 @@ export const useContextCar = () => {
   return context
 }
 
-export function ProviderContext({ children }){
+export function ProviderContext({ children }) {
 
   const [user, setUser] = useState(null)
+  const [LisCarNew, setLisCarNew] = useState([])
+  const [LisCarUsed, setLisCarUsed] = useState([])
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
-      // console.log({ currentUser });
       setUser(currentUser);
-   
+
     });
     return () => unsubuscribe();
   }, [user]);
 
+  useEffect(() => {
+    ListCarSale(setLisCarNew, setLisCarUsed)
+  }, [])
+
+ console.log("Nuevo")
+ console.log(LisCarNew)
+ console.log("Usado")
+ console.log(LisCarUsed)
 
 
-    return (
-        <Context.Provider
-          value={{
-            SignInAuth,
-            LognInAuth,
-            user,
-            logout,
-            SaveCarSale,
-            SaveMedia,
-            SaveArchivo
-          }}
-        >
-          {children}
-        </Context.Provider>
-      )
+  return (
+    <Context.Provider
+      value={{
+        SignInAuth,
+        LognInAuth,
+        user,
+        logout,
+        SaveCarSale,
+        SaveMedia,
+        SaveArchivo,
+        LisCarNew,
+        LisCarUsed
+      }}
+    >
+      {children}
+    </Context.Provider>
+  )
 
 }

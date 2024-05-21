@@ -72,8 +72,8 @@ const EngineDetails = ({updateEngineDetails}) => {
                                         <label htmlFor="Year" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">DriverTrain</label>
                                         <select onChange={(e) => setDriverTrain(e.target.value)}  id="Year" className="bg-[#12232E] text-sm block w-full p-2.5" required>
                                             <option value="">Seleccionar</option>
-                                            <option value="Transmisión Manual">Transmisión Manual</option>
-                                            <option value="Transmisión Automática">Transmisión Automática</option>
+                                            <option value="Tracción Delantera">Tracción Delantera</option>
+                                            <option value="Tracción Trasera">Tracción Trasera</option>
 
                                         </select>
                                     </div>
