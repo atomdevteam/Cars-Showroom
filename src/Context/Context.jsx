@@ -17,6 +17,8 @@ export function ProviderContext({ children }) {
   const [user, setUser] = useState(null)
   const [LisCarNew, setLisCarNew] = useState([])
   const [LisCarUsed, setLisCarUsed] = useState([])
+  const [ListCar, setListCar] = useState([])
+  const [CarDatos, setCarDatos] = useState(null)
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -26,13 +28,24 @@ export function ProviderContext({ children }) {
   }, [user]);
 
   useEffect(() => {
-    ListCarSale(setLisCarNew, setLisCarUsed)
+    ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
   }, [])
 
- console.log("Nuevo")
- console.log(LisCarNew)
- console.log("Usado")
- console.log(LisCarUsed)
+  const Formatnumber = (number) => {
+
+    if (typeof number === 'string') {
+
+      number = parseInt(number, 10);
+    }
+   
+    if (!isNaN(number)) {
+      return number.toLocaleString('en-US');
+    }
+
+    return '0';
+  }
+
+  console.log(CarDatos)
 
 
   return (
@@ -46,7 +59,11 @@ export function ProviderContext({ children }) {
         SaveMedia,
         SaveArchivo,
         LisCarNew,
-        LisCarUsed
+        LisCarUsed,
+        Formatnumber,
+        ListCar,
+        CarDatos,
+        setCarDatos
       }}
     >
       {children}

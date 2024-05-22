@@ -20,7 +20,7 @@ const Navbar = ({ background }) => {
         setopenSettingUser(false)
         navigate('/LognIn')
     }
-    console.log(user)
+
     return (
         <>
 

@@ -19,7 +19,7 @@ import "aos/dist/aos.css"
 import { useNavigate } from 'react-router-dom';
 import { useContextCar } from '../../../Context/Context';
 function Principal() {
-    const { LisCarNew } = useContextCar()
+    const { LisCarNew, Formatnumber } = useContextCar()
     const [open, setOpen] = useState(false);
     const [opentwo, setOpenTwo] = useState(false);
     const navigate = useNavigate()
@@ -170,7 +170,7 @@ function Principal() {
                                 {/* Titulo */}
                                 <h2 className="text-[2rem] md:text-[1.2rem]" >{dato.Sale.DetalleCoche.Titulo}</h2>
                                 {/* Precio */}
-                                <span className="text-blue-500 text-[1.5rem]">${dato.Sale.Precio.Precio}</span>
+                                <span className="text-blue-500 text-[1.5rem]">${Formatnumber(dato.Sale.Precio.Precio)}</span>
                                 {/* Ubicacion */}
                                 <h4>{dato.Sale.Direccion.Ubicacion}</h4>
                                 <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">

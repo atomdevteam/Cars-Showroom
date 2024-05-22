@@ -1,6 +1,8 @@
 import React from "react"
 import { IoIosArrowUp } from "react-icons/io";
+import { useContextCar } from "../../Context/Context";
 const Dimensiondetails = () => {
+    const { CarDatos } = useContextCar()
     return (
         <div className='bg-[#071620]  text-white mb-8'>
             <div className='ml-8 mr-8  mt-8'>
@@ -26,12 +28,12 @@ const Dimensiondetails = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid  grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                            6350 mm
+                                            {CarDatos?.Sale?.Dimension?.Longitud} mm
                                         </div>
                                         <div>
-                                            4991 mm
+                                            {CarDatos?.Sale?.Dimension?.Longitud} mm
                                         </div>
-                                     
+
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -40,12 +42,12 @@ const Dimensiondetails = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                            2689 mm
+                                            {CarDatos?.Sale?.Dimension?.Ancho} mm
                                         </div>
                                         <div>
-                                            1966 mm
+                                            {CarDatos?.Sale?.Dimension?.Ancho} mm
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -54,12 +56,12 @@ const Dimensiondetails = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6  grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                            2014 mm
+                                            {CarDatos?.Sale?.Dimension?.Altura} mm
                                         </div>
                                         <div>
-                                            1793 mm
+                                            {CarDatos?.Sale?.Dimension?.Altura} mm
                                         </div>
-                                 
+
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -68,12 +70,12 @@ const Dimensiondetails = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                            1475 L
+                                            {CarDatos?.Sale?.Dimension?.VolumenCarga} L
                                         </div>
                                         <div>
-                                            1325 L
+                                            {CarDatos?.Sale?.Dimension?.VolumenCarga} L
                                         </div>
-                                     
+
                                     </div>
                                 </div>
                             </div>

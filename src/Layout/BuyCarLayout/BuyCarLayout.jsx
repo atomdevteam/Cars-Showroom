@@ -7,9 +7,11 @@ import ListAudioVisual from '../../Components/ListAudioVisual/ListAudioVisual'
 import HistoryCar from '../../Components/HistoryCar/HistoryCar'
 import CarCompra from '../../Components/CarCompra/CarCompra'
 import Navbar from '../NavBar/NavBar'
+import { useContextCar } from '../../Context/Context'
 
 
 const BuyCarLayout = () => {
+    const {ListCar} = useContextCar()
     return (
         <>
         <Navbar background={'dark:bg-[#0B0C10]'}/>

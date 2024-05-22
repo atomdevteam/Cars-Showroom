@@ -1,6 +1,10 @@
 import React from "react"
 import { IoIosArrowUp } from "react-icons/io";
+import { useContextCar } from "../../Context/Context";
 const EnginedetailsInfo = () => {
+
+    const { CarDatos } = useContextCar()
+
     return (
         <div className='bg-[#071620]  text-white mb-8'>
             <div className='ml-8 mr-8  mt-8'>
@@ -26,12 +30,12 @@ const EnginedetailsInfo = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid  grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                            778 km
+                                            {CarDatos?.Sale?.DetalleMotor?.Kilometraje} km
                                         </div>
                                         <div>
-                                            722 km
+                                            {CarDatos?.Sale?.DetalleMotor?.Kilometraje} km
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -40,12 +44,12 @@ const EnginedetailsInfo = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
                                         <div>
-                                        Automático 
+                                            {CarDatos?.Sale?.DetalleMotor?.Transmision}
                                         </div>
                                         <div>
-                                        Automático 
+                                            {CarDatos?.Sale?.DetalleMotor?.Transmision}
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -54,13 +58,13 @@ const EnginedetailsInfo = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6  grid-cols-3 '>
                                         <div>
-                                            6700 cc
+                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
                                         </div>
                                         <div>
-                                            3471 cc
+                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
                                         </div>
                                         <div>
-                                            Azul
+                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
                                         </div>
                                     </div>
                                 </div>

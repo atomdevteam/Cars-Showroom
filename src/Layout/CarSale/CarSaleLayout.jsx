@@ -48,7 +48,7 @@ const CarSaleDatos = {
         },
 
         Precio: {
-            Precio: ""
+            Precio: 0
         },
 
         Multimedia: {

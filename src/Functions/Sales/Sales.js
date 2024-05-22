@@ -46,7 +46,7 @@ export const SaveArchivo = (file, userId, setLinkUrl) => {
     });
 }
 
-export const ListCarSale = async (setLisCarNew, setLisCarUsed) => {
+export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
 
     try {
         const ref = collection(dbFire, "CarSale");
@@ -65,13 +65,20 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed) => {
             if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
                 newCars.push(data)
                 setLisCarNew(newCars)
-                console.log(newCars)
+                
                 
             }else if (data.Sale.DetalleCoche.Condicion === "Usado") {
                 usedCars.push(data)
                 setLisCarUsed(usedCars)
             }
+
+            CarSale.push(data)
+            setListCar(CarSale)
         });
+
+        setLisCarNew(newCars);
+        setLisCarUsed(usedCars);
+        setListCar(CarSale);
 
     } catch (error) {
         console.error("Error al obtener los datos de la colección 'events':", error);

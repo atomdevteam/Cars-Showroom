@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { IoIosArrowUp } from "react-icons/io";
+import { useContextCar } from '../../Context/Context';
 const Generalinformation = () => {
+    const { CarDatos } = useContextCar()
+
     return (
         <div className='bg-[#071620]  text-white mb-8'>
             <div className='ml-8 mr-8  mt-8'>
@@ -9,7 +12,7 @@ const Generalinformation = () => {
                         <h3 className="text-2xl">Información General</h3>
                     </div>
                     <div>
-                        <IoIosArrowUp size={25}/>
+                        <IoIosArrowUp size={25} />
                     </div>
                 </div>
 
@@ -26,13 +29,13 @@ const Generalinformation = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid grid-cols-3'>
                                         <div>
-                                            Camioneta
+                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
                                         </div>
                                         <div>
-                                            SUV
+                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
                                         </div>
                                         <div>
-                                            SUV
+                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
                                         </div>
                                     </div>
                                 </div>
@@ -42,13 +45,13 @@ const Generalinformation = () => {
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6  grid-cols-3'>
                                         <div>
-                                            Ngra
+                                            {CarDatos?.Sale?.DetalleCoche?.Color}
                                         </div>
                                         <div>
-                                            Azul
+                                            {CarDatos?.Sale?.DetalleCoche?.Color}
                                         </div>
                                         <div>
-                                            Azul
+                                            {CarDatos?.Sale?.DetalleCoche?.Color}
                                         </div>
                                     </div>
                                 </div>
