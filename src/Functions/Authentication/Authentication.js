@@ -2,7 +2,7 @@ import { auth, db } from "../../firebase/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, updatePhoneNumber, signOut } from "firebase/auth";
 import { set, ref, get } from "firebase/database"
 
-export const LognInAuth = (email, password, navigate) => {
+export const LognInAuth = (email, password, navigate, setWhichRole) => {
 
   signInWithEmailAndPassword(auth, email, password)
 
@@ -10,7 +10,7 @@ export const LognInAuth = (email, password, navigate) => {
 
       const user = userCredential.user;
 
-      ListUser(user.uid)
+      ListUser(user.uid, setWhichRole)
       navigate('/')
 
       user.getIdToken().then((value) => {
@@ -67,7 +67,7 @@ export const SignInAuth = (datos) => {
     });
 }
 
-const ListUser = (userId) => {
+export const ListUser = (userId, setWhichRole) => {
 
   const userRef = ref(db, `Users/${userId}`)
 
@@ -77,7 +77,9 @@ const ListUser = (userId) => {
 
       if (snapshot.exists()) {
 
-        console.log(snapshot.val())
+        const user = snapshot.val()
+        setWhichRole(user.role)
+        console.log(user)
 
       } else {
 

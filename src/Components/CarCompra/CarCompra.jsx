@@ -91,18 +91,20 @@ const CarCompra = () => {
 
 
 
+                                {ListComparar.length < 3 && (
+                                    <div onClick={() => setIsOpenSelectCar(!IsOpenSelectCar)} className=" cursor-pointer hover:bg-gray-700 rounded-lg border border-gray-800 p-6  flex items-center justify-center flex-col text-gray-400 min-h-[400px]">
 
-                                <div onClick={() => setIsOpenSelectCar(!IsOpenSelectCar)} className=" cursor-pointer hover:bg-gray-700 rounded-lg border border-gray-800 p-6  flex items-center justify-center flex-col text-gray-400 min-h-[400px]">
+                                        <div className="">
+                                            <FaCar size={100} />
+                                        </div>
+                                        <div className="text-xl text-center">
+                                            Añadir coche para comparar
+                                        </div>
 
-                                    <div className="">
-                                        <FaCar size={100} />
+
                                     </div>
-                                    <div className="text-xl text-center">
-                                        Añadir coche para comparar
-                                    </div>
+                                )}
 
-
-                                </div>
 
                             </div>
 

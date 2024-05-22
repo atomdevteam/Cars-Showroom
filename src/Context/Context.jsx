@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 //Functions
-import { SignInAuth, LognInAuth, logout } from "../Functions/Authentication/Authentication"
+import { SignInAuth, LognInAuth, logout , ListUser } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
 const Context = createContext()
 
@@ -19,6 +19,7 @@ export function ProviderContext({ children }) {
   const [LisCarUsed, setLisCarUsed] = useState([])
   const [ListCar, setListCar] = useState([])
   const [CarDatos, setCarDatos] = useState(null)
+  const [WhichRole, setWhichRole] = useState(null)
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -26,6 +27,13 @@ export function ProviderContext({ children }) {
     });
     return () => unsubuscribe();
   }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      ListUser(user.uid, setWhichRole)
+    }
+  }, [user])
+  
 
   useEffect(() => {
     ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
@@ -45,7 +53,7 @@ export function ProviderContext({ children }) {
     return '0';
   }
 
-  console.log(CarDatos)
+  console.log(WhichRole)
 
 
   return (
@@ -63,7 +71,9 @@ export function ProviderContext({ children }) {
         Formatnumber,
         ListCar,
         CarDatos,
-        setCarDatos
+        setCarDatos,
+        WhichRole,
+        setWhichRole
       }}
     >
       {children}

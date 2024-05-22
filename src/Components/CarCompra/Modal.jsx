@@ -24,7 +24,7 @@ const Modal = ({ isOpen, setIsOpen, setListComparar, ListComparar }) => {
 
     const handleAddAutos = (e, Car) => {
         e.preventDefault()
-        if (ListComparar.length >= 2) {
+        if (ListComparar.length >= 3) {
             alert('Solo puede agregar dos autos');
         } else {
      

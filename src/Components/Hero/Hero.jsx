@@ -1,23 +1,43 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useContextCar } from "../../Context/Context";
+import { FaEdit } from "react-icons/fa";
 
 const Hero = () => {
-
+    const { user, WhichRole } = useContextCar()
     const [opentwo, setOpenTwo] = useState(false);
+    const [TitleHome, setTitleHome] = useState('Encuentra el coche de tus sueños')
 
 
     const ChangeTwo = () => {
         setOpenTwo(!opentwo)
     }
 
+    const handleEditTextHero = () => {
+        const newTitle = prompt('Edit title home:', TitleHome);
+        if (newTitle !== null) {
+            setTitleHome(newTitle)
+        }
+    }
+
     return (
         <div className="flex flex-col items-center px-16 pt-20 w-full max-md:px-5 max-md:max-w-full">
             <div className="flex z-10 flex-col mt-20 mb-0 w-full max-w-[1040px] max-md:mt-10 max-md:mb-2.5 max-md:max-w-full">
 
-                <div className="text-5xl font-semibold text-white max-md:max-w-full max-md:text-4xl">
-                    Encuentra el coche de tus sueños
+                <div className="flex flex-row items-center">
+                    <div className="text-5xl font-semibold text-white max-md:max-w-full max-md:text-4xl">
+                        {TitleHome}
+                    </div>
+                    {user && WhichRole === 'admin' && (
+                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                            <button onClick={() => handleEditTextHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                <FaEdit size={14} className="text-yellow-400" />
+                            </button>
+                        </div>
+                    )}
                 </div>
+
+
 
 
                 <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full">

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 const LogIn = () => {
 
-    const { LognInAuth, user } = useContextCar()
+    const { LognInAuth, user, setWhichRole } = useContextCar()
 
     const [email, setEmail] = useState('')
 
@@ -15,9 +15,7 @@ const LogIn = () => {
     const navigate = useNavigate()
 
     const handleLogIn = () => {
-
-        localStorage.setItem("user", true)
-        // LognInAuth(email, password, navigate) 
+        LognInAuth(email, password, navigate, setWhichRole) 
         
     }
 
