@@ -16,7 +16,8 @@ const LogIn = () => {
 
     const handleLogIn = () => {
 
-        LognInAuth(email, password, navigate) 
+        localStorage.setItem("user", true)
+        // LognInAuth(email, password, navigate) 
         
     }
 

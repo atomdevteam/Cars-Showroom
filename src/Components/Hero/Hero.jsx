@@ -6,6 +6,7 @@ const Hero = () => {
 
     const [opentwo, setOpenTwo] = useState(false);
 
+
     const ChangeTwo = () => {
         setOpenTwo(!opentwo)
     }
@@ -124,9 +125,9 @@ const Hero = () => {
                             </div>
 
                             <div className="flex gap-0 py-1.5 my-auto bg-[#12232E]">
-                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full bg-[#12232E]" />
-                                <div className="shrink-0 self-start mt-2 max-w-full h-2 bg-gray-800 rounded w-[264px] bg-[#12232E]" />
-                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full bg-[#12232E] " />
+                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full " />
+                                <div className="shrink-0 self-start mt-2 max-w-full h-2  rounded w-[264px] bg-[#12232E]" />
+                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full  " />
                             </div>
                         </div>
 
