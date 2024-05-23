@@ -31,11 +31,11 @@ const CarCompra = () => {
                                 {
                                     CarDatos.length > 0 && (
                                         CarDatos.map((dato, index) => (
-                                            <div  key={index} className="cursor-pointer rounded-lg border border-gray-800 p-8 min-h-[400px]">
-                                               <div className="relative flex justify-center items-center group">
-    <img src={dato.Sale.Multimedia.Imagen} alt="Placeholder Image" className="w-full h-48 rounded-md object-cover" />
-    <button onClick={() => handleRemove(dato)} className="absolute bg-red-700 px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">x Remove</button>
-</div>
+                                            <div key={index} className="cursor-pointer rounded-lg border border-gray-800 p-8 min-h-[400px]">
+                                                <div className="relative flex justify-center items-center group">
+                                                    <img src={dato.Sale.Multimedia.Imagen} alt="Placeholder Image" className="w-full h-48 rounded-md object-cover" />
+                                                    <button onClick={() => handleRemove(dato)} className="absolute bg-red-700 px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">x Remove</button>
+                                                </div>
 
 
 

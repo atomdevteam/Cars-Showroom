@@ -21,6 +21,7 @@ export function ProviderContext({ children }) {
   const [CarDatos, setCarDatos] = useState([])
   const [WhichRole, setWhichRole] = useState(null)
   const [SerchingCar, setSerchingCar] = useState([])
+
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -61,7 +62,8 @@ export function ProviderContext({ children }) {
 
   }
 
-  const filterCars = (ListCar, Options, normalizeString) => {
+  const filterCars = (ListCar, Options, normalizeString, navigate) => {
+
     let filteredCars = [];
 
     if (
@@ -223,6 +225,12 @@ export function ProviderContext({ children }) {
       setSerchingCar(ListCar)
     }
 
+    if (SerchingCar.length === 0) {
+      alert("No se encontraron coche")
+    } else {
+      navigate('/SearchResultOne');
+    }
+
   };
 
   const handleSearching = (Status, navigate, Options) => {
@@ -231,18 +239,16 @@ export function ProviderContext({ children }) {
       return str.toLowerCase().trim().replace(/\s+/g, ' ');
     };
 
-
-
     if (Status === 'Todo') {
-      filterCars(ListCar, Options, normalizeString)
+      filterCars(ListCar, Options, normalizeString, navigate)
     } else if (Status === 'Nuevo') {
-      filterCars(LisCarNew, Options, normalizeString)
+      filterCars(LisCarNew, Options, normalizeString, navigate)
     } else if (Status === 'Usado') {
-      filterCars(LisCarUsed, Options, normalizeString)
+      filterCars(LisCarUsed, Options, normalizeString, navigate)
     }
 
     // Llama a navigate al final independientemente de las condiciones
-    navigate('/SearchResultOne');
+
   };
 
 
