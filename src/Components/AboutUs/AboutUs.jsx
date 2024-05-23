@@ -1,5 +1,36 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useContextCar } from "../../Context/Context";
+import { FaEdit } from "react-icons/fa";
+
 
 const AboutUs = () => {
+
+    const { user, WhichRole } = useContextCar()
+    const [opentwo, setOpenTwo] = useState(false);
+    const [Descnosotros, setdescnosotros] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet tortor ut sit sit. Velit imperdiet integer elementum a scelerisque pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in. Venenatis arcu semper lectus quis sit in rhoncus auctor.')
+    const [DesLogro, setdesLogro] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet tortor ut sit sit. Velit imperdiet integer elementum a scelerisque pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in. Venenatis arcu semper lectus quis sit in rhoncus auctor.')
+
+    const handleEditTexNosotros = () => {
+        const newTitle = prompt('Edit descripcion de la empresa:', Descnosotros);
+        if (newTitle !== null) {
+            setdescnosotros(newTitle)
+        }
+    }
+
+    const handleEditTexLogro = () => {
+        const newTexLogro = prompt('Editar descripcion de logro:', DesLogro);
+        if (newTexLogro !== null) {
+            setdesLogro(newTexLogro)
+        }
+    }
+
+
+
+
+
+
+
     return (
         <section className="bg-[#0B0C10]">
 
@@ -8,7 +39,20 @@ const AboutUs = () => {
                 <h1 className="text-white text-4xl font-bold leading-none sm:text-5xl">Sobre nosotros
                 </h1>
 
-                <p className="px-8 mt-8 mb-12 text-lg text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut placeat nobis distinctio dolores incidunt id esse velit labore atque debitis doloribus accusamus libero similique, animi alias reprehenderit totam corporis repudiandae?</p>
+                {/* <p className="px-8 mt-8 mb-12 text-lg text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut placeat nobis distinctio dolores incidunt id esse velit labore atque debitis doloribus accusamus libero similique, animi alias reprehenderit totam corporis repudiandae?</p> */}
+
+                <div className="flex flex-row items-center">
+                    <div className="px-8 mt-8 mb-12 text-lgfont-semibold text-white max-md:max-w-full max-md:text-4xl">
+                        {Descnosotros}
+                    </div>
+                    {user && WhichRole === 'admin' && (
+                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                            <button onClick={() => handleEditTexNosotros()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                <FaEdit size={14} className="text-yellow-400" />
+                            </button>
+                        </div>
+                    )}
+                </div>
 
                 <div className="bg-[#0B0C10] border-solid rounded-lg border-2 border-sky-500p-4" >
                     <p className="text-lg font-semibold text-white p-2">7 de mayo de 2024</p>
@@ -73,12 +117,26 @@ const AboutUs = () => {
 
                             <div className="flex z-10 px-5 flex-col mt-0 max-w-full w-[420px] max-md:mt-0">
 
-                                <div className="text-xl ml-5 text-zinc-300">
+                                {/* <div className="text-xl ml-5 text-zinc-300">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet
                                     tortor ut sit sit. Velit imperdiet integer elementum a scelerisque
                                     pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in.
                                     Venenatis arcu semper lectus quis sit in rhoncus auctor.
+                                </div> */}
+
+                                <div className="flex flex-row items-center">
+                                    <div className="px-8 mt-8 mb-12 text-lgfont-semibold text-white max-md:max-w-full max-md:text-4xl">
+                                        {DesLogro}
+                                    </div>
+                                    {user && WhichRole === 'admin' && (
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={() => handleEditTexLogro()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
+
 
                                 <div>
                                     <div className="flex gap-5  font-semibold text-center text-white max-w-[344px]">

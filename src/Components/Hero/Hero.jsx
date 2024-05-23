@@ -7,6 +7,8 @@ const Hero = () => {
     const { user, WhichRole } = useContextCar()
     const [opentwo, setOpenTwo] = useState(false);
     const [TitleHome, setTitleHome] = useState('Encuentra el coche de tus sueños')
+    const [DescHome, setDescHome] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+
 
 
     const ChangeTwo = () => {
@@ -19,6 +21,19 @@ const Hero = () => {
             setTitleHome(newTitle)
         }
     }
+
+    const handleEditDesctHero = () => {
+        const newDeesc = prompt('Edit decription home:', DescHome);
+        if (newDeesc !== null) {
+            setDescHome(newDeesc)
+        }
+    }
+
+    
+
+   
+
+
 
     return (
         <div className="flex flex-col items-center px-16 pt-20 w-full max-md:px-5 max-md:max-w-full">
@@ -41,7 +56,20 @@ const Hero = () => {
 
 
                 <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.{""}
+                    {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit.{""} */}
+                    <div className="flex flex-row items-center">
+                    <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full max-md:text-4xl">
+                        {DescHome}
+                    </div>
+                    {user && WhichRole === 'admin' && (
+                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                            <button onClick={() => handleEditDesctHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                <FaEdit size={14} className="text-yellow-400" />
+                            </button>
+                        </div>
+                    )}
+                </div>
+
                 </div>
 
                 <div className=" flex flex-col justify-center p-6 mt-64 bg-gray-900 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
