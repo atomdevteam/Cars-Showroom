@@ -79,7 +79,7 @@ export const ListUser = (userId, setWhichRole) => {
 
         const user = snapshot.val()
         setWhichRole(user.role)
-        console.log(user)
+
 
       } else {
 
@@ -102,8 +102,6 @@ const SaveUser = (datos, userId) => {
   set(ref(db, `Users/${userId}`), datos)
 
     .then(() => {
-
-      console.log("Datos guardados exitosamente.");
 
     })
 

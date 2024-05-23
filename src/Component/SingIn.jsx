@@ -16,7 +16,7 @@ const SignIn = () => {
             phone: phone,
             role: 'user'
         }
-        console.log(datos)
+
         SignInAuth(datos)
     }
 

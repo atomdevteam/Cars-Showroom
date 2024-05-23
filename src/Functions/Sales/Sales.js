@@ -6,7 +6,7 @@ export const SaveCarSale = async (datos, userId) => {
     try {
 
         const docRef = await addDoc(collection(dbFire, "CarSale"), datos);
-        console.log("Document written with ID: ", docRef.id);
+
     } catch (error) {
         console.log(error)
     }
@@ -15,10 +15,10 @@ export const SaveCarSale = async (datos, userId) => {
 export const SaveMedia = (file, userId, setLinkUrl) => {
     const storageRef = storageref(storage, `CarSaleMultimedia/${userId}/${file.name}`)
     uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Imagen subida correctamente')
+
         getDownloadURL(storageRef)
             .then((url) => {
-                console.log(url)
+
                 setLinkUrl(url)
             })
             .catch((error) => {
@@ -32,10 +32,10 @@ export const SaveMedia = (file, userId, setLinkUrl) => {
 export const SaveArchivo = (file, userId, setLinkUrl) => {
     const storageRef = storageref(storage, `CarSaleArchivo/${userId}/${file}`)
     uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Archivo subida correctamente')
+
         getDownloadURL(storageRef)
             .then((url) => {
-                console.log(url)
+ 
                 setLinkUrl(url)
             })
             .catch((error) => {

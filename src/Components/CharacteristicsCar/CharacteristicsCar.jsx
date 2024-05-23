@@ -3,7 +3,7 @@ import { IoIosArrowUp } from "react-icons/io"
 import { useContextCar } from "../../Context/Context"
 const CharacteristicsCar = () => {
     const { CarDatos } = useContextCar()
-    console.log(CarDatos)
+
     return (
         <div className='bg-[#071620]  text-white mb-8'>
             <div className='ml-8 mr-8  mt-8'>

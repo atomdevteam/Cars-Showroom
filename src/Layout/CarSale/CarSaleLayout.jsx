@@ -68,24 +68,24 @@ const CarSaleLayout = () => {
     const [newFeature, setNewFeature] = useState('');
     const updateCarDetails = (updatedDetails) => {
         CarSaleDatos.Sale.DetalleCoche = updatedDetails;
-        console.log(CarSaleDatos.Sale.DetalleCoche)
+     
     }
 
     const updateEngineDetails = (updatedDetails) => {
         CarSaleDatos.Sale.DetalleMotor = updatedDetails;
-        console.log(CarSaleDatos.Sale.DetalleMotor)
+     
     }
 
     const updateDimension = (updatedDetails) => {
         CarSaleDatos.Sale.Dimension = updatedDetails
-        console.log(CarSaleDatos.Sale.Dimension)
+       
     }
 
 
     const handleSale = (e) => {
         e.preventDefault();
 
-        console.log(CarSaleDatos.Sale)
+   
         if (validateCarSaleDatos(CarSaleDatos.Sale)) {
             SaveCarSale(CarSaleDatos, user.uid)
             alert("Guardado")

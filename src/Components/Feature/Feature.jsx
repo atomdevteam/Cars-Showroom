@@ -36,10 +36,6 @@ const Feature = ({ FeatureDatos, newFeature, setNewFeature }) => {
 
     }, [selectedFeatures, FeatureDatos, newFeature])
 
-
-
-    console.log(selectedFeatures)
-
     return (
         <div className='bg-[#071620] text-white mb-12'>
             <div className='ml-8 mr-8 mb-12 mt-8'>

@@ -22,7 +22,9 @@ import listwo from "../../../assets/img/listwo.png"
 import flechatop from "../../../assets/img/flechatop.png"
 
 import "aos/dist/aos.css"
+import { useContextCar } from '../../../Context/Context';
 function Principal() {
+    const {ListCar, LisCarUsed, LisCarNew, SerchingCar, Formatnumber} = useContextCar()
     const [open, setOpen] = useState(false);
     const [opentwo, setOpenTwo] = useState(false);
     const Change = () => {
@@ -31,6 +33,7 @@ function Principal() {
     const ChangeTwo = () => {
         setOpenTwo(!opentwo)
     }
+
 
     return (
         <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:m-0 xl:px-20 xl:py-20 gap-7 md:px-5 md:py-5 px-5 py-5 bg-black text-white'>
@@ -142,7 +145,7 @@ function Principal() {
                 <div className=' xl:mx-auto xl:mt-8 xl:mb-8 mt-5 mb-5 '>
                     <div className=' flex justify-between w-full xl:flex xl:justify-between items-center gap-2 lg:justify-between xl:items-center xl:gap-6 md:w-full xl:relative md:flex md:justify-between md:relative md:gap-1 md:items-center md:mt-3 md:mb-3'>
                         <div>
-                            <h2 className=" xl:top-0 xl:left-0 mr-10 xl:mt-2 xl:mb-2 xl:ml-2 xl:mr-2 xl:text-3xl xl:text-center md:left-0 md:text-[1rem] md:mr-1">12 Resultados</h2>
+                            <h2 className=" xl:top-0 xl:left-0 mr-10 xl:mt-2 xl:mb-2 xl:ml-2 xl:mr-2 xl:text-3xl xl:text-center md:left-0 md:text-[1rem] md:mr-1">{SerchingCar.length} Resultados</h2>
 
                         </div>
                         <div className="md:flex items-center gap-2 hidden">
@@ -156,6 +159,57 @@ function Principal() {
                     </div>
                 </div>
 
+                {
+                    SerchingCar.map((dato, index) => (
+                        <div key={index} onClick={() => handleOpenTesla()} data-aos="fade-up" className='cursor-pointer  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
+                            <div className=' overflow-hidden'>
+                                <img src={dato.Sale.Multimedia.Imagen} className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full'  alt="Jeep Wrangler Unlimited Islander" />
+                            </div>
+                            <div className=' lg:w-96 md:mt-3 mt-5 xl:mt-0'>
+                                {/* Condicion */}
+                                <button className="border border-blue-500 text-blue-500 px-5" >{dato.Sale.DetalleCoche.Condicion}</button>
+                                {/* Titulo */}
+                                <h2 className="text-[2rem] md:text-[1.2rem]" >{dato.Sale.DetalleCoche.Titulo}</h2>
+                                {/* Precio */}
+                                <span className="text-blue-500 text-[1.5rem]">${Formatnumber(dato.Sale.Precio.Precio)}</span>
+                                {/* Ubicacion */}
+                                <h4>{dato.Sale.Direccion.Ubicacion}</h4>
+                                <div className=" lg:flex  md:grid md:grid-cols-2 grid grid-cols-2 justify-between gap-4">
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={Calender} alt="Calendario" />
+                                        {/*Year */}
+                                        <h5>{dato.Sale.DetalleCoche.Year}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex md:w-[10rem] items-center flex'>
+                                        <img className="w-5 h-5" src={volante} alt="Volante" />
+                                        {/* DriverTrain */}
+                                        <h5 className="bg-transparent">{dato.Sale.DetalleMotor.DriverTrain}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={Combustible} alt="Combustible" />
+                                        <h5>{dato.Sale.DetalleMotor.TipoCombustimble}</h5>
+                                    </div>
+                                    <div className=' lg:flex gap-1 md:flex items-center flex'>
+                                        <img className="w-5 h-5" src={usuarios} alt="Usuarios" />
+                                        {/* Capacidad de pasajero */}
+                                        <h5>{dato.Sale.DetalleCoche.Capacidad}</h5>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <section className=' lg:flex md:flex flex'>
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={estrella} alt="Estrellas" />
+                                    <img src={emptystar} alt="Estrellas" />
+                                    <h4>(12 Reviews)</h4>
+                                </section>
+                            </div>
+                        </div>
+                    ))
+                }
+{/* 
                 <div data-aos="zoom-out-left" className=' border border-solid px-3 py-3 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3'>
                     <div className=' overflow-hidden xl:w-[100%]'>
                         <img className=' w-full h-full lg:w-[20rem] lg:h-full xl:w-full xl:h-full hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' src={Tesla} alt="Tesla Car" />
@@ -560,7 +614,7 @@ function Principal() {
                             <h4>(12 Reviews)</h4>
                         </section>
                     </div>
-                </div>
+                </div> */}
                 <div className=' lg:flex justify-center gap-5 md:flex flex items-center'>
                     <a href="#"><img className=' -rotate-90 border border-blue-500 px-2 md:w-[5rem] md:h-[3rem]' src={flechatop} alt="Anterior" /></a>
                     <a href="#"><button className=' border bg-blue-500 border-blue-500 w-[4rem] h-[3rem] py-3'>1</button></a>

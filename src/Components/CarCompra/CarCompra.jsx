@@ -16,12 +16,6 @@ const CarCompra = () => {
     const [IsOpenSelectCar, setIsOpenSelectCar] = useState(false)
     const [ListComparar, setListComparar] = useState([])
 
-    {/*const handleRemove = (dato) => {
-        const nuevaLista = CarDatos.filter(item => item !== dato);
-        console.log(nuevaLista)
-        setCarDatos(nuevaLista)
-
-    }*/}
 
 
 
