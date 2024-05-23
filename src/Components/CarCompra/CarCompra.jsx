@@ -12,15 +12,17 @@ import { FaStar } from "react-icons/fa";
 import { useContextCar } from "../../Context/Context";
 import Modal from "./Modal";
 const CarCompra = () => {
-    const { Formatnumber, setCarDatos } = useContextCar()
+    const { Formatnumber, CarDatos, setCarDatos, handleRemove } = useContextCar()
     const [IsOpenSelectCar, setIsOpenSelectCar] = useState(false)
     const [ListComparar, setListComparar] = useState([])
 
-    const handleRemove = (dato) => {
-        const nuevaLista = ListComparar.filter(item => item !== dato);
-        setListComparar(nuevaLista)
-        setCarDatos(null)
-    }
+    {/*const handleRemove = (dato) => {
+        const nuevaLista = CarDatos.filter(item => item !== dato);
+        console.log(nuevaLista)
+        setCarDatos(nuevaLista)
+
+    }*/}
+
 
 
     return (
@@ -33,13 +35,14 @@ const CarCompra = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
                                 {
-                                    ListComparar.length > 0 && (
-                                        ListComparar.map((dato, index) => (
-                                            <div onClick={() => setCarDatos(dato)} key={index} className="cursor-pointer rounded-lg border border-gray-800 p-8 min-h-[400px]">
-                                                <div className="relative flex justify-center items-center">
-                                                    <img src={dato.Sale.Multimedia.Imagen} alt="Placeholder Image" className="w-full h-48 rounded-md object-cover" />
-                                                    <button onClick={() => handleRemove(dato)} className="absolute bg-red-700 px-4 py-2">x Remove</button>
-                                                </div>
+                                    CarDatos.length > 0 && (
+                                        CarDatos.map((dato, index) => (
+                                            <div  key={index} className="cursor-pointer rounded-lg border border-gray-800 p-8 min-h-[400px]">
+                                               <div className="relative flex justify-center items-center group">
+    <img src={dato.Sale.Multimedia.Imagen} alt="Placeholder Image" className="w-full h-48 rounded-md object-cover" />
+    <button onClick={() => handleRemove(dato)} className="absolute bg-red-700 px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">x Remove</button>
+</div>
+
 
 
 
@@ -91,7 +94,7 @@ const CarCompra = () => {
 
 
 
-                                {ListComparar.length < 3 && (
+                                {CarDatos.length < 3 && (
                                     <div onClick={() => setIsOpenSelectCar(!IsOpenSelectCar)} className=" cursor-pointer hover:bg-gray-700 rounded-lg border border-gray-800 p-6  flex items-center justify-center flex-col text-gray-400 min-h-[400px]">
 
                                         <div className="">

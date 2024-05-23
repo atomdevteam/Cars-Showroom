@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { IoIosArrowUp } from "react-icons/io";
 import { useContextCar } from '../../Context/Context';
 const Generalinformation = () => {
@@ -28,15 +28,13 @@ const Generalinformation = () => {
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.TipoCuerpo}
-                                        </div>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.DetalleCoche?.TipoCuerpo}
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
                                 <div className='bg-[#12232E] text-center block w-full p-2.5'>
@@ -44,15 +42,14 @@ const Generalinformation = () => {
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
                                     <div className='grid gap-6  grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.Color}
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.Color}
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleCoche?.Color}
-                                        </div>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.DetalleCoche?.Color}
+                                                </div>
+                                            ))
+                                        }
+
                                     </div>
                                 </div>
                             </div>

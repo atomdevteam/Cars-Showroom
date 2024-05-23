@@ -27,6 +27,7 @@ const Hero = () => {
                 <div className="flex flex-row items-center">
                     <div className="text-5xl font-semibold text-white max-md:max-w-full max-md:text-4xl">
                         {TitleHome}
+
                     </div>
                     {user && WhichRole === 'admin' && (
                         <div className="px-3 py-2 text-right  text-xs leading-4">

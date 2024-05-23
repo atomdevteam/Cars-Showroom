@@ -26,13 +26,14 @@ const Dimensiondetails = () => {
                                     Longitud
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid  grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Longitud} mm
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Longitud} mm
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.Dimension?.Longitud} mm
+                                                </div>
+                                            ))
+                                        }
 
                                     </div>
                                 </div>
@@ -40,13 +41,14 @@ const Dimensiondetails = () => {
                                     Ancho
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Ancho} mm
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Ancho} mm
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.Dimension?.Ancho} mm
+                                                </div>
+                                            ))
+                                        }
 
                                     </div>
                                 </div>
@@ -54,13 +56,15 @@ const Dimensiondetails = () => {
                                     Alto
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Altura} mm
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.Altura} mm
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.Dimension?.Altura} mm
+                                                </div>
+                                            ))
+                                        }
+
 
                                     </div>
                                 </div>
@@ -68,13 +72,14 @@ const Dimensiondetails = () => {
                                     Volumen de carga
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.VolumenCarga} L
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.Dimension?.VolumenCarga} L
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.Dimension?.VolumenCarga} L
+                                                </div>
+                                            ))
+                                        }
 
                                     </div>
                                 </div>

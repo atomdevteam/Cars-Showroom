@@ -18,7 +18,7 @@ export function ProviderContext({ children }) {
   const [LisCarNew, setLisCarNew] = useState([])
   const [LisCarUsed, setLisCarUsed] = useState([])
   const [ListCar, setListCar] = useState([])
-  const [CarDatos, setCarDatos] = useState(null)
+  const [CarDatos, setCarDatos] = useState([])
   const [WhichRole, setWhichRole] = useState(null)
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -31,6 +31,7 @@ export function ProviderContext({ children }) {
   useEffect(() => {
     if (user) {
       ListUser(user.uid, setWhichRole)
+      ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
     }
   }, [user])
   
@@ -53,7 +54,14 @@ export function ProviderContext({ children }) {
     return '0';
   }
 
-  console.log(WhichRole)
+  const handleRemove = (dato) => {
+    const nuevaLista = CarDatos.filter(item => item !== dato);
+    console.log(nuevaLista)
+    setCarDatos(nuevaLista)
+
+}
+
+  
 
 
   return (
@@ -73,7 +81,8 @@ export function ProviderContext({ children }) {
         CarDatos,
         setCarDatos,
         WhichRole,
-        setWhichRole
+        setWhichRole,
+        handleRemove
       }}
     >
       {children}

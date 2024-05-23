@@ -28,13 +28,14 @@ const EnginedetailsInfo = () => {
                                     Kilometraje
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid  grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.Kilometraje} km
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.Kilometraje} km
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.DetalleMotor?.Kilometraje} km
+                                                </div>
+                                            ))
+                                        }
 
                                     </div>
                                 </div>
@@ -42,13 +43,14 @@ const EnginedetailsInfo = () => {
                                     Transmisión
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6 grid-cols-2 lg:grid-cols-3'>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.Transmision}
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.Transmision}
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.DetalleMotor?.Transmision}
+                                                </div>
+                                            ))
+                                        }
 
                                     </div>
                                 </div>
@@ -56,16 +58,14 @@ const EnginedetailsInfo = () => {
                                     Capacidad del motor
                                 </div>
                                 <div className='bg-transparent text-center block w-full p-2'>
-                                    <div className='grid gap-6  grid-cols-3 '>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
-                                        </div>
-                                        <div>
-                                            {CarDatos?.Sale?.DetalleMotor?.CapacidadMotor} cc
-                                        </div>
+                                    <div className='grid gap-6  grid-cols-3'>
+                                        {
+                                            CarDatos.map((dato, index) => (
+                                                <div key={index}>
+                                                    {dato?.Sale?.DetalleMotor?.CapacidadMotor} cc
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                 </div>
                             </div>

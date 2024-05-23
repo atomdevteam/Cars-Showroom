@@ -40,7 +40,8 @@ const CarSaleDatos = {
         },
 
         Features: {
-            Features: []
+            Features: [],
+            Otros: "No"
         },
 
         Direccion: {
@@ -80,19 +81,10 @@ const CarSaleLayout = () => {
         console.log(CarSaleDatos.Sale.Dimension)
     }
 
-    function splitTextByComma(text) {
-        if (newFeature.trim()) {
-            return newFeature.split(',').map(item => item.trim());
-        }
-    }
 
     const handleSale = (e) => {
         e.preventDefault();
-        splitTextByComma()
-        const featuresArray = splitTextByComma()
-        if (newFeature.trim()) {
-               CarSaleDatos.Sale.Features.Features = [...CarSaleDatos.Sale.Features.Features, ...featuresArray]
-        }
+
         console.log(CarSaleDatos.Sale)
         if (validateCarSaleDatos(CarSaleDatos.Sale)) {
             SaveCarSale(CarSaleDatos, user.uid)

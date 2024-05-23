@@ -9,7 +9,7 @@ import Tesla from "../../assets/img/Tesla.png"
 import emptystar from "../../assets/img/emptystar.png"
 const Modal = ({ isOpen, setIsOpen, setListComparar, ListComparar }) => {
 
-    const { ListCar, Formatnumber } = useContextCar()
+    const { ListCar, Formatnumber,CarDatos, setCarDatos } = useContextCar()
 
     useEffect(() => {
         if (isOpen) {
@@ -23,14 +23,20 @@ const Modal = ({ isOpen, setIsOpen, setListComparar, ListComparar }) => {
     }, [isOpen])
 
     const handleAddAutos = (e, Car) => {
-        e.preventDefault()
-        if (ListComparar.length >= 3) {
-            alert('Solo puede agregar dos autos');
+        e.preventDefault();
+        
+        // Verificar si el automóvil ya está en la lista
+        if (CarDatos.some(item => item.IdCarSale=== Car.IdCarSale)) {
+            alert('Este auto ya ha sido agregado.');
+        } else if (CarDatos.length >= 3) {
+            alert('Solo puede agregar dos autos.');
         } else {
-     
+            // Si el automóvil no está en la lista y la lista no está llena, agregar el automóvil
             setListComparar([...ListComparar, Car]);
+            setCarDatos([...CarDatos, Car]);
         }
     }
+    
 
 
     return (

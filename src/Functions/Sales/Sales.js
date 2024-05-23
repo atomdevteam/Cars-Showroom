@@ -1,5 +1,5 @@
 import { dbFire, storage } from "../../firebase/firebase"
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { collection, addDoc, getDocs, onSnapshot } from "firebase/firestore"
 import { ref as storageref, uploadBytes, getDownloadURL } from "firebase/storage"
 export const SaveCarSale = async (datos, userId) => {
 
@@ -47,40 +47,76 @@ export const SaveArchivo = (file, userId, setLinkUrl) => {
 }
 
 export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
-
     try {
         const ref = collection(dbFire, "CarSale");
 
-        const docsSnap = await getDocs(ref);
+        const unsubscribe = onSnapshot(ref, (querySnapshot) => {
+            const newCars = [];
+            const usedCars = [];
+            const CarSale = [];
 
-        const newCars = [];
-        const usedCars = [];
-        const CarSale = []
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const IdCarSale = doc.id;
+                data.IdCarSale = IdCarSale;
 
-        docsSnap.forEach(doc => {
-            const data = doc.data();
-            const IdCarSale = doc.id;
-            data.IdCarSale = IdCarSale;
+                if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
+                    newCars.push(data);
+                } else if (data.Sale.DetalleCoche.Condicion === "Usado") {
+                    usedCars.push(data);
+                }
 
-            if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
-                newCars.push(data)
-                setLisCarNew(newCars)
-                
-                
-            }else if (data.Sale.DetalleCoche.Condicion === "Usado") {
-                usedCars.push(data)
-                setLisCarUsed(usedCars)
-            }
+                CarSale.push(data);
+            });
 
-            CarSale.push(data)
-            setListCar(CarSale)
+            setLisCarNew(newCars);
+            setLisCarUsed(usedCars);
+            setListCar(CarSale);
         });
 
-        setLisCarNew(newCars);
-        setLisCarUsed(usedCars);
-        setListCar(CarSale);
-
+        // Devuelve la función de cancelación para que puedas detener la escucha cuando sea necesario
+        return unsubscribe;
     } catch (error) {
-        console.error("Error al obtener los datos de la colección 'events':", error);
+        console.error("Error al obtener los datos de la colección 'CarSale':", error);
     }
 }
+
+
+// export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
+
+//     try {
+//         const ref = collection(dbFire, "CarSale");
+
+//         const docsSnap = await getDocs(ref);
+
+//         const newCars = [];
+//         const usedCars = [];
+//         const CarSale = []
+
+//         docsSnap.forEach(doc => {
+//             const data = doc.data();
+//             const IdCarSale = doc.id;
+//             data.IdCarSale = IdCarSale;
+
+//             if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
+//                 newCars.push(data)
+//                 setLisCarNew(newCars)
+                
+                
+//             }else if (data.Sale.DetalleCoche.Condicion === "Usado") {
+//                 usedCars.push(data)
+//                 setLisCarUsed(usedCars)
+//             }
+
+//             CarSale.push(data)
+//             setListCar(CarSale)
+//         });
+
+//         setLisCarNew(newCars);
+//         setLisCarUsed(usedCars);
+//         setListCar(CarSale);
+
+//     } catch (error) {
+//         console.error("Error al obtener los datos de la colección 'events':", error);
+//     }
+// }

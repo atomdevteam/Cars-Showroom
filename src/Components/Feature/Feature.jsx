@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import CheckBox from '../Checkbox/CheckBox';
 
-const Feature = ({ FeatureDatos,  newFeature, setNewFeature}) => {
+const Feature = ({ FeatureDatos, newFeature, setNewFeature }) => {
     const [selectedFeatures, setSelectedFeatures] = useState([]);
- 
-    // Función para manejar cambios en los checkboxes
+    const [OtroFeature, setOtroFeature] = useState('')
+
+
+
     const handleCheckboxChange = (feature) => {
+
         setSelectedFeatures((prevSelectedFeatures) => {
             if (prevSelectedFeatures.includes(feature)) {
+                if (feature === "Otro") {
+                    setOtroFeature(null);
+                }
                 return prevSelectedFeatures.filter((item) => item !== feature);
             } else {
+                if (feature === "Otro") {
+                    setOtroFeature(feature);
+
+
+                }
                 return [...prevSelectedFeatures, feature];
             }
         });
     };
 
-    const handleBlur = () => {
-        // if (newFeature.trim()) {
-        //     setSelectedFeatures((prevSelectedFeatures) => [...prevSelectedFeatures, newFeature.trim()]);
-        //     // setNewFeature(''); // Limpiar el textarea después de agregar la característica
-        // }
-    };
+
 
     useEffect(() => {
         FeatureDatos.Features = selectedFeatures
-    }, [selectedFeatures, FeatureDatos])
+        if (newFeature !== "") {
+            FeatureDatos.Otros = newFeature
+        }
+
+    }, [selectedFeatures, FeatureDatos, newFeature])
 
 
 
@@ -56,16 +66,23 @@ const Feature = ({ FeatureDatos,  newFeature, setNewFeature}) => {
                             ))}
                         </div>
 
+
                         <div className='mb-4'>
+                            <p className='mb-2 text-gray-400 ml-2'>Indique aquí si seleccionó la opción "Otro".</p>
                             <textarea
                                 value={newFeature}
                                 onChange={(e) => setNewFeature(e.target.value)}
-                                onBlur={handleBlur}
                                 className="bg-[#12232E] text-sm block w-full p-8"
                                 placeholder='Escribe otra característica aquí.'
                                 required
+                                disabled={OtroFeature !== "Otro"}
                             />
                         </div>
+
+
+
+
+
                     </form>
                 </div>
             </div>
