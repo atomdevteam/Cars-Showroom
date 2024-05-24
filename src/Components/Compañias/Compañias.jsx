@@ -9,12 +9,12 @@ function Compañias() {
   return (
     <div className='w-full py-6 items-center'>
         <div className='md:flex justify-between items-center  w-full text-center '> 
-            <img className='m-auto mb-4 md:w-[100px]' src={Teslalogo} alt="Tesla" />
-            <img className='m-auto md:w-[100px]' src={Audilogo} alt="Audi" />
-            <img className='m-auto mt-8 md:w-[100px]' src={Fiatlogo} alt="Fiat" />
-            <img className='m-auto mt-8 md:w-[100px]' src={Hyundailogo} alt="Hyundai" />
-            <img className='m-auto md:w-[100px]' src={Peugeotlogo} alt="Peugeot" />
-            <img className='m-auto md:w-[100px]' src={Volvologo} alt="Volvo" />
+            <img data-aos="zoom-in-left" className='m-auto mb-4 md:w-[100px]' src={Teslalogo} alt="Tesla" />
+            <img data-aos="zoom-in-right" className='m-auto md:w-[100px]' src={Audilogo} alt="Audi" />
+            <img data-aos="zoom-in-left" className='m-auto mt-8 md:w-[100px]' src={Fiatlogo} alt="Fiat" />
+            <img data-aos="zoom-in-right" className='m-auto mt-8 md:w-[100px]' src={Hyundailogo} alt="Hyundai" />
+            <img data-aos="zoom-in-left" className='m-auto md:w-[100px]' src={Peugeotlogo} alt="Peugeot" />
+            <img data-aos="zoom-in-right" className='m-auto md:w-[100px]' src={Volvologo} alt="Volvo" />
         </div>
         
     </div>

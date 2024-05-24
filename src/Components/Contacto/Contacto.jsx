@@ -25,24 +25,24 @@ const Contacto = () => {
                                 Nombre
                             </div>
                             <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                                <input type="text" placeholder="Nombre Completo" className="w-full h-full p-3 bg-gray-800 rounded-lg " />
+                                <input type="text" placeholder="Nombre Completo" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
                             </div>
                             <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">Email</div>
                             <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base whitespace-nowrap bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                            <input type="text" placeholder="email@gmail.com" className="w-full h-full p-3 bg-gray-800 rounded-lg" />
+                            <input type="text" placeholder="email@gmail.com" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
                             </div>
                             <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">Teléfono</div>
                             <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base whitespace-nowrap bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                            <input type="text" placeholder="000-000-0000" className="w-full h-full p-3 bg-gray-800 rounded-lg" />
+                            <input type="text" placeholder="000-000-0000" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
                             </div>
                             <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">
                                 Comentario
                             </div>
                             <div data-aos="zoom-in-down" className="justify-center items-start   text-base bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                                <textarea name="Comment" id="Comment" rows={7} placeholder="Deja un Mensaje Aquí..." className=" rounded-lg w-full h-full p-3 bg-gray-800"></textarea>
+                                <textarea name="Comment" id="Comment" rows={7} placeholder="Deja un Mensaje Aquí..." className=" hover:bg-slate-50 transition-all rounded-lg w-full h-full p-3 bg-gray-800"></textarea>
                             </div>
                             <button data-aos="zoom-in-down" className="justify-center items-center mt-9 text-base text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:max-w-full">
-                            <input type="submit" placeholder="000-000-0000" className="w-full h-full p-3 cursor-pointer rounded-lg" />
+                            <input type="submit" placeholder="000-000-0000" className="w-full h-full p-3 cursor-pointer rounded-lg hover:bg-slate-200 hover:text-blue-500 font-bold transition-all" />
                             </button>
                         </div>
                     </div>
