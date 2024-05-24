@@ -17,18 +17,118 @@ import flechatop from "../../../assets/img/flechatop.png"
 
 import "aos/dist/aos.css"
 import { useContextCar } from '../../../Context/Context';
+import FilterSection from '../../../Components/Filtro/FilterSection ';
 function Principal() {
-    const { LisCarUsed, Formatnumber } = useContextCar()
-    const [open, setOpen] = useState(false);
-    const [opentwo, setOpenTwo] = useState(false);
-    const Change = () => {
-        setOpen(!open)
-    }
-    const ChangeTwo = () => {
-        setOpenTwo(!opentwo)
+    const { LisCarUsed, Formatnumber, filtroCarUsed, setFiltroCarUsed } = useContextCar()
+    // Year
+    const [openYears, setOpenYears] = useState(false);
+    const [yearOptions] = useState(['2024', '2023', '2022', '2021', '2020']);
+    // Marca
+    const [openBrands, setOpenBrands] = useState(false);
+    const [brandOptions] = useState(['Audi', 'BMW', 'Chevrolet', 'Ford']);
+    // Modelo
+    const [openModel, setOpenModel] = useState(false);
+    const [modelOptions] = useState(['Corolla', 'Civic', 'Chevrolet'])
+    //Estado
+    const [openState, setOpenState] = useState(false);
+    const [stateOptions] = useState(['Nuevo', 'Usado'])
+    //Transmision
+    const [openTransmission, setOpenTransmission] = useState(false);
+    const [transmissionOptions] = useState(['Transmisión Automática', 'Transmisión Manual'])
+
+    //Tipo de combustimble
+    const [openFuel, setOpenFuel] = useState(false);
+    const [fuelOptions] = useState(['Gasolina', 'Diesel', 'Gas Natural'])
+
+    //DriverTrain
+    const [openDriverTrain, setOpenDriverTrain] = useState(false);
+    const [driverTrainOptions] = useState(['Tracción Trasera', 'Tracción Trasera'])
+
+    //Capacidad de pasajeros
+    const [openPassengers, setOpenPassengers] = useState(false);
+    const [passengersOptions] = useState(['1', '2', '3', '4', '5'])
+
+    const [selectfiltroOptions, setselectfiltroOptions] = useState(
+        {
+            Year: [],
+            Marca: [],
+            Modelo: [],
+            Estado: [],
+            Transmision: [],
+            Combustible: [],
+            DriverTrain: [],
+            CapacidadPasajeros: []
+        }
+    )
+
+
+    const toggleYears = () => setOpenYears(!openYears);
+    const toggleBrands = () => setOpenBrands(!openBrands);
+    const toggleModel = () => setOpenModel(!openModel);
+    const toggleState = () => setOpenState(!openState);
+    const toggleTransmission = () => setOpenTransmission(!openTransmission);
+    const toggleFuel = () => setOpenFuel(!openFuel);
+    const togleDriverTrain = () => setOpenDriverTrain(!openDriverTrain)
+    const togglePassengers = () => setOpenPassengers(!openPassengers)
+
+    const handleSearch = (e) => {
+        // Add search functionality if needed
+    };
+
+    const isAnyFilterNotEmpty = (filters) => {
+        return Object.values(filters).some(filterArray => filterArray.length > 0);
+    };
+
+    const handleFiltrarOptions = () => {
+
+        if (!isAnyFilterNotEmpty(selectfiltroOptions)) {
+            console.log('No se han seleccionado filtros.');
+            console.log(LisCarUsed)
+            setFiltroCarUsed(LisCarUsed)
+            return;
+        }
+
+        const normalizeString = (str) => {
+            if (typeof str !== 'string') return '';
+            return str.toLowerCase().trim().replace(/\s+/g, ' ');
+        };
+
+
+        // Datos para filtrar, son arreglo cada uno con los datos
+        const { Year, Marca, Modelo, Estado, Transmision, Combustible, DriverTrain, CapacidadPasajeros } = selectfiltroOptions;
+        console.log(Year)
+        const filteredCars = LisCarUsed.filter(car => {
+            const year = normalizeString(car.Sale.DetalleCoche.Year)
+            const marca = normalizeString(car.Sale.DetalleCoche.Marca)
+            const modelo = normalizeString(car.Sale.DetalleCoche.Modelo)
+            const estado = normalizeString(car.Sale.DetalleCoche.Condicion)
+            const transmision = normalizeString(car.Sale.DetalleMotor.Transmision)
+            const combustibles = normalizeString(car.Sale.DetalleMotor.TipoCombustimble)
+            const driverTrain = normalizeString(car.Sale.DetalleMotor.DriverTrain)
+            const capacidadPasajeros = normalizeString(car?.Sale?.DetalleCoche.Capacidad?.toString())
+
+            return (
+                (Year.length === 0 || Year.includes(year)) &&
+                (Marca.length === 0 || Marca.includes(marca)) &&
+                (Modelo.length === 0 || Modelo.includes(modelo)) &&
+                (Estado.length === 0 || Estado.includes(estado)) &&
+                (Transmision.length === 0 || Transmision.includes(transmision)) &&
+                (Combustible.length === 0 || Combustible.includes(combustibles)) &&
+                (DriverTrain.length === 0 || DriverTrain.includes(driverTrain)) &&
+                (CapacidadPasajeros.length === 0 || CapacidadPasajeros.includes(capacidadPasajeros))
+            );
+        });
+        console.log("Datos filtrados...")
+        console.log(filteredCars);
+        setFiltroCarUsed(filteredCars)
+
     }
 
-    
+    useEffect(() => {
+        handleFiltrarOptions()
+    }, [selectfiltroOptions])
+
+
     return (
         <div className=' xl:flex xl:max-w-full xl:justify-between md:flex justify-between xl:py-20 xl:px-20 xl:m-0 py-5 px-5   gap-7 md:px-5 md:py-5 bg-black text-white'>
             <section data-aos="flip-up" className=" xl:w-[28rem]  ">
@@ -39,91 +139,73 @@ function Principal() {
                         <input className=" bg-transparent xl:text-2xl" type="text" placeholder='Buscar' />
                     </div>
                     <div className=' bg-[#071620] mt-5 '>
-                        <div className=' bg-[#152836] '>
-                            <div className=' bg-[#152836] flex justify-between border-b items-center cursor-pointer px-5' onClick={ChangeTwo}>
-                                <h2 className="bg-transparent py-3 text-2xl " >Años</h2>
-                                <img className={`bg-transparent w-5 h-5 ${opentwo ? "rotate-180" : ""}`} src={flechatop} alt="Ver Opciones" />
-                            </div>
-                            {opentwo ?
-                                <div className="bg-[#152836] flex gap-4 flex-col text-2xl mt-3 px-5 py-3">
-                                    <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" for="checkbox2016"><input className="items-center mr-2" type="checkbox" id='checkbox2016' />2016</label>
-                                    <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2017"><input className="items-center mr-2" type="checkbox" id='checkbox2017' />2017</label>
-                                    <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2018"><input className="items-center mr-2" type="checkbox" id='checkbox2018' />2018</label>
-                                    <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2019"><input className="items-center mr-2" type="checkbox" id='checkbox2019' />2019</label>
-                                    <a className="bg-transparent text-blue-500" href="#">Ver Más</a>
-                                </div>
-                                : ""}
-                        </div>
-                        <div className={` bg-[#152836] text-2xl items-center py-5 `}>
-                            <div className=' bg-[#152836] flex justify-between items-center border-b mt-5 px-5 cursor-pointer' onClick={Change}>
-                                <h2 className="bg-transparent  py-3" >Marca</h2>
-                                <img className={`bg-transparent w-5 h-5 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver Opciones" />
-                            </div>
-                            {open ?
-                                <div className="bg-transparent ">
-                                    <div className=' bg-transparent px-5'>
-                                        <input className="bg-transparent border w-full mt-3 px-3 py-2" type="text" placeholder='Buscar' />
-                                    </div>
 
-                                    <div className={` flex gap-4 flex-col mt-3 bg-transparent px-5 py-3`}>
-                                        <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" for="checkbox2016"><input className="items-center mr-2" type="checkbox" id='checkbox2016' />Audi</label>
-                                        <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2017"><input className="items-center mr-2" type="checkbox" id='checkbox2017' />BMW</label>
-                                        <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2018"><input className="items-center mr-2" type="checkbox" id='checkbox2018' />Chevrolet</label>
-                                        <label className="bg-transparent hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm" htmlFor="checkbox2019"><input className="items-center mr-2" type="checkbox" id='checkbox2019' />Ford</label>
-                                        <a className="bg-transparent text-blue-500" href="#">Ver Más</a>
-                                    </div>
-                                </div> : ""}
+                        <FilterSection
+                            title="Años"
+                            options={yearOptions}
+                            open={openYears}
+                            onToggle={toggleYears}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+                        <FilterSection
+                            title="Marca"
+                            options={brandOptions}
+                            open={openBrands}
+                            onToggle={toggleBrands}
+                            onSearch={handleSearch}
+                            showSearch={true}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
 
-                        </div>
-                        <section className=' bg-[#152836] grid grid-cols-2 items-center m-auto md:grid md:grid-cols-1 gap-4'>
-                            <div className=' bg-[#152836] md:text-2xl text-[1.3rem] md:mt-5 mt-5'>
-                                <div className=' bg-[#152836] flex justify-between border-b items-center md:px-5 px-2 cursor-pointer'>
-                                    <h2 className="bg-transparent py-3">Modelo</h2>
-                                    <img className=" bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
-                            <div className=' bg-[#152836] md:text-2xl cursor-pointer text-[1.3rem] md:mt-5 mt-5'>
-                                <div className=' bg-[#152836] flex justify-between border-b items-center md:px-5 px-2  '>
-                                    <h2 className="bg-transparent py-3">Estado</h2>
-                                    <img className="flechas bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
-                            <div className=' bg-[#152836] md:text-2xl cursor-pointer text-[1.3rem] mt-5'>
-                                <div className=' bg-transparent flex justify-between border-b items-center md:px-5 px-2 '>
-                                    <h2 className="bg-transparent py-3">Transmisión</h2>
-                                    <img className=" bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
-                            <div className=' bg-[#152836] md:text-2xl cursor-pointer text-[1rem] mt-5'>
-                                <div className=' bg-transparent flex justify-between border-b items-center md:px-5 px-2 '>
-                                    <h2 className="bg-transparent py-3">Tipo de Combustible</h2>
-                                    <img className=" bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
-                            <div className=' bg-[#152836] md:text-2xl mt-10 md:mt-5 cursor-pointer text-[1.3rem]'>
-                                <div className=' bg-transparent flex justify-between border-b items-center md:px-5 px-2 '>
-                                    <h2 className="bg-transparent py-3">Drivetrain</h2>
-                                    <img className=" bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
-                            <div className=' bg-[#152836] md:text-2xl md:mt-5 mt-10 cursor-pointer text-[1rem]'>
-                                <div className=' bg-transparent flex justify-between border-b items-center md:px-5 px-2  '>
-                                    <h2 className="bg-transparent py-3">Capacidad de Pasajeros</h2>
-                                    <img className=" bg-transparent w-5 h-5" src={flechatop} alt="Ver Opciones" />
-                                </div>
-                            </div>
+                        <FilterSection
+                            title={"Modelo"}
+                            options={modelOptions}
+                            open={openModel}
+                            onToggle={toggleModel}
+                            onSearch={handleSearch}
+                            showSearch={true}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+                        <FilterSection
+                            title="Estado"
+                            options={stateOptions}
+                            open={openState}
+                            onToggle={toggleState}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
 
-                        </section>
-                        <div className=' mt-10 bg-transparent'>
-                            <p className="bg-transparent text-2xl">Rango de Precio</p>
-                            <span className="bg-transparent text-blue-500 text-3xl">$.0 - $3,000,000.00</span>
-                            <div className=' relative flex justify-between bg-transparent cursor-pointer'>
-                                <div className=' w-14 h-14 z-10 rounded-full bg-blue-500'></div>
-                                <div className=' absolute bg-gray-700 items-center top-0 bottom-0 h-4 m-auto w-full text-center'></div>
-                                <div className=' w-14 h-14 z-10 rounded-full right-0 bg-blue-500'></div>
-                            </div>
-                            <button className=' border border-blue-500 mt-4 w-full rounded-sm py-3 text-blue-500 hover:bg-gray-100 transition-all' >Restablecer Filtro</button>
-                        </div>
+                        <FilterSection
+                            title="Transmisión"
+                            options={transmissionOptions}
+                            open={openTransmission}
+                            onToggle={toggleTransmission}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+
+                        <FilterSection
+                            title="Tipo de combustible"
+                            options={fuelOptions}
+                            open={openFuel}
+                            onToggle={toggleFuel}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+
+                        <FilterSection
+                            title="DriverTrain"
+                            options={driverTrainOptions}
+                            open={openDriverTrain}
+                            onToggle={togleDriverTrain}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+
+                        <FilterSection
+                            title="Capacidad de pasajeros"
+                            options={passengersOptions}
+                            open={openPassengers}
+                            onToggle={togglePassengers}
+                            setselectfiltroOptions={setselectfiltroOptions}
+                        />
+
                     </div>
 
 
@@ -139,7 +221,7 @@ function Principal() {
                 <div className=' xl:mx-auto xl:mt-8 xl:mb-8 mt-5 mb-5'>
                     <div className=' flex justify-between w-full xl:flex xl:justify-between items-center gap-2 lg:justify-between xl:items-center xl:gap-6 md:w-full xl:relative md:flex md:justify-between md:relative md:gap-1 md:items-center md:mt-3 md:mb-3'>
                         <div>
-                            <h2 className=" xl:top-0 xl:left-0 mr-10 xl:mt-2 xl:mb-2 xl:ml-2 xl:mr-2 xl:text-3xl xl:text-center md:left-0 md:text-[1rem] md:mr-1">12 Resultados</h2>
+                            <h2 className=" xl:top-0 xl:left-0 mr-10 xl:mt-2 xl:mb-2 xl:ml-2 xl:mr-2 xl:text-3xl xl:text-center md:left-0 md:text-[1rem] md:mr-1">{filtroCarUsed.length} Resultados</h2>
 
                         </div>
                         <div className="flex items-center gap-2">
@@ -154,7 +236,7 @@ function Principal() {
                 </div>
 
                 {
-                    LisCarUsed.map((dato, index) => (
+                    filtroCarUsed.map((dato, index) => (
                         <div key={index} data-aos="fade-up" className='  border border-solid px-3 py-1 border-gray-700 lg:max-w-9xl xl:px-3 lg:flex relative xl:items-center gap-4 mb-20 xl:relative overflow-hidden md:py-3 md:px-3' >
                             <div className=' overflow-hidden'>
                                 <img src={dato.Sale.Multimedia.Imagen} className=' w-full h-full lg:w-full lg:h-full xl:w-full xl:h-full xl:bg-gray-200 hover:scale-150 transition-all ease-linear cursor-pointer md:w-full' alt="Jeep Wrangler Unlimited Islander" />

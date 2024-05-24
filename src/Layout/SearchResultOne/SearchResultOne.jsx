@@ -7,7 +7,6 @@ const SearchResultOne = () => {
         <div>
             <Header />
             <Principal />
-            <Footer />
         </div>
     )
 }

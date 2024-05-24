@@ -1,6 +1,10 @@
-
+import React, {useState} from "react";
 const Nosotros = () =>{
-    
+    const [imageNosotros, setimageNosotros] = useState('https://i.ibb.co/N6Vqxxn/panda.png')
+
+    const EditImage = (e) => {
+      
+    }
     return (
      
         <div className="flex justify-center items-center px-16 py-14 mt-20 w-full bg-slate-900 max-md:px-5 max-md:mt-10 max-md:max-w-full bg-[#0B0C10] ">

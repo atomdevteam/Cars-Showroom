@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContextCar } from "../../Context/Context";
 import { FaEdit } from "react-icons/fa";
-
+import { Range } from 'react-range';
+import RangoPrecio from "./Range";
 const Hero = () => {
     const { user, WhichRole, ListCar, LisCarUsed, LisCarNew, handleSearching } = useContextCar()
 
@@ -19,8 +20,11 @@ const Hero = () => {
     const [Marca, setMarca] = useState('')
     const [Modelo, setModelo] = useState('')
 
-    const navigate = useNavigate()
+    const [values, setValues] = useState([0, 3000000]);
+    const min = 0;
+    const max = 3000000;
 
+    const navigate = useNavigate()
 
 
     const handleTodo = () => {
@@ -47,19 +51,28 @@ const Hero = () => {
             search: Search,
             location: Location,
             marca: Marca,
-            modelo: Modelo
+            modelo: Modelo,
+            rangoPrice: values
         }
+
+        console.log(Options)
+        console.log("Todo: " + Todos)
+        console.log("Nuevo: " + Nuevo)
+        console.log("Usado: " + Usado)
 
         if (Todos === true) {
             let Status = 'Todo'
+            console.log(Status)
             handleSearching(Status, navigate, Options)
 
         } else if (Nuevo === true) {
             let Status = 'Nuevo'
+            console.log(Status)
             handleSearching(Status, navigate, Options)
 
         } else {
             let Status = 'Usado'
+            console.log(Status)
             handleSearching(Status, navigate, Options)
         }
     }
@@ -79,8 +92,6 @@ const Hero = () => {
             setTitleHome(newTitle)
         }
     }
-
-
 
 
 
@@ -149,7 +160,7 @@ const Hero = () => {
                                 <div className='rounded-md bg-gray-700 flex justify-between  items-center cursor-pointer ' >
 
                                     <select onChange={(e) => setModelo(e.target.value)} className="rounded-md bg-gray-700 flex justify-between  items-center cursor-pointer px-4 py-3">
-                                        <option value=""  className="text-sm">Modelo</option>
+                                        <option value="" className="text-sm">Modelo</option>
                                         <option value="Camry" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Camry</option>
                                         <option value="Prado" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Prado</option>
                                         <option value="Corolla" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Corolla</option>
@@ -194,14 +205,46 @@ const Hero = () => {
                             <div className="bg-transparent flex flex-col text-white">
                                 <div className="text-lg font-semibold bg-transparent">Rango precio</div>
                                 <div className="mt-1.5 text-sm font-medium bg-transparent">
-                                    $.0 - $3,000,000.00
+                                    ${values[0].toLocaleString()} - ${values[1].toLocaleString()}
                                 </div>
                             </div>
 
+
                             <div className="flex gap-0 py-1.5 my-auto bg-[#12232E]">
+                                <Range
+                                    step={1}
+                                    min={min}
+                                    max={max}
+                                    values={values}
+                                    onChange={(values) => setValues(values)}
+                                    renderTrack={({ props, children }) => (
+                                        <div
+                                            {...props}
+                                            className="shrink-0 self-start mt-2 max-w-full h-2 rounded w-[264px] bg-[#12232E]"
+                                            style={{ ...props.style }}
+                                        >
+                                            {children}
+                                        </div>
+                                    )}
+                                    renderThumb={({ props }) => {
+                                        const { key, ...otherProps } = props; // Destructure key from props
+                                        return (
+                                            <div
+                                                key={key}
+                                                {...otherProps} // Spread the rest of the props without the key
+                                                className="shrink-0 w-6 h-6 bg-blue-400 rounded-full"
+                                                style={{ ...otherProps.style }}
+                                            />
+                                        );
+                                    }}
+                                />
+
+
+                                {/* 
                                 <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full " />
                                 <div className="shrink-0 self-start mt-2 max-w-full h-2  rounded w-[264px] bg-[#12232E]" />
-                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full  " />
+
+                                <div className="shrink-0 w-6 h-6 bg-blue-400 rounded-full  " /> */}
                             </div>
                         </div>
 

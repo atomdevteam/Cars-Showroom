@@ -21,6 +21,10 @@ export function ProviderContext({ children }) {
   const [CarDatos, setCarDatos] = useState([])
   const [WhichRole, setWhichRole] = useState(null)
   const [SerchingCar, setSerchingCar] = useState([])
+  const [filtroSearching, setfiltroSearching] = useState([])
+  const [filtroCarNew, setFiltroCarNew] = useState([])
+  const [filtroCarUsed, setFiltroCarUsed] = useState([])
+
 
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -86,6 +90,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.search.trim().length !== 0 &&
       Options.location.trim().length !== 0
@@ -101,6 +106,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.search.trim().length !== 0 &&
       Options.marca.trim().length !== 0
@@ -116,6 +122,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.search.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -131,6 +138,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.location.trim().length !== 0 &&
       Options.marca.trim().length !== 0
@@ -146,6 +154,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.location.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -161,6 +170,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.marca.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -176,6 +186,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (Options.search.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -186,6 +197,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (Options.location.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -196,6 +208,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (Options.marca.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -206,6 +219,7 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (Options.modelo.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -216,18 +230,16 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      navigate('/SearchResultOne');
     } else if (
       Options.search.trim().length === 0 &&
       Options.location.trim().length === 0 &&
       Options.marca.trim().length === 0 &&
       Options.modelo.trim().length === 0
     ) {
+      console.log("Si opciones")
+      console.log(ListCar)
       setSerchingCar(ListCar)
-    }
-
-    if (SerchingCar.length === 0) {
-      alert("No se encontraron coche")
-    } else {
       navigate('/SearchResultOne');
     }
 
@@ -241,18 +253,17 @@ export function ProviderContext({ children }) {
 
     if (Status === 'Todo') {
       filterCars(ListCar, Options, normalizeString, navigate)
+      
     } else if (Status === 'Nuevo') {
       filterCars(LisCarNew, Options, normalizeString, navigate)
+     
     } else if (Status === 'Usado') {
       filterCars(LisCarUsed, Options, normalizeString, navigate)
+    
     }
 
-    // Llama a navigate al final independientemente de las condiciones
 
   };
-
-
-
 
 
   return (
@@ -275,7 +286,14 @@ export function ProviderContext({ children }) {
         setWhichRole,
         handleRemove,
         handleSearching,
-        SerchingCar
+        SerchingCar,
+        setSerchingCar,
+        setfiltroSearching,
+        filtroSearching,
+        filtroCarNew,
+        setFiltroCarNew,
+        filtroCarUsed,
+        setFiltroCarUsed,
       }}
     >
       {children}

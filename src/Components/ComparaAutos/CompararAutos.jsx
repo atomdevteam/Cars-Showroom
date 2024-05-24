@@ -54,8 +54,8 @@ const ComprarAutos = () => {
                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
 
                         {[car1, car2].map((car, index) => (
-                            <>
-                                <div key={index} className="flex flex-col mx-8 w-[33%] max-md:ml-0 max-md:w-full">
+                            <React.Fragment key={index}>
+                                <div className="flex flex-col mx-8 w-[33%] max-md:ml-0 max-md:w-full">
                                     <div className="flex flex-col grow p-4 mx-auto w-full text-base font-bold text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                                         <img
                                             loading="lazy"
@@ -123,18 +123,19 @@ const ComprarAutos = () => {
                                             <div className="flex-auto">(12 Reviews)</div>
                                         </div>
                                     </div>
+
+
                                 </div>
 
                                 {index === 0 && (
                                     <div className="justify-center items-center px-8 py-8 my-auto text-4xl text-white font-semibold whitespace-nowrap bg-blue-400 rounded-full h-[106px] w-[106px] max-md:px-8">
-                                        VS 
+                                        VS
                                     </div>
                                 )}
-
-                            </>
+                            </React.Fragment>
 
                         ))}
-                      
+
                     </div>
                 </div>
 
