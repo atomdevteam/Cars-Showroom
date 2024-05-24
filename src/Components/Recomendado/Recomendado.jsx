@@ -10,12 +10,12 @@ const Recomendado = () => {
                     Autos recomendados
                 </div>
                 <div className="flex w-full mt-3 px-6 py-3 justify-between font-bold  lg:text-2xl  ">
-                    <div className="flex gap-16 text-blue-500 fo ">
+                    <div className="flex  gap-2 md:gap-16 text-blue-500 fo ">
                         <button className="border-b p-2 px-4 border-blue-500">
                             Nuevo
                         </button>
 
-                        <button className="opacity-55">
+                        <button className="opacity-55 p-2 px-4">
                             Usado
                         </button>
                     </div>
@@ -34,7 +34,7 @@ const Recomendado = () => {
                 <div className="mt-6 max-md:max-w-full">
                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
 
-                        <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
+                        <div data-aos="zoom-out-up" className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
                             <div className="flex flex-col grow p-4 mx-auto w-full text-base font-bold overflow-hidden text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                                 <div className="relative">
                                     <img
@@ -105,7 +105,7 @@ const Recomendado = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
+                        <div data-aos="zoom-out-up" className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
                             <div className="flex flex-col grow p-4 mx-auto w-full text-base font-bold overflow-hidden text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                             <div className="relative">
                                 <img
@@ -119,7 +119,7 @@ const Recomendado = () => {
                                 <button className="justify-center self-start px-3 py-1 mt-4 text-sm text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid">
                                     Nuevo
                                 </button>
-                                <div className="mt-3 text-xl font-title">
+                                <div className="mt-3 text-3xl md:text-[19px] font-title">
                                     Ford F-250 Super Duty
                                 </div>
 
@@ -152,7 +152,7 @@ const Recomendado = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex gap-9 mt-4 whitespace-nowrap max-md:pr-5">
+                                <div className="flex justify-between gap-9 mt-4 whitespace-nowrap max-md:pr-5">
                                     <div className="flex gap-1.5">
                                         <img
                                             loading="lazy"
@@ -182,7 +182,7 @@ const Recomendado = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
+                        <div data-aos="zoom-out-up" className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full overflow-hidden">
                             <div className="flex flex-col grow p-4 mx-auto w-full text-base overflow-hidden font-bold text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                                 <div className="relative">
                                     <img
@@ -194,7 +194,7 @@ const Recomendado = () => {
                                 <button className="justify-center self-start px-3 py-1 mt-4 text-sm text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid">
                                     Nuevo
                                 </button>
-                                <div className="mt-3 text-xl font-title">
+                                <div className="mt-3 text-3xl md:text-[19px] font-title">
                                     Honda Pilot Touring 7-Passenger
                                 </div>
                                 <div className="mt-3 text-2xl text-sky-600">$43,735</div>
@@ -220,7 +220,7 @@ const Recomendado = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex gap-9 mt-4 whitespace-nowrap max-md:pr-5">
+                                <div className="flex justify-between gap-9 mt-4 whitespace-nowrap max-md:pr-5">
                                     <div className="flex gap-1.5">
                                         <img
                                             loading="lazy"

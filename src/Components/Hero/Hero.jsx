@@ -149,9 +149,15 @@ const Hero = () => {
                                 <div className='md:w-7 md:h-7 z-10 w-8 h-8 top-0 bottom-0 lg:w-7 lg:h-7 md:absolute absolute md:top-0 md:bottom-0 m-auto rounded-full right-0 bg-blue-500'></div>
                             </div>
                         </div>
-                        <Link to='/SearchResultOne' className="w-full md:w-[16rem] hover:bg-slate-400 hover:text-blue-700 duration-200 transition-all justify-center px-16 md:px-3 lg:px-4 lg:max-w-40  py-4 text-center text-white  bg-sky-600 rounded ">
-                            Buscar
-                        </Link>
+                        <div className="w-full md:w-[16rem] relative justify-center px-16 transition-all hover:text-blue-700 cursor-pointer hover:bg-slate-400 md:px-3 lg:px-4 lg:max-w-40  py-4 text-center text-white  bg-sky-600 rounded ">
+                            <div className="md:after:content-['Buscar'] cursor-pointer  md:hover:after:text-3xl md:hover:after:py-2 hover:transition-transform transition-colors md:after:bg-white md:hover:after:text-blue-500 md:after:absolute md:after:left-0 md:after:right-0 md:hover:after:text-10xl  md:after:top-0 md:after:bottom-0 md:hover:after:scale-x-100  md:after:scale-x-0 after:transition-transform">
+                                <Link to='/SearchResultOne' className="z-50">
+                                    <p className=" z-50">Buscar</p>
+                                </Link>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
