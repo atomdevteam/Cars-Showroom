@@ -6,7 +6,7 @@ const CharacteristicsCar = () => {
         setOpen(!open)
     }
     return(
-        <div className='bg-[#071620]  text-white mb-8 rounded-xl'>
+        <div data-aos="zoom-in-down" className='bg-[#071620]  text-white mb-8 rounded-xl'>
         <div className='ml-8 mr-8  mt-8 cursor-pointer'>
             <div className="flex justify-center items-center" onClick={Abre}>
                 <div className="text-center flex-grow">

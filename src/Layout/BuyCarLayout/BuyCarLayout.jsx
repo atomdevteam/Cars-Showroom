@@ -8,13 +8,13 @@ import HistoryCar from '../../Components/HistoryCar/HistoryCar'
 import CarCompra from '../../Components/CarCompra/CarCompra'
 import Navbar from '../NavBar/NavBar'
 import Imgherotwo from "../../assets/img/Imgherotwo.jpg"
-
+import aos from "aos"
 const BuyCarLayout = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <>
-        <nav className={` bg-transparentrelative overflow-hidden border-gray-200 `}>
-            <img src={Imgherotwo} alt="Hero Image" className=' brightness-50 -z-10  absolute -top-[7rem] md:-top-36 lg:-top-[500px] w-full object-contain' />
+        <nav data-aos="fade-down-left" className={` bg-transparentrelative overflow-hidden border-gray-200 `}>
+            <img  src={Imgherotwo} alt="Hero Image" className=' brightness-50 -z-10 contrast-100  absolute -top-[7rem] md:-top-36 lg:-top-[500px] w-full object-contain' />
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4 z-50">
                 <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse z-50">
                     <img src="https://i.ibb.co/xXWCwHF/logo.png" className="h-12" alt="logo" />

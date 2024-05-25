@@ -6,7 +6,7 @@ const Dimensiondetails = () => {
         setOpen(!open)
     }
     return (
-        <div className='bg-[#071620] z-50  text-white mb-8 rounded-xl'>
+        <div data-aos="zoom-in-down" className='bg-[#071620] z-50  text-white mb-8 rounded-xl'>
             <div className='ml-8 mr-8  mt-8'>
                 <div className="flex justify-center items-center cursor-pointer" onClick={Abre}> 
                     <div className="text-center flex-grow">

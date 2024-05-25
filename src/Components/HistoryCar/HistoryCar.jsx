@@ -8,7 +8,7 @@ const HistoryCar = () => {
         setOpen(!open)
     }
     return (
-        <div className='bg-[#071620]  text-white mb-8 rounded-xl cursor-pointer'>
+        <div data-aos="zoom-in-down" className='bg-[#071620]  text-white mb-8 rounded-xl cursor-pointer'>
             <div className='ml-8 mr-8  mt-8'>
                 <div className="flex justify-center items-center" onClick={Abre}> 
                     <div className="text-center flex-grow">

@@ -19,7 +19,7 @@ const CarCompra = () => {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
 
-                            <div className="rounded-lg border hover:bg-blue-950 transition-all cursor-pointer z-30 border-gray-800 p-3 min-h-[400px]">
+                            <div data-aos="fade-down-right"className="rounded-lg border hover:bg-blue-950 transition-all cursor-pointer z-30 border-gray-800 p-3 min-h-[400px]">
                                 <img src={Car6} alt="Placeholder Image" className="w-full cursor-pointer blur-[1px] hover:blur-none brightness-50 hover:scale-105 hover:contrast-125 hover:brightness-100 h-48 rounded-md object-cover" />
                                 <div className="px-1 py-4">
                                     <button className="text-[#007CC7] border border-[#007CC7] mb-2 px-3">New</button>
@@ -61,7 +61,7 @@ const CarCompra = () => {
                                 </div>
 
                             </div>
-                            <div className="rounded-lg border hover:bg-blue-950 transition-all cursor-pointer z-30 border-gray-800 p-3 min-h-[400px]">
+                            <div data-aos="fade-down-left" className="rounded-lg border hover:bg-blue-950 transition-all cursor-pointer z-30 border-gray-800 p-3 min-h-[400px]">
                                 <img src={Car7} alt="Placeholder Image" className="w-full cursor-pointer blur-[1px] hover:blur-none brightness-50 hover:scale-105 hover:contrast-125 hover:brightness-100 h-48 rounded-md object-cover" />
                                 <div className="p-1 py-4">
                                     <button className="text-[#007CC7] border border-[#007CC7] mb-2 px-3">New</button>
@@ -105,7 +105,7 @@ const CarCompra = () => {
 
                           
 
-                            <div className="rounded-lg border hover:bg-slate-300 transition-all cursor-pointer hover:text-blue-500 border-gray-800 p-6  flex items-center justify-center flex-col text-gray-400 min-h-[400px]">
+                            <div data-aos="flip-down" className="rounded-lg border hover:bg-slate-300 transition-all cursor-pointer hover:text-blue-500 border-gray-800 p-6  flex items-center justify-center flex-col text-gray-400 min-h-[400px]">
 
                                 <div className="">
                                     <FaCar size={100} />
