@@ -9,7 +9,7 @@ const ComprarAutos = () => {
                 <div className="flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
                     <div className="flex flex-col">
                         <div className="text-2xl font-bold text-white ">
-                            Comparar Autos
+                            Comprar Autos
                         </div>
 
                         <div className="flex gap-0 mt-7 text-xl font-black text-sky-600 whitespace-nowrap">
