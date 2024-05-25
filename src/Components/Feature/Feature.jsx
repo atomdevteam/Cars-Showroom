@@ -1,53 +1,110 @@
 import React from 'react'
 import CheckBox from '../Checkbox/CheckBox'
-
+import { useState } from 'react'
+import flechatop from "../../assets/img/flechatop.png"
 const Feature = () => {
+    const [open, setOpen]=useState(false)
+    const Abre=()=>{
+        setOpen(!open)
+    }
     return (
 
-        <div className='bg-[#071620]  text-white mb-12'>
+        <div className='bg-[#071620] rounded-lg  text-white mb-12'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
-                <div className='text-left'>
+                <div className='text-left flex justify-between items-center cursor-pointer' onClick={Abre}>
                     <h3 className=' underline text-2xl'>Features</h3>
+                    <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
                 </div>
                 <div className='mt-8 '>
+                    {open?
                     <form className='max-w-full'>
                         <div className='mb-4 grid gap-6  lg:grid-cols-1 w-full'>
                             <div className='mb-8'>
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Buscar</label>
-                                <input type="search" className="bg-[#12232E] text-sm block w-full p-2.5" required />
+                                <input type="search" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg hover:bg-slate-500 transition-all" required />
                             </div>
                         </div>
 
                         <div className='mb-8 grid gap-6  lg:grid-cols-4 w-full'>
 
-                            <CheckBox text={"Dirección asistida"} />
-                            <CheckBox text={"Asientos con calefacción "} />
-                            <CheckBox text={"Sensor de estacionamiento trasero"} />
-                            <CheckBox text={"USB Port"} />
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Direccion'/>
+                                <label htmlFor="Direccion" className='hover:cursor-pointer'>Direccion Asistida</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='calefacción'/>
+                                <label htmlFor="calefacción" className='hover:cursor-pointer'>Asientos con calefacción</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Sensor'/>
+                                <label htmlFor="Sensor" className='hover:cursor-pointer'>Sensor de estacionamiento trasero</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='USB'/>
+                                <label htmlFor="USB" className='hover:cursor-pointer'>USB Port</label>
+                            </div>
 
-                            <CheckBox text={"AC"} />
-                            <CheckBox text={"Wifi"} />
-                            <CheckBox text={"Barra de techo"} />
-                            <CheckBox text={"Sistema de sonido"} />
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='AC'/>
+                                <label htmlFor="AC" className='hover:cursor-pointer'>AC</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Wifi'/>
+                                <label htmlFor="Wifi" className='hover:cursor-pointer'>Wifi</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Barra'/>
+                                <label htmlFor="Barra" className='hover:cursor-pointer'>Barra de techo</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='sonido'/>
+                                <label htmlFor="sonido" className='hover:cursor-pointer'>Sistema de sonido</label>
+                            </div>
+ 
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Alarma'/>
+                                <label htmlFor="Alarma" className='hover:cursor-pointer'>Alarma</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='crucero'/>
+                                <label htmlFor="crucero" className='hover:cursor-pointer'>Control de crucero</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Ventanas'/>
+                                <label htmlFor="Ventanas" className='hover:cursor-pointer'>Ventanas eléctricas</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='memoria'/>
+                                <label htmlFor="memoria" className='hover:cursor-pointer'>Asiento con memoria</label>
+                            </div>
 
-                            <CheckBox text={"Alarma"} />
-                            <CheckBox text={"Control de crucero"} />
-                            <CheckBox text={"Ventanas eléctricas "} />
-                            <CheckBox text={"Asiento con memoria"} />
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Bluetooth'/>
+                                <label htmlFor="Bluetooth" className='hover:cursor-pointer'>Bluetooth</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='delantero'/>
+                                <label htmlFor="delantero" className='hover:cursor-pointer'>Sensor de estacionamiento delantero</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='corredizo'/>
+                                <label htmlFor="corredizo" className='hover:cursor-pointer'>Techo corredizo</label>
+                            </div>
+                            <div className=' items-center py-2' >
+                                <input className='w-4 h-4 mr-1' type="checkbox" id='Otro'/>
+                                <label htmlFor="Otro" className='hover:cursor-pointer'>Otro</label>
+                            </div>
 
-                            <CheckBox text={"Bluetooth"} />
-                            <CheckBox text={"Sensor de estacionamiento delantero"} />
-                            <CheckBox text={"Techo corredizo"} />
-                            <CheckBox text={"Otro"} />
 
                         </div>
 
-                        <div className='mb-4'>
+                        <div className='mb-4 '>
 
-                            <textarea type="text" className="bg-[#12232E] text-sm block w-full p-8" placeholder='Escribe otra característica aquí. ' required />
+                            <textarea type="text" className="bg-[#12232E] rounded-lg text-sm block w-full p-8" placeholder='Escribe otra característica aquí. ' required />
                         </div>
 
                     </form>
+                    :""}
                 </div>
             </div>
 

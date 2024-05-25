@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-
+import flechatop from "../../assets/img/flechatop.png"
 const CarDetails = () => {
     const [capacity, setCapacity] = useState(1);
-
+    const [open, setOpen]=useState(false)
+    const Abre=()=>{
+        setOpen(!open)
+    }
     const decreaseCapacity = () => {
         if (capacity > 1) {
             setCapacity(capacity - 1);
@@ -13,17 +16,19 @@ const CarDetails = () => {
         setCapacity(capacity + 1);
     };
     return (
-        <div className='bg-[#071620] w-auto  text-white mb-8'>
+        <div className='bg-[#071620] rounded-lg w-auto -mt-[6rem] text-white mb-8'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
-                <div className='text-left'>
-                    <h3 className=' underline text-2xl'>Detalles del colche</h3>
+                <div className='text-left flex justify-between cursor-pointer items-center' onClick={Abre}>
+                    <h3 className=' underline items-center text-2xl'>Detalles del coche</h3>
+                    <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
                 </div>
                 <div className='mt-8 '>
+                    {open ? 
                     <form className='max-w-full'>
                         <div className='mb-4 grid gap-6  lg:grid-cols-2 w-full'>
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Título</label>
-                                <input type="text" id="title" className="bg-[#12232E] text-sm block w-full p-2.5" required />
+                                <input type="text" id="title" className="bg-[#12232E] text-sm rounded-lg hover:bg-slate-500 transition-all block w-full p-2.5" required />
                             </div>
                             <div>
                                 <label htmlFor="condicion" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Condición </label>
@@ -46,7 +51,7 @@ const CarDetails = () => {
                             <div className="grid gap-6 mb-6 lg:grid-cols-3">
                                 <div>
                                     <label htmlFor="Typeofload" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipo de cuerpo</label>
-                                    <select id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5" required>
+                                    <select id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="sedan">Sedán</option>
                                         <option value="coupe">Coupé</option>
@@ -55,7 +60,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="Brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Marca</label>
-                                    <select id="Brand" className="bg-[#12232E] text-sm block w-full p-2.5" required>
+                                    <select id="Brand" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="toyota">Toyota</option>
                                         <option value="honda">Honda</option>
@@ -64,7 +69,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="Model" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Modelo</label>
-                                    <select id="Model" className="bg-[#12232E] text-sm block w-full p-2.5" required>
+                                    <select id="Model" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="corolla">Corolla</option>
                                         <option value="civic">Civic</option>
@@ -79,7 +84,7 @@ const CarDetails = () => {
                             <div className="grid gap-6 mb-6 lg:grid-cols-3">
                                 <div>
                                     <label htmlFor="Year" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Año</label>
-                                    <select id="Year" className="bg-[#12232E] text-sm block w-full p-2.5" required>
+                                    <select id="Year" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Seleccionar</option>
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
@@ -94,7 +99,7 @@ const CarDetails = () => {
                                             -
                                         </button>
                                         <input
-                                            type="number"
+                                            type="text"
                                             value={capacity}
                                             onChange={(e) => setCapacity(parseInt(e.target.value))}
                                             min={1}
@@ -109,7 +114,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="ExteriorColor" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Color exterior</label>
-                                    <select id="ExteriorColor" className="bg-[#12232E] text-sm block w-full p-2.5" required>
+                                    <select id="ExteriorColor" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all " required>
                                         <option value="">Seleccionar</option>
                                         <option value="Blanco">Blanco</option>
                                         <option value="Negro">Negro</option>
@@ -122,10 +127,11 @@ const CarDetails = () => {
                         </div>
                         <div className='mb-4'>
                             <label htmlFor="Description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Descripción </label>
-                            <textarea type="text" id="Description" className="bg-[#12232E] text-sm block w-full p-8" required />
+                            <textarea type="text" id="Description" className="bg-[#12232E] rounded-lg cursor-pointer text-sm block w-full p-8" placeholder='Escriba su Descripción...' required />
                         </div>
 
                     </form>
+                    :""}
                 </div>
             </div>
 
