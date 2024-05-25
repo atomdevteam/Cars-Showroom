@@ -95,8 +95,8 @@ const CarSaleLayout = () => {
 
             </div>
             <div className='md:py-28 md:px-12  text-left z-50 bg-transparent text-white px-1 m-16 py-20'>
-                <h1 className='md:text-[3rem] text-[1.9rem] bg-transparent z-10'>Comprar Coche</h1>
-                <h3 className='md:text-[2rem] bg-transparent'>Homepage - Comprar Coche</h3>
+                <h1 className='md:text-[3rem] text-[1.9rem] bg-transparent z-10'>Vender Coche</h1>
+                <h3 className='md:text-[2rem] bg-transparent'>Homepage - Vender Coche</h3>
             </div>
         </nav>
            
