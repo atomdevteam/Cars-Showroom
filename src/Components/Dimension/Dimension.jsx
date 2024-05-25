@@ -7,7 +7,7 @@ const Dimension = () => {
         setOpen(!open)
     }
     return (
-            <div className='bg-[#071620] rounded-lg  text-white mb-8'>
+            <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-8'>
                 <div className='ml-8 mr-8  mt-8'>
                     <div className='text-left flex justify-between cursor-pointer items-center' onClick={Abre}>
                         <h3 className=' underline text-2xl'>Dimensión</h3>

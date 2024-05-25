@@ -17,7 +17,7 @@ const CarSaleLayout = () => {
         
         <>
             <nav  className={` bg-transparentrelative overflow-hidden border-gray-200 `}>
-            <img  src={Heroimgthree} alt="Hero Image" className=' brightness-50 -z-10 contrast-100  absolute -top-[10rem] md:-top-[4rem] xl:-top-[100px] xl:w-full xl:h-full lg:object-cover lg:-top-[100px] w-full h-full object-cover ' />
+            <img   src={Heroimgthree} alt="Hero Image" className=' brightness-50 -z-10 contrast-100  absolute -top-[10rem] md:-top-[4rem] xl:-top-[100px] xl:w-full xl:h-full lg:object-cover lg:-top-[0px] w-full h-full object-cover ' />
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4 z-50">
                 <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse z-50">
                     <img src="https://i.ibb.co/xXWCwHF/logo.png" className="h-12" alt="logo" />
@@ -101,7 +101,7 @@ const CarSaleLayout = () => {
         </nav>
            
             <div className='flex bg-black flex-col px-6'>
-                    <CarDetails />
+                    <  CarDetails />
                     <EngineDetails />
                     <Dimension />
                     <Feature />

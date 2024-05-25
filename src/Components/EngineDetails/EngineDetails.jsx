@@ -7,7 +7,7 @@ const EngineDetails = () => {
     }
     return (
        
-            <div className='bg-[#071620] rounded-lg  text-white mb-8'>
+            <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-8'>
                 <div className='ml-8 mr-8 mb-12 mt-8'>
                     <div className='text-left flex justify-between items-center cursor-pointer' onClick={Abre}>
                         <h3 className=' underline text-2xl'>Detalles del motor</h3>

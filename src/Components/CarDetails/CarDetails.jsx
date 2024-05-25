@@ -16,7 +16,7 @@ const CarDetails = () => {
         setCapacity(capacity + 1);
     };
     return (
-        <div className='bg-[#071620] rounded-lg w-auto -mt-[6rem] text-white mb-8'>
+        <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg w-auto -mt-[6rem] text-white mb-8'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
                 <div className='text-left flex justify-between cursor-pointer items-center' onClick={Abre}>
                     <h3 className=' underline items-center text-2xl'>Detalles del coche</h3>
