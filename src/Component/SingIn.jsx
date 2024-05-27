@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useContextCar } from "../Context/Context";
+import { useNavigate } from "react-router-dom"
 const SignIn = () => {
 
-    const { SignInAuth } = useContextCar()
+    const { SignInAuth,  setWhichRole } = useContextCar()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [phone, setPhone] = useState('')
+    const navigate = useNavigate()
 
     const handleSubmit = () => {
         const datos = {
@@ -17,7 +19,7 @@ const SignIn = () => {
             role: 'user'
         }
 
-        SignInAuth(datos)
+        SignInAuth(datos, navigate, setWhichRole)
     }
 
     return (
@@ -84,7 +86,7 @@ const SignIn = () => {
 
                             <div className="self-center mt-7 text-center text-blue-400">
                                 Ya tienes una cuenta?{" "}
-                                <a href="#/LogIn" className="font-bold text-blue-400">Login</a>
+                                <a href="#/LognIn" className="font-bold text-blue-400">Login</a>
                             </div>
                         </div>
                     </div>

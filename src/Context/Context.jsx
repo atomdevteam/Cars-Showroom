@@ -43,7 +43,11 @@ export function ProviderContext({ children }) {
 
 
   useEffect(() => {
-    ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
+    if (user) {
+      ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
+
+    }
+
   }, [])
 
   const Formatnumber = (number) => {
@@ -90,7 +94,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.search.trim().length !== 0 &&
       Options.location.trim().length !== 0
@@ -106,7 +114,12 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
+      
     } else if (
       Options.search.trim().length !== 0 &&
       Options.marca.trim().length !== 0
@@ -122,7 +135,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.search.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -138,7 +155,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.location.trim().length !== 0 &&
       Options.marca.trim().length !== 0
@@ -154,7 +175,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.location.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -170,7 +195,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.marca.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
@@ -186,7 +215,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (Options.search.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -197,7 +230,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (Options.location.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -208,7 +245,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (Options.marca.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -219,7 +260,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (Options.modelo.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
@@ -230,7 +275,11 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     } else if (
       Options.search.trim().length === 0 &&
       Options.location.trim().length === 0 &&
@@ -240,7 +289,11 @@ export function ProviderContext({ children }) {
       console.log("Si opciones")
       console.log(ListCar)
       setSerchingCar(ListCar)
-      navigate('/SearchResultOne');
+      if (user) {
+        navigate('/SearchResultOne');
+      }else {
+        navigate('/LognIn')
+      }
     }
 
   };
@@ -253,13 +306,13 @@ export function ProviderContext({ children }) {
 
     if (Status === 'Todo') {
       filterCars(ListCar, Options, normalizeString, navigate)
-      
+
     } else if (Status === 'Nuevo') {
       filterCars(LisCarNew, Options, normalizeString, navigate)
-     
+
     } else if (Status === 'Usado') {
       filterCars(LisCarUsed, Options, normalizeString, navigate)
-    
+
     }
 
 

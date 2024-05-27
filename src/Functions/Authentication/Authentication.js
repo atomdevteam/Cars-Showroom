@@ -32,7 +32,7 @@ export const LognInAuth = (email, password, navigate, setWhichRole) => {
     });
 }
 
-export const SignInAuth = (datos) => {
+export const SignInAuth = (datos, navigate, setWhichRole) => {
 
   createUserWithEmailAndPassword(auth, datos.email, datos.password)
 
@@ -57,6 +57,7 @@ export const SignInAuth = (datos) => {
       )
 
       SaveUser(datos, user.uid)
+      LognInAuth(datos.email, datos.password, navigate, setWhichRole)
 
     })
 
