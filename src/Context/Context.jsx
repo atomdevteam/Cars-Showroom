@@ -59,6 +59,7 @@ export function ProviderContext({ children }) {
   return (
     <Context.Provider
       value={{
+
         SignInAuth,
         LognInAuth,
         user,

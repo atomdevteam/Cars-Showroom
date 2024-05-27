@@ -6,10 +6,16 @@ import { FaEdit } from "react-icons/fa";
 
 const AboutUs = () => {
 
-    const { user, WhichRole } = useContextCar()
+    const { user, WhichRole,isOpenEditImg, setisOpenEditImg } = useContextCar()
     const [opentwo, setOpenTwo] = useState(false);
     const [Descnosotros, setdescnosotros] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet tortor ut sit sit. Velit imperdiet integer elementum a scelerisque pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in. Venenatis arcu semper lectus quis sit in rhoncus auctor.')
     const [DesLogro, setdesLogro] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet tortor ut sit sit. Velit imperdiet integer elementum a scelerisque pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in. Venenatis arcu semper lectus quis sit in rhoncus auctor.')
+    const [Fecha, setFecha] = useState('7 de Mayo del 2024')
+    const [ComprarNuevo, setComprarNuevo] = useState('Comprar un auto nuevo')
+    const [ComprarUsado, setComprarUsado] = useState('Comprar un auto usado')
+    const [VenderMiAuto, setVenderAuto] = useState('Vender mi auto')
+
+
 
     const handleEditTexNosotros = () => {
         const newTitle = prompt('Edit descripcion de la empresa:', Descnosotros);
@@ -25,8 +31,38 @@ const AboutUs = () => {
         }
     }
 
+    const handleEditFecha = () => {
+        const newTexFecha = prompt('Editar la fecha:', Fecha);
+        if (newTexFecha !== null) {
+            setFecha(newTexFecha)
+        }
+    }
 
 
+    const handleOpenEditImage = () => {
+        setisOpenEditImg(!isOpenEditImg)
+      }
+
+    const handleEditCarsNuevo = () => {
+        const newTextCarsNuevo = prompt('Editar carro Nuevo', ComprarNuevo);
+        if (newTextCarsNuevo != null) {
+            setComprarNuevo(newTextCarsNuevo)
+        }
+    }
+
+    const handleEditCarsUsado = () => {
+        const newTextCarsUsado = prompt('Editar carro usado:', ComprarUsado);
+        if (newTextCarsUsado != null) {
+            setComprarUsado(newTextCarsUsado)
+        }
+    }
+
+    const handleEditCarsVender = () => {
+        const newTextCarsVender = prompt('Editar vender carro: ', VenderMiAuto);
+        if (newTextCarsVender != null) {
+            setVenderAuto(newTextCarsVender)
+        }
+    }
 
 
 
@@ -42,21 +78,34 @@ const AboutUs = () => {
                 {/* <p className="px-8 mt-8 mb-12 text-lg text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut placeat nobis distinctio dolores incidunt id esse velit labore atque debitis doloribus accusamus libero similique, animi alias reprehenderit totam corporis repudiandae?</p> */}
 
                 <div className="flex flex-row items-center">
-                    <div className="px-8 mt-8 mb-12 text-lgfont-semibold text-white max-md:max-w-full max-md:text-4xl">
+                    <div className="px-8 mt-8 mb-12 text-lg font-semibold text-white max-md:max-w-full max-md:text-lg">
                         {Descnosotros}
                     </div>
                     {user && WhichRole === 'admin' && (
                         <div className="px-3 py-2 text-right  text-xs leading-4">
                             <button onClick={() => handleEditTexNosotros()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                <FaEdit size={14} className="text-yellow-400" />
+                                <FaEdit size={14} className="text-yellow-400 " />
                             </button>
                         </div>
                     )}
                 </div>
 
                 <div className="bg-[#0B0C10] border-solid rounded-lg border-2 border-sky-500p-4" >
-                    <p className="text-lg font-semibold text-white p-2">7 de mayo de 2024</p>
+
+                    <div className="text-lg font-semibold text-white p-2">
+                        {Fecha}
+                    </div>
+
                 </div>
+                {user && WhichRole === 'admin' && (
+                    <div className="px-3 py-2 text-right  text-xs leading-4">
+                        <button onClick={() => handleEditFecha()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                            <FaEdit size={14} className="text-yellow-400" />
+                        </button>
+                    </div>
+                )}
+
+
             </div>
 
             <div className="flex justify-center items-center">
@@ -69,10 +118,12 @@ const AboutUs = () => {
                             className="grow shrink-0 aspect-[2.56] basis-0 w-fit max-md:max-w-full"
                         />
 
+
                     </div>
-                    <div className="mt-20 text-2xl font-bold text-zinc-300 max-md:mt-10">
+                    <h1 className="mt-20 text-2xl font-bold text-zinc-300 max-md:mt-10">
                         Nuestro servicio
-                    </div>
+                    </h1>
+
                     <div className="mt-6 w-full max-w-[991px] max-md:max-w-full">
                         <div className="flex gap-4 max-md:flex-col max-md:gap-0">
                             <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
@@ -82,7 +133,16 @@ const AboutUs = () => {
                                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/51d15406ba6e5ad16cf03f69ed338167a4e4b79c985e789bab33e32287866bed?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
                                         className="self-center w-12 aspect-square"
                                     />
-                                    <div className="mt-3.5 ">Comprar un auto nuevo</div>
+                                    <div className="mt-3.5 ">{ComprarNuevo}</div>
+                                    {user && WhichRole === 'admin' && (
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={() => handleEditCarsNuevo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
+
+
                                 </div>
                             </div>
                             <div className="flex flex-col ml-5 w-[40%] max-md:ml-0 max-md:w-full">
@@ -92,7 +152,15 @@ const AboutUs = () => {
                                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/1c1fdedfeaf8dea80ee6185ac6a39a2d1993d37ca06bdeb83d34607b8a766988?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
                                         className="self-center w-12 aspect-square"
                                     />
-                                    <div className="mt-3.5">Comprar un auto usado</div>
+                                    <div className="mt-3.5"> {ComprarUsado} </div>
+
+                                    {user && WhichRole === 'admin' && (
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={() => handleEditCarsUsado()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <div className="flex flex-col ml-5 w-[40%] max-md:ml-0 max-md:w-full">
@@ -102,7 +170,15 @@ const AboutUs = () => {
                                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/8db7bbb2f228a3e2dd1dbc3ff5effec1ebcf26ffb88ef187d70ede740e8844f2?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
                                         className="self-center w-12 aspect-square"
                                     />
-                                    <div className="mx-2.5 mt-3.5">Vender mi auto</div>
+                                    <div className="mx-2.5 mt-3.5"> {VenderMiAuto} </div>
+
+                                    {user && WhichRole === 'admin' && (
+                                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                                            <button onClick={() => handleEditCarsVender()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -117,12 +193,9 @@ const AboutUs = () => {
 
                             <div className="flex z-10 px-5 flex-col mt-0 max-w-full w-[420px] max-md:mt-0">
 
-                                {/* <div className="text-xl ml-5 text-zinc-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel aliquet
-                                    tortor ut sit sit. Velit imperdiet integer elementum a scelerisque
-                                    pulvinar venenatis sodales. Quis nulla euismod feugiat at interdum in.
-                                    Venenatis arcu semper lectus quis sit in rhoncus auctor.
-                                </div> */}
+                               
+
+                              
 
                                 <div className="flex flex-row items-center">
                                     <div className="px-8 mt-8 mb-12 text-lgfont-semibold text-white max-md:max-w-full max-md:text-4xl">

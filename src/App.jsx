@@ -19,11 +19,16 @@ import ProductFord from './Layout/ProductFord/ProductFord'
 import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
 import { useContextCar } from './Context/Context'
+
 function App() {
+
+  // const [isOpenEditImg, setisOpenEditImg] = useState(false)
 
 
 
   return (
+
+  
     <>
 
       <Router>

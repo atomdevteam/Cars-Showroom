@@ -10,6 +10,7 @@ const Hero = () => {
     const [DescHome, setDescHome] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
 
 
+    
 
     const ChangeTwo = () => {
         setOpenTwo(!opentwo)
@@ -29,7 +30,9 @@ const Hero = () => {
         }
     }
 
-    
+    // const handleOpenEditImage = () => {
+    //     setisOpenEditImg(!isOpenEditImg)
+    //   }
 
    
 

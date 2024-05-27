@@ -17,9 +17,10 @@ const Nosotros = () => {
     }
   }
 
+
   return (
 
-    <div className="flex justify-center items-center px-16 py-14 mt-20 w-full bg-slate-900 max-md:px-5 max-md:mt-10 max-md:max-w-full bg-[#0B0C10] ">
+    <div className="flex justify-center items-center px-16 py-14 mt-20 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full bg-[#0B0C10] ">
       <div className="bg-transparent w-full max-w-[1225px] max-md:max-w-full">
         <div className="bg-transparent flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="bg-transparent flex flex-col w-[37%] max-md:ml-0 max-md:w-full">
