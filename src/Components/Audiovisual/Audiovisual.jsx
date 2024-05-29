@@ -2,7 +2,7 @@ import React from 'react'
 
 const Audiovisual = () => {
     return (
-        <div className='bg-[#071620]  text-white mb-12'>
+        <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-12'>
             <div className='ml-8 mr-8  mt-8'>
                 <div className='text-left '>
                     <h3 className=' underline text-2xl'>Imágenes y video</h3>
@@ -21,7 +21,7 @@ const Audiovisual = () => {
                                                 <label htmlFor={`file-upload-1`} className="px-3 py-2 text-right text-xs leading-4">
                                                     <div className="bg-black text-white px-4 py-2 rounded-full   text-center cursor-pointer">
                                                         <input id={`file-upload-1`} type="file" className="hidden" />
-                                                        <span className='text-4xl text-white'>
+                                                        <span className='text-4xl items-center text-white'>
                                                             +
                                                         </span>
                                                     </div>
@@ -33,7 +33,7 @@ const Audiovisual = () => {
                                 <div className='mb-4 grid gap-6  lg:grid-cols-1 w-full'>
                                     <div className='mb-8'>
                                         <label className="block mb-2 text-sm font-medium text-white ">Enlace para el video </label>
-                                        <input type="text" className="bg-[#12232E]  text-sm block w-full p-2.5 " required />
+                                        <input type="text" className="bg-[#12232E] hover:bg-slate-400 rounded-lg  text-sm block w-full p-2.5 " required />
                                     </div>
                                 </div>
                             </div>
