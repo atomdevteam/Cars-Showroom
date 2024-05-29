@@ -5,8 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        title:["Black Ops One", "system-ui"],
+      
+    },
+    fontSize:{
+      price:["Press Start 2P", "system-ui"]
+    }
   },
   plugins: [],
 }
-
+}

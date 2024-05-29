@@ -1,10 +1,12 @@
 
 import { useState } from "react"
+import Imghero from "../../../assets/img/Imghero.jpg"
 function HeaderSection({ background }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <nav className={`bg-[#12232E] border-gray-200 ${background}`}>
-            <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+        <nav className={` border-gray-200  bg-transparent ${background}`}>
+            <div className="relative z-40 overflow-hidden ">
+                <div className="flex flex-wrap z-40 items-center justify-between max-w-screen-xl mx-auto p-4">
                 <a href="https://flowbite.com" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="https://i.ibb.co/xXWCwHF/logo.png" className="h-12" alt="logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden md:inline">Cars Showroom</span>
@@ -80,10 +82,14 @@ function HeaderSection({ background }) {
                 </div>
 
             </div>
-            <div className='md:py-28 md:px-12 bg-transparent text-white px-10 py-10'>
-                <h1 className='md:text-[3rem] text-[1.9rem] bg-transparent'>Autos Nuevos</h1>
-                <h3 className='md:text-[2rem] bg-transparent'>Homepage - Autos Nuevos</h3>
+            <div className='md:py-40 md:px-12 overflow-auto bg-transparent text-white px-10 py-10'>
+            <img src={Imghero} alt="" className="w-[100%] -z-10 blur-sm -top-28 lg:-top-40 xl:-top-[600px] contrast-100 brightness-50 absolute opacity-90 top-0 left-0  "/>
+                <h1 className='md:text-[3rem] text-[1.9rem] bg-transparent z-50 text-white'>Autos Nuevos</h1>
+                <h3 className='md:text-[2rem] bg-transparent z-40 text-white'>Homepage - Autos Nuevos</h3>
             </div>
+
+            </div>
+            
         </nav>
     )
 }

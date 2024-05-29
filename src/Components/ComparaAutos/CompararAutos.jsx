@@ -2,26 +2,16 @@
 const ComprarAutos = () => {
 
     return (
-        <div className=" bg-transparent flex justify-center items-center px-17 py-3 max-md:px-5 bg-[#0B0C10]">
+        <div className=" bg-transparent flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]">
 
             <div className="flex flex-col mt-10 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full ">
 
                 <div className="flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
                     <div className="flex flex-col">
                         <div className="text-2xl font-bold text-white ">
-                            Comparar Autos
+                            Comprar Autos
                         </div>
 
-                        <div className="flex gap-0 mt-7 text-xl font-black text-sky-600 whitespace-nowrap">
-                            <button className="flex flex-col justify-center text-center">
-                                <div>Nuevo</div>
-                                <div className="shrink-0 mt-2 h-0.5 bg-sky-600 rounded-sm" />
-                            </button>
-
-                            <button className="justify-end items-start px-10 pt-1.5 pb-3.5 max-md:px-5">
-                                Usado
-                            </button>
-                        </div>
                     </div>
 
                 </div>
@@ -30,29 +20,29 @@ const ComprarAutos = () => {
                 <div className="mt-8 max-md:max-w-full ">
                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
 
-                        <div className="flex flex-col mx-8 w-[33%] max-md:ml-0 max-md:w-full">
+                        <div data-aos="fade-left" className="flex flex-col w-[50%] max-md:ml-0 max-md:w-full">
                             <div className="flex flex-col grow p-4 mx-auto w-full text-base font-bold text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                                 <img
                                     loading="lazy"
                                     srcSet="https://i.ibb.co/hynQ3wm/Ford.png"
-                                    className="w-full aspect-[1.49]"
+                                    className="w-full aspect-[1.49] lg:hover:scale-105 lg:brightness-50 contrast-125 lg:blur-[0.1rem] lg:hover:blur-0 lg:hover:brightness-100 lg:hover:contrast-125 cursor-pointer transition-all"
                                 />
                                 <button className="justify-center self-start px-3 py-1 mt-4 text-sm text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid">
                                     Nuevo
                                 </button>
-                                <div className="mt-3 text-xl font-semibold">
+                                <div className="mt-3 text-4xl font-title">
                                     Ford F-250 Super Duty
                                 </div>
 
                                 <div className="flex gap-2.5 mt-3 whitespace-nowrap max-md:ml-2.5">
                                     <div className="text-2xl font-bold text-sky-600">$82,098</div>
-                                    <div className="my-auto text-base font-medium text-neutral-400">
+                                    <div className="my-auto text-base font-medium line-through text-neutral-400">
                                         $83,500
                                     </div>
                                 </div>
 
                                 <div className="mt-4 font-semibold">SFM, DO</div>
-                                <div className="flex gap-5 justify-between mt-3.5 w-full max-md:pr-5">
+                                <div className="flex gap-7 justify-between mt-3.5 w-full max-md:pr-5">
                                     <div className="flex gap-1 whitespace-nowrap">
                                         <img
                                             loading="lazy"
@@ -73,7 +63,7 @@ const ComprarAutos = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex gap-5 mt-4 whitespace-nowrap max-md:pr-5">
+                                <div className="flex justify-between gap-9 mt-4 whitespace-nowrap max-md:pr-5">
                                     <div className="flex gap-1.5">
                                         <img
                                             loading="lazy"
@@ -102,22 +92,22 @@ const ComprarAutos = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="justify-center items-center px-8 py-8 my-auto text-4xl text-white font-semibold whitespace-nowrap bg-blue-400 rounded-full h-[106px] w-[106px] max-md:px-8">
+                    
+                        <div data-aos="flip-left" className="justify-center items-center md:m-auto md:-mr-5 px-8 py-8 m-auto mt-6 text-4xl text-white font-semibold whitespace-nowrap bg-blue-400 rounded-full h-[106px] w-[106px] max-md:px-8">
                             VS
                         </div>
 
-                        <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                        <div data-aos="fade-right" className="flex flex-col ml-5 w-[50%] max-md:ml-0 max-md:w-full">
                             <div className="flex flex-col grow p-4 mx-auto w-full text-base font-bold text-white rounded border-2 border-solid bg-zinc-950 border-slate-900 max-md:mt-6">
                                 <img
                                     loading="lazy"
                                     srcSet="https://i.ibb.co/dcKjhRd/Honda.png"
-                                    className="w-full aspect-[1.49]"
+                                    className="w-full aspect-[1.49] lg:hover:scale-105 lg:brightness-50 contrast-125 lg:blur-[0.1rem] lg:hover:blur-0 lg:hover:brightness-100 lg:hover:contrast-125 cursor-pointer transition-all"
                                 />
                                 <button className="justify-center self-start px-3 py-1 mt-4 text-sm text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid">
                                     Nuevo
                                 </button>
-                                <div className="mt-3 text-xl font-semibold">
+                                <div className="mt-3 text-4xl font-title">
                                     Honda Pilot Touring 7-Passenger
                                 </div>
                                 <div className="mt-3 text-2xl text-sky-600">$43,735</div>
@@ -143,7 +133,7 @@ const ComprarAutos = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex gap-5 mt-4 whitespace-nowrap max-md:pr-5">
+                                <div className="flex justify-between gap-5 mt-4 whitespace-nowrap max-md:pr-5">
                                     <div className="flex gap-1.5">
                                         <img
                                             loading="lazy"
@@ -176,7 +166,7 @@ const ComprarAutos = () => {
                 </div>
 
 
-                <button className="text-white justify-center items-center self-center px-16 py-4 mt-7 max-w-full text-base font-semibold text-center rounded border border-white border-solid w-[604px] max-md:px-5">
+                <button className="text-white hover:bg-blue-500 hover:text-white hover:transition-all transition-all justify-center items-center self-center px-16 py-4 mt-7 max-w-full text-base font-semibold text-center rounded border border-white border-solid w-[604px] max-md:px-5">
                     Comparar Autos
                 </button>
 

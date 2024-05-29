@@ -12,7 +12,7 @@ const Vehiclehistory = () => {
         }
     };
     return (
-        <div className='bg-[#071620]  text-white mb-12'>
+        <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-12'>
             <div className='ml-8 mr-8  mt-8'>
                 <div className='text-left '>
                     <h3 className=' underline text-2xl'>Historial del vehículo </h3>
