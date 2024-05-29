@@ -19,10 +19,10 @@ const BuyCarLayout = () => {
                 <div className='h-[10rem] bg-[#0B0C10] text-white mb-16'>
                     <div className='ml-10 lg:ml-[8rem] flex flex-col'>
                         <h1 className='mt-8 text-4xl'>
-                            Comprar coche
+                            Comparar coche
                         </h1>
                         <div className='mt-4'>
-                            Homepage-comprar
+                            Homepage-Comparar
                         </div>
                     </div>
                 </div>

@@ -89,8 +89,9 @@ function Principal() {
 
         if (!isAnyFilterNotEmpty(selectfiltroOptions)) {
             console.log('No se han seleccionado filtros.');
-            console.log(SerchingCar)
-            setfiltroSearching(SerchingCar)
+       
+            console.log(JSON.parse(localStorage.getItem("SerchingCar")))
+            setfiltroSearching(JSON.parse(localStorage.getItem("SerchingCar")))
             return;
         }
 

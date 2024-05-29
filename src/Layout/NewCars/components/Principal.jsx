@@ -85,7 +85,8 @@ function Principal() {
 
         if (!isAnyFilterNotEmpty(selectfiltroOptions)) {
             console.log('No se han seleccionado filtros.');
-            setFiltroCarNew(LisCarNew)
+            setFiltroCarNew(JSON.parse(localStorage.getItem("newCars")))
+            
             return;
         }
 
@@ -94,10 +95,8 @@ function Principal() {
             return str.toLowerCase().trim().replace(/\s+/g, ' ');
         };
     
-
-        // Datos para filtrar, son arreglo cada uno con los datos
         const { Year, Marca, Modelo, Estado, Transmision, Combustible, DriverTrain, CapacidadPasajeros } = selectfiltroOptions;
-        console.log(Year)
+
         const filteredCars = LisCarNew.filter(car => {
            const year = normalizeString(car.Sale.DetalleCoche.Year)
            const marca = normalizeString(car.Sale.DetalleCoche.Marca)
@@ -107,7 +106,7 @@ function Principal() {
            const combustibles = normalizeString(car.Sale.DetalleMotor.TipoCombustimble)
            const driverTrain = normalizeString(car.Sale.DetalleMotor.DriverTrain)
            const capacidadPasajeros = normalizeString(car?.Sale?.DetalleCoche.Capacidad?.toString())
-
+        
             return (
                 (Year.length === 0 || Year.includes(year)) &&
                 (Marca.length === 0 || Marca.includes(marca)) &&

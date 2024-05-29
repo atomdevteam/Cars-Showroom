@@ -24,6 +24,7 @@ export function ProviderContext({ children }) {
   const [filtroSearching, setfiltroSearching] = useState([])
   const [filtroCarNew, setFiltroCarNew] = useState([])
   const [filtroCarUsed, setFiltroCarUsed] = useState([])
+  const [ListComparar, setListComparar] = useState([])
 
 
   useEffect(() => {
@@ -72,6 +73,8 @@ export function ProviderContext({ children }) {
 
   const filterCars = (ListCar, Options, normalizeString, navigate) => {
 
+    console.log(Options.rangoPrice[0] + ' ' + Options.rangoPrice[1])
+
     let filteredCars = [];
 
     if (
@@ -94,9 +97,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -114,12 +118,13 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
-      
+
     } else if (
       Options.search.trim().length !== 0 &&
       Options.marca.trim().length !== 0
@@ -135,9 +140,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -155,9 +161,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -175,9 +182,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -195,9 +203,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -215,9 +224,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (Options.search.trim().length !== 0) {
@@ -230,9 +240,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (Options.location.trim().length !== 0) {
@@ -245,9 +256,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (Options.marca.trim().length !== 0) {
@@ -260,9 +272,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (Options.modelo.trim().length !== 0) {
@@ -275,9 +288,10 @@ export function ProviderContext({ children }) {
       });
 
       setSerchingCar(filteredCars);
+      localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     } else if (
@@ -289,9 +303,10 @@ export function ProviderContext({ children }) {
       console.log("Si opciones")
       console.log(ListCar)
       setSerchingCar(ListCar)
+      localStorage.setItem("SerchingCar", JSON.stringify(ListCar))
       if (user) {
         navigate('/SearchResultOne');
-      }else {
+      } else {
         navigate('/LognIn')
       }
     }
@@ -347,6 +362,8 @@ export function ProviderContext({ children }) {
         setFiltroCarNew,
         filtroCarUsed,
         setFiltroCarUsed,
+        ListComparar,
+        setListComparar
       }}
     >
       {children}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useContextCar } from "../../Context/Context";
-
+import { useNavigate } from "react-router-dom";
 const ComprarAutos = () => {
-    const { ListCar, Formatnumber } = useContextCar();
+    const { ListCar, Formatnumber, CarDatos, setCarDatos, ListComparar, setListComparar } = useContextCar();
+    const navigate = useNavigate()
     const [car1, setCar1] = useState(null);
     const [car2, setCar2] = useState(null);
 
@@ -23,6 +24,20 @@ const ComprarAutos = () => {
     if (!car1 || !car2) {
         return <div>Cargando...</div>;
     }
+    const handleAddAutos = (e) => {
+        e.preventDefault();
+
+        const carsToAdd = [car1, car2].filter(car => !CarDatos.some(item => item.IdCarSale === car.IdCarSale));
+
+        if (CarDatos.length + carsToAdd.length > 2) {
+            alert('Solo puede agregar dos autos.');
+        } else {
+            setCarDatos([...CarDatos, ...carsToAdd]);
+            setListComparar([...ListComparar, ...carsToAdd]);
+            navigate('/BuyCar')
+        }
+    };
+    
 
     return (
         <div className=" bg-transparent flex justify-center items-center px-17 py-3 max-md:px-5 bg-[#0B0C10]">
@@ -139,8 +154,7 @@ const ComprarAutos = () => {
                     </div>
                 </div>
 
-
-                <button className="text-white justify-center items-center self-center px-16 py-4 mt-7 max-w-full text-base font-semibold text-center rounded border border-white border-solid w-[604px] max-md:px-5">
+                <button onClick={handleAddAutos} className="text-white justify-center items-center self-center px-16 py-4 mt-7 max-w-full text-base font-semibold text-center rounded border border-white border-solid w-[604px] max-md:px-5">
                     Comparar Autos
                 </button>
 

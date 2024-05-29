@@ -12,9 +12,9 @@ import { FaStar } from "react-icons/fa";
 import { useContextCar } from "../../Context/Context";
 import Modal from "./Modal";
 const CarCompra = () => {
-    const { Formatnumber, CarDatos, setCarDatos, handleRemove } = useContextCar()
+    const { Formatnumber, CarDatos, setCarDatos, handleRemove, ListComparar, setListComparar} = useContextCar()
     const [IsOpenSelectCar, setIsOpenSelectCar] = useState(false)
-    const [ListComparar, setListComparar] = useState([])
+    
 
 
 

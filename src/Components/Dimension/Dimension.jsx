@@ -38,7 +38,7 @@ const Dimension = ({ updateDimension }) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Anch0</label>
+                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ancho</label>
                                     <div className="flex">
 
                                         <input onChange={(e) => setAncho(e.target.value)} type="text" className="bg-[#12232E] text-sm block w-full p-2.5" required />

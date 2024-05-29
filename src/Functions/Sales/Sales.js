@@ -68,13 +68,17 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
 
                 CarSale.push(data);
             });
+            localStorage.setItem("newCars", JSON.stringify(newCars))
+            setLisCarNew(JSON.parse(localStorage.getItem("newCars")));
 
-            setLisCarNew(newCars);
-            setLisCarUsed(usedCars);
-            setListCar(CarSale);
+            localStorage.setItem("usedCars", JSON.stringify(usedCars))
+            setLisCarUsed(JSON.parse(localStorage.getItem("usedCars")));
+            
+            localStorage.setItem("CarSale", JSON.stringify(CarSale))
+            setListCar(JSON.parse(localStorage.getItem("CarSale")));
+              
         });
 
-        // Devuelve la función de cancelación para que puedas detener la escucha cuando sea necesario
         return unsubscribe;
     } catch (error) {
         console.error("Error al obtener los datos de la colección 'CarSale':", error);

@@ -84,7 +84,7 @@ function Principal() {
         if (!isAnyFilterNotEmpty(selectfiltroOptions)) {
             console.log('No se han seleccionado filtros.');
             console.log(LisCarUsed)
-            setFiltroCarUsed(LisCarUsed)
+            setFiltroCarUsed(JSON.parse(localStorage.getItem("usedCars")))
             return;
         }
 
@@ -96,7 +96,7 @@ function Principal() {
 
         // Datos para filtrar, son arreglo cada uno con los datos
         const { Year, Marca, Modelo, Estado, Transmision, Combustible, DriverTrain, CapacidadPasajeros } = selectfiltroOptions;
-        console.log(Year)
+
         const filteredCars = LisCarUsed.filter(car => {
             const year = normalizeString(car.Sale.DetalleCoche.Year)
             const marca = normalizeString(car.Sale.DetalleCoche.Marca)
