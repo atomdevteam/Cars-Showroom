@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { IoIosArrowUp } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { TbPlayerPlay } from "react-icons/tb";
@@ -7,24 +7,28 @@ import Car2 from "../../assets/Car/Car2.jpeg"
 import Car3 from "../../assets/Car/Car3.jpeg"
 import Car4 from "../../assets/Car/Car4.jpeg"
 const ListAudioVisual = () => {
-
+    const[open, setOpen]=useState(false)
+    const Abre =()=>{
+        setOpen(!open)
+    }
     return (
-        <div className='bg-[#071620]  text-white mb-8'>
+        <div data-aos="zoom-in-down" className='bg-[#071620]  text-white mb-8 cursor-pointer rounded-xl'>
             <div className='ml-8 mr-8  mt-8'>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center" onClick={Abre}>
                     <div className="text-center flex-grow">
                         <h3 className="text-2xl">Imágenes y Videos </h3>
                     </div>
                     <div>
-                        <IoIosArrowUp size={25} />
+                        <IoIosArrowUp size={25} className={`${open ? "rotate-180" : ""}`} />
                     </div>
                 </div>
 
 
                 <div className='border border-t-1 border-gray-600 mt-3'></div>
                 <div className='mt-8 '>
+                    
                     <div className='max-w-full'>
-
+                        {open ?
                         <div className=''>
                             {/* <div className="grid mb-4 lg:grid-cols-2 items-center">
                                 <div className="bg-[#12232E]  block w-3/4">
@@ -120,8 +124,9 @@ const ListAudioVisual = () => {
 
 
                         </div>
-
+                    :""}
                     </div>
+                    
                 </div>
             </div>
         </div>
