@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useContextCar } from '../../Context/Context';
 import Avatar from './Avatar/Avatar';
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Navbar = ({ background }) => {
 
-    const { user, logout } = useContextCar()
+    const { user, logout, WhichRole } = useContextCar()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -34,11 +34,11 @@ const Navbar = ({ background }) => {
                         {/* Profile */}
                         {user ? <div className="relative ml-3">
                             <div className='flex flex-row items-center'>
-                             <span className="mr-4 text-white">{user.displayName}</span>
+                                <span className="mr-4 text-white">{user.displayName}</span>
                                 <button onClick={() => setopenSettingUser(!openSettingUser)} type="button" className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span className="absolute -inset-1.5"></span>
                                     <span className="sr-only">Open user menu</span>
-                                   
+
                                     <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                                 </button>
                             </div>
@@ -48,6 +48,10 @@ const Navbar = ({ background }) => {
 
                                     <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-0">Your Profile</a>
                                     <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-1">Settings</a>
+                                    {user && WhichRole === 'Owner' && (
+                                        <Link to='/TableUser' className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-1">Usuarios</Link>
+                                    )}
+                                    
                                     <button onClick={(e) => handleLogout(e)} className="block px-4 py-2 w-full text-sm text-left text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-2">Sign out</button>
                                 </div>
                             )}

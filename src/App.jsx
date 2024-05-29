@@ -20,6 +20,7 @@ import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
 import { useContextCar } from './Context/Context'
 import SignInLayout from './Layout/SignInLayout/SignInLayout'
+import TableUserLayout from './Layout/TableUserLayout/TableUserLayout'
 function App() {
 
 
@@ -46,6 +47,7 @@ function App() {
           <Route path='/AboutUS' element={<AboutUSLayout />} />
           <Route path='/SingIn' element={<SignInLayout />} />
           <Route path='/LognIn' element={<LogInLayout />} />
+          <Route path='/TableUser' element={<TableUserLayout />} />
         </Routes>
       </Router>
       <Footer />

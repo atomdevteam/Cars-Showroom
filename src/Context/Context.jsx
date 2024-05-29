@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 //Functions
-import { SignInAuth, LognInAuth, logout, ListUser } from "../Functions/Authentication/Authentication"
+import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
 const Context = createContext()
 
@@ -25,6 +25,7 @@ export function ProviderContext({ children }) {
   const [filtroCarNew, setFiltroCarNew] = useState([])
   const [filtroCarUsed, setFiltroCarUsed] = useState([])
   const [ListComparar, setListComparar] = useState([])
+  const [ListAllUser, setListAllUser] = useState([])
 
 
   useEffect(() => {
@@ -39,8 +40,10 @@ export function ProviderContext({ children }) {
     if (user) {
       ListUser(user.uid, setWhichRole)
       ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
+      ListAllUsers(setListAllUser)
     }
   }, [user])
+
 
 
   useEffect(() => {
@@ -363,7 +366,10 @@ export function ProviderContext({ children }) {
         filtroCarUsed,
         setFiltroCarUsed,
         ListComparar,
-        setListComparar
+        setListComparar,
+        ListAllUser,
+        updateUserRole,
+        setListAllUser
       }}
     >
       {children}
