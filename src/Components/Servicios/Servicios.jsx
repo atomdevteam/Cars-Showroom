@@ -53,7 +53,7 @@ const Servicios = () => {
 
 
                             <div className="mt-3.5 ">{ComprarNuevo}</div>
-                            {user && WhichRole === 'admin' && (
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
                                     <button onClick={() => handleEditCarsNuevo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                         <FaEdit size={14} className="text-yellow-400" />
@@ -76,7 +76,7 @@ const Servicios = () => {
 
                             <div className="mt-3.5"> {ComprarUsado} </div>
 
-                            {user && WhichRole === 'admin' && (
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
                                     <button onClick={() => handleEditCarsUsado()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                         <FaEdit size={14} className="text-yellow-400" />
@@ -97,7 +97,7 @@ const Servicios = () => {
 
                             <div className="mx-2.5 mt-3.5"> {VenderMiAuto} </div>
 
-                            {user && WhichRole === 'admin' && (
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                 <div className="px-3 py-2 text-right  text-xs leading-4">
                                     <button onClick={() => handleEditCarsVender()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                         <FaEdit size={14} className="text-yellow-400" />
