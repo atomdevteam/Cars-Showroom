@@ -5,6 +5,8 @@ import { auth } from "../firebase/firebase"
 //Functions
 import { SignInAuth, LognInAuth, logout , ListUser } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
+// import ModalCarsRe from "../Components/Modals/ModalCarsRe/ModalCarsRE"
+
 const Context = createContext()
 
 export const useContextCar = () => {
@@ -14,6 +16,8 @@ export const useContextCar = () => {
 }
 
 export function ProviderContext({ children }) {
+
+  const [isOpenModal, setOpenModal] = useState(false)
 
   const [user, setUser] = useState(null)
   const [LisCarNew, setLisCarNew] = useState([])
@@ -76,6 +80,7 @@ export function ProviderContext({ children }) {
         setCarDatos,
         WhichRole,
         setWhichRole
+
       }}
     >
       {children}

@@ -19,6 +19,7 @@ import ProductFord from './Layout/ProductFord/ProductFord'
 import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
 import { useContextCar } from './Context/Context'
+import FormularioReserva from './Components/FormularioReserva/FormularioReserva'
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/AboutUS' element={<AboutUSLayout />} />
           <Route path='/SingIn' element={<SingIn />} />
           <Route path='/LognIn' element={<LogInLayout />} />
+          <Route path='/FormularioReserva' element={<FormularioReserva />} />
         </Routes>
       </Router>
       <Footer />
