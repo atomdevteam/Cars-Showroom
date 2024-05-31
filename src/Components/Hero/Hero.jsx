@@ -6,7 +6,7 @@ import { Range } from 'react-range';
 import RangoPrecio from "./Range";
 
 const Hero = () => {
-
+    const { user, WhichRole } = useContextCar()
 
     const [opentwo, setOpenTwo] = useState(false);
     const [openone, setOpenOne] = useState(false);
@@ -111,154 +111,127 @@ const Hero = () => {
 
                 </div>
 
-                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                    <div className="px-3 py-2 text-right  text-xs leading-4">
-                        <button onClick={() => handleEditTextHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                            <FaEdit size={14} className="text-yellow-400" />
+
+                <div className="flex flex-col z-20 justify-center xl:mt-[10rem] p-6 mt-40 bg-gray-900 rounded max-md:px-5 md:mt-[6rem] lg:mt-[5rem] max-md:max-w-full">
+                    <div className="w-full justify-center px-4 flex gap-10 self-center max-w-full text-[1.3rem]  text-sky-600 whitespace-nowrap">
+                        <button
+                            onClick={() => handleTodo()}
+                            className={`${Todos === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5 `}>
+                            Todos
+                        </button>
+
+                        <button
+                            onClick={() => handleNuevo()}
+                            className={`${Nuevo === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
+                            Nuevos
+                        </button>
+
+                        <button
+                            onClick={() => handleUsado()}
+                            className={`${Usado === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
+                            Usados
                         </button>
                     </div>
-                )}
-            </div>
 
+                    <div className="bg-transparent flex gap-5 justify-between items-start mt-6 text-sm font-semibold text-white whitespace-nowrap max-md:flex-wrap">
 
-
-
-            <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full">
-                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit.{""} */}
-                <div className="flex flex-row items-center">
-                    <div className="mt-7 text-2xl font-semibold text-white max-md:max-w-full max-md:text-4xl">
-                        {DescHome}
-                    </div>
-                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                        <div className="px-3 py-2 text-right  text-xs leading-4">
-                            <button onClick={() => handleEditDesctHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                <FaEdit size={14} className="text-yellow-400" />
-                            </button>
+                        <div className="relative bg-transparent w-full">
+                            <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg className="bg-transparent w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
+                            </div>
+                            <input  type="search" id="simple-search" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5 w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
                         </div>
-                    )}
-                </div>
 
-            </div>
+                        <div className="flex w-full gap-5">
+                            <div className="w-full"  >
+                                <div className=' bg-gray-700 rounded  '>
+                                    <select  className='w-full p-2.5 rounded-md  bg-gray-700 flex justify-between transition-all  items-center cursor-pointer  ' >
+                                        <option className="bg-transparent py-3 text-sm text-white" >Modelo</option>
+                                        <option value="Camry" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm ">Camry</option>
+                                        <option value="Prado" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Prado</option>
+                                        <option value="Corolla" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Corolla</option>
+                                        <option value="Yari" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Yari</option>
 
-            <div className="flex flex-col z-20 justify-center xl:mt-[10rem] p-6 mt-40 bg-gray-900 rounded max-md:px-5 md:mt-[6rem] lg:mt-[5rem] max-md:max-w-full">
-                <div className="w-full justify-center px-4 flex gap-10 self-center max-w-full text-[1.3rem]  text-sky-600 whitespace-nowrap">
-                    <button
-                        onClick={() => handleTodo()}
-                        className={`${Todos === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5 `}>
-                        Todos
-                    </button>
+                                    </select>
 
-                    <button
-                        onClick={() => handleNuevo()}
-                        className={`${Nuevo === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
-                        Nuevos
-                    </button>
+                                </div>
+                            </div>
 
-                    <button
-                        onClick={() => handleUsado()}
-                        className={`${Usado === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
-                        Usados
-                    </button>
-                </div>
+                            <div className="w-full"  >
+                                <div className=' bg-gray-700 rounded  '>
+                                    <select  className='w-full p-2.5 rounded-md  bg-gray-700 flex justify-between  transition-all  items-center cursor-pointer  ' >
+                                        <option className="bg-transparent py-3 text-sm text-white" >Marca</option>
+                                        <option value="Toyota" className="text-white hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Toyota</option>
+                                        <option value="Mercedes Benz" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Mercedes Benz</option>
+                                        <option value="Hyundai" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Hyundai</option>
+                                        <option value="Honda" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Honda</option>
 
-                <div className="bg-transparent flex gap-5 justify-between items-start mt-6 text-sm font-semibold text-white whitespace-nowrap max-md:flex-wrap">
+                                    </select>
 
-                    <div className="relative bg-transparent w-full">
-                        <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg className="bg-transparent w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
+                                </div>
+                            </div>
+
                         </div>
-                        <input type="search" id="simple-search" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5 w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
+
                     </div>
 
-                    <div className="flex w-full gap-5">
-                        <div className="w-full"  >
-                            <div className=' bg-gray-700 rounded  '>
-                                <select className='w-full p-2.5 rounded-md  bg-gray-700 flex justify-between transition-all  items-center cursor-pointer  ' >
-                                    <option className="bg-transparent py-3 text-sm text-white" >Modelo</option>
-                                    <option value="Camry" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 rounded-sm ">Camry</option>
-                                    <option value="Prado" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Prado</option>
-                                    <option value="Corolla" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Corolla</option>
-                                    <option value="Yari" className="bg-gray-700 hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Yari</option>
 
-                                </select>
+                    <div className="bg-transparent flex gap-5 justify-between items-start mt-4 max-md:flex-wrap">
+
+                        <div className="  relative bg-transparent w-full md:w-[12rem] lg:w-full">
+
+                            <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg className="bg-transparent w-5 h-5  text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M12,6a4,4,0,1,0,4,4A4,4,0,0,0,12,6Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,12Z" /><path d="M12,24a5.271,5.271,0,0,1-4.311-2.2c-3.811-5.257-5.744-9.209-5.744-11.747a10.055,10.055,0,0,1,20.11,0c0,2.538-1.933,6.49-5.744,11.747A5.271,5.271,0,0,1,12,24ZM12,2.181a7.883,7.883,0,0,0-7.874,7.874c0,2.01,1.893,5.727,5.329,10.466a3.145,3.145,0,0,0,5.09,0c3.436-4.739,5.329-8.456,5.329-10.466A7.883,7.883,0,0,0,12,2.181Z" /></svg>
 
                             </div>
+                            <input type="text" id="location" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 md:w-[10rem] lg:w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ubicación" required />
                         </div>
 
-                        <div className="w-full"  >
-                            <div className=' bg-gray-700 rounded  '>
-                                <select className='w-full p-2.5 rounded-md  bg-gray-700 flex justify-between  transition-all  items-center cursor-pointer  ' >
-                                    <option className="bg-transparent py-3 text-sm text-white" >Marca</option>
-                                    <option value="Toyota" className="text-white hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Toyota</option>
-                                    <option value="Mercedes Benz" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Mercedes Benz</option>
-                                    <option value="Hyundai" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Hyundai</option>
-                                    <option value="Honda" className=" hover:bg-slate-400 hover:text-blue-500 cursor-pointer transition-all px-5 ">Honda</option>
-
-                                </select>
-
+                        <div className="bg-transparent w-full md:flex gap-4 justify-start py-0.5 max-md:flex-wrap md:max-w-full">
+                            <div className="bg-transparent flex flex-col text-white md:w-60 lg:w-full md:text-center ">
+                                <div className="text-lg font-semibold bg-transparent">Rango precio</div>
+                                <div className="mt-1.5 text-sm font-medium bg-transparent md:text-[0.8rem] lg:text-[1rem]">
+                                    ${values[0].toLocaleString()} - ${values[1].toLocaleString()}
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-
-                </div>
-
-
-                <div className="bg-transparent flex gap-5 justify-between items-start mt-4 max-md:flex-wrap">
-
-                    <div className="  relative bg-transparent w-full md:w-[12rem] lg:w-full">
-
-                        <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg className="bg-transparent w-5 h-5  text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M12,6a4,4,0,1,0,4,4A4,4,0,0,0,12,6Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,12Z" /><path d="M12,24a5.271,5.271,0,0,1-4.311-2.2c-3.811-5.257-5.744-9.209-5.744-11.747a10.055,10.055,0,0,1,20.11,0c0,2.538-1.933,6.49-5.744,11.747A5.271,5.271,0,0,1,12,24ZM12,2.181a7.883,7.883,0,0,0-7.874,7.874c0,2.01,1.893,5.727,5.329,10.466a3.145,3.145,0,0,0,5.09,0c3.436-4.739,5.329-8.456,5.329-10.466A7.883,7.883,0,0,0,12,2.181Z" /></svg>
-
-                        </div>
-                        <input type="text" id="location" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 md:w-[10rem] lg:w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ubicación" required />
-                    </div>
-
-                    <div className="bg-transparent w-full md:flex gap-4 justify-start py-0.5 max-md:flex-wrap md:max-w-full">
-                        <div className="bg-transparent flex flex-col text-white md:w-60 lg:w-full md:text-center ">
-                            <div className="text-lg font-semibold bg-transparent">Rango precio</div>
-                            <div className="mt-1.5 text-sm font-medium bg-transparent md:text-[0.8rem] lg:text-[1rem]">
-                                ${values[0].toLocaleString()} - ${values[1].toLocaleString()}
-                            </div>
-                        </div>
-
-                        <div className=' relative flex  bg-transparent cursor-pointer w-full md:w-full lg:w-full mt-5 mb-5'>
-                            <Range
-                                step={1}
-                                min={min}
-                                max={max}
-                                values={values}
-                                onChange={(values) => setValues(values)}
-                                renderTrack={({ props, children }) => (
-                                    <div
-                                        {...props}
-                                        className="absolute bg-gray-700 items-center top-0 bottom-0 h-4 md:h-2 m-auto w-full text-center"
-                                        style={{ ...props.style }}
-                                    >
-                                        {children}
-                                    </div>
-                                )}
-                                renderThumb={({ props }) => {
-                                    const { key, ...otherProps } = props;
-                                    return (
+                            <div className=' relative flex  bg-transparent cursor-pointer w-full md:w-full lg:w-full mt-5 mb-5'>
+                                <Range
+                                    step={1}
+                                    min={min}
+                                    max={max}
+                                    values={values}
+                                    onChange={(values) => setValues(values)}
+                                    renderTrack={({ props, children }) => (
                                         <div
-                                            key={key}
-                                            {...otherProps}
-                                            className="shrink-0 w-6 h-6 bg-blue-400 rounded-full"
-                                            style={{ ...otherProps.style }}
-                                        />
-                                    );
-                                }}
-                            />
+                                            {...props}
+                                            className="absolute bg-gray-700 items-center top-0 bottom-0 h-4 md:h-2 m-auto w-full text-center"
+                                            style={{ ...props.style }}
+                                        >
+                                            {children}
+                                        </div>
+                                    )}
+                                    renderThumb={({ props }) => {
+                                        const { key, ...otherProps } = props;
+                                        return (
+                                            <div
+                                                key={key}
+                                                {...otherProps}
+                                                className="shrink-0 w-6 h-6 bg-blue-400 rounded-full"
+                                                style={{ ...otherProps.style }}
+                                            />
+                                        );
+                                    }}
+                                />
+
+                            </div>
 
                         </div>
 
+                        <button  className="justify-center px-16 py-4 text-base font-semibold text-center text-white whitespace-nowrap bg-sky-600 rounded max-md:px-5">
+                            Buscar
+                        </button>
                     </div>
-
-                    <button className="justify-center px-16 py-4 text-base font-semibold text-center text-white whitespace-nowrap bg-sky-600 rounded max-md:px-5">
-                        Buscar
-                    </button>
                 </div>
             </div>
         </div>

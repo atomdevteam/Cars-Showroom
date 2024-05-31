@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import Modal from './Modal';
+import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
 
 const Recomendado = () => {
