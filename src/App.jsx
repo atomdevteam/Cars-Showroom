@@ -20,11 +20,17 @@ import AboutUSLayout from './Layout/AboutUSLayout/AboutUSLayout'
 import Footer from './Layout/Footer/Footer'
 import { useContextCar } from './Context/Context'
 import SignInLayout from './Layout/SignInLayout/SignInLayout'
+import FormularioReserva from './Components/FormularioReserva/FormularioReserva'
+
 function App() {
+
+  // const [isOpenEditImg, setisOpenEditImg] = useState(false)
 
 
 
   return (
+
+  
     <>
 
       <Router>
@@ -46,6 +52,7 @@ function App() {
           <Route path='/AboutUS' element={<AboutUSLayout />} />
           <Route path='/SingIn' element={<SignInLayout />} />
           <Route path='/LognIn' element={<LogInLayout />} />
+          <Route path='/FormularioReserva' element={<FormularioReserva />} />
         </Routes>
       </Router>
       <Footer />
