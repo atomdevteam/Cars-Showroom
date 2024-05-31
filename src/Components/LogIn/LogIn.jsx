@@ -1,5 +1,23 @@
+import React, { useState, useEffect } from "react"
 
-const LogIn = () =>{
+import { useContextCar } from "../../Context/Context"
+
+import { useNavigate } from "react-router-dom"
+
+const LogIn = () => {
+
+    const { LognInAuth, user, setWhichRole } = useContextCar()
+
+    const [email, setEmail] = useState('')
+
+    const [password, setPassword] = useState('')
+
+    const navigate = useNavigate()
+
+    const handleLogIn = () => {
+        LognInAuth(email, password, navigate, setWhichRole) 
+        
+    }
 
     return (
         <div className="flex flex-col items-center px-16 pt-20 pb-2.5 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
@@ -14,18 +32,27 @@ const LogIn = () =>{
                             </div>
 
                             <div className="py-8">
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
-                                
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required />
+
                             </div>
 
                             <div className="py-2">
-                                <label for="contraseña" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Constaseña</label>
-                                <input type="constaseña" name="constaseña" id="constaseña" class="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Constaseña" required />
-                                
+                                <label htmlFor="contraseña" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Constaseña</label>
+                                <input type="password"
+                                    name="constaseña"
+                                    id="constaseña"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="bg-gray-50 border h-12 border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Constaseña" required />
+
                             </div>
-                            
-                            <button className="justify-center items-center px-14 py-4 mt-12 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+
+                            <button onClick={() => handleLogIn()} className="justify-center items-center px-14 py-4 mt-12 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
                                 LogIn
                             </button>
 
@@ -50,13 +77,13 @@ const LogIn = () =>{
                         </div>
                     </div>
 
-                   
+
 
                 </div>
                 <div className="py-8"> d</div>
             </div>
         </div>
-      );
+    );
 }
 
 export default LogIn;

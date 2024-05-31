@@ -1,11 +1,6 @@
 import React from 'react'
-import { useState } from 'react';
-import flechatop from "../../assets/img/flechatop.png"
+
 const Price = () => {
-    const [open, setOpen]=useState(false)
-    const Abre=()=>{
-        setOpen(!open)
-    }
     return (
         <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-12'>
             <div className='ml-8 mr-8  mt-8'>
@@ -25,7 +20,7 @@ const Price = () => {
                                         <div type="button" className="bg-[#004A77] text-white   px-4 py-2 rounded-l  focus:outline-none focus:border-blue-500 focus:ring-blue-500">
                                             $
                                         </div>
-                                        <input type="number"  className="bg-[#12232E] text-sm block w-full p-2.5" required />
+                                        <input onChange={(e) => setPrice(e.target.value)} type="number"  className="bg-[#12232E] text-sm block w-full p-2.5" required />
 
                                     </div>
                                 </div>

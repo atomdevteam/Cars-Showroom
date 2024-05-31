@@ -1,7 +1,24 @@
 import React from 'react'
 import { useState } from "react"
+import { useContextCar } from '../../../Context/Context'
+import { useNavigate } from "react-router-dom"
 function Header({ background }) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logout } = useContextCar()
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const [openSettingUser, setopenSettingUser] = useState(false)
+
+    const navigate = useNavigate()
+
+    const handleLogout = (e) => {
+        e.preventDefault()
+
+        logout()
+        setopenSettingUser(false)
+        navigate('/LognIn')
+    }
+
     return (
         <nav className={`bg-[#12232E] border-gray-200 ${background}`}>
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
@@ -11,7 +28,30 @@ function Header({ background }) {
                 </a>
 
                 <div className="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
-                    <a href="#" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 hidden md:inline">Sign in</a>
+                    {user ? <div className="relative ml-3">
+                        <div>
+                            <button onClick={() => setopenSettingUser(!openSettingUser)} type="button" className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span className="absolute -inset-1.5"></span>
+                                <span className="sr-only">Open user menu</span>
+                                <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                            </button>
+                        </div>
+
+                        {openSettingUser && (
+                            <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-gray-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
+
+                                <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-0">Your Profile</a>
+                                <a href="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-1">Settings</a>
+                                <button onClick={(e) => handleLogout(e)} className="block px-4 py-2 w-full text-sm text-left text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-2">Sign out</button>
+                            </div>
+                        )}
+
+
+                    </div>
+                        :
+                        <a href="#/LognIn" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 hidden md:inline">Sign in</a>
+
+                    }
 
 
                     <button data-collapse-toggle="mega-menu" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
@@ -47,7 +87,7 @@ function Header({ background }) {
                                 <div id="mega-menu-dropdown" className="absolute z-10 grid  w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                                     <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                                         <ul className="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                        <li>
+                                            <li>
                                                 <a href="#/BuyCar" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
                                                     Compara coches
                                                 </a>
