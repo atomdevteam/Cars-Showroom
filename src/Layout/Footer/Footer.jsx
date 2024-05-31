@@ -18,9 +18,7 @@ const Footer = () => {
                         <a href='#/AboutUS' className='mb-4 bg-[#12232E] cursor-pointer' >
                             SOBRE NOSOTROS
                         </a>
-                        <div className='mb-4 bg-[#12232E]'>
-                            FAQ
-                        </div>
+                    
                         <div className='mb-4 bg-[#12232E]'>
                             CONTACTO
                         </div>
