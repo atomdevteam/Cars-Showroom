@@ -81,7 +81,7 @@ const AboutUs = () => {
                     <div className="px-8 mt-8 mb-12 text-lg font-semibold text-white max-md:max-w-full max-md:text-lg">
                         {Descnosotros}
                     </div>
-                    {user && WhichRole === 'admin' && (
+                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                         <div className="px-3 py-2 text-right  text-xs leading-4">
                             <button onClick={() => handleEditTexNosotros()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                 <FaEdit size={14} className="text-yellow-400 " />
@@ -97,7 +97,7 @@ const AboutUs = () => {
                     </div>
 
                 </div>
-                {user && WhichRole === 'admin' && (
+                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                     <div className="px-3 py-2 text-right  text-xs leading-4">
                         <button onClick={() => handleEditFecha()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                             <FaEdit size={14} className="text-yellow-400" />
@@ -134,7 +134,7 @@ const AboutUs = () => {
                                         className="self-center w-12 aspect-square"
                                     />
                                     <div className="mt-3.5 ">{ComprarNuevo}</div>
-                                    {user && WhichRole === 'admin' && (
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
                                             <button onClick={() => handleEditCarsNuevo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                                 <FaEdit size={14} className="text-yellow-400" />
@@ -154,7 +154,7 @@ const AboutUs = () => {
                                     />
                                     <div className="mt-3.5"> {ComprarUsado} </div>
 
-                                    {user && WhichRole === 'admin' && (
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
                                             <button onClick={() => handleEditCarsUsado()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                                 <FaEdit size={14} className="text-yellow-400" />
@@ -172,7 +172,7 @@ const AboutUs = () => {
                                     />
                                     <div className="mx-2.5 mt-3.5"> {VenderMiAuto} </div>
 
-                                    {user && WhichRole === 'admin' && (
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
                                             <button onClick={() => handleEditCarsVender()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                                 <FaEdit size={14} className="text-yellow-400" />
@@ -201,7 +201,7 @@ const AboutUs = () => {
                                     <div className="px-8 mt-8 mb-12 text-lgfont-semibold text-white max-md:max-w-full max-md:text-4xl">
                                         {DesLogro}
                                     </div>
-                                    {user && WhichRole === 'admin' && (
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                         <div className="px-3 py-2 text-right  text-xs leading-4">
                                             <button onClick={() => handleEditTexLogro()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                                 <FaEdit size={14} className="text-yellow-400" />
