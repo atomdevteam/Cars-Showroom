@@ -104,7 +104,7 @@ const Hero = () => {
                         {TitleHome}
 
                     </div>
-                    {user && WhichRole === 'admin' && (
+                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                         <div className="px-3 py-2 text-right  text-xs leading-4">
                             <button onClick={() => handleEditTextHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
                                 <FaEdit size={14} className="text-yellow-400" />
