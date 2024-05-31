@@ -3,9 +3,9 @@
 const Recomendado = () => {
 
     return (
-        <div className="bg-transparent flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]" >
+        <div className="bg-transparent z-50 flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]" >
 
-            <div className="flex flex-col mt-3 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full">
+            <div className="flex flex-col mt-3  z-50 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full">
                 <div className="text-2xl font-bold text-white ">
                     Autos recomendados
                 </div>

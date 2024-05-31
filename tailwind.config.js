@@ -12,7 +12,8 @@ export default {
     },
     fontSize:{
       price:["Press Start 2P", "system-ui"]
-    }
+    },
+    
   },
   plugins: [],
 }
