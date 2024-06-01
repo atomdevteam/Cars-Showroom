@@ -21,7 +21,7 @@ import Footer from './Layout/Footer/Footer'
 import { useContextCar } from './Context/Context'
 import SignInLayout from './Layout/SignInLayout/SignInLayout'
 import FormularioReserva from './Components/FormularioReserva/FormularioReserva'
-
+import ReservarLayout from './Layout/ReservarLayout/ReservarLayout'
 function App() {
   const { user, WhichRole } = useContextCar()
 
@@ -43,7 +43,7 @@ function App() {
     { path: '/FrequentQuestions', element: <FrequentQuestions /> },
     { path: '/ProductFord', element: <ProductFord /> },
     { path: '/AboutUS', element: <AboutUSLayout /> },
-    { path: '/FormularioReserva', element: <FormularioReserva /> }
+    { path: '/FormularioReserva', element: <ReservarLayout /> }
 
   ];
 
@@ -63,7 +63,7 @@ function App() {
     { path: '/FrequentQuestions', element: <FrequentQuestions /> },
     { path: '/ProductFord', element: <ProductFord /> },
     { path: '/AboutUS', element: <AboutUSLayout /> },
-    { path: '/FormularioReserva', element: <FormularioReserva /> },
+    { path: '/FormularioReserva', element: <ReservarLayout /> },
     { path: '/LognIn', element: <LogInLayout /> },
     { path: '/SignIn', element: <SignInLayout /> }
 
