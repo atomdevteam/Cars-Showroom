@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosArrowUp } from "react-icons/io";
 import { useContextCar } from '../../Context/Context';
 const Generalinformation = () => {

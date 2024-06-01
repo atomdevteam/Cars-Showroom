@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { HashRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 import CarSale from './Layout/CarSale/CarSaleLayout'
 import BuyCar from './Layout/BuyCarLayout/BuyCarLayout'
@@ -23,36 +23,65 @@ import SignInLayout from './Layout/SignInLayout/SignInLayout'
 import FormularioReserva from './Components/FormularioReserva/FormularioReserva'
 
 function App() {
+  const { user, WhichRole } = useContextCar()
 
   // const [isOpenEditImg, setisOpenEditImg] = useState(false)
 
+  const commonRoutes = [
+    { path: '/', element: <MainScreen /> },
+    { path: '/CarSale', element: <CarSale /> },
+    { path: '/BuyCar', element: <BuyCar /> },
+    { path: '/ProductTeslaModel', element: <ProductTeslaModel /> },
+    { path: '/ContactUS', element: <ContactUS /> },
+    { path: '/CarInspection', element: <CarInspection /> },
+    { path: '/UserCar', element: <UserCar /> },
+    { path: '/NewCar', element: <NewCar /> },
+    { path: '/SearchResultOne', element: <SearchResultOne /> },
+    { path: '/DetailsAutos', element: <DetailsAutos /> },
+    { path: '/Noticias', element: <NewLayout /> },
+    { path: '/ProductLorem', element: <ProductLorem /> },
+    { path: '/FrequentQuestions', element: <FrequentQuestions /> },
+    { path: '/ProductFord', element: <ProductFord /> },
+    { path: '/AboutUS', element: <AboutUSLayout /> },
+    { path: '/FormularioReserva', element: <FormularioReserva /> }
+
+  ];
+
+  const AdminRoutes = [
+    { path: '/', element: <MainScreen /> },
+    { path: '/CarSale', element: <CarSale /> },
+    { path: '/BuyCar', element: <BuyCar /> },
+    { path: '/ProductTeslaModel', element: <ProductTeslaModel /> },
+    { path: '/ContactUS', element: <ContactUS /> },
+    { path: '/CarInspection', element: <CarInspection /> },
+    { path: '/UserCar', element: <UserCar /> },
+    { path: '/NewCar', element: <NewCar /> },
+    { path: '/SearchResultOne', element: <SearchResultOne /> },
+    { path: '/DetailsAutos', element: <DetailsAutos /> },
+    { path: '/Noticias', element: <NewLayout /> },
+    { path: '/ProductLorem', element: <ProductLorem /> },
+    { path: '/FrequentQuestions', element: <FrequentQuestions /> },
+    { path: '/ProductFord', element: <ProductFord /> },
+    { path: '/AboutUS', element: <AboutUSLayout /> },
+    { path: '/FormularioReserva', element: <FormularioReserva /> },
+    { path: '/LognIn', element: <LogInLayout /> },
+    { path: '/SignIn', element: <SignInLayout /> }
+
+  ];
+
+
+  const routes = [...commonRoutes, ...AdminRoutes.map(route => ({ ...route, path: `/admin${route.path}`}))];
+
+  console.log(routes)
 
 
   return (
-
-  
     <>
-
       <Router>
         <Routes>
-          <Route path='/' element={<MainScreen />} />
-          <Route path='/CarSale' element={<CarSale />} />
-          <Route path='/BuyCar' element={<BuyCar />} />
-          <Route path='/ProductTeslaModel' element={<ProductTeslaModel />} />
-          <Route path='/ContactUS' element={<ContactUS />} />
-          <Route path='/CarInspection' element={<CarInspection />} />
-          <Route path='/UserCar' element={<UserCar />} />
-          <Route path='/NewCar' element={<NewCar />} />
-          <Route path='/SearchResultOne' element={<SearchResultOne />} />
-          <Route path='/Noticias' element={<NewLayout />} />
-          <Route path='/DetailsAutos' element={<DetailsAutos />} />
-          <Route path='/ProductLorem' element={<ProductLorem />} />
-          <Route path='/FrequentQuestions' element={<FrequentQuestions />} />
-          <Route path='/ProductFord' element={<ProductFord />} />
-          <Route path='/AboutUS' element={<AboutUSLayout />} />
-          <Route path='/SingIn' element={<SignInLayout />} />
-          <Route path='/LognIn' element={<LogInLayout />} />
-          <Route path='/FormularioReserva' element={<FormularioReserva />} />
+          {routes.map((route, index) => (
+            <Route key={index} {...route} />
+          ))}
         </Routes>
       </Router>
       <Footer />

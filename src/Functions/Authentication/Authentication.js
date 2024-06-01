@@ -11,7 +11,7 @@ export const LognInAuth = (email, password, navigate, setWhichRole) => {
       const user = userCredential.user;
 
       ListUser(user.uid, setWhichRole)
-      navigate('/')
+      navigate('/admin')
 
       user.getIdToken().then((value) => {
 

@@ -4,8 +4,8 @@ import SingIn from '../../Component/SingIn'
 const SignInLayout = () => {
 
     return (
-        <div>
-            <Navbar background={'dark:bg-[#12232E]'}/>
+        <div className="bg-black">
+            <Navbar />
             <SingIn />
         </div>
     )

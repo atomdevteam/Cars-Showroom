@@ -4,8 +4,8 @@ import LogIn from "../../Components/LogIn/LogIn"
 const LogInLayout = () => {
 
     return (
-        <div>
-            <Navbar background={'dark:bg-[#12232E]'}/>
+        <div className="bg-black">
+            <Navbar />
             <LogIn />
         </div>
     )

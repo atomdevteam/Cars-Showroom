@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 import { useContextCar } from "../../Context/Context"
 
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const LogIn = () => {
 
@@ -58,7 +58,7 @@ const LogIn = () => {
 
                             <div className="self-center mt-7 text-center text-blue-400">
                                 No tienes una cuenta?{" "}
-                                <a href="#/SingIn" className="font-bold text-blue-400">Registrarte</a>
+                                <Link to="/admin/SignIn" className="font-bold text-blue-400">Registrarte</Link>
                             </div>
                         </div>
                     </div>

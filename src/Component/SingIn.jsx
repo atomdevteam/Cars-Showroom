@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useContextCar } from "../Context/Context";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 const SignIn = () => {
 
     const { SignInAuth,  setWhichRole } = useContextCar()
@@ -86,7 +86,7 @@ const SignIn = () => {
 
                             <div className="self-center mt-7 text-center text-blue-400">
                                 Ya tienes una cuenta?{" "}
-                                <a href="#/LognIn" className="font-bold text-blue-400">Login</a>
+                                <Link to="/admin/LognIn" className="font-bold text-blue-400">Login</Link>
                             </div>
                         </div>
                     </div>
