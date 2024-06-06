@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Heroimg from '../../assets/img/Heroimg.png'
 import optionone from '../../assets/img/optionone.png'
+
 const Hero = () => {
 
+    
     const [opentwo, setOpenTwo] = useState(false);
     const [openone, setOpenOne] = useState(false);
     const ChangeTwo = () => {
@@ -12,43 +14,71 @@ const Hero = () => {
     const ChangeOne = () => {
         setOpenOne(!openone)
     }
+    const slider=[
+        "src/assets/img/Heroimg.png",
+       "src/assets/img/HeroImgtwo.jpg",
+       "src/assets/img/HeroImgfive.jpg",
+       "src/assets/img/HeroImgsix.jpg"
 
+        
+    
+    ];let count=0
+    const[current, setCurrent]= useState(0)
+    useEffect(()=>{
+        Start()
+    },[])
+    const Start=()=>{
+        setInterval(()=>{
+            next();
+        },5000);
+    }
+    const next=()=>{
+        count= (count + 1) % slider.length
+        setCurrent(count)
+    }
+    const before=()=>{
+    const e= slider.length
+        count= (current + e - 1) % e
+        setCurrent(count)
+    }
     return (
-        <div className="flex flex-col items-center px-16 pt-20 w-full max-md:px-5 max-md:max-w-full bg-max-h-20">
+        <div className="flex flex-col items-center  bg-black px-16 pt-20 w-full max-md:px-5 max-md:max-w-full bg-max-h-20">
             
-            <div className="flex z-10 flex-col lg:mt-32 mb-0 w-full max-w-[1040px] md:mt-5 max-md:mb-2.5 max-md:max-w-full">
-                <div className="md:absolute top-0 md:right-0 md:left-0 md:px-12 "> 
-                    <img className="w-full opacity-30 md:m-0 absolute z-0 top-16 hover:scale-110 transition-all left-0 right-0 px-4 md:px-0 md:top-0 " src={Heroimg} alt="" />
+            <div className="z-10  lg:mt-32 mb-0 w-full  overflow-hidden max-w-[1040px] md:mt-5 max-md:mb-2.5 max-md:max-w-full">
+                <div className={`w-full h-full -z-50 bg-black absolute right-0 top-0  `}>
+                    <img className="w-full  bg-contain brightness-50 blur-[2px] contrast-125"  src={slider[current]} alt="" />
+                </div>
+                <div className="md:absolute z-50 top-0 md:right-0 md:left-0 md:px-12 "> 
+                     
                     <div className="lg:text-5xl md:text-4xl font-semibold absolute top-20 lg:px-20  md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
                         <h1 className="lg:text-5xl md:text-4xl md:-mt-[3rem] text-[1.2rem] xl:px-30 xl:text-6xl px-6">Encuentra el coche de tus sueños</h1>
                     </div>
                     <div className="md:text-2xl absolute font-semibold md:top-[13rem] z-10 top-28 lg:px-20   text-white max-md:max-w-full">
-                        <p className="text-[0.7rem] md:-mt-[3.9rem] xl:-mt-5 px-6 xl:px-30 xl:text-4xl">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.{""}</p>
+                        <p className="text-[0.7rem] md:-mt-[3.9rem] xl:-mt-5 md:text-[25px] px-6 xl:px-30 xl:text-4xl">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.{""}</p>
                     </div>
-                    <div className="flex justify-center">
-                        <div className="flex gap-5 px-28 lg:mt-[20rem] xl:mt-[25rem] md:mt-[15rem]  z-20 mt-[1.7rem] absolute">
-                            <img className="w-5 h-5" src={optionone} alt="Options" />
-                            <img className="w-5 h-5 opacity-55" src={optionone} alt="Options" />
-                            <img className="w-5 h-5 opacity-55" src={optionone} alt="Options" />
-                            <img className="w-5 h-5 opacity-55" src={optionone} alt="Options" />
-                        </div>
+                    <div className="flex justify-center md:mt-[22rem] gap-10 z-50 mt-[1rem] xl:mt-[25rem] lg:mt-[18rem]">
+                        {slider.map((slider,e)=>{
+                            return(<button onClick={()=>{setCurrent(e)}} key={"circle + e"} className={` w-4 h-4 md:w-9 md:h-9 rounded-full z-50 bg-cyan-900 ${e==current ? " bg-stone-50": " bg-cyan-900"}`} ></button>)
+                        })}
+                        
+                        
                     </div>
                     
                     
                 </div>
                 
 
-                <div className=" flex flex-col z-20 justify-center xl:mt-[10rem] p-6 mt-40 bg-gray-900 rounded max-md:px-5 md:mt-[6rem] lg:mt-[5rem] max-md:max-w-full">
-                    <div className="w-full justify-center px-4 flex gap-10 self-center max-w-full text-[1.3rem]  text-sky-600 whitespace-nowrap ">
-                        <button className="flex flex-col text-center text-[1.5rem] border-b md:px-5 border-sky-600">
+                <div className=" flex flex-col z-50 justify-center mt-[10rem] xl:mt-[10rem] md:p-9 p-10 bg-gray-900 rounded max-md:px-5 md:mt-[15rem] lg:mt-[5rem] max-md:max-w-full">
+                    <div className="w-full justify-center flex gap-10 self-center max-w-full text-[1rem]  text-sky-600 whitespace-nowrap ">
+                        <button className="flex flex-col text-center text-[1.2rem] border-b md:px-5 border-sky-600">
                             Todos
                         </button>
 
-                        <button className="text-sky-600 opacity-55 text-[1.5rem] md:px-5">
+                        <button className="text-sky-600 opacity-55 text-[1.2rem] md:px-5">
                             Nuevos
                         </button>
 
-                        <button className="text-sky-600 opacity-55  text-[1.5rem] md:px-5">
+                        <button className="text-sky-600 opacity-55  text-[1.2rem] md:px-5">
                             Usados
                         </button>
                     </div>
