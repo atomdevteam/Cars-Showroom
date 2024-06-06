@@ -2,8 +2,73 @@
 import React, { useState } from 'react';
 import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
+import { useContextCar } from '../../Context/Context';
+import { FaEdit } from "react-icons/fa";
+const vehicles = [
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2023 Tesla Model 3",
+        price: "US$ 35,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/hynQ3wm/Ford.png",
+        title: "2021 F-250 Super Duty",
+        price: "US$ 82,098"
+    },
+    {
+        imageUrl: "https://i.ibb.co/dcKjhRd/Honda.png",
+        title: "2021 Honda Pilot",
+        price: "US$ 43,735"
+    },
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2022 Tesla Model 3",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/HdRMkvM/toyota2.jpg",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/vzmDRtc/chevrolet-2024-jeep.jpg",
+        title: "2024 chevrolet",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/PQs6FCg/fiat1.jpg",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/DLS2dWZ/Kia-Niro1.jpg",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2022 Tesla Model 3",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/fGkRFJ4/posher1.webp",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    }
+];
 
 const Recomendado = () => {
+    const { user, WhichRole } = useContextCar()
     const [showModal, setShowModal] = useState(false);
 
     const handleOpenModal = () => {
@@ -32,209 +97,31 @@ const Recomendado = () => {
                         </button>
                     </div>
                     <div className="flex text-blue-500 items-center">
-                            <a href="#" className="text-[1rem]">Ver más</a>
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4707172754d78e0e475b23989d8e8c6a800962b1b776c74f53e1cf37665d2790?"
-                                    className="w-[18px]"
-                                />
+                        <a href="#" className="text-[1rem]">Ver más</a>
+                        <img
+                            loading="lazy"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4707172754d78e0e475b23989d8e8c6a800962b1b776c74f53e1cf37665d2790?"
+                            className="w-[18px]"
+                        />
                     </div>
-                    
+
                 </div>
 
                 <div className="mt-6 max-md:max-w-full">
                     <div className="px-5">
-                        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-                            <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
-
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>
-                                        <img
-                                            loading="lazy"
-                                            srcSet="https://i.ibb.co/KmTjKbL/Tesla.jpg"
-                                            className="object-cover absolute inset-0 size-full"
-                                            alt="Tesla"
-                                        />
-                                    </button>
-
-                                    <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto">2023 Tesla Model 3</div>
-                                        <div className="flex-auto">US$ 35,000</div>
-                                    </div>
+                        {Array.from({ length: Math.ceil(vehicles.length / 3) }).map((_, rowIndex) => (
 
 
 
-                                </div>
+                            <div className="flex gap-5 max-md:flex-col max-md:gap-0 mt-6" key={rowIndex}>
+
+                                {vehicles
+                                    .slice(rowIndex * 3, rowIndex * 3 + 3)
+                                    .map((vehicle, index) => (
+                                        <VehicleCard key={index} {...vehicle} handleOpenModal={handleOpenModal} />
+                                    ))}
                             </div>
-
-                            <div className="flex flex-col  w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}> <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/hynQ3wm/Ford.png"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative  gap-4 px-2 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto">2021 F-250 Super Duty</div>
-                                        <div className="flex-auto">US$ 82,098</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}> <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/dcKjhRd/Honda.png"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto"> 2021 Honda Pilot </div>
-                                        <div className="flex-auto">US$ 43,735</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div className="flex gap-5 mt-6 max-md:flex-col max-md:gap-0 ">
-
-                            <div className="flex flex-col w-[40%]  max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>  <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/KmTjKbL/Tesla.jpg"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-8 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto ">2022 Tesla Model 3</div>
-                                        <div className="flex-auto">US$ 30,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col  w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>  <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/7NQYFYp/toyota.webp"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative  gap-3 px-2 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto">2024 Toyota Cross</div>
-                                        <div className="flex-auto">US$ 48,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}> <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/HdRMkvM/toyota2.jpg"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto"> 2025 Toyota C-HR </div>
-                                        <div className="flex-auto">US$ 32,000</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex gap-5 mt-6 max-md:flex-col max-md:gap-0 ">
-
-                            <div className="flex flex-col w-[40%]  max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>
-                                        <img
-                                            loading="lazy"
-                                            srcSet="https://i.ibb.co/vzmDRtc/chevrolet-2024-jeep.jpg"
-                                            className="object-cover absolute inset-0 size-full"
-                                        /></button>
-                                    <div className="flex relative gap-8 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto ">2024 chevrolet</div>
-                                        <div className="flex-auto">US$ 30,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col  w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}> <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/PQs6FCg/fiat1.jpg"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /></button>
-                                    <div className="flex relative  gap-3 px-2 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto">2024 Toyota Cross</div>
-                                        <div className="flex-auto">US$ 48,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>  <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/DLS2dWZ/Kia-Niro1.jpg"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto"> 2025 Toyota C-HR </div>
-                                        <div className="flex-auto">US$ 32,000</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex gap-5 mt-6 max-md:flex-col max-md:gap-0 ">
-
-                            <div className="flex flex-col w-[40%]  max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>   <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/KmTjKbL/Tesla.jpg"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-8 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto ">2022 Tesla Model 3</div>
-                                        <div className="flex-auto">US$ 30,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col  w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>  <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/7NQYFYp/toyota.webp"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative  gap-3 px-2 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto">2024 Toyota Cross</div>
-                                        <div className="flex-auto">US$ 48,000</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
-                                <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                    <button onClick={handleOpenModal}>   <img
-                                        loading="lazy"
-                                        srcSet="https://i.ibb.co/fGkRFJ4/posher1.webp"
-                                        className="object-cover absolute inset-0 size-full"
-                                    /> </button>
-                                    <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
-                                        <div className="flex-auto"> 2025 Toyota C-HR </div>
-                                        <div className="flex-auto">US$ 32,000</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        ))}
                     </div>
 
 
@@ -247,3 +134,25 @@ const Recomendado = () => {
 };
 
 export default Recomendado;
+
+
+function VehicleCard({ imageUrl, title, price, handleOpenModal }) {
+    return (
+        <div className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
+            <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
+                <div onClick={handleOpenModal} className="cursor-pointer">
+                    <img
+                        loading="lazy"
+                        srcSet={imageUrl}
+                        className="object-cover absolute inset-0 size-full"
+                        alt={title}
+                    />
+                </div>
+                <div className="flex relative gap-5 px-2.5 py-4 mt-32 bg-black bg-opacity-30 max-md:mt-44">
+                    <div className="flex-auto">{title}</div>
+                    <div className="flex-auto">{price}</div>
+                </div>
+            </div>
+        </div>
+    );
+}

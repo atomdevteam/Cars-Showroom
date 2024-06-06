@@ -5,7 +5,7 @@ import { auth } from "../firebase/firebase"
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
-// import ModalCarsRe from "../Components/Modals/ModalCarsRe/ModalCarsRE"
+import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
 
@@ -30,6 +30,12 @@ export function ProviderContext({ children }) {
   const [filtroCarNew, setFiltroCarNew] = useState([])
   const [filtroCarUsed, setFiltroCarUsed] = useState([])
   const [ListComparar, setListComparar] = useState([])
+  const [locationR, setlocationR] = useState('')
+
+  // Informacion 
+  const [TituloHero, setTituloHero] = useState('')
+  const [DescripcionHero, setDescripcionHero] = useState('')
+  const [SliderImg, setSliderImg] = useState([])
 
 
   useEffect(() => {
@@ -44,8 +50,17 @@ export function ProviderContext({ children }) {
     if (user) {
       ListUser(user.uid, setWhichRole)
       ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
+      GetHero(setTituloHero, setDescripcionHero, setSliderImg)
     }
   }, [user])
+
+  useEffect(() => {
+    GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+  }, [])
+  
+
+
+
 
 
   useEffect(() => {
@@ -369,7 +384,13 @@ export function ProviderContext({ children }) {
         filtroCarUsed,
         setFiltroCarUsed,
         ListComparar,
-        setListComparar
+        setListComparar,
+        locationR,
+        setlocationR,
+        TituloHero,
+        DescripcionHero,
+        SliderImg,
+        setTituloHero, setDescripcionHero, setSliderImg, GetHero
 
       }}
     >
