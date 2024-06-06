@@ -5,7 +5,7 @@ import Navbar from "../NavBar/NavBar"
 const AboutUSLayout = () => {
 
     return(
-        <div>
+        <div className="bg-black">
             <Navbar />
             <AboutUs />
         </div>

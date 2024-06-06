@@ -18,6 +18,8 @@ import coupe from "../../../assets/img/coupe.png"
 import Kia from "../../../assets/img/Kia.png"
 import aos from "aos"
 import { useNavigate } from 'react-router-dom';
+import { useContextCar } from '../../../Context/Context';
+import FilterSection from '../../../Components/Filtro/FilterSection ';
 function Principal() {
     const [open, setOpen]= useState(false);
     const [opentwo, setOpenTwo]= useState(false);

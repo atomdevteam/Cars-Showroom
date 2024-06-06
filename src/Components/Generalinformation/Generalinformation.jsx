@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosArrowUp } from "react-icons/io";
+import { useContextCar } from '../../Context/Context';
 const Generalinformation = () => {
     const[open, setOpen]= useState (false)
     const Abre =()=>{

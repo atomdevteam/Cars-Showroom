@@ -1,49 +1,62 @@
 import Teslalogo from "../../assets/img/Teslalogo.png"
+import SFMImage from "../../assets/img/SFMImage.jpg"
+import facebooktwo from "../../assets/img/facebooktwo.png"
+import instagramtwo from "../../assets/img/instagramtwo.png"
+import twitter from "../../assets/img/twitter.png"
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+const mapStyles = {
+    height: '300px',
+    width: '100%',
+};
+const defaultCenter = {
+    lat: 37.7749,
+    lng: -122.4194,
+};
 const Contacto = () => {
+    
     return (
-        <div className=" flex bg-transparent overflow-hidden relative flex-col justify-center items-center px-16 py-1 mt-20 w-full min-h-[768px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
-            <img
-                loading="lazy"
-                srcSet="https://i.ibb.co/vVPLHjR/ConCard.png"
-                className="object-cover absolute bg-fixed hidden md:block inset-0 size-full"
-            />
+        <div style={{backgroundImage: `url( ${SFMImage})`}} className=" bg-fixed flex bg-transparent overflow-hidden relative flex-col justify-center items-center px-16 py-1 mt-20 w-full min-h-[768px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
+            
             <div className="bg-transparent relative w-full max-w-[1226px] max-md:max-w-full">
-                <div className="bg-transparent flex gap-5 max-md:flex-col max-md:gap-0">
-                    <div data-aos="flip-down" className="flex flex-col w-[56%]  max-md:ml-0 max-md:w-full">
-                        <img
-                            loading="lazy"
-                            srcSet="https://i.ibb.co/m8x6BFd/map.png"
-                            className="grow w-full aspect-square max-md:mt-10 max-md:max-w-full"
-                        />
-                    </div>
-                    <div className=" flex bg-transparent flex-col hidden md:block ml-5 w-[46%] max-md:ml-0 max-md:w-full">
-                        <div className="bg-transparent flex relative flex-col grow mt-2.5 text-lg font-semibold text-white max-md:mt-10 max-md:max-w-full">
-                            <div data-aos="zoom-in" className=" bg-transparent text-4xl font-bold max-md:max-w-full">
-                                Contacto
+                <h1 className="text-3xl text-white font-bold"> Contáctanos</h1>
+                <hr />
+                <div className="bg-transparent mt-6 brightness-105 z-50  gap-5 max-md:flex-col max-md:gap-0">
+                    <LoadScript googleMapsApiKey="AIzaSyCQuMGa2ltQrJMrqUYJUaS48CYZcgfPNO8">
+                        <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter} />
+                    </LoadScript>
+                    <div className=" mt-10 m-auto md:flex justify-center gap-28 ">
+                        <div className=" brightness-110 text-white text-center font-bold"> 
+                            <h2 className=" text-2xl font-bold">Encuéntranos</h2>
+                            <div className='f'>
+                                #12 Av. Antonio G., <br />
+                                San Frac., Duarte, <br />
+                                31000,
+                                Rep. Domicana
                             </div>
-                            <div data-aos="zoom-in-down" className="bg-transparent mt-12 font-medium max-md:mt-10 max-md:max-w-full ">
-                                Nombre
+                            <div className='mb-4 '>
+                                SERVICIO AL CLIENTE
                             </div>
-                            <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                                <input type="text" placeholder="Nombre Completo" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
+                            <div className='mb-4'>
+                                info@car.com
                             </div>
-                            <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">Email</div>
-                            <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base whitespace-nowrap bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                            <input type="text" placeholder="email@gmail.com" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
+                            <div className='mb-4'>
+                                588-865-3730
                             </div>
-                            <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">Teléfono</div>
-                            <div data-aos="zoom-in-down" className="justify-center items-start mt-1.5 text-base whitespace-nowrap bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                            <input type="text" placeholder="000-000-0000" className="w-full h-full p-3 bg-gray-800 rounded-lg hover:bg-slate-50 transition-all" />
+                        </div>
+                        <div>
+                            <h2 className=" text-white text-2xl font-bold text-center " >Siguenos en nuestras Redes Sociales</h2>
+                            <div className=" flex m-auto mt-20 items-center justify-between w-full">
+                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
+                                    <a href="#"><img className="w-16 duration-200" src={facebooktwo} alt="Facebook" /></a>
+                                </div>
+                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all"> 
+                                    <a href="#"><img className="w-16" src={instagramtwo} alt="Instagram" /></a>
+                                </div>
+                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
+                                    <a href="#"><img className=" w-16" src={twitter} alt="Twitter" /></a>
+                                </div>
                             </div>
-                            <div data-aos="zoom-in-down" className="bg-transparent mt-6 font-medium max-md:max-w-full">
-                                Comentario
-                            </div>
-                            <div data-aos="zoom-in-down" className="justify-center items-start   text-base bg-gray-800 rounded text-neutral-400 max-md:pr-5 max-md:max-w-full">
-                                <textarea name="Comment" id="Comment" rows={7} placeholder="Deja un Mensaje Aquí..." className=" hover:bg-slate-50 transition-all rounded-lg w-full h-full p-3 bg-gray-800"></textarea>
-                            </div>
-                            <button data-aos="zoom-in-down" className="justify-center items-center mt-9 text-base text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:max-w-full">
-                            <input type="submit" placeholder="000-000-0000" className="w-full h-full p-3 cursor-pointer rounded-lg hover:bg-slate-200 hover:text-blue-500 font-bold transition-all" />
-                            </button>
+                            
                         </div>
                     </div>
                 </div>

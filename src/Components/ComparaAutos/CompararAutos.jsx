@@ -1,5 +1,9 @@
 
+
 const ComprarAutos = () => {
+
+
+
 
     return (
         <div className=" bg-transparent flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]">

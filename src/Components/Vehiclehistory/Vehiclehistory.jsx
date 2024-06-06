@@ -1,16 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useContextCar } from '../../Context/Context';
 
-const Vehiclehistory = () => {
+const Vehiclehistory = ({HistorialDatos}) => {
+    const {SaveArchivo, user} = useContextCar()
     const [fileName, setFileName] = useState('');
+    const [LinkUrl, setLinkUrl] = useState(null)
+
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             setFileName(file.name);
+            SaveArchivo(file, user.uid, setLinkUrl)
         } else {
             setFileName('');
         }
     };
+
+    useEffect(() => {
+      HistorialDatos.Historial  = LinkUrl
+    }, [LinkUrl])
+    
     return (
         <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-12'>
             <div className='ml-8 mr-8  mt-8'>

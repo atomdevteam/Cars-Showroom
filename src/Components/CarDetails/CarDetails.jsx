@@ -10,11 +10,31 @@ const CarDetails = () => {
         if (capacity > 1) {
             setCapacity(capacity - 1);
         }
-    };
+    }
 
     const increaseCapacity = () => {
         setCapacity(capacity + 1);
-    };
+    }
+
+
+    const CarDetailsdatos = useMemo(() => ({
+        Titulo,
+        Condicion,
+        TipoCuerpo,
+        Marca,
+        Modelo,
+        Year: Año,
+        Capacidad: capacity,
+        Color,
+        Descripcion
+    }), [Titulo, Condicion, TipoCuerpo, Marca, Modelo, Año, capacity, Color, Descripcion]);
+
+    useEffect(() => {
+        updateCarDetails(CarDetailsdatos)
+    }, [CarDetailsdatos]);
+
+
+
     return (
         <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg w-auto -mt-[6rem] text-white mb-8'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
@@ -34,11 +54,11 @@ const CarDetails = () => {
                                 <label htmlFor="condicion" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Condición </label>
                                 <div className='flex flex-row p-2.5 '>
                                     <div className='flex flex-row items-center'>
-                                        <input type='radio' name='condicion' id='nuevo' className='h-5 w-5 bg-[#071620] rounded-full  border border-blue-gray-200 relative   border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                                        <input onChange={(e) => setCondicion(e.target.value)} value="Nuevo" type='radio' name='condicion' id='nuevo' className='h-5 w-5 bg-[#071620] rounded-full  border border-blue-gray-200 relative   border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                                         <label htmlFor='nuevo' className='mr-2 ml-2'>Nuevo</label>
                                     </div>
                                     <div className='ml-8 flex flex-row items-center'>
-                                        <input type='radio' name='condicion' id='usado' className='h-5 w-5 bg-[#071620] rounded-full  border border-blue-gray-200 relative   border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                                        <input onChange={(e) => setCondicion(e.target.value)} value="Usado" type='radio' name='condicion' id='usado' className='h-5 w-5 bg-[#071620] rounded-full  border border-blue-gray-200 relative   border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                                         <label htmlFor='usado' className='mr-2 ml-2'>Usado</label>
                                     </div>
                                 </div>

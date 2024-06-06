@@ -5,8 +5,8 @@ import Navbar from '../NavBar/NavBar'
 
 const ContactLayout = () => {
   return (
-    <>
-      <Navbar background={'dark:bg-[#12232E]'}/>
+    <div className='bg-[#12232E]'>
+      <Navbar />
       <div className='bg-[#0B0C10] max-h-full '>
 
 
@@ -14,7 +14,7 @@ const ContactLayout = () => {
           <Contact />
           <Location />
         </div>
-      </div>  </>
+      </div>  </div>
   )
 }
 

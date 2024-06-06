@@ -24,10 +24,10 @@ const EngineDetails = () => {
                                         <label htmlFor="Typeofload" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipos de combustible </label>
                                         <select id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5 cursor-pointer rounded-lg hover:bg-slate-500 transition-all" required>
                                             <option value="">Selecciona</option>
-                                            <option value="sedan">Gasolina</option>
-                                            <option value="coupe">Diésel</option>
-                                            <option value="suv">Biodiésel</option>
-                                            <option value="suv">Gas natural</option>
+                                            <option value="Gasolina">Gasolina</option>
+                                            <option value="Diésel">Diésel</option>
+                                            <option value="Biodiésel">Biodiésel</option>
+                                            <option value="Gas natural">Gas natural</option>
                                         </select>
                                     </div>
                                     <div>
@@ -44,8 +44,8 @@ const EngineDetails = () => {
                                         <label htmlFor="Model" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Transmisión</label>
                                         <select id="Model" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                             <option value="">Selecciona</option>
-                                            <option value="corolla">Transmisión Manual</option>
-                                            <option value="civic">Transmisión Automática</option>
+                                            <option value="Transmisión Manual">Transmisión Manual</option>
+                                            <option value="Transmisión Automática">Transmisión Automática</option>
                                         </select>
                                     </div>
                                 </div>
@@ -58,8 +58,8 @@ const EngineDetails = () => {
                                         <label htmlFor="Year" className="block mb-2 text-sm font-medium  text-gray-900 dark:text-gray-300">DriverTrain</label>
                                         <select id="Year" className="bg-[#12232E] text-sm block w-full rounded-lg hover:bg-slate-500 transition-all cursor-pointer p-2.5" required>
                                             <option value="">Seleccionar</option>
-                                            <option value="corolla">Transmisión Manual</option>
-                                            <option value="civic">Transmisión Automática</option>
+                                            <option value="Tracción Delantera">Tracción Delantera</option>
+                                            <option value="Tracción Trasera">Tracción Trasera</option>
 
                                         </select>
                                     </div>

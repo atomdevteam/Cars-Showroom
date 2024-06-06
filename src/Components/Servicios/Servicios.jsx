@@ -1,5 +1,37 @@
+import { useEffect, useState } from "react";
+import { useContextCar } from "../../Context/Context";
+import { FaEdit } from "react-icons/fa";
+
 
 const Servicios = () => {
+
+    const { user, WhichRole } = useContextCar()
+    const [ComprarNuevo, setComprarNuevo] = useState('Comprar un auto nuevo')
+    const [ComprarUsado, setComprarUsado] = useState('Comprar un auto usado')
+    const [VenderMiAuto, setVenderAuto] = useState('Vender mi auto')
+
+    const handleEditCarsNuevo = () => {
+        const newTextCarsNuevo = prompt('Editar carro Nuevo', ComprarNuevo);
+        if (newTextCarsNuevo != null) {
+            setComprarNuevo(newTextCarsNuevo)
+        }
+    }
+
+    const handleEditCarsUsado = () => {
+        const newTextCarsUsado = prompt('Editar carro usado:', ComprarUsado);
+        if (newTextCarsUsado != null) {
+            setComprarUsado(newTextCarsUsado)
+        }
+    }
+
+    const handleEditCarsVender = () => {
+        const newTextCarsVender = prompt('Editar vender carro: ', VenderMiAuto);
+        if (newTextCarsVender != null) {
+            setVenderAuto(newTextCarsVender)
+        }
+    }
+
+
     return (
         <div className="bg-transparent flex flex-col self-center justify-center items-center mt-20 w-full  max-md:mt-10 max-md:max-w-full bg-[#0B0C10]">
             <div data-aos="fade-up" className="bg-transparent text-2xl font-bold text-zinc-300 max-md:max-w-full">
@@ -18,6 +50,19 @@ const Servicios = () => {
                             />
                             <p className="bg-transparent mt-3.5 after:content-['Nuevos'] after:text-white after:text-center hover:transition-transform after:transition-transform after:py-14 lg:after:py-16 after:text-3xl after:bg-blue-500  after:absolute after:w-full after:h-full after:top-0 after:left-0 after:scale-x-0  transition-transform duration-200 hover:after:scale-x-100 hover:after:scale-y-100 hover:after:transition-transform hover:after:duration-200 ">Comprar un auto nuevo</p>
 
+                            {/* <p className="bg-transparent mt-3.5">Comprar un auto nuevo</p> */}
+
+
+                            <div className="mt-3.5 ">{ComprarNuevo}</div>
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                <div className="px-3 py-2 text-right  text-xs leading-4">
+                                    <button onClick={() => handleEditCarsNuevo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                        <FaEdit size={14} className="text-yellow-400" />
+                                    </button>
+                                </div>
+                            )}
+
+
 
                         </div>
                     </button>
@@ -31,6 +76,16 @@ const Servicios = () => {
                             />
 
                             <p className="bg-transparent mt-3.5 after:content-['Usados'] after:text-white after:text-center hover:transition-transform after:transition-transform after:py-14 lg:after:py-16 after:text-3xl after:bg-blue-500  after:absolute after:w-full after:h-full after:top-0 after:left-0 after:scale-x-0  transition-transform duration-200 hover:after:scale-x-100 hover:after:scale-y-100 hover:after:transition-transform hover:after:duration-200 ">Comprar un auto usado</p>
+                            <div className="mt-3.5"> {ComprarUsado} </div>
+
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                <div className="px-3 py-2 text-right  text-xs leading-4">
+                                    <button onClick={() => handleEditCarsUsado()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                        <FaEdit size={14} className="text-yellow-400" />
+                                    </button>
+                                </div>
+                            )}
+
                         </div>
                     </button>
 
@@ -42,6 +97,17 @@ const Servicios = () => {
                                 className="self-center w-12 aspect-square"
                             />
                             <p className="bg-transparent mt-3.5 after:content-['Vender'] after:text-white after:text-center hover:transition-transform after:transition-transform after:py-14 lg:after:py-16 after:text-3xl after:bg-blue-500  after:absolute after:w-full after:h-full after:top-0 after:left-0 after:scale-x-0  transition-transform duration-200 hover:after:scale-x-100 hover:after:scale-y-100 hover:after:transition-transform hover:after:duration-200 ">Vender mi carro</p>
+
+                            <div className="mx-2.5 mt-3.5"> {VenderMiAuto} </div>
+
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                <div className="px-3 py-2 text-right  text-xs leading-4">
+                                    <button onClick={() => handleEditCarsVender()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                        <FaEdit size={14} className="text-yellow-400" />
+                                    </button>
+                                </div>
+                            )}
+                            
                         </div>
                     </button>
                 </div>

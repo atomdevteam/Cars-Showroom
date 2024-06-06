@@ -8,7 +8,6 @@ function SearchResultOne() {
     <div>
         <Header/>
         <Principal/>
-        <Footer/>
     </div>
   )
 }

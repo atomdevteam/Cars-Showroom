@@ -18,7 +18,7 @@ const Feature = () => {
                 <div className='mt-8 '>
                     {open?
                     <form className='max-w-full'>
-                        <div className='mb-4 grid gap-6  lg:grid-cols-1 w-full'>
+                        <div className='mb-4 grid gap-6 lg:grid-cols-1 w-full'>
                             <div className='mb-8'>
                                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Buscar</label>
                                 <input type="search" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg hover:bg-slate-500 transition-all" required />
@@ -103,15 +103,16 @@ const Feature = () => {
                             <textarea type="text" className="bg-[#12232E] rounded-lg text-sm block w-full p-8" placeholder='Escribe otra característica aquí. ' required />
                         </div>
 
+
+
+
+
                     </form>
                     :""}
                 </div>
             </div>
-
-
         </div>
+    );
+};
 
-    )
-}
-
-export default Feature
+export default Feature;
