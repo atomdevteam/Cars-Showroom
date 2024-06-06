@@ -19,15 +19,11 @@ const TableUserLayout = () => {
 
                     <TableUser />
 
-
-
                 </div>
+
             </div>
         </>
-        // <div className=''>
-        //     <Navbar />
-        //     <TableUser />
-        // </div>
+      
     )
 }
 
