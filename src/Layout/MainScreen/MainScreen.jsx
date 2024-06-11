@@ -10,9 +10,10 @@ const MainScreen = () => {
         <div className="bg-black">
             <Navbar background={'dark:bg-[#12232E]'} />
             <Hero />
-            <Recomendado />
+          
             <Testimonio />
             <Contacto />
+
         </div>
     )
 }
