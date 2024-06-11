@@ -16,14 +16,8 @@ const MainScreen = () => {
             <Navbar background={'dark:bg-[#12232E]'} />
             <Hero />
             <Recomendado />
-            <ComprarAutos />
-            <Noticias />
-            <Nosotros />
-            <Servicios />
             <Testimonio />
             <Contacto />
-            <Compañias/>
-            {/* <Footer /> */}
         </div>
     )
 }
