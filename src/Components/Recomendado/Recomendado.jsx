@@ -80,11 +80,16 @@ const Recomendado = () => {
                 <div className="mt-6 max-md:max-w-full">
                     <div className="px-5">
 
+                   
+                        <div className="grid grid-cols-3 gap-4">
+                            {/* 
+                            flex gap-2  max-md:flex-col max-md:gap-0 -> Elimine eso
+                            y le agruegue el grid
+                            y de la linea 92 elimine w-[40%]
 
-                        <div className="flex gap-2  max-md:flex-col max-md:gap-0">
-                            {/* Mapear cada elemento del array y renderizarlos */}
+                            Mapear cada elemento del array y renderizarlos */}
                             {cars.map((car, index) => (
-                                <div key={index} className="flex flex-col w-[40%] max-md:ml-0 max-md:w-full">
+                                <div key={index} className="flex flex-col  max-md:ml-0 max-md:w-full">
                                     <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
                                         <button onClick={handleOpenModal}>
                                             <img
