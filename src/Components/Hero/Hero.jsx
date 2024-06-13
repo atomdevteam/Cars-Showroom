@@ -23,7 +23,7 @@ const Hero = () => {
     const [Nuevo, setNuevo] = useState(false)
     const [Usado, setUsado] = useState(false)
     const slider = [
-        "src/assets/img/Heroimg.png",
+        "https://firebasestorage.googleapis.com/v0/b/cars-showroom-d3aa2.appspot.com/o/SliderHero%2FHeroimg.png?alt=media&token=d060d88d-de11-4ed2-bbd3-664dd29d1f64",
         "src/assets/img/HeroImgtwo.jpg",
         "src/assets/img/HeroImgfive.jpg",
         "src/assets/img/HeroImgsix.jpg"
