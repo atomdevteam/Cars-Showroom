@@ -30,8 +30,13 @@ export function ProviderContext({ children }) {
   const [filtroCarNew, setFiltroCarNew] = useState([])
   const [filtroCarUsed, setFiltroCarUsed] = useState([])
   const [ListComparar, setListComparar] = useState([])
+  const [AutosVisible,setAutosVisible] = useState([])
+  const [AutosInVisible,setAutosInVisible] = useState([])
+  const [ContactoVisibles,setContactoVisibles] = useState([])
 
 
+
+  
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -369,7 +374,14 @@ export function ProviderContext({ children }) {
         filtroCarUsed,
         setFiltroCarUsed,
         ListComparar,
-        setListComparar
+        setListComparar,
+        AutosInVisible,
+        setAutosInVisible,
+        AutosVisible,
+        setAutosVisible,
+        ContactoVisibles,
+        setContactoVisibles,
+        
 
       }}
     >

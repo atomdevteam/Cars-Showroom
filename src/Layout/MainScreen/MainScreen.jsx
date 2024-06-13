@@ -1,19 +1,51 @@
-import React from "react"
+import React , {useState, useRef, useEffect} from "react"
 import Navbar from "../NavBar/NavBar"
 import Hero from '../../Components/Hero/Hero'
 import Recomendado from "../../Components/Recomendado/Recomendado"
 import Testimonio from '../../Components/Testimono/Testimonio'
 import Contacto from '../../Components/Contacto/Contacto'
+import { useContextCar } from "../../Context/Context"
+
+
 const MainScreen = () => {
 
+    const { user, WhichRole, AutosVisible,setAutosVisible, AutosInVisible,setAutosInVisible,
+        ContactoVisibles, setContactoVisibles} = useContextCar()
+
+    const AutosRef = useRef(null);
+    const ContactoRef = useRef(null);
+
+    useEffect(() => {
+        if (AutosVisible && AutosRef.current) {
+            AutosRef.current.scrollIntoView({ behavior: 'smooth' });
+            setAutosVisible(false)
+        }
+    }, [AutosVisible]);
+
+    useEffect(() => {
+        if (ContactoVisibles && ContactoRef.current) {
+            ContactoRef.current.scrollIntoView({ behavior: 'smooth' });
+            setContactoVisibles(false)
+        }
+    }, [ContactoVisibles]);
+
+
     return (
+
         <div className="bg-black">
             <Navbar background={'dark:bg-[#12232E]'} />
             <Hero />
-            <Recomendado/>
+            <div ref={AutosRef} >
+                <Recomendado/>
+            </div>
+            
         
             <Testimonio />
-            <Contacto />
+
+            <div ref={ContactoRef}>
+                <Contacto />
+            </div>
+            
 
         </div>
     )
