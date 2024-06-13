@@ -100,13 +100,7 @@ const Hero = () => {
                 <div className="z-10  lg:mt-32 mb-0 w-full  overflow-hidden max-w-[1040px] md:mt-5 max-md:mb-2.5 max-md:max-w-full">
                     <div className={`w-full h-full -z-50 bg-black absolute right-0 top-0  `}>
                         <img className="w-full  bg-contain brightness-50 blur-[2px] contrast-125" src={SliderImg[current]} alt="" />
-
-
-                    <div className="flex justify-center md:mt-[22rem] gap-5 md:gap-5 z-50 mt-[1rem] xl:mt-[36rem] lg:gap-8 lg:mt-[28rem]">
-                        {slider.map((slider, e) => {
-                            return (<button onClick={() => { setCurrent(e) }} key={`circle + ${e}`} className={` w-4 h-4 xl:w-8 xl:h-8 lg:w-6 lg:h-6 md:w-6 md:h-6 rounded-full z-50 bg-cyan-900 ${e == current ? " bg-sky-500" : " bg-cyan-900"}`} ></button>)
-                        })}
-
+                    </div>
                     <div className="md:absolute z-50 top-0 md:right-0 md:left-0 md:px-12 ">
 
                         <div className="lg:text-5xl md:text-4xl xl:p-20 font-semibold absolute top-20 lg:p-20 md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
