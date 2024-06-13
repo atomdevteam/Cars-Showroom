@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useContextCar } from '../../Context/Context';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 const Navbar = ({ background }) => {
-    const { user, logout } = useContextCar()
+    const { user, logout, AutosVisible,setAutosVisible, ContactoVisibles, setContactoVisibles} = useContextCar()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -11,6 +11,7 @@ const Navbar = ({ background }) => {
     const navigate = useNavigate()
     const location = useLocation()
 
+
     const handleLogout = (e) => {
         e.preventDefault()
 
@@ -18,7 +19,7 @@ const Navbar = ({ background }) => {
         setopenSettingUser(false)
         navigate('/admin/LognIn')
     }
-
+    
     useEffect(() => {
         console.log(location.pathname);
         if (location.pathname.includes('/admin')) {
@@ -30,8 +31,27 @@ const Navbar = ({ background }) => {
         return location.pathname.includes('/admin') ? `/admin${path}` : path;
     };
 
+    const handleAutosVisibles = () =>{
+        if(location.pathname !== '/' && location.pathname !== '/admin' )
+            {
+                navigate('/')
+                setAutosVisible(true)
+            }
+            else{
+                setAutosVisible(true)
+            }
+    }
 
-
+    const handleContactoVisibles = () =>{
+        if(location.pathname !== '/' && location.pathname !== '/admin' )
+            {
+                navigate('/')
+                setContactoVisibles(true)
+            }
+            else{
+                setContactoVisibles(true)
+            }
+    }
 
 
     return (
@@ -93,12 +113,12 @@ const Navbar = ({ background }) => {
                         </li>
 
                         <li>
-                            <Link
-                                to={getAdjustedPath('/NewCar')}
+                            <button
+                               onClick={handleAutosVisibles}
                                 className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                             >
                                 Autos
-                            </Link>
+                            </button>
                         </li>
                         <li>
                             <Link
@@ -109,12 +129,12 @@ const Navbar = ({ background }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                to={getAdjustedPath('/ContactUS')}
+                            <button
+                                onClick={handleContactoVisibles}
                                 className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                             >
                                 Contáctanos
-                            </Link>
+                            </button>
                         </li>
 
                     </ul>
