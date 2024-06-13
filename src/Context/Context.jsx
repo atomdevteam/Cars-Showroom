@@ -36,7 +36,7 @@ export function ProviderContext({ children }) {
 
 
 
-
+  
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
