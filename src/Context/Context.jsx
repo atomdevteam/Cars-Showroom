@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 
 //Functions
-import { SignInAuth, LognInAuth, logout, ListUser } from "../Functions/Authentication/Authentication"
+import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
 import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
@@ -39,6 +39,7 @@ export function ProviderContext({ children }) {
   const [TituloHero, setTituloHero] = useState('')
   const [DescripcionHero, setDescripcionHero] = useState('')
   const [SliderImg, setSliderImg] = useState([])
+  const [ListAllUser, setListAllUser] = useState([])
 
 
 
@@ -56,6 +57,7 @@ export function ProviderContext({ children }) {
       ListUser(user.uid, setWhichRole)
       ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
       GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+      ListAllUsers(setListAllUser)
     }
   }, [user])
 
@@ -63,6 +65,7 @@ export function ProviderContext({ children }) {
     GetHero(setTituloHero, setDescripcionHero, setSliderImg)
   }, [])
   
+
 
 
 
@@ -402,8 +405,11 @@ export function ProviderContext({ children }) {
         TituloHero,
         DescripcionHero,
         SliderImg,
-        setTituloHero, setDescripcionHero, setSliderImg, GetHero
+        setTituloHero, setDescripcionHero, setSliderImg, GetHero,
 
+        ListAllUser,
+        updateUserRole,
+        setListAllUser
       }}
     >
       {children}

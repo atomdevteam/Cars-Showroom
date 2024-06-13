@@ -101,7 +101,14 @@ const Hero = () => {
                     <div className={`w-full h-full -z-50 bg-black absolute right-0 top-0  `}>
                         <img className="w-full  bg-contain brightness-50 blur-[2px] contrast-125" src={SliderImg[current]} alt="" />
                     </div>
-                    <div className="md:absolute z-50 top-0 md:right-0 md:left-0 md:px-12 ">
+                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                        <div className="px-3 py-2 text-right  text-xs leading-4">
+                            <button onClick={() => handleEditTextHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                <FaEdit size={14} className="text-yellow-400" />
+                            </button>
+                        </div>
+                    )}
+                </div>
 
                         <div className="lg:text-5xl md:text-4xl xl:p-20 font-semibold absolute top-20 lg:p-20 md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
                             <h1 className="lg:text-5xl md:text-4xl md:-mt-[3rem] text-[1.2rem] xl:px-30 xl:text-6xl px-6">
@@ -276,8 +283,7 @@ const Hero = () => {
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
+       
         </>
     );
 }
