@@ -33,7 +33,6 @@ export function ProviderContext({ children }) {
   const [AutosVisible,setAutosVisible] = useState([])
   const [AutosInVisible,setAutosInVisible] = useState([])
   const [ContactoVisibles,setContactoVisibles] = useState([])
-  ])
 
 
 
