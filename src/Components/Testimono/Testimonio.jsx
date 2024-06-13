@@ -11,7 +11,7 @@ const Testimonio = () => {
   
         <div className=" flex flex-col mt-10 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full ">
   
-          <div data-aos="fade-right" className="bg-transparent md:px-6  flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
+          <div className="bg-transparent md:px-6  flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
             <div className="bg-transparent  flex flex-col">
               <div className="bg-transparent  text-2xl font-bold text-white  ">
                 Testimonios
@@ -23,7 +23,7 @@ const Testimonio = () => {
   
           <div className="bg-transparent   mt-6 max-md:max-w-full">
             <div className="bg-transparent flex gap-5 max-md:flex-col max-md:gap-0">
-              <div data-aos="flip-left" className="bg-transparent flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+              <div className="bg-transparent flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                 <div className="bg-transparent flex flex-col grow justify-center font-semibold max-md:mt-5 max-md:max-w-full">
                   <div className=" flex flex-col rounded bg-slate-900 md:w-full">
                     <div className="flex overflow-hidden cursor-pointer relative flex-col items-end px-16 pt-6 pb-20 w-full text-lg text-white min-h-[199px] max-md:px-5 max-md:max-w-full">
@@ -45,7 +45,7 @@ const Testimonio = () => {
                   </div>
                 </div>
               </div>
-              <div data-aos="zoom-in" className="bg-transparent  justify-between ml-5 h-full w-6/12 m-auto max-md:ml-0 max-md:w-full">
+              <div className="bg-transparent  justify-between ml-5 h-full w-6/12 m-auto max-md:ml-0 max-md:w-full">
                 <div className="bg-transparent flex  flex-col grow max-md:mt-5 md:max-w-full">
                   <div className=" pr-6 rounded bg-slate-900 lg:w-full lg:h-full max-md:pr-5 md:h-[140px] max-md:max-w-full">
                     <div className=" flex bg-transparent gap-5 max-md:gap-0">
@@ -70,7 +70,7 @@ const Testimonio = () => {
                     </div>
                   </div>
                   
-                  <div data-aos="zoom-in" className="flex pr-6 rounded mt-14 bg-slate-900 lg:w-full lg:h-full max-md:pr-5 md:h-[140px] max-md:max-w-full">
+                  <div className="flex pr-6 rounded mt-14 bg-slate-900 lg:w-full lg:h-full max-md:pr-5 md:h-[140px] max-md:max-w-full">
                     <div className="bg-transparent flex gap-5 max-md:gap-0">
                       <div className="flex flex-col cursor-pointer overflow-hidden w-[38%] max-md:ml-0 max-md:w-full">
                         <img

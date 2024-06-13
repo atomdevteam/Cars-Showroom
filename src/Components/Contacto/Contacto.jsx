@@ -46,13 +46,13 @@ const Contacto = () => {
                         <div>
                             <h2 className=" text-white text-2xl font-bold text-center " >Siguenos en nuestras Redes Sociales</h2>
                             <div className=" flex m-auto mt-20 items-center justify-between w-full">
-                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
+                                <div className=" hover:-translate-y-2 hover:transition-transform transition-transform">
                                     <a href="#"><img className="w-16 duration-200" src={facebooktwo} alt="Facebook" /></a>
                                 </div>
-                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all"> 
+                                <div className=" hover:-translate-y-2 hover:transition-transform transition-transform"> 
                                     <a href="#"><img className="w-16" src={instagramtwo} alt="Instagram" /></a>
                                 </div>
-                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
+                                <div className=" hover:-translate-y-2 hover:transition-transform transition-transform">
                                     <a href="#"><img className=" w-16" src={twitter} alt="Twitter" /></a>
                                 </div>
                             </div>
