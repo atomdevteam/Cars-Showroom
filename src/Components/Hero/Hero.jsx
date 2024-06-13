@@ -141,7 +141,7 @@ const Hero = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="flex justify-center md:mt-[22rem] gap-5 md:gap-5 z-50 mt-[1rem] xl:mt-[52rem] lg:gap-8 lg:mt-[28rem]">
+                        <div className="flex justify-center md:mt-[22rem] gap-5 md:gap-5 z-50 mt-[1rem] xl:mt-[36rem] lg:gap-8 lg:mt-[28rem] opacity-45">
                             {SliderImg.map((slider, e) => {
                                 return (<button onClick={() => { setCurrent(e) }} key={`circle + ${e}`} className={` w-4 h-4 xl:w-8 xl:h-8 lg:w-6 lg:h-6 md:w-6 md:h-6 rounded-full z-50 bg-cyan-900 ${e == current ? " bg-sky-500" : " bg-cyan-900"}`} ></button>)
                             })}
