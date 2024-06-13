@@ -2,8 +2,73 @@
 import React, { useState } from 'react';
 import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
+import { useContextCar } from '../../Context/Context';
+import { FaEdit } from "react-icons/fa";
+const vehicles = [
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2023 Tesla Model 3",
+        price: "US$ 35,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/hynQ3wm/Ford.png",
+        title: "2021 F-250 Super Duty",
+        price: "US$ 82,098"
+    },
+    {
+        imageUrl: "https://i.ibb.co/dcKjhRd/Honda.png",
+        title: "2021 Honda Pilot",
+        price: "US$ 43,735"
+    },
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2022 Tesla Model 3",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/HdRMkvM/toyota2.jpg",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/vzmDRtc/chevrolet-2024-jeep.jpg",
+        title: "2024 chevrolet",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/PQs6FCg/fiat1.jpg",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/DLS2dWZ/Kia-Niro1.jpg",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
+        title: "2022 Tesla Model 3",
+        price: "US$ 30,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
+        title: "2024 Toyota Cross",
+        price: "US$ 48,000"
+    },
+    {
+        imageUrl: "https://i.ibb.co/fGkRFJ4/posher1.webp",
+        title: "2025 Toyota C-HR",
+        price: "US$ 32,000"
+    }
+];
 
 const Recomendado = () => {
+    const { user, WhichRole } = useContextCar()
     const [showModal, setShowModal] = useState(false);
 
     const handleOpenModal = () => {

@@ -3,9 +3,9 @@ import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "../firebase/firebase"
 
 //Functions
-import { SignInAuth, LognInAuth, logout, ListUser } from "../Functions/Authentication/Authentication"
+import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
-// import ModalCarsRe from "../Components/Modals/ModalCarsRe/ModalCarsRE"
+import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
 
@@ -33,6 +33,13 @@ export function ProviderContext({ children }) {
   const [AutosVisible,setAutosVisible] = useState(false)
   const [AutosInVisible,setAutosInVisible] = useState(false)
   const [ContactoVisibles,setContactoVisibles] = useState(false)
+  const [locationR, setlocationR] = useState('')
+
+  // Informacion 
+  const [TituloHero, setTituloHero] = useState('')
+  const [DescripcionHero, setDescripcionHero] = useState('')
+  const [SliderImg, setSliderImg] = useState([])
+  const [ListAllUser, setListAllUser] = useState([])
 
 
 
@@ -49,8 +56,19 @@ export function ProviderContext({ children }) {
     if (user) {
       ListUser(user.uid, setWhichRole)
       ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
+      GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+      ListAllUsers(setListAllUser)
     }
   }, [user])
+
+  useEffect(() => {
+    GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+  }, [])
+  
+
+
+
+
 
 
   useEffect(() => {
@@ -382,7 +400,16 @@ export function ProviderContext({ children }) {
         ContactoVisibles,
         setContactoVisibles,
         
+        locationR,
+        setlocationR,
+        TituloHero,
+        DescripcionHero,
+        SliderImg,
+        setTituloHero, setDescripcionHero, setSliderImg, GetHero,
 
+        ListAllUser,
+        updateUserRole,
+        setListAllUser
       }}
     >
       {children}

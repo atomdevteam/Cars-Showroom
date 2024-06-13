@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from 'react';
 // import './Modal.css';
 import { IoMdClose } from "react-icons/io";
+import { FaEdit } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
+import { useContextCar } from '../../Context/Context';
 
 const Modal = ({ showModal, handleClose }) => {
-const navigate = useNavigate();
+    const { user, WhichRole } = useContextCar()
+    const navigate = useNavigate();
 
     const handlFormulario = () => {
         window.scrollTo(0,0);
@@ -39,13 +42,23 @@ const navigate = useNavigate();
                             </div>
                             <div className="flex gap-1.5 self-start mt-6 text-xl font-bold ">
                                 <div className="text-white">US$: </div>
-                                <div className="text-gray-500">35,000</div>
+                                <div className="text-gray-500 flex flex-row ">
+                                    35,000
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                        <div className="px-3 py-2   text-xs leading-4">
+                                            <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
+
+                                </div>
                             </div>
                         </div>
 
 
 
-                        <div className="prose max-w-screen-md p-6 overflow-y-auto" style={{ maxHeight: '70vh',  borderRadius: '0.375rem', boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)' }}>
+                        <div className="prose max-w-screen-md p-6 overflow-y-auto" style={{ maxHeight: '70vh', borderRadius: '0.375rem', boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)' }}>
 
                             <div className=" xl:max-w-[50rem]  m-1">
 
@@ -99,7 +112,7 @@ const navigate = useNavigate();
 
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
 
