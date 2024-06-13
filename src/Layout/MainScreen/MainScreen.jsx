@@ -16,14 +16,15 @@ const MainScreen = () => {
     const ContactoRef = useRef(null);
 
     useEffect(() => {
-        if (AutosVisible && AutosRef.current) {
+        if (AutosVisible === true && AutosRef.current) {
             AutosRef.current.scrollIntoView({ behavior: 'smooth' });
             setAutosVisible(false)
         }
     }, [AutosVisible]);
 
     useEffect(() => {
-        if (ContactoVisibles && ContactoRef.current) {
+        if (ContactoVisibles === true && ContactoRef.current) {
+            console.log("Scroll automatico")
             ContactoRef.current.scrollIntoView({ behavior: 'smooth' });
             setContactoVisibles(false)
         }
