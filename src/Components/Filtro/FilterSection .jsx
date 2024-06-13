@@ -16,7 +16,7 @@ const FilterSection = ({ title, options, open, onToggle, onSearch, showSearch, s
 
             console.log(prevOptions.Year)
             const updatedOptions = { ...prevOptions };
-
+            
             switch (title) {
                 case "Años":
                     updatedOptions.Year = updatedOptions.Year.includes(option)

@@ -94,15 +94,15 @@ const Hero = () => {
                 </div>
                 <div className="md:absolute z-50 top-0 md:right-0 md:left-0 md:px-12 ">
 
-                    <div className="lg:text-5xl md:text-4xl font-semibold absolute top-20 lg:px-20  md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
+                    <div className="lg:text-5xl md:text-4xl xl:p-20 font-semibold absolute top-20 lg:p-20 md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
                         <h1 className="lg:text-5xl md:text-4xl md:-mt-[3rem] text-[1.2rem] xl:px-30 xl:text-6xl px-6">Encuentra el coche de tus sueños</h1>
                     </div>
-                    <div className="md:text-2xl absolute font-semibold md:top-[13rem] z-10 top-28 lg:px-20   text-white max-md:max-w-full">
+                    <div className="md:text-2xl xl:p-20  absolute font-semibold md:top-[13rem] z-10 top-28 lg:p-20   text-white max-md:max-w-full">
                         <p className="text-[0.7rem] md:-mt-[3.9rem] xl:-mt-5 md:text-[25px] px-6 xl:px-30 xl:text-4xl">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.{""}</p>
                     </div>
-                    <div className="flex justify-center md:mt-[22rem] gap-10 z-50 mt-[1rem] xl:mt-[25rem] lg:mt-[18rem]">
+                    <div className="flex justify-center md:mt-[22rem] gap-5 md:gap-5 z-50 mt-[1rem] xl:mt-[33rem] lg:gap-8 lg:mt-[28rem]">
                         {slider.map((slider, e) => {
-                            return (<button onClick={() => { setCurrent(e) }} key={`circle + ${e}`} className={` w-4 h-4 md:w-9 md:h-9 rounded-full z-50 bg-cyan-900 ${e == current ? " bg-stone-50" : " bg-cyan-900"}`} ></button>)
+                            return (<button onClick={() => { setCurrent(e) }} key={`circle + ${e}`} className={` w-4 h-4 xl:w-8 xl:h-8 lg:w-6 lg:h-6 md:w-6 md:h-6 rounded-full z-50 bg-cyan-900 ${e == current ? " bg-sky-500" : " bg-cyan-900"}`} ></button>)
                         })}
 
 
@@ -112,23 +112,23 @@ const Hero = () => {
                 </div>
 
 
-                <div className="flex flex-col z-20 justify-center xl:mt-[10rem] p-6 mt-40 bg-gray-900 rounded max-md:px-5 md:mt-[6rem] lg:mt-[5rem] max-md:max-w-full">
-                    <div className="w-full justify-center px-4 flex gap-10 self-center max-w-full text-[1.3rem]  text-sky-600 whitespace-nowrap">
+                <div className="flex flex-col z-20 justify-center md:mt-[25rem] xl:mt-[40rem] lg:mt-[29rem] mt-[13rem]  p-6  bg-gray-900 rounded max-md:px-5 max-md:max-w-full">
+                    <div className="w-full justify-center  flex gap-10 self-center max-w-full  text-sky-600 whitespace-nowrap">
                         <button
                             onClick={() => handleTodo()}
-                            className={`${Todos === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5 `}>
+                            className={`${Todos === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.2rem] md:px-5 `}>
                             Todos
                         </button>
 
                         <button
                             onClick={() => handleNuevo()}
-                            className={`${Nuevo === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
+                            className={`${Nuevo === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.2rem] md:px-5`}>
                             Nuevos
                         </button>
 
                         <button
                             onClick={() => handleUsado()}
-                            className={`${Usado === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.5rem] md:px-5`}>
+                            className={`${Usado === true ? 'border-b border-sky-600' : 'text-sky-600 opacity-55'} flex flex-col text-center text-[1.2rem] md:px-5`}>
                             Usados
                         </button>
                     </div>
