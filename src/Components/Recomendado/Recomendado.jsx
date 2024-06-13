@@ -14,29 +14,25 @@ const Recomendado = () => {
         setShowModal(false);
     };
 
-    const cars = [
+    const cars =[
         {
             id: 1,
             name: "2023 Tesla Model 3",
-            // model: "Moodel 3",
-            price: "US$35,000",
+            price: "US$ 35,000",
             imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg"
         },
-
         {
             id: 2,
-            name: "2021 F-250",
+            name: "2021 F-250 Super Duty",
             price: "US$ 82,098",
             imageUrl: "https://i.ibb.co/hynQ3wm/Ford.png"
         },
-
         {
             id: 3,
             name: "2021 Honda Pilot",
             price: "US$ 43,735",
             imageUrl: "https://i.ibb.co/dcKjhRd/Honda.png"
         },
-
         {
             id: 4,
             name: "2022 Tesla Model 3",
@@ -49,11 +45,49 @@ const Recomendado = () => {
             price: "US$ 48,000",
             imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp"
         },
-
-
-
-
-    ]
+        {
+            id: 6,
+            name: "2025 Toyota C-HR",
+            price: "US$ 32,000",
+            imageUrl: "https://i.ibb.co/HdRMkvM/toyota2.jpg"
+        },
+        {
+            id: 7,
+            name: "2024 Chevrolet",
+            price: "US$ 30,000",
+            imageUrl: "https://i.ibb.co/vzmDRtc/chevrolet-2024-jeep.jpg"
+        },
+        {
+            id: 8,
+            name: "2024 Toyota Cross",
+            price: "US$ 48,000",
+            imageUrl: "https://i.ibb.co/PQs6FCg/fiat1.jpg"
+        },
+        {
+            id: 9,
+            name: "2025 Toyota C-HR",
+            price: "US$ 32,000",
+            imageUrl: "https://i.ibb.co/DLS2dWZ/Kia-Niro1.jpg"
+        },
+        {
+            id: 10,
+            name: "2022 Tesla Model 3",
+            price: "US$ 30,000",
+            imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg"
+        },
+        {
+            id: 11,
+            name: "2024 Toyota Cross",
+            price: "US$ 48,000",
+            imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp"
+        },
+        {
+            id: 12,
+            name: "2025 Toyota C-HR",
+            price: "US$ 32,000",
+            imageUrl: "https://i.ibb.co/fGkRFJ4/posher1.webp"
+        }
+    ];
 
     
 
@@ -64,7 +98,7 @@ const Recomendado = () => {
                 <div className="text-2xl font-bold text-white ">
                     Autos disponibles
                 </div>
-                {/* <div className="flex w-full mt-3 px-6 py-3 justify-end font-bold  lg:text-2xl  ">
+                <div className="flex w-full mt-3 px-6 py-3 justify-end font-bold  lg:text-2xl ">
 
                     <div className="flex text-blue-500 items-center">
                         <a href="#" className="text-[1rem]">Ver más</a>
@@ -75,13 +109,13 @@ const Recomendado = () => {
                         />
                     </div>
 
-                </div> */}
+                </div>
 
                 <div className="mt-6 max-md:max-w-full">
-                    <div className="px-5">
+                    <div className="">
 
                    
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3   ">
                             {/* 
                             flex gap-2  max-md:flex-col max-md:gap-0 -> Elimine eso
                             y le agruegue el grid
@@ -100,9 +134,9 @@ const Recomendado = () => {
                                             />
                                         </button>
 
-                                        <div className="flex relative text-sm px-2.5 gap-20 py-4 mt-36  bg-black bg-opacity-30 max-md:mt-44">
+                                        <div className="flex relative text-sm  px-2 gap-20  py-5 mt-36  bg-black bg-opacity-30 max-md:mt-52  ">
                                             <div className="flex-auto">{car.name}</div>
-                                            <div className="flex-auto">{car.price}</div>
+                                            <div className="">{car.price}</div>
                                         </div>
                                     </div>
                                 </div>
