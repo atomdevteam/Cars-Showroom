@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useContextCar } from '../../Context/Context';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 const Navbar = ({ background }) => {
-    const { user, logout, AutosVisible,setAutosVisible, ContactoVisibles, setContactoVisibles} = useContextCar()
+    const { user, logout, AutosVisible,setAutosVisible, ContactoVisibles, setContactoVisibles, locationR, setlocationR} = useContextCar()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
