@@ -115,7 +115,7 @@ const Recomendado = () => {
                     <div className="">
 
                    
-                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3   ">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3    ">
                             {/* 
                             flex gap-2  max-md:flex-col max-md:gap-0 -> Elimine eso
                             y le agruegue el grid
@@ -134,7 +134,7 @@ const Recomendado = () => {
                                             />
                                         </button>
 
-                                        <div className="flex relative text-sm  px-2 gap-20  py-5 mt-36  bg-black bg-opacity-30 max-md:mt-52  ">
+                                        <div className="flex absolute inset-x-0 bottom-0 text-sm px-2.5 gap-20 py-5   bg-black bg-opacity-30 max-md:mt-52">
                                             <div className="flex-auto">{car.name}</div>
                                             <div className="">{car.price}</div>
                                         </div>

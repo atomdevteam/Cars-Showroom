@@ -1,24 +1,37 @@
 import React from "react";
 import { useState } from "react";
+import { MdArrowBack } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 
 
 const FormularioReserva = () => {
-
+    const navigate = useNavigate();
     const [isOpen, setIosOpen] = useState(false);
 
+    const handlHome = () => {
+        window.scrollTo(0,0);
+        navigate('/admin/')
+    }
+
+    
 
     return (
         
-        <div className="flex flex-col items-center px-16 py-20 bg-gray-900 max-md:px-5">
-            <div className="mt-16 w-full max-w-[1229px] max-md:mt-10 max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+        <div className="flex flex-col items-center px-16 py-14 bg-gray-900 max-md:px-5">
+            <div className="mt-1 w-full max-w-[1229px]  max-md:ma x-w-full max-md:mt-0 ">
+                    <MdArrowBack className="cursor-pointer text-white text-4xl   hover:bg-sky-400 hover:rounded-full"  onClick={handlHome} />
+
+                <div className="flex gap-5 max-md:flex-col max-md:gap-0 ">
                     <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                         <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
-                            <div className="text-3xl text-white max-md:text-2xl">
+                       
+                        
+
+                            <div className="text-3xl mt-10 text-white max-md:text-2xl max-md:mt-0 ">
                                 Formulario para reserva o compra
                             </div>
-                            <div className="flex flex-col pr-8 pl-2.5 mt-16 text-2xl font-bold max-md:pr-5 max-md:mt-10 max-md:max-w-full">
+                            <div className="flex flex-col pr-8 pl-2.5 mt-8 text-2xl font-bold max-md:pr-5 max-md:mt-10 max-md:max-w-full">
                                 <div className="text-white max-md:max-w-full">
                                     Tesla Model 3 2021
                                 </div>
@@ -88,23 +101,23 @@ const FormularioReserva = () => {
 
 
 
-            <button className="justify-center px-7 py-4 mt-44 text-3xl text-white whitespace-nowrap rounded-lg bg-sky-600 bg-opacity-60 max-md:px-5 max-md:mt-10" onClick={() => setIosOpen(true)}>
+            <button className="justify-center px-7 py-4 mt-20 text-3xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10" onClick={() => setIosOpen(true)}>
                 Reservar
             </button>
 
             {
 
                 isOpen && (
-                    <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center ">
-
+                    <div className="fixed  inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm  ">
+                        
                         <div className="flex flex-col items-center px-20 py-8 text-3xl text-black rounded-2xl bg-zinc-300 max-w-[671px] max-md:w-[85%] max-md:h-65  ">
                             <img
                                 loading="lazy"
                                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/8deecdfa608c19b062408dc30ffa638c671c7967a8c0d2febfa133cf058b525a?"
                                 className="max-w-full aspect-square w-[80px]"
                             />
-                            <div className="justify-center mt-8 text-xl max-md:text-sm">Gracias por compatirnos tu interes.</div>
-                            <div className=" mt-3 text-xl max-md:text-sm max-md:w-60 justify-center ">
+                            <div className="justify-center mt-8 text-xl max-md:text-lg">Gracias por compatirnos tu interes.</div>
+                            <div className=" mt-3 text-xl max-md:text-sm m justify-center ">
                             Brevemente nos estaremos contactando con usted.
                             </div>
                             <button className="justify-center px-7 py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-red-700 bg-opacity-60 max-md:px-5 max-md:mt-10" onClick={() => setIosOpen(false)}>
