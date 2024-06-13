@@ -11,7 +11,6 @@ const Navbar = ({ background }) => {
     const navigate = useNavigate()
     const location = useLocation()
 
-    
 
     const handleLogout = (e) => {
         e.preventDefault()
@@ -20,7 +19,7 @@ const Navbar = ({ background }) => {
         setopenSettingUser(false)
         navigate('/admin/LognIn')
     }
-
+    
     useEffect(() => {
         console.log(location.pathname);
         if (location.pathname.includes('/admin')) {
