@@ -9,6 +9,7 @@ const Modal = ({ showModal, handleClose }) => {
 const navigate = useNavigate();
 
     const handlFormulario = () => {
+        window.scrollTo(0,0);
         navigate('/admin/FormularioReserva')
     }
 
@@ -27,14 +28,14 @@ const navigate = useNavigate();
     return (
         <>
             {showModal &&
-                <div className='fixed  inset-0 flex items-center justify-center z-50 mx-8 sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm'>
+                <div className='fixed  inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm ' >
                     <div className="relative bg-gray-900  rounded-lg overflow-hidden shadow-xl max-w-screen-md w-full m-4" >
                         <div className="flex flex-col px-7 w-full max-md:px-5 max-md:max-w-full m-4">
 
-                            <div className="flex gap-5 text-4xl  max-md:text-2xl font-extrabold text-white max-md:flex-wrap max-md:max-w-full">
+                            <div className="flex text-3xl mt-5 max-md:text-2xl font-extrabold text-white max-md:flex-wrap max-md:max-w-full">
                                 <div className="flex-auto">Tesla model 3</div>
 
-                                <IoMdClose className='cursor-pointer hover:bg-red-600 hover:rounded-full' onClick={handleClose} />
+                                <IoMdClose className='cursor-pointer mx-10 hover:bg-red-600 hover:rounded-full' onClick={handleClose} />
                             </div>
                             <div className="flex gap-1.5 self-start mt-6 text-xl font-bold ">
                                 <div className="text-white">US$: </div>
@@ -46,10 +47,10 @@ const navigate = useNavigate();
 
                         <div className="prose max-w-screen-md p-6 overflow-y-auto" style={{ maxHeight: '70vh',  borderRadius: '0.375rem', boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)' }}>
 
-                            <div className=" xl:max-w-[50rem] mt-10 m-10">
+                            <div className=" xl:max-w-[50rem]  m-1">
 
-                                <div className="mt-5 w-full bg-white border-white border-solid border-[3px] min-h-[4px] max-md:max-w-full" />
-                                <div className="self-center mt-14 w-full max-w-[502px] max-md:mt-10 max-md:max-w-full">
+                                <div className=" w-full bg-white border-white border-solid border-[3px] min-h-[4px] max-md:max-w-full" />
+                                <div className="self-center mt-8 w-full max-w-[502px] max-md:mt-10 max-md:max-w-full">
                                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                                         <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
                                             <div className="flex flex-col grow whitespace-nowrap ">
@@ -83,12 +84,12 @@ const navigate = useNavigate();
                                 </div>
                                 <div className="mt-10 w-full bg-white border-white border-solid border-[3px] min-h-[4px] max-md:mt-10 max-md:max-w-full" />
 
-                                <div className="flex flex-col px-8 mt-5 w-full text-white max-md:px-5 max-md:max-w-full">
+                                <div className="flex flex-col mt-5 w-full text-white max-md:px-5 max-md:max-w-full">
                                     <div className="text-3xl max-md:max-w-full">Descripción</div>
                                     <div className="px-3 pt-4 pb-28 mt-4 text-xl rounded-lg bg-white bg-opacity-30 text-white text-opacity-90 max-md:pr-5 max-md:max-w-full ">
                                         Disfruta de una cabina silenciosa gracias al vidrio acústico de 360 grados.
                                     </div>
-                                    <div className="justify-center self-center px-7 py-4 mt-6 text-3xl max-md:text-xl whitespace-nowrap rounded-lg bg-sky-600 bg-opacity-60 max-md:px-5 cursor-pointer"
+                                    <div className="justify-center self-center px-7 py-4 mt-6 text-3xl  max-md:text-xl whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60  max-md:px-5 cursor-pointer"
 
                                         onClick={handlFormulario} >
 
