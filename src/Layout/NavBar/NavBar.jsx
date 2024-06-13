@@ -22,10 +22,16 @@ const Navbar = ({ background }) => {
     
     useEffect(() => {
         console.log(location.pathname);
+
         if (location.pathname.includes('/admin')) {
             console.log('User navigated to an admin page');
         }
     }, [location]);
+
+    useEffect(() => {
+        setlocationR(location.pathname)
+    }, [locationR, location])
+    
 
     const getAdjustedPath = (path) => {
         return location.pathname.includes('/admin') ? `/admin${path}` : path;
