@@ -22,11 +22,14 @@ import { useContextCar } from './Context/Context'
 import SignInLayout from './Layout/SignInLayout/SignInLayout'
 import FormularioReserva from './Components/FormularioReserva/FormularioReserva'
 import ReservarLayout from './Layout/ReservarLayout/ReservarLayout'
+import TableUserLayout from './Layout/TableUserLayout/TableUserLayout'
+
+
+
 function App() {
-  const { user, WhichRole } = useContextCar()
+  const { user, WhichRole, locationR } = useContextCar()
 
   // const [isOpenEditImg, setisOpenEditImg] = useState(false)
-
   const commonRoutes = [
     { path: '/', element: <MainScreen /> },
     { path: '/CarSale', element: <CarSale /> },
@@ -64,16 +67,16 @@ function App() {
     { path: '/ProductFord', element: <ProductFord /> },
     { path: '/AboutUS', element: <AboutUSLayout /> },
     { path: '/FormularioReserva', element: <ReservarLayout /> },
+    { path: '/TableUser', element: <TableUserLayout /> },
     { path: '/LognIn', element: <LogInLayout /> },
     { path: '/SignIn', element: <SignInLayout /> }
 
   ];
 
+  console.log(locationR)
+
 
   const routes = [...commonRoutes, ...AdminRoutes.map(route => ({ ...route, path: `/admin${route.path}`}))];
-
-  console.log(routes)
-
 
   return (
     <>
