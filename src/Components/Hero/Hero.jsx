@@ -24,9 +24,9 @@ const Hero = () => {
     const [Usado, setUsado] = useState(false)
     const slider = [
         "https://firebasestorage.googleapis.com/v0/b/cars-showroom-d3aa2.appspot.com/o/SliderHero%2FHeroimg.png?alt=media&token=d060d88d-de11-4ed2-bbd3-664dd29d1f64",
-        "src/assets/img/HeroImgtwo.jpg",
-        "src/assets/img/HeroImgfive.jpg",
-        "src/assets/img/HeroImgsix.jpg"
+        "https://firebasestorage.googleapis.com/v0/b/cars-showroom-d3aa2.appspot.com/o/SliderHero%2FHeroImgtwo.jpg?alt=media&token=4e770840-5fbe-44c3-bfa4-3b4b9ea277d0",
+        "https://firebasestorage.googleapis.com/v0/b/cars-showroom-d3aa2.appspot.com/o/Slider%2FHeroImgfive.jpg?alt=media&token=001f660e-2a57-4261-a498-de19df8096a2",
+        "https://firebasestorage.googleapis.com/v0/b/cars-showroom-d3aa2.appspot.com/o/Slider%2FHeroImgsix.jpg?alt=media&token=2c5b782e-dd2d-4425-8367-2644d4e5eb20"
 
 
 
