@@ -101,18 +101,10 @@ const Hero = () => {
                     <div className={`w-full h-full -z-50 bg-black absolute right-0 top-0  `}>
                         <img className="w-full  bg-contain brightness-50 blur-[2px] contrast-125" src={SliderImg[current]} alt="" />
                     </div>
-                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                        <div className="px-3 py-2 text-right  text-xs leading-4">
-                            <button onClick={() => handleEditTextHero()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                <FaEdit size={14} className="text-yellow-400" />
-                            </button>
-                        </div>
-                    )}
-                </div>
+                    <div className="md:absolute z-50 top-0 md:right-0 md:left-0 md:px-12 ">
 
                         <div className="lg:text-5xl md:text-4xl xl:p-20 font-semibold absolute top-20 lg:p-20 md:top-[9rem] text-white max-md:max-w-full max-md:text-4xl">
                             <h1 className="lg:text-5xl md:text-4xl md:-mt-[3rem] text-[1.2rem] xl:px-30 xl:text-6xl px-6">
-                               
                                 <div className="flex flex-row items-center ">
                                     {TituloHero}
                                     {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
@@ -123,11 +115,10 @@ const Hero = () => {
                                         </div>
                                     )}
                                 </div>
-
                             </h1>
                         </div>
                         <div className="md:text-2xl xl:p-20  absolute font-semibold md:top-[13rem] z-10 top-28 lg:p-20   text-white max-md:max-w-full">
-                         
+
                             <div className="flex flex-row items-center">
 
                                 <p className={`text-[0.7rem] md:-mt-[3.9rem] xl:-mt-5 md:text-[25px] px-6 xl:px-30 xl:text-4xl ${user ? WhichRole === 'admin' || WhichRole === 'Owner' ? 'w-1/2' : '' : 'w-[60%]'} `}>{formatText(DescripcionHero)}</p>
@@ -141,7 +132,7 @@ const Hero = () => {
                             </div>
                             {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                 <div className="px-3 py-2 ml-[20rem]  text-xs leading-4">
-                             
+                                    {/* onClick={() => handleOpenEditImage()} */}
                                     <button onClick={() => handleOpenEditImage()} className="group relative flex items-center justify-center h-12 w-1/2 md:w-48 overflow-hidden rounded-xl text-lg font-bold text-white">
                                         <span className="mr-2">Edit images</span>
                                         <FaEdit size={14} className="text-yellow-400" />
@@ -283,7 +274,9 @@ const Hero = () => {
                             </button>
                         </div>
                     </div>
-       
+                </div>
+            </div>
+
         </>
     );
 }

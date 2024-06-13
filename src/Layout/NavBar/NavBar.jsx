@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useContextCar } from '../../Context/Context';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 const Navbar = ({ background }) => {
-    const { user, logout, AutosVisible,setAutosVisible, ContactoVisibles, setContactoVisibles, locationR, setlocationR} = useContextCar()
+    const { user,WhichRole, logout, AutosVisible, setAutosVisible, ContactoVisibles, setContactoVisibles, locationR, setlocationR } = useContextCar()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -19,7 +19,7 @@ const Navbar = ({ background }) => {
         setopenSettingUser(false)
         navigate('/admin/LognIn')
     }
-    
+
     useEffect(() => {
         console.log(location.pathname);
 
@@ -31,32 +31,30 @@ const Navbar = ({ background }) => {
     useEffect(() => {
         setlocationR(location.pathname)
     }, [locationR, location])
-    
+
 
     const getAdjustedPath = (path) => {
         return location.pathname.includes('/admin') ? `/admin${path}` : path;
     };
 
-    const handleAutosVisibles = () =>{
-        if(location.pathname !== '/' && location.pathname !== '/admin' )
-            {
-                navigate('/')
-                setAutosVisible(true)
-            }
-            else{
-                setAutosVisible(true)
-            }
+    const handleAutosVisibles = () => {
+        if (location.pathname !== '/' && location.pathname !== '/admin') {
+            navigate('/')
+            setAutosVisible(true)
+        }
+        else {
+            setAutosVisible(true)
+        }
     }
 
-    const handleContactoVisibles = () =>{
-        if(location.pathname !== '/' && location.pathname !== '/admin' )
-            {
-                navigate('/')
-                setContactoVisibles(true)
-            }
-            else{
-                setContactoVisibles(true)
-            }
+    const handleContactoVisibles = () => {
+        if (location.pathname !== '/' && location.pathname !== '/admin') {
+            navigate('/')
+            setContactoVisibles(true)
+        }
+        else {
+            setContactoVisibles(true)
+        }
     }
 
 
@@ -86,6 +84,9 @@ const Navbar = ({ background }) => {
 
                                 <a to="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-0">Your Profile</a>
                                 <a to="#" className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-1">Settings</a>
+                                {user && WhichRole === 'Owner' && (
+                                    <Link to='admin/TableUser' className="block px-4 py-2 text-sm text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-1">Usuarios</Link>
+                                )}
                                 <button onClick={(e) => handleLogout(e)} className="block px-4 py-2 w-full text-sm text-left text-white hover:bg-gray-600" role="menuitem" tabIndex="-1" id="user-menu-item-2">Sign out</button>
                             </div>
                         )}
@@ -120,7 +121,7 @@ const Navbar = ({ background }) => {
 
                         <li>
                             <button
-                               onClick={handleAutosVisibles}
+                                onClick={handleAutosVisibles}
                                 className="block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                             >
                                 Autos
