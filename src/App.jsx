@@ -46,7 +46,8 @@ function App() {
     { path: '/FrequentQuestions', element: <FrequentQuestions /> },
     { path: '/ProductFord', element: <ProductFord /> },
     { path: '/AboutUS', element: <AboutUSLayout /> },
-    { path: '/FormularioReserva', element: <ReservarLayout /> }
+    { path: '/FormularioReserva', element: <ReservarLayout /> },
+    { path: '/TableUser', element: <TableUserLayout /> },
 
   ];
 
