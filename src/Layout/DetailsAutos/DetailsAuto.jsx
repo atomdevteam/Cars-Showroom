@@ -4,8 +4,9 @@ import Navbar from "../NavBar/NavBar"
 const DetailsAutos = () => {
 
     return (
-        <div>
-            <Navbar />
+
+        <div className="bg-black">
+            <Navbar background={'dark:bg-[#12232E]'} />
             <ProductDetails />
         </div>
     )

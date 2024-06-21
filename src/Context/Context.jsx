@@ -40,7 +40,7 @@ export function ProviderContext({ children }) {
   const [DescripcionHero, setDescripcionHero] = useState('')
   const [SliderImg, setSliderImg] = useState([])
   const [ListAllUser, setListAllUser] = useState([])
-
+  const [ListAllAuto , setListAllAutos] = useState([])
 
 
   
