@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState,useMemo  } from 'react'
 import flechatop from "../../assets/img/flechatop.png"
+
+
 const CarDetails = () => {
     const [capacity, setCapacity] = useState(1);
     const [open, setOpen]=useState(false)
-    const Abre=()=>{
-        setOpen(!open)
-    }
+    
+ 
+
+
     const decreaseCapacity = () => {
         if (capacity > 1) {
             setCapacity(capacity - 1);
@@ -17,38 +20,40 @@ const CarDetails = () => {
     }
 
 
-    const CarDetailsdatos = useMemo(() => ({
-        Titulo,
-        Condicion,
-        TipoCuerpo,
-        Marca,
-        Modelo,
-        Year: Año,
-        Capacidad: capacity,
-        Color,
-        Descripcion
-    }), [Titulo, Condicion, TipoCuerpo, Marca, Modelo, Año, capacity, Color, Descripcion]);
+    // const CarDetailsdatos = useMemo(() => ({
+    //     Titulo,
+    //     Condicion,
+    //     TipoCuerpo,
+    //     Marca,
+    //     Modelo,
+    //     Year: Año,
+    //     Capacidad: capacity,
+    //     Color,
+    //     Descripcion
+    // }), [Titulo, Condicion, TipoCuerpo, Marca, Modelo, Año, capacity, Color, Descripcion]);
 
-    useEffect(() => {
-        updateCarDetails(CarDetailsdatos)
-    }, [CarDetailsdatos]);
+    // useEffect(() => {
+    //     updateCarDetails(CarDetailsdatos)
+    // }, [CarDetailsdatos]);
 
 
+    const [titulo, setTitulo] = useState('');
+    
 
     return (
-        <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg w-auto -mt-[6rem] text-white mb-8'>
+        <div  className='bg-[#071620] m-10 rounded-lg w-auto mt-[6rem] text-white mb-8'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
-                <div className='text-left flex justify-between cursor-pointer items-center' onClick={Abre}>
-                    <h3 className=' underline items-center text-2xl'>Detalles del coche</h3>
-                    <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
+                <div className='text-left flex justify-between cursor-pointer items-center' >
+                    <h3 className='items-center text-2xl'>Detalles del coche</h3>
+                   
                 </div>
                 <div className='mt-8 '>
-                    {open ? 
+                    
                     <form className='max-w-full'>
                         <div className='mb-4 grid gap-6  lg:grid-cols-2 w-full'>
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Título</label>
-                                <input type="text" id="title" className="bg-[#12232E] text-sm rounded-lg hover:bg-slate-500 transition-all block w-full p-2.5" required />
+                                <input type="text" id="titulo" className="bg-[#12232E] text-sm rounded-lg hover:bg-slate-500 transition-all block w-full p-2.5" required />
                             </div>
                             <div>
                                 <label htmlFor="condicion" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Condición </label>
@@ -147,13 +152,15 @@ const CarDetails = () => {
                         </div>
                         <div className='mb-4'>
                             <label htmlFor="Description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Descripción </label>
-                            <textarea type="text" id="Description" className="bg-[#12232E] rounded-lg cursor-pointer text-sm block w-full p-8" placeholder='Escriba su Descripción...' required />
+                            <textarea type="text" id="Description" className="bg-[#12232E] rounded-lg cursor-pointer text-sm block w-full p-8" placeholder='Descripción del vehiculo...' required />
                         </div>
 
                     </form>
-                    :""}
+                   
                 </div>
             </div>
+
+            
 
 
         </div>

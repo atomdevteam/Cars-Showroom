@@ -7,14 +7,14 @@ const Dimension = () => {
         setOpen(!open)
     }
     return (
-            <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-8'>
+            <div className='bg-[#071620] rounded-lg  text-white mb-8 m-10'>
                 <div className='ml-8 mr-8  mt-8'>
                     <div className='text-left flex justify-between cursor-pointer items-center' onClick={Abre}>
-                        <h3 className=' underline text-2xl'>Dimensión</h3>
-                        <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
+                        <h3 className='  text-2xl'>Dimensión</h3>
+                       
                     </div>
                     <div className='mt-8 '>
-                        {open?
+                       
                         <form className='max-w-full'>
 
                             <div className=''>
@@ -66,7 +66,7 @@ const Dimension = () => {
                             </div>
 
                         </form>
-                        :""}
+                  
                     </div>
                 </div>
             </div>

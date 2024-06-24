@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContextCar } from '../../Context/Context';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+
 const Navbar = ({ background }) => {
     const { user,WhichRole, logout, AutosVisible, setAutosVisible, ContactoVisibles, setContactoVisibles, locationR, setlocationR } = useContextCar()
 
@@ -57,12 +58,18 @@ const Navbar = ({ background }) => {
         }
     }
 
+    const handleReservas = () => {
+        window.scrollTo(0, 0);
+        navigate('/admin/Reservas')
+    }
+
+
 
     return (
 
         <nav className={`relative bg-transparent z-20  border-gray-200 `}>
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4  ">
-                <a to="https://flowbite.com" className="flex items-center -mr-14 space-x-3 rtl:space-x-reverse">
+                <a to="" className="flex items-center -mr-14 space-x-3 rtl:space-x-reverse">
                     <img src="https://i.ibb.co/xXWCwHF/logo.png" className="h-12" alt="logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Cars  Showroom</span>
                 </a>
@@ -142,6 +149,20 @@ const Navbar = ({ background }) => {
                             >
                                 Contáctanos
                             </button>
+                        </li>
+
+                        <li>
+                        {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                        <div>
+                            <button  
+                            onClick={handleReservas}
+                            className="block  text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                        
+                            Reservas
+                            
+                            </button>
+                        </div>
+                    )}
                         </li>
 
                     </ul>

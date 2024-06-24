@@ -7,14 +7,14 @@ const EngineDetails = () => {
     }
     return (
        
-            <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-8'>
+            <div className='bg-[#071620] rounded-lg  text-white mb-8 m-10'>
                 <div className='ml-8 mr-8 mb-12 mt-8'>
-                    <div className='text-left flex justify-between items-center cursor-pointer' onClick={Abre}>
-                        <h3 className=' underline text-2xl'>Detalles del motor</h3>
-                        <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
+                    <div className='text-left flex justify-between items-center cursor-pointer'>
+                        <h3 className=' text-2xl'>Detalles del motor</h3>
+                        
                     </div>
                     <div className='mt-8 '>
-                        {open ?
+                    
                         <form className='max-w-full'>
 
 
@@ -23,14 +23,14 @@ const EngineDetails = () => {
                                     <div>
                                         <label htmlFor="Typeofload" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipos de combustible </label>
                                         <select id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5 cursor-pointer rounded-lg hover:bg-slate-500 transition-all" required>
-                                            <option value="">Selecciona</option>
+                                            <option value="">Seleccionar</option>
                                             <option value="Gasolina">Gasolina</option>
                                             <option value="Diésel">Diésel</option>
                                             <option value="Biodiésel">Biodiésel</option>
                                             <option value="Gas natural">Gas natural</option>
                                         </select>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Capacidad de pasajeros</label>
                                         <div className="flex ">
 
@@ -39,23 +39,18 @@ const EngineDetails = () => {
                                                 km
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div>
                                         <label htmlFor="Model" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Transmisión</label>
                                         <select id="Model" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
-                                            <option value="">Selecciona</option>
+                                            <option value="">Seleccionar</option>
                                             <option value="Transmisión Manual">Transmisión Manual</option>
                                             <option value="Transmisión Automática">Transmisión Automática</option>
                                         </select>
                                     </div>
-                                </div>
-                            </div>
 
-
-                            <div className='mb-4'>
-                                <div className="grid gap-6 mb-6 lg:grid-cols-3">
                                     <div className='mb-8'>
-                                        <label htmlFor="Year" className="block mb-2 text-sm font-medium  text-gray-900 dark:text-gray-300">DriverTrain</label>
+                                        <label htmlFor="Year" className="block mb-2 text-sm font-medium  text-gray-900 dark:text-gray-300">Tipo de tranmición</label>
                                         <select id="Year" className="bg-[#12232E] text-sm block w-full rounded-lg hover:bg-slate-500 transition-all cursor-pointer p-2.5" required>
                                             <option value="">Seleccionar</option>
                                             <option value="Tracción Delantera">Tracción Delantera</option>
@@ -63,6 +58,14 @@ const EngineDetails = () => {
 
                                         </select>
                                     </div>
+
+                                </div>
+                            </div>
+
+
+                            <div className='mb-4'>
+                                <div className="grid gap-6 mb-6 lg:grid-cols-3">
+                                   
 
 
                                     <div>
@@ -91,7 +94,7 @@ const EngineDetails = () => {
                             </div>
                         
                         </form>
-                        :""}
+                      
                     </div>
                 </div>
 

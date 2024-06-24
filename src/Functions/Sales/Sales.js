@@ -1,6 +1,7 @@
 import { dbFire, storage } from "../../firebase/firebase"
 import { collection, addDoc, getDocs, onSnapshot } from "firebase/firestore"
 import { ref as storageref, uploadBytes, getDownloadURL } from "firebase/storage"
+
 export const SaveCarSale = async (datos, userId) => {
 
     try {
@@ -13,7 +14,7 @@ export const SaveCarSale = async (datos, userId) => {
 }
 
 export const SaveMedia = (file, userId, setLinkUrl) => {
-    const storageRef = storageref(storage, `CarSaleMultimedia/${userId}/${file.name}`)
+    const storageRef = storageref(storage, `CarSaleMultimedia/${file.name}`)
     uploadBytes(storageRef, file).then((snapshot) => {
 
         getDownloadURL(storageRef)

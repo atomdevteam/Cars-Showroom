@@ -19,9 +19,9 @@ const Location = ({LocationDatos}) => {
     }, [Ubicacion])
 
     return (
-        <div data-aos="zoom-in-up" className='bg-[#071620]  text-white mb-12 rounded-lg'>
+        <div  className='bg-[#071620]  text-white mb-12 rounded-lg'>
             <div className='ml-8 mr-8 mb-12 mt-8 cursor-pointer' >
-                <div className='text-left flex justify-between items-center' onClick={Abre}>
+                <div className='text-left flex justify-between items-center'>
                     <h3 className=' underline text-2xl'>Ubicación </h3>
                     <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
                 </div>

@@ -4,72 +4,14 @@ import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
 import { useContextCar } from '../../Context/Context';
 import { FaEdit } from "react-icons/fa";
-const vehicles = [
-    {
-        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
-        title: "2023 Tesla Model 3",
-        price: "US$ 35,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/hynQ3wm/Ford.png",
-        title: "2021 F-250 Super Duty",
-        price: "US$ 82,098"
-    },
-    {
-        imageUrl: "https://i.ibb.co/dcKjhRd/Honda.png",
-        title: "2021 Honda Pilot",
-        price: "US$ 43,735"
-    },
-    {
-        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
-        title: "2022 Tesla Model 3",
-        price: "US$ 30,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
-        title: "2024 Toyota Cross",
-        price: "US$ 48,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/HdRMkvM/toyota2.jpg",
-        title: "2025 Toyota C-HR",
-        price: "US$ 32,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/vzmDRtc/chevrolet-2024-jeep.jpg",
-        title: "2024 chevrolet",
-        price: "US$ 30,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/PQs6FCg/fiat1.jpg",
-        title: "2024 Toyota Cross",
-        price: "US$ 48,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/DLS2dWZ/Kia-Niro1.jpg",
-        title: "2025 Toyota C-HR",
-        price: "US$ 32,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/KmTjKbL/Tesla.jpg",
-        title: "2022 Tesla Model 3",
-        price: "US$ 30,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/7NQYFYp/toyota.webp",
-        title: "2024 Toyota Cross",
-        price: "US$ 48,000"
-    },
-    {
-        imageUrl: "https://i.ibb.co/fGkRFJ4/posher1.webp",
-        title: "2025 Toyota C-HR",
-        price: "US$ 32,000"
-    }
-];
+import { useNavigate } from 'react-router-dom';
+import { FaPlus } from "react-icons/fa6";
+
 
 const Recomendado = () => {
     const { user, WhichRole } = useContextCar()
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     const handleOpenModal = () => {
         setShowModal(true);
@@ -79,7 +21,7 @@ const Recomendado = () => {
         setShowModal(false);
     };
 
-    const cars =[
+    const cars = [
         {
             id: 1,
             name: "2023 Tesla Model 3",
@@ -154,15 +96,46 @@ const Recomendado = () => {
         }
     ];
 
-    
+
+    const handleAgregarAuto = () => {
+        window.scrollTo(0, 0);
+        navigate('/admin/CarSale')
+    }
+
 
     return (
         <div className="bg-transparent z-50 flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]" >
 
-            <div className="flex flex-col mt-3  z-50 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full">
-                <div className="text-2xl font-bold text-white ">
-                    Autos disponibles
+            <div className="flex flex-col mt-3 justify-between  z-50 w-full max-w-[992px] max-md:mt-10 max-md:max-w-full">
+
+
+                <div className="flex">
+                    <div className="text-2xl mt-3 font-bold text-white ">
+                        Autos disponibles
+
+                    </div>
+
+                    {/* {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                        <div className="px-3 py-2   text-xs leading-4">
+                            <button onClick={() => handleAgregarAuto()}
+                                className="flex  px-3 py-1 text-2xl mx-2 border text-white rounded transition duration-300 hover:bg-blue-500 hover:text-white focus:outline-none">
+
+                                <div className='mx-2'>Agregar autos </div>
+                                <FaPlus className=' mt-1.5 ' />
+                            </button>
+                        </div>
+                    )} */}
+
+                    {/* <button class="mx-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Agregar Auto
+                    </button> */}
+
                 </div>
+
+                <div className='flex w-full mt-3 px-6 py-3 font-bold  lg:text-2xl'>
+
+                </div>
+
                 <div className="flex w-full mt-3 px-6 py-3 justify-end font-bold  lg:text-2xl ">
 
                     <div className="flex text-blue-500 items-center">
@@ -179,8 +152,20 @@ const Recomendado = () => {
                 <div className="mt-6 max-md:max-w-full">
                     <div className="">
 
-                   
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-3    ">
+
+                            <div className="flex items-center justify-center text-2xl border text-white rounded transition duration-300 hover:bg-blue-500 hover:text-white focus:outline-none">
+                                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                    <div className="">
+                                        <button onClick={() => handleAgregarAuto()}
+                                        >
+                                            <FaPlus className='mx-40 mt-4 text-4xl' />
+                                            <div className='text-4xl m-5 '>Agregar auto nuevo </div>
+
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                             {/* 
                             flex gap-2  max-md:flex-col max-md:gap-0 -> Elimine eso
                             y le agruegue el grid

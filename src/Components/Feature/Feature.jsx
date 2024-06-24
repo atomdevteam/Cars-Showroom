@@ -9,21 +9,16 @@ const Feature = () => {
     }
     return (
 
-        <div data-aos="zoom-in-up" className='bg-[#071620] rounded-lg  text-white mb-12'>
+        <div  className='bg-[#071620] rounded-lg  text-white  m-10'>
             <div className='ml-8 mr-8 mb-12 mt-8'>
                 <div className='text-left flex justify-between items-center cursor-pointer' onClick={Abre}>
-                    <h3 className=' underline text-2xl'>Features</h3>
-                    <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" />
+                    <h3 className='  text-2xl'>Features</h3>
+                    {/* <img className= {`w-6 h-6 ${open ? "rotate-180" : ""}`} src={flechatop} alt="Ver" /> */}
                 </div>
                 <div className='mt-8 '>
-                    {open?
+                  
                     <form className='max-w-full'>
-                        <div className='mb-4 grid gap-6 lg:grid-cols-1 w-full'>
-                            <div className='mb-8'>
-                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Buscar</label>
-                                <input type="search" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg hover:bg-slate-500 transition-all" required />
-                            </div>
-                        </div>
+                       
 
                         <div className='mb-8 grid gap-6  lg:grid-cols-4 w-full'>
 
@@ -108,7 +103,7 @@ const Feature = () => {
 
 
                     </form>
-                    :""}
+                 
                 </div>
             </div>
         </div>

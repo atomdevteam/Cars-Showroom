@@ -25,7 +25,6 @@ import ReservarLayout from './Layout/ReservarLayout/ReservarLayout'
 import TableUserLayout from './Layout/TableUserLayout/TableUserLayout'
 
 
-
 function App() {
   const { user, WhichRole, locationR } = useContextCar()
 
@@ -69,7 +68,10 @@ function App() {
     { path: '/FormularioReserva', element: <ReservarLayout /> },
     { path: '/TableUser', element: <TableUserLayout /> },
     { path: '/LognIn', element: <LogInLayout /> },
-    { path: '/SignIn', element: <SignInLayout /> }
+    { path: '/SignIn', element: <SignInLayout /> },
+    { path: '/Reservas', element: <ReservarLayout /> }
+
+
 
   ];
 

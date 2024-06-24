@@ -13,7 +13,8 @@ const Modal = ({ showModal, handleClose }) => {
 
     const handlFormulario = () => {
         window.scrollTo(0,0);
-        navigate('/admin/FormularioReserva')
+        navigate('/admin/DetailsAutos')
+        // FormularioReserva'
     }
 
     useEffect(() => {
@@ -31,7 +32,7 @@ const Modal = ({ showModal, handleClose }) => {
     return (
         <>
             {showModal &&
-                <div className='fixed  inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm ' >
+                <div className='fixed inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm ' >
                     <div className="relative bg-gray-900  rounded-lg overflow-hidden shadow-xl max-w-screen-md w-full m-4" >
                         <div className="flex flex-col px-7 w-full max-md:px-5 max-md:max-w-full m-4">
 
@@ -60,7 +61,7 @@ const Modal = ({ showModal, handleClose }) => {
 
                         <div className="prose max-w-screen-md p-6 overflow-y-auto" style={{ maxHeight: '70vh', borderRadius: '0.375rem', boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)' }}>
 
-                            <div className=" xl:max-w-[50rem]  m-1">
+                            <div className=" xl:max-w-[50rem]  m-5">
 
                                 <div className=" w-full bg-white border-white border-solid border-[3px] min-h-[4px] max-md:max-w-full" />
                                 <div className="self-center mt-8 w-full max-w-[502px] max-md:mt-10 max-md:max-w-full">
