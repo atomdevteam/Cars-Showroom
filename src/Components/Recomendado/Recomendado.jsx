@@ -152,11 +152,7 @@ const Recomendado = () => {
                 <div className="mt-6 max-md:max-w-full">
                     <div className="">
 
-
-
-
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-3    ">
-
 
                             <div className="flex items-center justify-center text-2xl border text-white rounded transition duration-300 hover:bg-blue-500 hover:text-white focus:outline-none">
                                 {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (

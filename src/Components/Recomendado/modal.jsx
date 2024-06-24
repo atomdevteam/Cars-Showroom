@@ -32,7 +32,7 @@ const Modal = ({ showModal, handleClose }) => {
     return (
         <>
             {showModal &&
-                <div className='fixed  inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm ' >
+                <div className='fixed inset-0 flex items-center justify-center z-50  sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm ' >
                     <div className="relative bg-gray-900  rounded-lg overflow-hidden shadow-xl max-w-screen-md w-full m-4" >
                         <div className="flex flex-col px-7 w-full max-md:px-5 max-md:max-w-full m-4">
 

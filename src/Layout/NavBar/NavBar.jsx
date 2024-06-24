@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContextCar } from '../../Context/Context';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+
 const Navbar = ({ background }) => {
     const { user,WhichRole, logout, AutosVisible, setAutosVisible, ContactoVisibles, setContactoVisibles, locationR, setlocationR } = useContextCar()
 
