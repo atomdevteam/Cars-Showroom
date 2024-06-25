@@ -1,8 +1,19 @@
-import React, { useState,useMemo  } from 'react'
+import React, { useState, useEffect, useMemo  } from 'react'
 import flechatop from "../../assets/img/flechatop.png"
 
 
-const CarDetails = () => {
+const CarDetails = ({ updateCarDetails }) => {
+
+    const [Titulo, setTitulo] = useState('')
+    const [Condicion, setCondicion] = useState('')
+    const [TipoCuerpo, setTipoCuerpo] = useState('')
+    const [Marca, setMarca] = useState('')
+    const [Modelo, setModelo] = useState('')
+    const [Año, setAño] = useState('')
+    
+    const [Color, setColor] = useState('')
+    const [Descripcion, setDescripcion] = useState('')
+
     const [capacity, setCapacity] = useState(1);
     const [open, setOpen]=useState(false)
     
@@ -20,25 +31,23 @@ const CarDetails = () => {
     }
 
 
-    // const CarDetailsdatos = useMemo(() => ({
-    //     Titulo,
-    //     Condicion,
-    //     TipoCuerpo,
-    //     Marca,
-    //     Modelo,
-    //     Year: Año,
-    //     Capacidad: capacity,
-    //     Color,
-    //     Descripcion
-    // }), [Titulo, Condicion, TipoCuerpo, Marca, Modelo, Año, capacity, Color, Descripcion]);
+    const CarDetailsdatos = useMemo(() => ({
+        Titulo,
+        Condicion,
+        TipoCuerpo,
+        Marca,
+        Modelo,
+        Year: Año,
+        Capacidad: capacity,
+        Color,
+        Descripcion
+    }), [Titulo, Condicion, TipoCuerpo, Marca, Modelo, Año, capacity, Color, Descripcion]);
 
-    // useEffect(() => {
-    //     updateCarDetails(CarDetailsdatos)
-    // }, [CarDetailsdatos]);
+    useEffect(() => {
+        updateCarDetails(CarDetailsdatos)
+    }, [CarDetailsdatos]);
 
 
-    const [titulo, setTitulo] = useState('');
-    
 
     return (
         <div  className='bg-[#071620] m-10 rounded-lg w-auto mt-[6rem] text-white mb-8'>
@@ -53,7 +62,8 @@ const CarDetails = () => {
                         <div className='mb-4 grid gap-6  lg:grid-cols-2 w-full'>
                             <div>
                                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Título</label>
-                                <input type="text" id="titulo" className="bg-[#12232E] text-sm rounded-lg hover:bg-slate-500 transition-all block w-full p-2.5" required />
+                                <input onChange={(e) => setTitulo(e.target.value)}
+                                 type="text" id="titulo" className="bg-[#12232E] text-sm rounded-lg hover:bg-slate-500 transition-all block w-full p-2.5" required />
                             </div>
                             <div>
                                 <label htmlFor="condicion" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Condición </label>
@@ -76,7 +86,7 @@ const CarDetails = () => {
                             <div className="grid gap-6 mb-6 lg:grid-cols-3">
                                 <div>
                                     <label htmlFor="Typeofload" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipo de cuerpo</label>
-                                    <select id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
+                                    <select onChange={(e) => setTipoCuerpo(e.target.value)}  id="Typeofload" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="sedan">Sedán</option>
                                         <option value="coupe">Coupé</option>
@@ -85,7 +95,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="Brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Marca</label>
-                                    <select id="Brand" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
+                                    <select onChange={(e) => setMarca(e.target.value)} id="Brand" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="toyota">Toyota</option>
                                         <option value="honda">Honda</option>
@@ -94,7 +104,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="Model" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Modelo</label>
-                                    <select id="Model" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
+                                    <select onChange={(e) => setModelo(e.target.value)} id="Model" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Selecciona</option>
                                         <option value="corolla">Corolla</option>
                                         <option value="civic">Civic</option>
@@ -109,7 +119,7 @@ const CarDetails = () => {
                             <div className="grid gap-6 mb-6 lg:grid-cols-3">
                                 <div>
                                     <label htmlFor="Year" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Año</label>
-                                    <select id="Year" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
+                                    <select onChange={(e) => setAño(e.target.value)} id="Year" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all" required>
                                         <option value="">Seleccionar</option>
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
@@ -139,7 +149,7 @@ const CarDetails = () => {
                                 </div>
                                 <div>
                                     <label htmlFor="ExteriorColor" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Color exterior</label>
-                                    <select id="ExteriorColor" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all " required>
+                                    <select onChange={(e) => setColor(e.target.value)} id="ExteriorColor" className="bg-[#12232E] text-sm block w-full p-2.5 rounded-lg cursor-pointer hover:bg-slate-500 transition-all " required>
                                         <option value="">Seleccionar</option>
                                         <option value="Blanco">Blanco</option>
                                         <option value="Negro">Negro</option>
@@ -152,7 +162,7 @@ const CarDetails = () => {
                         </div>
                         <div className='mb-4'>
                             <label htmlFor="Description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Descripción </label>
-                            <textarea type="text" id="Description" className="bg-[#12232E] rounded-lg cursor-pointer text-sm block w-full p-8" placeholder='Descripción del vehiculo...' required />
+                            <textarea onChange={(e) => setDescripcion(e.target.value)}  type="text" id="Description" className="bg-[#12232E] rounded-lg cursor-pointer text-sm block w-full p-8" placeholder='Descripción del vehiculo...' required />
                         </div>
 
                     </form>
@@ -165,6 +175,7 @@ const CarDetails = () => {
 
         </div>
     )
+
 }
 
 export default CarDetails

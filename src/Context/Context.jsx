@@ -22,7 +22,9 @@ export function ProviderContext({ children }) {
   const [user, setUser] = useState(null)
   const [LisCarNew, setLisCarNew] = useState([])
   const [LisCarUsed, setLisCarUsed] = useState([])
+  
   const [ListCar, setListCar] = useState([])
+
   const [CarDatos, setCarDatos] = useState([])
   const [WhichRole, setWhichRole] = useState(null)
   const [SerchingCar, setSerchingCar] = useState([])
@@ -41,6 +43,9 @@ export function ProviderContext({ children }) {
   const [SliderImg, setSliderImg] = useState([])
   const [ListAllUser, setListAllUser] = useState([])
   const [ListAllAuto , setListAllAutos] = useState([])
+  
+// Available
+const [CarAvailable, setAvailable] = useState(null)
 
 
   
@@ -405,11 +410,14 @@ export function ProviderContext({ children }) {
         TituloHero,
         DescripcionHero,
         SliderImg,
-        setTituloHero, setDescripcionHero, setSliderImg, GetHero,
+        setTituloHero, 
+        setDescripcionHero, setSliderImg, GetHero,
 
         ListAllUser,
         updateUserRole,
-        setListAllUser
+        setListAllUser,
+        CarAvailable, 
+        setAvailable
       }}
     >
       {children}

@@ -1,8 +1,41 @@
 import React from 'react'
 import CheckBox from '../Checkbox/CheckBox'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import flechatop from "../../assets/img/flechatop.png"
-const Feature = () => {
+const Feature = ({ FeatureDatos, newFeature, setNewFeature }) => {
+    const [selectedFeatures, setSelectedFeatures] = useState([]);
+    const [OtroFeature, setOtroFeature] = useState('')
+
+
+
+    const handleCheckboxChange = (feature) => {
+
+        setSelectedFeatures((prevSelectedFeatures) => {
+            if (prevSelectedFeatures.includes(feature)) {
+                if (feature === "Otro") {
+                    setOtroFeature(null);
+                }
+                return prevSelectedFeatures.filter((item) => item !== feature);
+            } else {
+                if (feature === "Otro") {
+                    setOtroFeature(feature);
+
+
+                }
+                return [...prevSelectedFeatures, feature];
+            }
+        });
+    };
+
+    useEffect(() => {
+        FeatureDatos.Features = selectedFeatures
+        if (newFeature !== "") {
+            FeatureDatos.Otros = newFeature
+        }
+
+    }, [selectedFeatures, FeatureDatos, newFeature])
+
+    
     const [open, setOpen]=useState(false)
     const Abre=()=>{
         setOpen(!open)
@@ -18,90 +51,29 @@ const Feature = () => {
                 <div className='mt-8 '>
                   
                     <form className='max-w-full'>
-                       
-
-                        <div className='mb-8 grid gap-6  lg:grid-cols-4 w-full'>
-
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Direccion'/>
-                                <label htmlFor="Direccion" className='hover:cursor-pointer'>Direccion Asistida</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='calefacción'/>
-                                <label htmlFor="calefacción" className='hover:cursor-pointer'>Asientos con calefacción</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Sensor'/>
-                                <label htmlFor="Sensor" className='hover:cursor-pointer'>Sensor de estacionamiento trasero</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='USB'/>
-                                <label htmlFor="USB" className='hover:cursor-pointer'>USB Port</label>
-                            </div>
-
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='AC'/>
-                                <label htmlFor="AC" className='hover:cursor-pointer'>AC</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Wifi'/>
-                                <label htmlFor="Wifi" className='hover:cursor-pointer'>Wifi</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Barra'/>
-                                <label htmlFor="Barra" className='hover:cursor-pointer'>Barra de techo</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='sonido'/>
-                                <label htmlFor="sonido" className='hover:cursor-pointer'>Sistema de sonido</label>
-                            </div>
- 
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Alarma'/>
-                                <label htmlFor="Alarma" className='hover:cursor-pointer'>Alarma</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='crucero'/>
-                                <label htmlFor="crucero" className='hover:cursor-pointer'>Control de crucero</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Ventanas'/>
-                                <label htmlFor="Ventanas" className='hover:cursor-pointer'>Ventanas eléctricas</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='memoria'/>
-                                <label htmlFor="memoria" className='hover:cursor-pointer'>Asiento con memoria</label>
-                            </div>
-
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Bluetooth'/>
-                                <label htmlFor="Bluetooth" className='hover:cursor-pointer'>Bluetooth</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='delantero'/>
-                                <label htmlFor="delantero" className='hover:cursor-pointer'>Sensor de estacionamiento delantero</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='corredizo'/>
-                                <label htmlFor="corredizo" className='hover:cursor-pointer'>Techo corredizo</label>
-                            </div>
-                            <div className=' items-center py-2' >
-                                <input className='w-4 h-4 mr-1' type="checkbox" id='Otro'/>
-                                <label htmlFor="Otro" className='hover:cursor-pointer'>Otro</label>
-                            </div>
-
-
+                    <div className='mb-8 grid gap-6 lg:grid-cols-4 w-full'>
+                            {['Dirección asistida', 'Asientos con calefacción', 'Sensor de estacionamiento trasero', 'USB Port', 'AC', 'Wifi', 'Barra de techo', 'Sistema de sonido', 'Alarma', 'Control de crucero', 'Ventanas eléctricas', 'Asiento con memoria', 'Bluetooth', 'Sensor de estacionamiento delantero', 'Techo corredizo', 'Otro'].map((feature) => (
+                                <CheckBox
+                                    key={feature}
+                                    text={feature}
+                                    isChecked={selectedFeatures.includes(feature)}
+                                    onCheckboxChange={() => handleCheckboxChange(feature)}
+                                />
+                            ))}
                         </div>
 
-                        <div className='mb-4 '>
-
-                            <textarea type="text" className="bg-[#12232E] rounded-lg text-sm block w-full p-8" placeholder='Escribe otra característica aquí. ' required />
+                        <div className='mb-4'>
+                            <p className='mb-2 text-gray-400 ml-2'>Indique aquí si seleccionó la opción "Otro".</p>
+                            <textarea
+                                value={newFeature}
+                                onChange={(e) => setNewFeature(e.target.value)}
+                                className="bg-[#12232E] text-sm block w-full p-8"
+                                placeholder='Escribe otra característica aquí.'
+                                required
+                                disabled={OtroFeature !== "Otro"}
+                            />
                         </div>
-
-
-
-
-
+                        
                     </form>
                  
                 </div>

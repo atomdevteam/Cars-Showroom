@@ -9,11 +9,12 @@ import { FaPlus } from "react-icons/fa6";
 
 
 const Recomendado = () => {
-    const { user, WhichRole } = useContextCar()
+    const { user, WhichRole, ListCar, setAvailable } = useContextCar()
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
-    const handleOpenModal = () => {
+    const handleOpenModal = (car) => {
+        setAvailable(car)
         setShowModal(true);
     };
 
@@ -97,6 +98,8 @@ const Recomendado = () => {
     ];
 
 
+
+
     const handleAgregarAuto = () => {
         window.scrollTo(0, 0);
         navigate('/admin/CarSale')
@@ -153,9 +156,9 @@ const Recomendado = () => {
                     <div className="">
 
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-3    ">
+                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                <div className="flex items-center justify-center text-2xl border text-white rounded transition duration-300 hover:bg-blue-500 hover:text-white focus:outline-none">
 
-                            <div className="flex items-center justify-center text-2xl border text-white rounded transition duration-300 hover:bg-blue-500 hover:text-white focus:outline-none">
-                                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
                                     <div className="">
                                         <button onClick={() => handleAgregarAuto()}
                                         >
@@ -164,29 +167,30 @@ const Recomendado = () => {
 
                                         </button>
                                     </div>
-                                )}
-                            </div>
+                                </div>
+                            )}
+
                             {/* 
                             flex gap-2  max-md:flex-col max-md:gap-0 -> Elimine eso
                             y le agruegue el grid
                             y de la linea 92 elimine w-[40%]
 
                             Mapear cada elemento del array y renderizarlos */}
-                            {cars.map((car, index) => (
+                            {ListCar.map((car, index) => (
                                 <div key={index} className="flex flex-col  max-md:ml-0 max-md:w-full">
                                     <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
-                                        <button onClick={handleOpenModal}>
+                                        <button onClick={() => handleOpenModal(car)}>
                                             <img
                                                 loading="lazy"
-                                                srcSet={car.imageUrl}
+                                                srcSet={car.Sale.Multimedia.Imagen[0]}
                                                 className="object-cover absolute inset-0 size-full"
-                                                alt={car.name}
+                                                alt={car.Sale.DetalleCoche.Titulo}
                                             />
                                         </button>
 
                                         <div className="flex absolute inset-x-0 bottom-0 text-sm px-2.5 gap-20 py-5   bg-black bg-opacity-30 max-md:mt-52">
-                                            <div className="flex-auto">{car.name}</div>
-                                            <div className="">{car.price}</div>
+                                            <div className="flex-auto">{car.Sale.DetalleCoche.Titulo}</div>
+                                            <div className="">{car.Sale.Precio.Precio}</div>
                                         </div>
                                     </div>
                                 </div>

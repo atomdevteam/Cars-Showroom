@@ -1,6 +1,15 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
-const Price = () => {
+const Price = ({PriceDatos}) => {
+    const [price, setPrice] = useState(0)
+
+    useEffect(() => {
+        if (price !== 0) {
+            PriceDatos.Precio = price;
+        }
+    }, [price]);
+    
+    
     return (
         <div  className='bg-[#071620] rounded-lg  text-white mt-4 m-10'>
             <div className='ml-8 mr-8  mt-8'>

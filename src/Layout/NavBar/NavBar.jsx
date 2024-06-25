@@ -22,10 +22,10 @@ const Navbar = ({ background }) => {
     }
 
     useEffect(() => {
-        console.log(location.pathname);
+        // console.log(location.pathname);
 
         if (location.pathname.includes('/admin')) {
-            console.log('User navigated to an admin page');
+            // console.log('User navigated to an admin page');
         }
     }, [location]);
 

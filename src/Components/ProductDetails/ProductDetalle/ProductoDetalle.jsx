@@ -1,28 +1,42 @@
 import React from "react";
 import { useState } from "react";
+import { useContextCar } from "../../../Context/Context";
 
 
 const ProductDetails = () => {
+    const { CarAvailable, Formatnumber } = useContextCar()
     const [isOpen, setIosOpen] = useState(false);
+    console.log(CarAvailable?.Sale?.Features?.Features)
     return (
 
-        <div className=' bg-gray-900'>
+        <div className=' bg-gray-900 '>
 
             <div className=" text-white flex flex-col justify-center items-start px-16 py-14 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
                 <div className="flex flex-col ml-16 max-md:max-w-full">
                     <div className="text-5xl max-md:max-w-full max-md:text-4xl">
-                        Tesla Model 3 Standard Range Plus
+                        {CarAvailable?.Sale?.DetalleCoche?.Titulo}
                     </div>
                 </div>
             </div>
 
 
-            {/* Aqui  van las imagenes del vehiculo */}
-            <div>
+            {/* Aqui  van las imagenes del vehiculo
+            grid grid-cols-4 gap-4
+            */}
 
+            <div className="grid grid-cols-6 gap-1 ">
+               
+                {CarAvailable?.Sale?.Multimedia.Imagen.map((Image, index) => (
 
+                    <div key={index} className="max-w-sm bg-white border mx-2 mt-4 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+                        <div>
+                            <img className="rounded-t-lg" src={Image} alt="" />
+                        </div>
+
+                    </div>
+                ))}
             </div>
-
 
             <div className=" flex flex-col self-stretch py-20 mt-32 font-semibold text-white bg-[#0B0C10] max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:flex-col">
@@ -33,11 +47,7 @@ const ProductDetails = () => {
                                 Descripción
                             </div>
                             <div className="mt-5 text-base bg-clip-text max-md:max-w-full">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas diam
-                                nam eu nulla a. Vestibulum aliquet facilisi interdum nibh blandit. Leo
-                                amet ultricies cum cras sit sed curabitur ultrices faucibus. Ultrices
-                                pellentesque ultricies semper leo maecenas. Amet, et sagittis
-                                consectetur at euismod iaculis.
+                                {CarAvailable?.Sale?.DetalleCoche?.Descripcion}
 
                             </div>
 
@@ -46,22 +56,37 @@ const ProductDetails = () => {
                                 <br />
                             </div>
                             <div className="bg- flex gap-3 mt-5 text-lg text-white max-md:flex-wrap">
-                                <div className="bg-slate-900 flex flex-col justify-center rounded-md">
+
+                                {
+                                    CarAvailable?.Sale?.Features?.Features.map((feature, index) => (
+                                        <div key={index} className="bg-slate-900 flex flex-col justify-center rounded-md">
+                                            <div className=" flex gap-2 px-2 py-  bg-slate-900">
+
+                                                <div >{feature}</div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                                {/* <div className="bg-slate-900 flex flex-col justify-center rounded-md">
                                     <div className=" flex gap-2 px-2 py-  bg-slate-900">
-                                        {/* <img
+
+
+
+                                        
+                                        <img
                                             loading="lazy"
                                             src="https://cdn.builder.io/api/v1/image/assets/TEMP/a1415a7a7c06533207b6c85c4eb839b14119858f2f09e8a4427077f504bf6caf?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
                                             className="shrink-0 aspect-square w-[22px]"
-                                        /> */}
+                                        />
                                         <div cals>Autopilot</div>
                                     </div>
                                 </div>
                                 <div className=" p-4  bg-slate-900">
-                                    {/* <img
+                                    <img
                                         loading="lazy"
                                         src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f7e0f028c54c000e6227380c8cbeb0765ba8f8e1f98cebcdc5cc5bbb9c6bdd5?apiKey=e203d7c0597f4cf28ac4ec4c4bb8501a&"
                                         className="shrink-0 aspect-square w-[22px]"
-                                    /> */}
+                                    />
                                     <div>Summon</div>
                                 </div>
                                 <div className="flex gap-3 justify-center p-4 whitespace-nowrap rounded bg-slate-900">
@@ -79,9 +104,11 @@ const ProductDetails = () => {
                                         className="shrink-0 aspect-square w-[22px]"
                                     />
                                     <div>Carril Automatico</div>
-                                </div>
+                                </div> */}
                             </div>
-                            <div className="mt-3 max-md:max-w-full">
+
+
+                            {/* <div className="mt-3 max-md:max-w-full">
                                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                                     <div className="flex flex-col w-[63%] max-md:ml-0 max-md:w-full">
                                         <div className="flex flex-col grow text-lg text-white max-md:mt-3">
@@ -117,7 +144,7 @@ const ProductDetails = () => {
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> */}
 
 
                             <div className="flex flex-col ml-5 max-md:ml-0 max-md:w-full">
@@ -303,7 +330,11 @@ const ProductDetails = () => {
 
                             <button className="justify-center items-center px-16 py-4 mt-12 text-base font-semibold text-center text-white bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
                                 Contactar al distribuidor
-                            </button> */}
+                            </button> 
+
+   
+                            
+                            */}
 
 
                         </div>
@@ -313,41 +344,41 @@ const ProductDetails = () => {
                     <div className=" m-32 ">
 
                         <div className="justify-center items-center mx-32 py-4 text-2xl font-bold text-center text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid max-w-[395px]">
-                            $56,690
+                            ${Formatnumber(CarAvailable?.Sale?.Precio?.Precio)}
                         </div>
                         <div className="flex flex-col p-6 mt-12 w-full bg-gray-900 rounded max-md:px-5 max-md:mt-10">
                             <div className="text-xl font-bold text-white">Detalles del auto</div>
                             <div className="flex gap-5 justify-between py-1.5 mt-5 whitespace-nowrap">
                                 <div className="text-base font-medium text-neutral-400">Marca</div>
-                                <div className="text-lg text-right text-white">Tesla</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.Marca}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2">
                                 <div className="text-base font-medium text-neutral-400">Modelo</div>
-                                <div className="text-lg text-right text-white">Model 3</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.Modelo}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2 whitespace-nowrap">
                                 <div className="text-base font-medium text-neutral-400">Condición</div>
-                                <div className="text-lg text-right text-white">New</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.Condicion}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2 whitespace-nowrap">
                                 <div className="text-base font-medium text-neutral-400">Año</div>
-                                <div className="text-lg text-right text-white">2019</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.Year}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1 mt-2 whitespace-nowrap">
                                 <div className="self-start text-base font-medium text-neutral-400">
-                                    Tipo
+                                    Tipo de Cuerpo
                                 </div>
-                                <div className="text-lg text-right text-white">Sedan</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.TipoCuerpo}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1 mt-2">
                                 <div className="text-base font-medium text-neutral-400">Asientos</div>
-                                <div className="text-lg text-right text-white">5 people</div>
+                                <div className="text-lg text-right text-white"> {CarAvailable?.Sale?.DetalleCoche?.Capacidad} Personas</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2">
                                 <div className="text-base font-medium text-neutral-400">
                                     Color exterior
                                 </div>
-                                <div className="text-lg text-right text-white">Red</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleCoche?.Color}</div>
 
                             </div>
                             <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
@@ -359,20 +390,20 @@ const ProductDetails = () => {
                                 <div className="text-base font-medium text-neutral-400">
                                     Combustible
                                 </div>
-                                <div className="text-lg text-right text-white">Electrico</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleMotor?.TipoCombustimble}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1 mt-2">
                                 <div className="text-base font-medium text-neutral-400">
                                     Kilometraje
                                 </div>
-                                <div className="text-lg text-right text-white">340 km</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleMotor?.Kilometraje} km</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2 whitespace-nowrap">
                                 <div className="text-base font-medium text-neutral-400">
                                     Transmisión
                                     <br />
                                 </div>
-                                <div className="text-lg text-right text-white">Automatic</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.DetalleMotor?.Transmision}</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2">
                                 <div className="text-base font-medium text-neutral-400">
@@ -380,7 +411,7 @@ const ProductDetails = () => {
                                     <br />
                                 </div>
                                 <div className="text-lg text-right text-white">
-                                    Tracción trasera
+                                    {CarAvailable?.Sale?.DetalleMotor?.DriverTrain}
                                     <br />
                                 </div>
                             </div>
@@ -389,10 +420,10 @@ const ProductDetails = () => {
                                     Power
                                 </div>
                                 <div className="flex-auto text-lg text-right text-white">
-                                    283 hp (211 kW)
+                                    {CarAvailable?.Sale?.DetalleMotor?.CapacidadMotor} hp
                                 </div>
                             </div>
-                            <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
+                            {/* <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
                             <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
                                 Batería y carga
@@ -423,7 +454,7 @@ const ProductDetails = () => {
                                     Tiempo de carga (0-&gt;Full)
                                 </div>
                                 <div className="text-lg text-right text-white">330 mnt</div>
-                            </div>
+                            </div> */}
                             <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
                             <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
@@ -435,24 +466,24 @@ const ProductDetails = () => {
                                     Longitud
                                     <br />
                                 </div>
-                                <div className="text-lg text-right text-white">4694 mm</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.Dimension?.Longitud} mm</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2">
                                 <div className="text-base font-medium text-neutral-400">
                                     Ancho
                                     <br />
                                 </div>
-                                <div className="text-lg text-right text-white">1849 mm</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.Dimension?.Ancho} mm</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1.5 mt-2">
                                 <div className="text-base font-medium text-neutral-400">Altura</div>
-                                <div className="text-lg text-right text-white">1443 mm</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.Dimension?.Altura} mm</div>
                             </div>
                             <div className="flex gap-5 justify-between py-1 mt-2">
                                 <div className="flex-auto text-base font-medium text-neutral-400">
                                     Volumen de carga
                                 </div>
-                                <div className="text-lg text-right text-white">542 L</div>
+                                <div className="text-lg text-right text-white">{CarAvailable?.Sale?.Dimension?.VolumenCarga} L</div>
                             </div>
 
 

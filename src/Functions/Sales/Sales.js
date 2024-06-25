@@ -7,20 +7,20 @@ export const SaveCarSale = async (datos, userId) => {
     try {
 
         const docRef = await addDoc(collection(dbFire, "CarSale"), datos);
-
+       
     } catch (error) {
         console.log(error)
     }
 }
 
-export const SaveMedia = (file, userId, setLinkUrl) => {
+export const SaveMedia = (file, userId,LinkUrl, setLinkUrl) => {
     const storageRef = storageref(storage, `CarSaleMultimedia/${file.name}`)
     uploadBytes(storageRef, file).then((snapshot) => {
 
         getDownloadURL(storageRef)
             .then((url) => {
 
-                setLinkUrl(url)
+                setLinkUrl([...LinkUrl, url])
             })
             .catch((error) => {
                 console.log(error)
@@ -67,7 +67,10 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
                     usedCars.push(data);
                 }
 
+                console.log("Listar Datos")
+                console.log(data)
                 CarSale.push(data);
+                
             });
             localStorage.setItem("newCars", JSON.stringify(newCars))
             setLisCarNew(JSON.parse(localStorage.getItem("newCars")));
