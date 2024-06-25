@@ -346,23 +346,26 @@ const [CarAvailable, setAvailable] = useState(null)
 
   };
 
-  const handleSearching = (Status, navigate, Options) => {
+  const handleSearching = (Status, Options) => {
 
     const normalizeString = (str) => {
       return str.toLowerCase().trim().replace(/\s+/g, ' ');
-    };
-
-    if (Status === 'Todo') {
-      filterCars(ListCar, Options, normalizeString, navigate)
-
-    } else if (Status === 'Nuevo') {
-      filterCars(LisCarNew, Options, normalizeString, navigate)
-
-    } else if (Status === 'Usado') {
-      filterCars(LisCarUsed, Options, normalizeString, navigate)
-
     }
+    filterCars(ListCar, Options, normalizeString )
+    
 
+    // if (Status === 'Todo') {
+    //   filterCars(ListCar, Options, normalizeString )
+
+    // } else if (Status === 'Nuevo') {
+    //   filterCars(LisCarNew, Options, normalizeString)
+
+    // } else if (Status === 'Usado') {
+    //   filterCars(LisCarUsed, Options, normalizeString)
+
+    // }
+
+ 
 
   };
 
