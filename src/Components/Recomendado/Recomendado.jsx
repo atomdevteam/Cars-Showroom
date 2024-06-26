@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
 import { useContextCar } from '../../Context/Context';
@@ -9,8 +9,9 @@ import { FaPlus } from "react-icons/fa6";
 
 
 const Recomendado = () => {
-    const { user, WhichRole, ListCar, setAvailable } = useContextCar()
+    const { user, WhichRole, ListCar, SerchingCar, setAvailable, isFiltro } = useContextCar()
     const [showModal, setShowModal] = useState(false);
+    const [SeeCar, setSeeCar] = useState([])
     const navigate = useNavigate();
 
     const handleOpenModal = (car) => {
@@ -98,13 +99,36 @@ const Recomendado = () => {
     ];
 
 
-
-
     const handleAgregarAuto = () => {
         window.scrollTo(0, 0);
         navigate('/admin/CarSale')
     }
 
+    useEffect(() => {
+        if (isFiltro === true) {
+            setSeeCar([...SerchingCar]);
+
+        }
+
+        if (isFiltro === false) {
+            console.log("holaaaaaaaaaaaaaaaa")
+            setSeeCar([...ListCar])
+        }
+
+    }, [isFiltro])
+
+    useEffect(() => {
+        if (isFiltro === false && ListCar.length > 0) {
+            console.log("Datos no filtrado");
+            console.log(ListCar);
+            setSeeCar([...ListCar]);
+        }
+    }, [isFiltro, ListCar]);
+    
+    useEffect(() => {
+        console.log("Datos filtrados o No");
+        console.log(SeeCar);
+    }, [SeeCar]);
 
     return (
         <div className="bg-transparent z-50 flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]" >
@@ -176,7 +200,7 @@ const Recomendado = () => {
                             y de la linea 92 elimine w-[40%]
 
                             Mapear cada elemento del array y renderizarlos */}
-                            {ListCar.map((car, index) => (
+                            {SeeCar.map((car, index) => (
                                 <div key={index} className="flex flex-col  max-md:ml-0 max-md:w-full">
                                     <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
                                         <button onClick={() => handleOpenModal(car)}>

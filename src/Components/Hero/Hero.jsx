@@ -8,7 +8,7 @@ import EditIma from "./EditImgSlider";
 import { editTituloHero, editDescripcionHero } from "../../Functions/HomeAdmin/HomeAdmin";
 
 const Hero = () => {
-    const { user, WhichRole, TituloHero, DescripcionHero, SliderImg, setTituloHero, setDescripcionHero, setSliderImg, GetHero,handleSearching } = useContextCar()
+    const { user, WhichRole,setisFiltro, TituloHero, DescripcionHero, SliderImg, setTituloHero, setDescripcionHero, setSliderImg, GetHero,handleSearching } = useContextCar()
 
     const [opentwo, setOpenTwo] = useState(false);
     const [openone, setOpenOne] = useState(false);
@@ -70,9 +70,9 @@ const Hero = () => {
         setNuevo(false)
         setUsado(true)
     }
-    const [values, setValues] = useState([0, 3000000]);
+    const [values, setValues] = useState([0, 100000]);
     const min = 0;
-    const max = 3000000;
+    const max = 100000;
 
     const handleEditTextHero = () => {
         const newTitle = prompt('Edit title home:', TituloHero);
@@ -100,6 +100,7 @@ const Hero = () => {
 
     
     const handleSearch = () => {
+        setisFiltro(true)
 
         const Options = {
             
@@ -221,7 +222,7 @@ const Hero = () => {
                                 <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg className="bg-transparent w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd"></path></svg>
                                 </div>
-                                <input onChange={(e) => setSearch(e.target.value)} type="search" id="simple-search" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5 w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
+                                <input onChange={(e) => setSearch(e.target.value)} type="search" id="simple-search" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5 w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
                             </div>
 
                             <div className="flex w-full gap-5">
@@ -267,9 +268,8 @@ const Hero = () => {
 
                                 <div className="bg-transparent	absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <svg className="bg-transparent w-5 h-5  text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M12,6a4,4,0,1,0,4,4A4,4,0,0,0,12,6Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,12Z" /><path d="M12,24a5.271,5.271,0,0,1-4.311-2.2c-3.811-5.257-5.744-9.209-5.744-11.747a10.055,10.055,0,0,1,20.11,0c0,2.538-1.933,6.49-5.744,11.747A5.271,5.271,0,0,1,12,24ZM12,2.181a7.883,7.883,0,0,0-7.874,7.874c0,2.01,1.893,5.727,5.329,10.466a3.145,3.145,0,0,0,5.09,0c3.436-4.739,5.329-8.456,5.329-10.466A7.883,7.883,0,0,0,12,2.181Z" /></svg>
-
                                 </div>
-                                <input  onChange={(e) => setYear(e.target.value)} type="text" id="Year" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 md:w-[10rem] lg:w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Año" required />
+                                <input  onChange={(e) => setYear(e.target.value)} type="text" id="Year" className="bg-gray-50 border hover:bg-slate-50 transition-all border-gray-300 md:w-[10rem] lg:w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Año" required />
                             </div>
 
                             <div className="bg-transparent w-full md:flex gap-4 justify-start py-0.5 max-md:flex-wrap md:max-w-full">

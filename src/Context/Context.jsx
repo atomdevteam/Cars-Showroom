@@ -36,6 +36,7 @@ export function ProviderContext({ children }) {
   const [AutosInVisible,setAutosInVisible] = useState(false)
   const [ContactoVisibles,setContactoVisibles] = useState(false)
   const [locationR, setlocationR] = useState('')
+  const [isFiltro, setisFiltro] = useState(false)
 
   // Informacion 
   const [TituloHero, setTituloHero] = useState('')
@@ -112,13 +113,13 @@ const [CarAvailable, setAvailable] = useState(null)
 
     if (
       Options.search.trim().length !== 0 &&
-      Options.location.trim().length !== 0 &&
+      Options.Year.trim().length !== 0 &&
       Options.marca.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
     ) {
       filteredCars = ListCar.filter((car) => {
         const titulo = normalizeString(car.Sale.DetalleCoche.Titulo);
-        const ubicacion = normalizeString(car.Sale.Direccion.Ubicacion);
+        const Year = normalizeString(car.Sale.DetalleCoche.Year);
         const marca = normalizeString(car.Sale.DetalleCoche.Marca);
         const modelo = normalizeString(car.Sale.DetalleCoche.Modelo);
         const search = normalizeString(Options.search);
@@ -126,34 +127,34 @@ const [CarAvailable, setAvailable] = useState(null)
         const marcaSearch = normalizeString(Options.marca);
         const modeloSearch = normalizeString(Options.modelo);
 
-        return titulo.includes(search) && ubicacion.includes(location) && marca.includes(marcaSearch) && modelo.includes(modeloSearch);
+        return titulo.includes(search) && Year.includes(location) && marca.includes(marcaSearch) && modelo.includes(modeloSearch);
       });
 
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
     } else if (
       Options.search.trim().length !== 0 &&
-      Options.location.trim().length !== 0
+      Options.Year.trim().length !== 0
     ) {
 
       filteredCars = ListCar.filter((car) => {
         const titulo = normalizeString(car.Sale.DetalleCoche.Titulo);
-        const ubicacion = normalizeString(car.Sale.Direccion.Ubicacion);
+        const Year = normalizeString(car.Sale.DetalleCoche.Year);
         const search = normalizeString(Options.search);
-        const location = normalizeString(Options.location);
+        const location = normalizeString(Options.Year);
 
-        return titulo.includes(search) && ubicacion.includes(location);
+        return titulo.includes(search) && Year.includes(location);
       });
 
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -175,7 +176,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -196,49 +197,49 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
     } else if (
-      Options.location.trim().length !== 0 &&
+      Options.Year.trim().length !== 0 &&
       Options.marca.trim().length !== 0
     ) {
 
       filteredCars = ListCar.filter((car) => {
-        const ubicacion = normalizeString(car.Sale.Direccion.Ubicacion);
+        const Year = normalizeString(car.Sale.DetalleCoche.Year);
         const marca = normalizeString(car.Sale.DetalleCoche.Marca);
         const location = normalizeString(Options.location);
         const marcaSearch = normalizeString(Options.marca);
 
-        return ubicacion.includes(location) && marca.includes(marcaSearch);
+        return Year.includes(location) && marca.includes(marcaSearch);
       });
 
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
     } else if (
-      Options.location.trim().length !== 0 &&
+      Options.Year.trim().length !== 0 &&
       Options.modelo.trim().length !== 0
     ) {
 
       filteredCars = ListCar.filter((car) => {
-        const ubicacion = normalizeString(car.Sale.Direccion.Ubicacion);
+        const Year = normalizeString(car.Sale.DetalleCoche.Year);
         const modelo = normalizeString(car.Sale.DetalleCoche.Modelo);
         const location = normalizeString(Options.location);
         const modeloSearch = normalizeString(Options.modelo);
 
-        return ubicacion.includes(location) && modelo.includes(modeloSearch);
+        return Year.includes(location) && modelo.includes(modeloSearch);
       });
 
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -259,7 +260,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -275,23 +276,23 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
-    } else if (Options.location.trim().length !== 0) {
+    } else if (Options.Year.trim().length !== 0) {
 
       filteredCars = ListCar.filter((car) => {
-        const ubicacion = normalizeString(car.Sale.Direccion.Ubicacion);
-        const location = normalizeString(Options.location);
+        const Year = normalizeString(car.Sale.DetalleCoche.Year);
+        const location = normalizeString(Options.Year);
 
-        return ubicacion.includes(location);
+        return Year.includes(location);
       });
 
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -307,7 +308,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
@@ -323,13 +324,13 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        navigate('/SearchResultOne');
+        
       } else {
         navigate('/LognIn')
       }
     } else if (
       Options.search.trim().length === 0 &&
-      Options.location.trim().length === 0 &&
+      Options.Year.trim().length === 0 &&
       Options.marca.trim().length === 0 &&
       Options.modelo.trim().length === 0
     ) {
@@ -337,11 +338,7 @@ const [CarAvailable, setAvailable] = useState(null)
       console.log(ListCar)
       setSerchingCar(ListCar)
       localStorage.setItem("SerchingCar", JSON.stringify(ListCar))
-      if (user) {
-        navigate('/SearchResultOne');
-      } else {
-        navigate('/LognIn')
-      }
+
     }
 
   };
@@ -351,19 +348,19 @@ const [CarAvailable, setAvailable] = useState(null)
     const normalizeString = (str) => {
       return str.toLowerCase().trim().replace(/\s+/g, ' ');
     }
-    filterCars(ListCar, Options, normalizeString )
+   
     
 
-    // if (Status === 'Todo') {
-    //   filterCars(ListCar, Options, normalizeString )
+    if (Status === 'Todo') {
+      filterCars(ListCar, Options, normalizeString )
 
-    // } else if (Status === 'Nuevo') {
-    //   filterCars(LisCarNew, Options, normalizeString)
+    } else if (Status === 'Nuevo') {
+      filterCars(LisCarNew, Options, normalizeString)
 
-    // } else if (Status === 'Usado') {
-    //   filterCars(LisCarUsed, Options, normalizeString)
+    } else if (Status === 'Usado') {
+      filterCars(LisCarUsed, Options, normalizeString)
 
-    // }
+    }
 
  
 
@@ -420,7 +417,8 @@ const [CarAvailable, setAvailable] = useState(null)
         updateUserRole,
         setListAllUser,
         CarAvailable, 
-        setAvailable
+        setAvailable,
+        isFiltro, setisFiltro
       }}
     >
       {children}
