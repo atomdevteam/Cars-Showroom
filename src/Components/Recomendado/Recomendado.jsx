@@ -4,12 +4,13 @@ import Modal from './modal';
 import FormularioReserva from '../FormularioReserva/FormularioReserva';
 import { useContextCar } from '../../Context/Context';
 import { FaEdit } from "react-icons/fa";
+import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { FaPlus } from "react-icons/fa6";
 
 
 const Recomendado = () => {
-    const { user, WhichRole, ListCar, setAvailable } = useContextCar()
+    const { user, WhichRole, ListCar, setAvailable, Formatnumber,  setCarEdit } = useContextCar()
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
@@ -105,6 +106,12 @@ const Recomendado = () => {
         navigate('/admin/CarSale')
     }
 
+    const handleEditAuto = (car) => {
+        setCarEdit(car)
+        window.scrollTo(0, 0);
+        navigate('/admin/CarSale')
+    }
+
 
     return (
         <div className="bg-transparent z-50 flex justify-center md:m-10 items-center xl:mt-36 max-md:px-5 bg-[#0B0C10]" >
@@ -178,6 +185,20 @@ const Recomendado = () => {
                             Mapear cada elemento del array y renderizarlos */}
                             {ListCar.map((car, index) => (
                                 <div key={index} className="flex flex-col  max-md:ml-0 max-md:w-full">
+                                    {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                        <div className='flex flex-row'>
+                                            <div className="px-3 py-2   text-xs leading-4">
+                                                <button onClick={() => handleEditAuto(car)} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                    <FaEdit size={14} className="text-yellow-500" />
+                                                </button>
+                                            </div>
+                                            <div className="px-3 py-2   text-xs leading-4">
+                                                <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-400 hover:text-white focus:outline-none">
+                                                    <MdDelete size={14} className="text-red-500" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
                                     <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
                                         <button onClick={() => handleOpenModal(car)}>
                                             <img
@@ -190,7 +211,7 @@ const Recomendado = () => {
 
                                         <div className="flex absolute inset-x-0 bottom-0 text-sm px-2.5 gap-20 py-5   bg-black bg-opacity-30 max-md:mt-52">
                                             <div className="flex-auto">{car.Sale.DetalleCoche.Titulo}</div>
-                                            <div className="">{car.Sale.Precio.Precio}</div>
+                                            <div className="">${Formatnumber(car.Sale.Precio.Precio)}</div>
                                         </div>
                                     </div>
                                 </div>

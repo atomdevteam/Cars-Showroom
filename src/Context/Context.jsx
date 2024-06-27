@@ -46,6 +46,7 @@ export function ProviderContext({ children }) {
   
 // Available
 const [CarAvailable, setAvailable] = useState(null)
+const [CarEdit, setCarEdit] = useState(null)
 
 
   
@@ -420,7 +421,8 @@ const [CarAvailable, setAvailable] = useState(null)
         updateUserRole,
         setListAllUser,
         CarAvailable, 
-        setAvailable
+        setAvailable,
+        CarEdit, setCarEdit
       }}
     >
       {children}

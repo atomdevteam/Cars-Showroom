@@ -62,29 +62,29 @@ const CarSaleDatos = {
 
 const CarSaleLayout = () => {
 
-    const { SaveCarSale, user } = useContextCar()
+    const { SaveCarSale, user, CarEdit } = useContextCar()
     const [newFeature, setNewFeature] = useState('');
     const updateCarDetails = (updatedDetails) => {
         CarSaleDatos.Sale.DetalleCoche = updatedDetails;
-     
+
     }
 
     const updateEngineDetails = (updatedDetails) => {
         CarSaleDatos.Sale.DetalleMotor = updatedDetails;
-     
+
     }
 
     const updateDimension = (updatedDetails) => {
         CarSaleDatos.Sale.Dimension = updatedDetails
-       
+
     }
 
 
     // const handleSale = (e) => {
-        
+
     //     e.preventDefault();
 
-   
+
     //     if (validateCarSaleDatos(CarSaleDatos.Sale)) {
     //         SaveCarSale(CarSaleDatos, user.uid)
     //         alert("Guardado")
@@ -95,62 +95,72 @@ const CarSaleLayout = () => {
 
     const handleSale = (e) => {
         e.preventDefault();
-        
+
         // Imprime la acción del evento
         console.log('Evento preventDefault ejecutado');
-    
+
         // Imprime el estado actual de CarSaleDatos.Sale
         console.log('Datos de la venta del coche:', CarSaleDatos.Sale);
-    
+
         // Verifica si los datos son válidos
         if (validateCarSaleDatos(CarSaleDatos.Sale)) {
             // Imprime un mensaje indicando que los datos son válidos
             console.log('Datos validados correctamente');
-    
+
             // Guarda la venta del coche y muestra un mensaje de confirmación
             SaveCarSale(CarSaleDatos, user.uid);
             console.log('Datos guardados con éxito');
-    
+
             alert("Guardado");
         } else {
             // Imprime un mensaje indicando que los datos no son válidos
             console.log('Datos incompletos o inválidos');
-    
+
             alert('Por favor completa todos los campos.');
         }
     };
-    
-   
+
+    useEffect(() => {
+        if (CarEdit !== null) {
+            CarSaleDatos.Sale.DetalleCoche = CarEdit.Sale.DetalleCoche
+            console.log("Editar autos")
+            console.log(CarSaleDatos)
+        }
+
+
+    }, [CarEdit])
+
+
     return (
 
         <>
-           
+
             <div className='flex bg-black flex-col px-6 '>
-                <Navbar   />
-                < CarDetails  updateCarDetails={updateCarDetails}/>
-                <EngineDetails updateEngineDetails={updateEngineDetails}/>
-                <Dimension updateDimension={updateDimension}/>
+                <Navbar />
+                < CarDetails updateCarDetails={updateCarDetails} />
+                <EngineDetails updateEngineDetails={updateEngineDetails} />
+                <Dimension updateDimension={updateDimension} />
                 <Feature FeatureDatos={CarSaleDatos.Sale.Features} newFeature={newFeature} setNewFeature={setNewFeature} />
-                <UpImagine AudiovisualDatos={CarSaleDatos.Sale.Multimedia}/>
-                <Price PriceDatos={CarSaleDatos.Sale.Precio}/>
-               
+                <UpImagine AudiovisualDatos={CarSaleDatos.Sale.Multimedia} />
+                <Price PriceDatos={CarSaleDatos.Sale.Precio} />
+
                 {/* <Audiovisual /> */}
                 {/* <Vehiclehistory /> */}
                 {/* <SaleButton /> */}
 
 
                 <div className='flex justify-center'>
-                    
-                        <button onClick={(e) => handleSale(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                            Vender mi auto
-                        </button>
-                    </div>
+
+                    <button onClick={(e) => handleSale(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                        Vender mi auto
+                    </button>
+                </div>
             </div>
         </>
 
     )
 
-   
+
 
 
 }
