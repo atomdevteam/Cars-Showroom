@@ -3,7 +3,7 @@ import CarLogo from '../../assets/Footer/CarLogo.png'
 import Facebook from '../../assets/Footer/Facebook.png'
 import Instagram from '../../assets/Footer/instagram.png'
 import Youtube from '../../assets/Footer/youtube.png'
-
+import { editTituloContact, editUbicacionContact, editGmailContact, editPhoneContact, editTitulotwoContact } from "../../Functions/HomeAdmin/HomeAdmin";
 const Footer = () => {
  
     return (
@@ -26,21 +26,16 @@ const Footer = () => {
 
                     <div className='bg-[#12232E] grid lg:grid-cols-1 items-center w-full'>
                         <div className='mb-4 bg-[#12232E]'>
-                            SERVICIO AL CLIENTE
-                        </div>
-                        <div className='mb-4 bg-[#12232E]'>
-                            info@car.com
+                            {editGmailContact}
                         </div>
                         <div className='mb-4 bg-[#12232E] '>
-                            588-865-3730
+                            {editPhoneContact}
                         </div>
                     </div>
                     <div className='grid lg:grid-cols-1 w-full items-center'>
                         <div className='flex  items-center justify-center'>
                             <p className="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
-                                San Frac., Duarte,
-                                31000,
-                                Rep. Domicana</p>
+                               {editUbicacionContact}</p>
                         </div>
 
 

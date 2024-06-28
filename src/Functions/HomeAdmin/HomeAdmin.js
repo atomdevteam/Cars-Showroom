@@ -2,9 +2,9 @@ import { db, storage } from "../../firebase/firebase";
 import { set, ref, get, update } from "firebase/database"
 import { ref as storageref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage"
 
-export const GetHero = async (setTituloHero, setDescripcionHero, setSliderImg) => {
+export const GetHero = async (setTituloHero, setDescripcionHero, setSliderImg, setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact) => {
     const HeroRef = ref(db, 'Hero');
-
+    const ContactRef = ref(db, 'Contact');
     try {
         const HeroSnashop = await get(HeroRef);
 
@@ -28,6 +28,81 @@ export const GetHero = async (setTituloHero, setDescripcionHero, setSliderImg) =
         return null;
     }
 };
+try {
+    const ContactSnashop = await get(ContactRef);
+
+    if (ContactSnashop.exists()) {
+        const ContactData = ContactSnashop.val();
+        setTituloContact(ContactData.TituloContacto)
+        setUbicacionContact(ContactData.Ubicacion)
+        setGmailContact(ContactData.Gmail)
+        setPhoneContact(ContactData.Phone)
+        setTitulotwoContact(ContactData.TituloDos)
+
+    } else {
+        console.log("No data available");
+   
+    }
+} catch (error) {
+    console.error("Error:", error);
+
+}
+;
+
+export const editTituloContact = async (newTituloContact) => {
+    const ContactRef = ref(db, 'Contact');
+    try {
+        await update(ContactRef, { TituloContacto: newTituloContact });
+        console.log("Título de Contacto Actualizado");
+    } catch (error) {
+        console.error("Error al actualizar el título de Contacto:", error);
+    }
+};
+
+
+export const editUbicacionContact = async (newUbicacionContact) => {
+    const ContactRef = ref(db, 'Contact');
+    try {
+        await update(ContactRef, { Ubicacion: newUbicacionContact });
+        console.log("Ubicacion de Contacto Actualizado");
+    } catch (error) {
+        console.error("Error al actualizar la Ubicacion de Contacto:", error);
+    }
+};
+
+export const editGmailContact = async (newGmailContact) => {
+    const ContactRef = ref(db, 'Contact');
+    try {
+        await update(ContactRef, { Gmail: newGmailContact });
+        console.log("Gmail de Contacto Actualizado");
+    } catch (error) {
+        console.error("Error al actualizar el Gmail de Contacto:", error);
+    }
+};
+
+export const editPhoneContact = async (newPhoneContact) => {
+    const ContactRef = ref(db, 'Contact');
+    try {
+        await update(ContactRef, { Phone: newPhoneContact });
+        console.log("Telefono de Contacto Actualizado");
+    } catch (error) {
+        console.error("Error al actualizar el Telefono de Contacto:", error);
+    }
+};
+
+
+export const editTitulotwoContact = async (newTitulotwoContact) => {
+    const ContactRef = ref(db, 'Contact');
+    try {
+        await update(ContactRef, { TituloDos: newTitulotwoContact });
+        console.log("Titulo de Redes Sociales de Contacto Actualizado");
+    } catch (error) {
+        console.error("Error al actualizar el Titulo de Redes de Contacto:", error);
+    }
+};
+
+
+
 
 export const editTituloHero = async (newTitulo) => {
     const HeroRef = ref(db, 'Hero');
@@ -94,3 +169,4 @@ export const deleteImageURL = async (imageKey) => {
         console.error(`Error al eliminar la URL de ${imageKey}:`, error);
     }
 };
+
