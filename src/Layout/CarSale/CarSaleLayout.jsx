@@ -118,7 +118,11 @@ const CarSaleLayout = () => {
 
             alert('Por favor completa todos los campos.');
         }
-    };
+    }
+
+    const handleEdit = () => {
+
+    }
 
     useEffect(() => {
         if (CarEdit !== null) {
@@ -151,9 +155,17 @@ const CarSaleLayout = () => {
 
                 <div className='flex justify-center'>
 
-                    <button onClick={(e) => handleSale(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
-                        Vender mi auto
-                    </button>
+                    {
+                        CarEdit !== null ?
+                            <button onClick={(e) => handleEdit(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                                Editar auto
+                            </button>
+                            : <button onClick={(e) => handleSale(e)} className="flex justify-center  w-1/2 px-14 py-4 mt-8 mb-8 text-center whitespace-nowrap bg-sky-600 rounded max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                                Vender mi auto
+                            </button>
+                    }
+
+
                 </div>
             </div>
         </>
