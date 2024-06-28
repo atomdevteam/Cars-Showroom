@@ -4,7 +4,7 @@ import { auth } from "../firebase/firebase"
 
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
-import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
+import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale, DeleteCarSale} from "../Functions/Sales/Sales"
 import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
@@ -16,6 +16,12 @@ export const useContextCar = () => {
 }
 
 export function ProviderContext({ children }) {
+
+  // Agrego julio esto
+
+
+
+
 
   const [isOpenModal, setOpenModal] = useState(false)
 
@@ -49,7 +55,7 @@ const [CarAvailable, setAvailable] = useState(null)
 const [CarEdit, setCarEdit] = useState(null)
 
 
-  
+
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -72,9 +78,7 @@ const [CarEdit, setCarEdit] = useState(null)
   }, [])
   
 
-
-
-
+  
 
 
   useEffect(() => {
@@ -371,6 +375,8 @@ const [CarEdit, setCarEdit] = useState(null)
   };
 
 
+
+
   return (
     <Context.Provider
       value={{
@@ -422,7 +428,8 @@ const [CarEdit, setCarEdit] = useState(null)
         setListAllUser,
         CarAvailable, 
         setAvailable,
-        CarEdit, setCarEdit
+        CarEdit, setCarEdit,
+        DeleteCarSale,
       }}
     >
       {children}

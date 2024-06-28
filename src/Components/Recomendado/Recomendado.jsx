@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Modal from './modal';
-import FormularioReserva from '../FormularioReserva/FormularioReserva';
+// import FormularioReserva from '../FormularioReserva/FormularioReserva';
 import { useContextCar } from '../../Context/Context';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from 'react-icons/md';
@@ -9,8 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import { FaPlus } from "react-icons/fa6";
 
 
+// ListCar, setListCar
+
 const Recomendado = () => {
-    const { user, WhichRole, ListCar, setAvailable, Formatnumber,  setCarEdit } = useContextCar()
+    const { user, WhichRole, ListCar, setListCar, setAvailable, Formatnumber,  setCarEdit,DeleteCarSale } = useContextCar()
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
@@ -101,6 +103,7 @@ const Recomendado = () => {
 
 
 
+
     const handleAgregarAuto = () => {
         window.scrollTo(0, 0);
         navigate('/admin/CarSale')
@@ -110,6 +113,16 @@ const Recomendado = () => {
         setCarEdit(car)
         window.scrollTo(0, 0);
         navigate('/admin/CarSale')
+    }
+
+  
+
+
+    const handleDelete = async (carSaleId) => {
+        await DeleteCarSale(carSaleId);
+        // Actualizar la lista después de eliminar un elemento
+        const updatedList = listCar.filter(car => car.IdCarSale !== carSaleId);
+        setListCar(updatedList);
     }
 
 
@@ -194,7 +207,8 @@ const Recomendado = () => {
                                             </div>
                                             <div className="px-3 py-2   text-xs leading-4">
                                                 <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-400 hover:text-white focus:outline-none">
-                                                    <MdDelete size={14} className="text-red-500" />
+                                                    <MdDelete size={14} onClick={() => handleDelete(car.IdCarSale)} className="text-red-500" />
+                                                        
                                                 </button>
                                             </div>
                                         </div>

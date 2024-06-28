@@ -1,6 +1,7 @@
 import { dbFire, storage } from "../../firebase/firebase"
-import { collection, addDoc, getDocs, onSnapshot } from "firebase/firestore"
+import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore"
 import { ref as storageref, uploadBytes, getDownloadURL } from "firebase/storage"
+
 
 export const SaveCarSale = async (datos, userId) => {
 
@@ -10,6 +11,17 @@ export const SaveCarSale = async (datos, userId) => {
        
     } catch (error) {
         console.log(error)
+    }
+
+}
+
+export const DeleteCarSale = async (carSaleId) => {
+    try {
+        const docRef = doc(dbFire, "CarSale", carSaleId);
+        await deleteDoc(docRef);
+        console.log("Documento eliminado con éxito:", carSaleId);
+    } catch (error) {
+        console.error("Error al eliminar el documento:", error);
     }
 }
 
@@ -47,6 +59,9 @@ export const SaveArchivo = (file, userId, setLinkUrl) => {
     });
 }
 
+
+
+
 export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
     try {
         const ref = collection(dbFire, "CarSale");
@@ -67,7 +82,7 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
                     usedCars.push(data);
                 }
 
-                console.log("Listar Datos")
+                console.log("Listar Datos ")
                 console.log(data)
                 CarSale.push(data);
                 
