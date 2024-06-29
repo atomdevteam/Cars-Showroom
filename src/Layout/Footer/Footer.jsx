@@ -3,9 +3,12 @@ import CarLogo from '../../assets/Footer/CarLogo.png'
 import Facebook from '../../assets/Footer/Facebook.png'
 import Instagram from '../../assets/Footer/instagram.png'
 import Youtube from '../../assets/Footer/youtube.png'
+import { useContextCar } from '../../Context/Context'
 import { editTituloContact, editUbicacionContact, editGmailContact, editPhoneContact, editTitulotwoContact } from "../../Functions/HomeAdmin/HomeAdmin";
 const Footer = () => {
- 
+ const {PhoneContact,GmailContact,UbicacionContact} = useContextCar()
+
+ console.log(PhoneContact)
     return (
         <footer className="bg-[#12232E] text-white p-4 text-center">
             <div className="bg-[#12232E] container mx-auto">
@@ -26,16 +29,16 @@ const Footer = () => {
 
                     <div className='bg-[#12232E] grid lg:grid-cols-1 items-center w-full'>
                         <div className='mb-4 bg-[#12232E]'>
-                            {editGmailContact}
+                            {GmailContact}
                         </div>
                         <div className='mb-4 bg-[#12232E] '>
-                            {editPhoneContact}
+                            {PhoneContact}
                         </div>
                     </div>
                     <div className='grid lg:grid-cols-1 w-full items-center'>
                         <div className='flex  items-center justify-center'>
-                            <p className="line-clamp-3 w-[10rem]">#12 Av. Antonio G.,
-                               {editUbicacionContact}</p>
+                            <p className="line-clamp-3 w-[10rem]">
+                               {UbicacionContact}</p>
                         </div>
 
 

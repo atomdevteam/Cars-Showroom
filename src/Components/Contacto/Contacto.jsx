@@ -17,7 +17,8 @@ const defaultCenter = {
 };
 
 const Contacto = () => {
-    const { user, WhichRole, TituloContact, UbicacionContact, GmailContacto, TelefonoContact, TituloDosContact, setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact, GetContact } = useContextCar()
+    const { user, WhichRole, GetContact, TituloContact, setTituloContact, UbicacionContact, setUbicacionContact, GmailContact, setGmailContact, PhoneContact, setPhoneContact, TitulotwoContact, setTitulotwoContact } = useContextCar()
+
     const [TitleContact, setTitleContact] = useState('Encuentranos en')
     const [UbicationContact, setUbicationContact] = useState('#12 Av. Antonio G. San Frac., Duarte, 31000, Rep. Dom.')
     const [Gmail, setGmail] = useState('info@car.com')
@@ -29,38 +30,38 @@ const Contacto = () => {
         const newTitle = prompt('Edit title home:', TituloContact);
         if (newTitle !== null) {
             editTituloContact(newTitle)
-            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact )
+            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
         }
     }
     const handleEditUbicacion = () => {
         const newUbicacion = prompt('Edit ubication home:', UbicacionContact);
         if (newUbicacion !== null) {
             editUbicacionContact(newUbicacion)
-            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact )
+            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
         }
     }
 
     const handleEditGmail = () => {
-        const newCorreo = prompt('Edit gmail home:', GmailContacto);
+        const newCorreo = prompt('Edit gmail home:', GmailContact);
         if (newCorreo !== null) {
             editGmailContact(newCorreo)
-            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact )
+            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
         }
     }
 
     const handleEditTelefono = () => {
-        const newTelefono = prompt('Edit phone home:', TelefonoContact);
+        const newTelefono = prompt('Edit phone home:', PhoneContact);
         if (newTelefono !== null) {
             editPhoneContact(newTelefono)
-            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact )
+            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
         }
     }
 
     const handleEditTitleTwo = () => {
-        const newTituloDos = prompt('Edit title two home:', TituloDosContact);
+        const newTituloDos = prompt('Edit title two home:', TitulotwoContact);
         if (newTituloDos !== null) {
             editTitulotwoContact(newTituloDos)
-            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setTelefonoContact, setTituloDosContact )
+            GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
         }
     }
     const [isOpenEditImg, setisOpenEditImg] = useState(false)
@@ -68,17 +69,17 @@ const Contacto = () => {
     const handleOpenEditImage = () => {
         setisOpenEditImg(!isOpenEditImg)
     }
-    
+
 
     return (
-        <div style={{backgroundImage: `url( ${SFMImage})`}} className=" bg-fixed flex bg-transparent overflow-hidden relative flex-col justify-center items-center px-16 py-1 mt-20 w-full min-h-[768px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
-             {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+        <div style={{ backgroundImage: `url( ${SFMImage})` }} className=" bg-fixed flex bg-transparent overflow-hidden relative flex-col justify-center items-center px-16 py-1 mt-20 w-full min-h-[768px] max-md:px-5 max-md:mt-10 max-md:max-w-full">
+            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                <div className="px-3 py-2   text-xs leading-4">
+                    <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                        <FaEdit size={14} className="text-yellow-400" />
+                    </button>
+                </div>
+            )}
             <div className="bg-transparent relative w-full max-w-[1226px] max-md:max-w-full">
                 <h1 className="text-3xl text-white font-bold"> Contáctanos</h1>
                 <hr />
@@ -87,102 +88,101 @@ const Contacto = () => {
                         <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter} />
                     </LoadScript>
                     <div className=" mt-10 m-auto md:flex justify-center gap-28 ">
-                        <div className=" brightness-110 text-white text-center font-bold"> 
+                        <div className=" brightness-110 text-white text-center font-bold">
                             <h2 className=" text-2xl font-bold">
                                 {TituloContact}
-                                {TitleContact}
-                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleEditTextContact()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
-                            
+                                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                    <div className="px-3 py-2   text-xs leading-4">
+                                        <button onClick={() => handleEditTextContact()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                )}
+
                             </h2>
                             <div className='f'>
                                 {UbicacionContact}
                                 {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleEditUbicacion()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+                                    <div className="px-3 py-2   text-xs leading-4">
+                                        <button onClick={() => handleEditUbicacion()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                             <div className='mb-4'>
-                                {Gmail}
+                                {GmailContact}
                                 {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleEditGmail()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+                                    <div className="px-3 py-2   text-xs leading-4">
+                                        <button onClick={() => handleEditGmail()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                             <div className='mb-4'>
-                                {Phone}
+                                {PhoneContact}
                                 {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleEditTelefono()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+                                    <div className="px-3 py-2   text-xs leading-4">
+                                        <button onClick={() => handleEditTelefono()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div>
-                            <h2 className=" text-white text-2xl font-bold text-center " >{TitleTwo}
-                            {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleEditTitleTwo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
-                            
+                            <h2 className=" text-white text-2xl font-bold text-center " >{TitulotwoContact}
+                                {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
+                                    <div className="px-3 py-2   text-xs leading-4">
+                                        <button onClick={() => handleEditTitleTwo()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                            <FaEdit size={14} className="text-yellow-400" />
+                                        </button>
+                                    </div>
+                                )}
+
                             </h2>
 
                             <div className=" flex m-auto mt-20 items-center justify-between w-full">
                                 <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
                                     <a href="#"><img className="w-16 duration-200" src={facebooktwo} alt="Facebook" /></a>
                                     {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
+                                        <div className="px-3 py-2   text-xs leading-4">
+                                            <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                                </div>
-                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all"> 
+                                <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
                                     <a href="#"><img className="w-16" src={instagramtwo} alt="Instagram" /></a>
                                     {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+                                        <div className="px-3 py-2   text-xs leading-4">
+                                            <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="hover:rotate-[360deg] hover:scale-125 hover:transition-all transition-all">
                                     <a href="#"><img className=" w-16" src={twitter} alt="Twitter" /></a>
                                     {user && (WhichRole === 'admin' || WhichRole === 'Owner') && (
-                                <div className="px-3 py-2   text-xs leading-4">
-                                    <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
-                                        <FaEdit size={14} className="text-yellow-400" />
-                                    </button>
-                                </div>
-                            )}
+                                        <div className="px-3 py-2   text-xs leading-4">
+                                            <button onClick={() => handleOpenEditImage()} className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-yellow-400 hover:text-white focus:outline-none">
+                                                <FaEdit size={14} className="text-yellow-400" />
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
 
-        
+
         </div>
     );
 

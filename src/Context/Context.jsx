@@ -5,7 +5,7 @@ import { auth } from "../firebase/firebase"
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
 import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
-import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
+import { GetHero, GetContact, editTituloContact } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
 
@@ -41,6 +41,12 @@ export function ProviderContext({ children }) {
   const [SliderImg, setSliderImg] = useState([])
   const [ListAllUser, setListAllUser] = useState([])
 
+  // Informacion de Contacto
+  const [TituloContact, setTituloContact] = useState('')
+  const [UbicacionContact, setUbicacionContact] = useState('')
+  const [GmailContact, setGmailContact] = useState('')
+  const [PhoneContact, setPhoneContact] = useState('')
+  const [TitulotwoContact, setTitulotwoContact] = useState('')
 
 
   
@@ -57,12 +63,14 @@ export function ProviderContext({ children }) {
       ListUser(user.uid, setWhichRole)
       ListCarSale(setLisCarNew, setLisCarUsed, setListCar)
       GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+      GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
       ListAllUsers(setListAllUser)
     }
   }, [user])
 
   useEffect(() => {
     GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+    GetContact(setTituloContact, setUbicacionContact, setGmailContact, setPhoneContact, setTitulotwoContact)
   }, [])
   
 
@@ -409,7 +417,14 @@ export function ProviderContext({ children }) {
 
         ListAllUser,
         updateUserRole,
-        setListAllUser
+        setListAllUser,
+        editTituloContact,
+        TituloContact, setTituloContact,
+        UbicacionContact, setUbicacionContact,
+        GmailContact, setGmailContact,
+        PhoneContact, setPhoneContact,
+        TitulotwoContact, setTitulotwoContact,
+        GetContact
       }}
     >
       {children}
