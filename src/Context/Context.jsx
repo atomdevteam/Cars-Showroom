@@ -4,7 +4,7 @@ import { auth } from "../firebase/firebase"
 
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
-import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale, DeleteCarSale} from "../Functions/Sales/Sales"
+import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale, DeleteCarSale, EditCarSale} from "../Functions/Sales/Sales"
 import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
@@ -106,8 +106,10 @@ const [CarEdit, setCarEdit] = useState(null)
   const handleRemove = (dato) => {
     const nuevaLista = CarDatos.filter(item => item !== dato);
     setCarDatos(nuevaLista)
-
   }
+
+
+
 
   const filterCars = (ListCar, Options, normalizeString, navigate) => {
 
@@ -430,6 +432,8 @@ const [CarEdit, setCarEdit] = useState(null)
         setAvailable,
         CarEdit, setCarEdit,
         DeleteCarSale,
+        EditCarSale
+        
       }}
     >
       {children}

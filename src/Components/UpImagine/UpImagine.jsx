@@ -1,16 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { MdDelete } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { useContextCar } from '../../Context/Context';
 
 const UpImagine = ({ AudiovisualDatos }) => {
 
-    const { SaveMedia, user } = useContextCar()
+    const { SaveMedia, user, CarEdit } = useContextCar()
     const [media, setMedia] = useState(null);
     const [mediaType, setMediaType] = useState(null);
     const [Enlace, setEnlace] = useState(null)
-    const { CarEdit } = useContextCar()
 
     // Esto debe ser un areglo
     const [LinkUrl, setLinkUrl] = useState([])
@@ -40,6 +39,11 @@ const UpImagine = ({ AudiovisualDatos }) => {
         setMedia(null);
         setMediaType(null);
     };
+
+    const CarDetailsdatos = useMemo(() => ({
+        Titulo: LinkUrl,
+        
+    }), [LinkUrl]);
     useEffect(() => {
         // console.log(LinkUrl)
 
@@ -47,21 +51,19 @@ const UpImagine = ({ AudiovisualDatos }) => {
             if (LinkUrl) {
                 AudiovisualDatos.Imagen = LinkUrl
             }
-
         }
-
     }, [LinkUrl])
 
-    useEffect(() => {
-        if (CarEdit !== null) {
-          
-            // setLinkUrl(CarEdit.Sale.Imagen.LinkUrl)           
-            
-          
-        }
-    
-    }, [CarEdit])
 
+
+    const imageView = useMemo(() => {
+        if (CarEdit && CarEdit.LinkUrl) {
+            return CarEdit.LinkUrl;
+        }
+        return '';
+    }, [CarEdit]);
+
+    // {imageView}
 
     return (
 
@@ -99,7 +101,7 @@ const UpImagine = ({ AudiovisualDatos }) => {
                                                 <div className='flex items-center justify-center w-full h-full'>
                                                     <label htmlFor={`file-upload-1`} className='px-3 py-2 text-right text-xs leading-4 cursor-pointer'>
                                                         <div className='text-white px-4 py-2 rounded-full text-center'>
-                                                            <input  onChange={handleMediaChange} id={`file-upload-1`} type="file" className="hidden" />
+                                                            <input onChange={handleMediaChange} id={`file-upload-1`} type="file" className="hidden" />
                                                             <span className='text-4xl '>+</span>
                                                         </div>
                                                     </label>
@@ -122,15 +124,18 @@ const UpImagine = ({ AudiovisualDatos }) => {
 
 
                 <div className='grid grid-cols-4 gap-4 '>
-                    {   
+
+
+
+                    {
                         LinkUrl.map((link, index) => (
-                            
-                            <img 
-                            
-                            key={index} 
-                            src={link} 
-                            alt="Uploaded" 
-                            className='object-cover mb-4 grid gap-6 lg:grid-cols-2 mt-6 rounded-lg mx-24 ' />
+
+                            <img
+
+                                key={index}
+                                src={link}
+                                alt="Uploaded"
+                                className='object-cover mb-4 grid gap-6 lg:grid-cols-2 mt-6 rounded-lg mx-24 ' />
                         ))
                     }
                 </div>

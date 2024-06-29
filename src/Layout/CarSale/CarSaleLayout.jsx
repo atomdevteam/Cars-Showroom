@@ -62,8 +62,9 @@ const CarSaleDatos = {
 
 const CarSaleLayout = () => {
 
-    const { SaveCarSale, user, CarEdit } = useContextCar()
+    const { SaveCarSale, user, CarEdit,EditCarSale} = useContextCar()
     const [newFeature, setNewFeature] = useState('');
+    
     const updateCarDetails = (updatedDetails) => {
         CarSaleDatos.Sale.DetalleCoche = updatedDetails;
 
@@ -120,7 +121,36 @@ const CarSaleLayout = () => {
         }
     }
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
+
+        
+        e.preventDefault();
+
+        // Imprime la acción del evento
+        console.log('Evento preventDefault ejecutado');
+
+        // Imprime el estado actual de CarSaleDatos.Sale
+        console.log('Datos de la venta del coche:', CarSaleDatos.Sale);
+
+        // Verifica si los datos son válidos
+        if (validateCarSaleDatos(CarSaleDatos.Sale)) {
+            // Imprime un mensaje indicando que los datos son válidos
+            console.log('Datos validados correctamente');
+            console.log(CarSaleDatos);
+            // Guarda la venta del coche y muestra un mensaje de confirmación
+            // EditCarSale(CarSaleDatos, CarEdit.IdCarSale);
+            console.log('Datos guardados con éxito');
+
+            alert("Guardado");
+        } else {
+            // Imprime un mensaje indicando que los datos no son válidos
+            console.log('Datos incompletos o inválidos');
+
+            alert('Por favor completa todos los campos.');
+        }
+
+        
+
 
     }
 
@@ -133,6 +163,8 @@ const CarSaleLayout = () => {
 
 
     }, [CarEdit])
+
+
 
 
     return (

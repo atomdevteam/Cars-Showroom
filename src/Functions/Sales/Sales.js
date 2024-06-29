@@ -1,5 +1,5 @@
 import { dbFire, storage } from "../../firebase/firebase"
-import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore"
+import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc, updateDoc } from "firebase/firestore"
 import { ref as storageref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 
@@ -22,6 +22,16 @@ export const DeleteCarSale = async (carSaleId) => {
         console.log("Documento eliminado con éxito:", carSaleId);
     } catch (error) {
         console.error("Error al eliminar el documento:", error);
+    }
+}
+
+export const EditCarSale = async (carSaleId, updatedData) => {
+    try {
+        const docRef = doc(dbFire, "CarSale", carSaleId);
+        await updateDoc(docRef, updatedData);
+        console.log("Documento actualizado con éxito:", carSaleId);
+    } catch (error) {
+        console.error("Error al actualizar el documento:", error);
     }
 }
 
