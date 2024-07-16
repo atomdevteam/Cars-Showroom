@@ -6,20 +6,36 @@ import { ref as storageref, uploadBytes, getDownloadURL } from "firebase/storage
 export const SaveCarSale = async (datos, userId) => {
 
     try {
-
         const docRef = await addDoc(collection(dbFire, "CarSale"), datos);
-       
     } catch (error) {
         console.log(error)
     }
 
 }
 
+// export const DeleteCarSale = async (carSaleId) => {
+//     try {
+//         const docRef = doc(dbFire, "CarSale", carSaleId);
+//         await deleteDoc(docRef);
+//         console.log("Documento eliminado con éxito:", carSaleId);
+//     } catch (error) {
+//         console.error("Error al eliminar el documento:", error);
+//     }
+// }
+
 export const DeleteCarSale = async (carSaleId) => {
     try {
-        const docRef = doc(dbFire, "CarSale", carSaleId);
-        await deleteDoc(docRef);
-        console.log("Documento eliminado con éxito:", carSaleId);
+        // Mostrar una alerta de confirmación
+        const confirmDelete = window.confirm("¿Estás seguro que deseas eliminar este Auto?");
+
+        if (confirmDelete) {
+            const docRef = doc(dbFire, "CarSale", carSaleId);
+            await deleteDoc(docRef);
+            console.log("Documento eliminado con éxito:", carSaleId);
+        } else {
+            console.log("Eliminación cancelada por el usuario.");
+        }
+        
     } catch (error) {
         console.error("Error al eliminar el documento:", error);
     }

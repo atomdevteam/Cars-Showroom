@@ -110,7 +110,6 @@ const [CarEdit, setCarEdit] = useState(null)
 
 
 
-
   const filterCars = (ListCar, Options, normalizeString, navigate) => {
 
     console.log(Options.rangoPrice[0] + ' ' + Options.rangoPrice[1])
@@ -217,7 +216,6 @@ const [CarEdit, setCarEdit] = useState(null)
         const marca = normalizeString(car.Sale.DetalleCoche.Marca);
         const location = normalizeString(Options.location);
         const marcaSearch = normalizeString(Options.marca);
-
         return ubicacion.includes(location) && marca.includes(marcaSearch);
       });
 

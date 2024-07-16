@@ -101,9 +101,6 @@ const Recomendado = () => {
     ];
 
 
-
-
-
     const handleAgregarAuto = () => {
         window.scrollTo(0, 0);
         navigate('/admin/CarSale')
@@ -206,9 +203,9 @@ const Recomendado = () => {
                                                 </button>
                                             </div>
                                             <div className="px-3 py-2   text-xs leading-4">
+
                                                 <button className="px-3 py-1 border border-blue-500 text-blue-500 rounded transition duration-300 hover:bg-red-400 hover:text-white focus:outline-none">
                                                     <MdDelete size={14} onClick={() => handleDelete(car.IdCarSale)} className="text-red-500" />
-                                                        
                                                 </button>
                                             </div>
                                         </div>
