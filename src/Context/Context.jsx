@@ -4,7 +4,7 @@ import { auth } from "../firebase/firebase"
 
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
-import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale } from "../Functions/Sales/Sales"
+import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale,ReservaCar } from "../Functions/Sales/Sales"
 import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
@@ -19,10 +19,12 @@ export function ProviderContext({ children }) {
 
   const [isOpenModal, setOpenModal] = useState(false)
 
+
+
   const [user, setUser] = useState(null)
   const [LisCarNew, setLisCarNew] = useState([])
   const [LisCarUsed, setLisCarUsed] = useState([])
-  
+
   const [ListCar, setListCar] = useState([])
 
   const [CarDatos, setCarDatos] = useState([])
@@ -32,9 +34,9 @@ export function ProviderContext({ children }) {
   const [filtroCarNew, setFiltroCarNew] = useState([])
   const [filtroCarUsed, setFiltroCarUsed] = useState([])
   const [ListComparar, setListComparar] = useState([])
-  const [AutosVisible,setAutosVisible] = useState(false)
-  const [AutosInVisible,setAutosInVisible] = useState(false)
-  const [ContactoVisibles,setContactoVisibles] = useState(false)
+  const [AutosVisible, setAutosVisible] = useState(false)
+  const [AutosInVisible, setAutosInVisible] = useState(false)
+  const [ContactoVisibles, setContactoVisibles] = useState(false)
   const [locationR, setlocationR] = useState('')
   const [isFiltro, setisFiltro] = useState(false)
 
@@ -43,13 +45,14 @@ export function ProviderContext({ children }) {
   const [DescripcionHero, setDescripcionHero] = useState('')
   const [SliderImg, setSliderImg] = useState([])
   const [ListAllUser, setListAllUser] = useState([])
-  const [ListAllAuto , setListAllAutos] = useState([])
-  
-// Available
-const [CarAvailable, setAvailable] = useState(null)
+  const [ListAllAuto, setListAllAutos] = useState([])
+
+  // Available
+  const [CarAvailable, setAvailable] = useState(null)
 
 
-  
+
+
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -70,11 +73,6 @@ const [CarAvailable, setAvailable] = useState(null)
   useEffect(() => {
     GetHero(setTituloHero, setDescripcionHero, setSliderImg)
   }, [])
-  
-
-
-
-
 
 
   useEffect(() => {
@@ -133,7 +131,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -154,7 +152,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -176,7 +174,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -197,7 +195,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -218,7 +216,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -239,7 +237,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -260,7 +258,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -276,7 +274,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -292,7 +290,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -308,7 +306,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -324,7 +322,7 @@ const [CarAvailable, setAvailable] = useState(null)
       setSerchingCar(filteredCars);
       localStorage.setItem("SerchingCar", JSON.stringify(filteredCars))
       if (user) {
-        
+
       } else {
         navigate('/LognIn')
       }
@@ -348,11 +346,11 @@ const [CarAvailable, setAvailable] = useState(null)
     const normalizeString = (str) => {
       return str.toLowerCase().trim().replace(/\s+/g, ' ');
     }
-   
-    
+
+
 
     if (Status === 'Todo') {
-      filterCars(ListCar, Options, normalizeString )
+      filterCars(ListCar, Options, normalizeString)
 
     } else if (Status === 'Nuevo') {
       filterCars(LisCarNew, Options, normalizeString)
@@ -362,7 +360,7 @@ const [CarAvailable, setAvailable] = useState(null)
 
     }
 
- 
+
 
   };
 
@@ -404,21 +402,25 @@ const [CarAvailable, setAvailable] = useState(null)
         setAutosVisible,
         ContactoVisibles,
         setContactoVisibles,
-        
+
         locationR,
         setlocationR,
         TituloHero,
         DescripcionHero,
         SliderImg,
-        setTituloHero, 
+        setTituloHero,
         setDescripcionHero, setSliderImg, GetHero,
 
         ListAllUser,
         updateUserRole,
         setListAllUser,
-        CarAvailable, 
+        CarAvailable,
         setAvailable,
-        isFiltro, setisFiltro
+        isFiltro, setisFiltro,
+
+        ReservaCar,
+
+
       }}
     >
       {children}

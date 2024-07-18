@@ -2,17 +2,27 @@ import React from "react";
 import { useState } from "react";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import { useContextCar } from "../../Context/Context";
 
 
 
 const FormularioReserva = () => {
+    
+    const {ReservaCar,CarAvailable} = useContextCar()
+
     const navigate = useNavigate();
     const [isOpen, setIosOpen] = useState(false);
+    
+    const [nameUser, setNameUser] = useState('');
+    const [emailUser, setEmailUser] = useState('');
+    const [phoneUser, setPhoneUser] = useState('');
+    const [reservationDate, setReservationDate] = useState('');
 
     const handlHome = () => {
         window.scrollTo(0,0);
         navigate('/admin/')
     }
+
 
     
 
