@@ -72,6 +72,7 @@ export function ProviderContext({ children }) {
 
   useEffect(() => {
     GetHero(setTituloHero, setDescripcionHero, setSliderImg)
+    ListCarSale(setLisCarNew, setLisCarUsed,setListCar)
   }, [])
 
 
