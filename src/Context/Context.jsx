@@ -50,9 +50,6 @@ export function ProviderContext({ children }) {
   // Available
   const [CarAvailable, setAvailable] = useState(null)
 
-
-
-
   useEffect(() => {
     const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

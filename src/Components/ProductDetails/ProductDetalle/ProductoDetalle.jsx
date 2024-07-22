@@ -5,6 +5,7 @@ import { useContextCar } from "../../../Context/Context";
 
 const ProductDetails = () => {
     const { CarAvailable, Formatnumber, ReservaCar } = useContextCar()
+    
     const [isOpen, setIosOpen] = useState(false);
 
     const [nameUser, setNameUser] = useState('');
@@ -64,7 +65,11 @@ const ProductDetails = () => {
         await ReservaCar(reservationData);
 
         // Abrir el modal si la reserva fue exitosa
+        //Si no me habre otro modal de error 
+        
         setIosOpen(true);
+
+
         console.log(reservationData);
 
     };
@@ -171,9 +176,6 @@ const ProductDetails = () => {
 
                                 </div>
 
-
-
-                          
                                     {/* Tu contenido del componente aquí */}
                                     <button
                                         className="justify-center py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10"

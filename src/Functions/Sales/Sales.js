@@ -92,25 +92,6 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
 
 export const ReservaCar = async(reservationData) => {
 
-   
-
-    // const reservationData = {
-    //   informationUser: {
-    //     nameUser,
-    //     emailUser,
-    //     phoneUser,
-    //     formattedDate
-    //   },
-
-    //   informationVehicle: {
-    //     Titulo,
-    //     Marca,
-    //     Modelo,
-    //     Condicion,
-    //     Precio
-    //   }
-
-    // };
 
     try {
 
@@ -123,45 +104,3 @@ export const ReservaCar = async(reservationData) => {
          console.error("Error saving reservation: ", error);
     }   
   };
-
-
-  
-
-// export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
-
-//     try {
-//         const ref = collection(dbFire, "CarSale");
-
-//         const docsSnap = await getDocs(ref);
-
-//         const newCars = [];
-//         const usedCars = [];
-//         const CarSale = []
-
-//         docsSnap.forEach(doc => {
-//             const data = doc.data();
-//             const IdCarSale = doc.id;
-//             data.IdCarSale = IdCarSale;
-
-//             if (data.Sale.DetalleCoche.Condicion === "Nuevo") {
-//                 newCars.push(data)
-//                 setLisCarNew(newCars)
-                
-                
-//             }else if (data.Sale.DetalleCoche.Condicion === "Usado") {
-//                 usedCars.push(data)
-//                 setLisCarUsed(usedCars)
-//             }
-
-//             CarSale.push(data)
-//             setListCar(CarSale)
-//         });
-
-//         setLisCarNew(newCars);
-//         setLisCarUsed(usedCars);
-//         setListCar(CarSale);
-
-//     } catch (error) {
-//         console.error("Error al obtener los datos de la colección 'events':", error);
-//     }
-// }
