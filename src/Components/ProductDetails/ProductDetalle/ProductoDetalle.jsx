@@ -2,10 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useContextCar } from "../../../Context/Context";
 
-
 const ProductDetails = () => {
     const { CarAvailable, Formatnumber, ReservaCar } = useContextCar()
-    
     const [isOpen, setIosOpen] = useState(false);
 
     const [nameUser, setNameUser] = useState('');
@@ -25,7 +23,7 @@ const ProductDetails = () => {
     };
 
     const validatePhone = (phone) => {
-        const phoneRegex = /^\d{10}$/; // Ajusta según el formato de teléfono que uses
+        const phoneRegex = /^\d{10}$/;
         return phoneRegex.test(phone);
     };
 
@@ -63,22 +61,16 @@ const ProductDetails = () => {
         };
         // Llamar a la función ReservaCar con los datos de la reserva
         await ReservaCar(reservationData);
-
-        // Abrir el modal si la reserva fue exitosa
-        //Si no me habre otro modal de error 
-        
         setIosOpen(true);
-
-
-        console.log(reservationData);
-
     };
 
+
+    const [selectedImage, setSelectedImage] = useState(null);
 
 
     return (
 
-        <div className=' bg-gray-900 '>
+        <div className=' bg-zinc-950 '>
             <div className=" text-white flex flex-col justify-center items-start px-16 py-14 w-full bg-zinc-950 max-md:px-5 max-md:max-w-full">
                 <div className="flex flex-col ml-16 max-md:max-w-full">
                     <div className="text-5xl max-md:max-w-full max-md:text-4xl">
@@ -88,23 +80,40 @@ const ProductDetails = () => {
             </div>
 
 
-            <div className="grid grid-cols-6 gap-1 ">
+            <div className="grid grid-cols-6 mx-20  ">
 
                 {CarAvailable?.Sale?.Multimedia.Imagen.map((Image, index) => (
-
-                    <div key={index} className="max-w-sm bg-white border mx-2 mt-4 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-                        <div>
-                            <img className="rounded-t-lg" src={Image} alt="" />
-                        </div>
-
+                    <div key={index} className="p-2">
+                        <img
+                            className="rounded-t-lg w-auto cursor-pointer"
+                            src={Image}
+                            alt={`Image ${index}`}
+                            onClick={() => setSelectedImage(Image)}
+                        />
                     </div>
                 ))}
+
+                {/* Modal para imagen grande */}
+                {selectedImage && (
+                    <div
+                        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <img
+                            src={selectedImage}
+                            alt="Enlarged view"
+                            className="w-full max-w-3xl h-auto"
+                            onClick={(e) => e.stopPropagation()} // Evita que el clic en la imagen cierre el modal
+                        />
+                    </div>
+                )}
+
+
             </div>
 
-            <div className=" flex flex-col self-stretch py-20 mt-32 font-semibold text-white bg-[#0B0C10] max-md:pl-5 max-md:mt-10 max-md:max-w-full justify-center">
+            <div className="my-10 p-5 flex flex-col self-stretch py-20 mt-32 font-semibold text-white bg-[#0B0C10] max-w-full justify-center md:pl-5 md:mt-10">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:flex-col">
-                    <div className="p-32">
+                    <div className="">
 
                         <div className="flex flex-col grow mt-1.5 max-md:mt-10 max-md:max-w-full">
                             <div className="text-2xl font-bold text-zinc-300 max-md:max-w-full">
@@ -115,23 +124,20 @@ const ProductDetails = () => {
 
                             </div>
 
-                            <div className="mt-20 text-2xl font-bold text-zinc-300 max-md:mt-10 max-md:max-w-full">
+                            <div className="mt-16 text-2xl font-bold text-zinc-300 max-md:mt-10 max-md:max-w-full">
                                 Característica
-                                <br />
                             </div>
-                            <div className="bg- flex gap-3 mt-5 text-lg text-white max-md:flex-wrap">
 
-                                {
-                                    CarAvailable?.Sale?.Features?.Features.map((feature, index) => (
-                                        <div key={index} className="bg-slate-900 flex flex-col justify-center rounded-md">
-                                            <div className=" flex gap-2 px-2 py-  bg-slate-900">
+                            {/* grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-white */}
+                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 text-white ">
+                                {CarAvailable?.Sale?.Features?.Features.map((feature, index) => (
+                                    <div key={index} className="flex">
+                                        <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
 
-                                                <div >{feature}</div>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-
+                                        {feature}</div>
+                                ))}
                             </div>
 
                             <div className="flex flex-col ml-5 max-md:ml-0 max-md:w-full">
@@ -176,33 +182,33 @@ const ProductDetails = () => {
 
                                 </div>
 
-                                    {/* Tu contenido del componente aquí */}
-                                    <button
-                                        className="justify-center py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10"
-                                        onClick={handleReservationClick}>Reservar</button>
+                                {/* Tu contenido del componente aquí */}
+                                <button
+                                    className="justify-center py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10"
+                                    onClick={handleReservationClick}>Reservar</button>
 
-                                    {
-                                        isOpen && (
-                                            <div className="fixed inset-0 flex items-center justify-center z-50 sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm">
-                                                <div className="flex flex-col items-center px-20 py-8 text-3xl text-black rounded-2xl bg-zinc-300 max-w-[671px] max-md:w-[85%] max-md:h-65">
-                                                    <img
-                                                        loading="lazy"
-                                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8deecdfa608c19b062408dc30ffa638c671c7967a8c0d2febfa133cf058b525a?"
-                                                        className="max-w-full aspect-square w-[80px]"
-                                                    />
-                                                    <div className="justify-center mt-8 text-xl max-md:text-lg">Gracias por compatirnos tu interes.</div>
-                                                    <div className="mt-3 text-xl max-md:text-sm m justify-center">
-                                                        Brevemente nos estaremos contactando con usted.
-                                                    </div>
-                                                    <button className="justify-center px-7 py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-red-700 bg-opacity-60 max-md:px-5 max-md:mt-10"
-                                                        onClick={() => setIosOpen(false)}>
-                                                        Cerrar
-                                                    </button>
+                                {
+                                    isOpen && (
+                                        <div className="fixed inset-0 flex items-center justify-center z-50 sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm">
+                                            <div className="flex flex-col items-center px-20 py-8 text-3xl text-black rounded-2xl bg-zinc-300 max-w-[671px] max-md:w-[85%] max-md:h-65">
+                                                <img
+                                                    loading="lazy"
+                                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8deecdfa608c19b062408dc30ffa638c671c7967a8c0d2febfa133cf058b525a?"
+                                                    className="max-w-full aspect-square w-[80px]"
+                                                />
+                                                <div className="justify-center mt-8 text-xl max-md:text-lg">Gracias por compatirnos tu interes.</div>
+                                                <div className="mt-3 text-xl max-md:text-sm m justify-center">
+                                                    Brevemente nos estaremos contactando con usted.
                                                 </div>
+                                                <button className="justify-center px-7 py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-red-700 bg-opacity-60 max-md:px-5 max-md:mt-10"
+                                                    onClick={() => setIosOpen(false)}>
+                                                    Cerrar
+                                                </button>
                                             </div>
-                                        )
-                                    }
-                           
+                                        </div>
+                                    )
+                                }
+
 
                             </div>
 
@@ -211,12 +217,12 @@ const ProductDetails = () => {
 
                     </div>
 
-                    <div className=" m-32 ">
-
-                        <div className="justify-center items-center mx-32 py-4 text-2xl font-bold text-center text-sky-600 whitespace-nowrap rounded border border-sky-600 border-solid max-w-[395px]">
+                    <div className=" m-6 md:m-12 lg:m-24 my-24 md:my-48 -lg:my-96 ">
+                        <div className="max-w-sm p-6  mx-auto text-center text-sky-600 text-2xl border border-sky-600  rounded-lg">
                             ${Formatnumber(CarAvailable?.Sale?.Precio?.Precio)}
                         </div>
-                        <div className="flex flex-col p-6 mt-12 w-full bg-gray-900 rounded max-md:px-5 max-md:mt-10">
+
+                        <div className="flex flex-col p-6 mt-12  w-full bg-gray-900 rounded max-md:px-5 max-md:mt-10">
                             <div className="text-xl font-bold text-white">Detalles del auto</div>
                             <div className="flex gap-5 justify-between py-1.5 mt-5 whitespace-nowrap">
                                 <div className="text-base font-medium text-neutral-400">Marca</div>
@@ -293,38 +299,7 @@ const ProductDetails = () => {
                                     {CarAvailable?.Sale?.DetalleMotor?.CapacidadMotor} hp
                                 </div>
                             </div>
-                            {/* <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
-                            <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
-                                Batería y carga
-                                <br />
-                            </div>
-                            <div className="flex gap-5 justify-between py-1">
-                                <div className="flex-auto text-base font-medium text-neutral-400">
-                                    Capacidad de la batería
-                                </div>
-                                <div className="text-lg text-right text-white">55.0-kWh</div>
-                            </div>
-                            <div className="flex gap-5 justify-between py-1 mt-2">
-                                <div className="text-base font-medium text-neutral-400">
-                                    Velocidad de carga
-                                    <br />
-                                </div>
-                                <div className="text-lg text-right text-white">64 km/h</div>
-                            </div>
-                            <div className="flex gap-5 justify-between py-1 mt-2">
-                                <div className="text-base font-medium text-neutral-400">
-                                    Puerto de carga
-                                    <br />
-                                </div>
-                                <div className="text-lg text-right text-white">Type 2</div>
-                            </div>
-                            <div className="flex gap-5 justify-center py-1 mt-2">
-                                <div className="flex-auto text-base font-medium text-neutral-400">
-                                    Tiempo de carga (0-&gt;Full)
-                                </div>
-                                <div className="text-lg text-right text-white">330 mnt</div>
-                            </div> */}
                             <hr class="w-full h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
                             <div className="mt-1 text-xl font-bold text-white max-md:mt-10">
