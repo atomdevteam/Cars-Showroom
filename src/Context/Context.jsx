@@ -4,7 +4,7 @@ import { auth } from "../firebase/firebase"
 
 //Functions
 import { SignInAuth, LognInAuth, logout, ListUser, ListAllUsers, updateUserRole } from "../Functions/Authentication/Authentication"
-import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale,ReservaCar } from "../Functions/Sales/Sales"
+import { SaveCarSale, SaveMedia, SaveArchivo, ListCarSale,ListReservaCar ,ReservaCar} from "../Functions/Sales/Sales"
 import { GetHero } from "../Functions/HomeAdmin/HomeAdmin"
 
 const Context = createContext()
@@ -80,6 +80,10 @@ export function ProviderContext({ children }) {
     }
 
   }, [])
+
+
+
+
 
   const Formatnumber = (number) => {
 
@@ -358,9 +362,21 @@ export function ProviderContext({ children }) {
 
     }
 
-
-
   };
+
+
+
+    const [ReservaCarList, setReservaCarList] = useState([]);
+
+    useEffect(() => {
+        const loadReservaCar = async () => {
+            const reservas = await ListReservaCar();
+            setReservaCarList(reservas);
+        };
+
+        loadReservaCar();
+    }, []);
+
 
 
   return (
@@ -417,6 +433,9 @@ export function ProviderContext({ children }) {
         isFiltro, setisFiltro,
 
         ReservaCar,
+        ReservaCarList,
+        ListReservaCar,
+         setReservaCarList
 
 
       }}

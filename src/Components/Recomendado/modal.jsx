@@ -71,7 +71,7 @@ const Modal = ({ showModal, handleClose}) => {
                                                 </div>
                                                 <div className="flex gap-3.5 mt-7">
                                                     <div className="text-2xl font-bold text-white max-md:text-xl">Combustible:</div>
-                                                    <div className="text-2xl text-white text-opacity-50 max-md:text-xl">{CarAvailable?.Sale?.DetalleMotor?.TipoConbustible}</div>
+                                                    <div className="text-2xl text-white text-opacity-50 max-md:text-xl">{CarAvailable?.Sale?.DetalleMotor?.TipoCombustimble}</div>
                                                 </div>
                                             </div>
                                         </div>

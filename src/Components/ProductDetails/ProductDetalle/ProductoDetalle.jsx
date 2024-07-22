@@ -5,7 +5,7 @@ import { useContextCar } from "../../../Context/Context";
 
 const ProductDetails = () => {
     const { CarAvailable, Formatnumber, ReservaCar } = useContextCar()
-    
+
     const [isOpen, setIosOpen] = useState(false);
 
     const [nameUser, setNameUser] = useState('');
@@ -13,7 +13,21 @@ const ProductDetails = () => {
     const [phoneUser, setPhoneUser] = useState('');
 
     const currentDate = new Date();
-    const ReservationDate = currentDate.toLocaleString();
+
+    const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        // second: '2-digit',
+        hour12: true // Cambiar a true para formato de 12 horas
+    };
+
+    const ReservationDate = currentDate.toLocaleString('es-ES', options); // Cambia 'es-ES' a tu localización preferida
+
+
+
 
     const validateName = (name) => {
         return name && name.trim().length > 0;
@@ -58,7 +72,9 @@ const ProductDetails = () => {
                 marca: CarAvailable.Sale.DetalleCoche.Marca,
                 modelo: CarAvailable.Sale.DetalleCoche.Modelo,
                 condicion: CarAvailable.Sale.DetalleCoche.Condicion,
-                precio: CarAvailable.Sale.Precio.Precio
+                precio: CarAvailable.Sale.Precio.Precio,
+                color: CarAvailable.Sale.DetalleCoche.Color,
+                year: CarAvailable.Sale.DetalleCoche.Year
             }
         };
         // Llamar a la función ReservaCar con los datos de la reserva
@@ -66,7 +82,7 @@ const ProductDetails = () => {
 
         // Abrir el modal si la reserva fue exitosa
         //Si no me habre otro modal de error 
-        
+
         setIosOpen(true);
 
 
@@ -176,33 +192,33 @@ const ProductDetails = () => {
 
                                 </div>
 
-                                    {/* Tu contenido del componente aquí */}
-                                    <button
-                                        className="justify-center py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10"
-                                        onClick={handleReservationClick}>Reservar</button>
+                                {/* Tu contenido del componente aquí */}
+                                <button
+                                    className="justify-center py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-sky-600 hover:bg-sky-400 bg-opacity-60 max-md:px-5 max-md:mt-10"
+                                    onClick={handleReservationClick}>Reservar</button>
 
-                                    {
-                                        isOpen && (
-                                            <div className="fixed inset-0 flex items-center justify-center z-50 sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm">
-                                                <div className="flex flex-col items-center px-20 py-8 text-3xl text-black rounded-2xl bg-zinc-300 max-w-[671px] max-md:w-[85%] max-md:h-65">
-                                                    <img
-                                                        loading="lazy"
-                                                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8deecdfa608c19b062408dc30ffa638c671c7967a8c0d2febfa133cf058b525a?"
-                                                        className="max-w-full aspect-square w-[80px]"
-                                                    />
-                                                    <div className="justify-center mt-8 text-xl max-md:text-lg">Gracias por compatirnos tu interes.</div>
-                                                    <div className="mt-3 text-xl max-md:text-sm m justify-center">
-                                                        Brevemente nos estaremos contactando con usted.
-                                                    </div>
-                                                    <button className="justify-center px-7 py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-red-700 bg-opacity-60 max-md:px-5 max-md:mt-10"
-                                                        onClick={() => setIosOpen(false)}>
-                                                        Cerrar
-                                                    </button>
+                                {
+                                    isOpen && (
+                                        <div className="fixed inset-0 flex items-center justify-center z-50 sm:mx-0 min-h-screen w-full text-white backdrop-blur-sm">
+                                            <div className="flex flex-col items-center px-20 py-8 text-3xl text-black rounded-2xl bg-zinc-300 max-w-[671px] max-md:w-[85%] max-md:h-65">
+                                                <img
+                                                    loading="lazy"
+                                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8deecdfa608c19b062408dc30ffa638c671c7967a8c0d2febfa133cf058b525a?"
+                                                    className="max-w-full aspect-square w-[80px]"
+                                                />
+                                                <div className="justify-center mt-8 text-xl max-md:text-lg">Gracias por compatirnos tu interes.</div>
+                                                <div className="mt-3 text-xl max-md:text-sm m justify-center">
+                                                    Brevemente nos estaremos contactando con usted.
                                                 </div>
+                                                <button className="justify-center px-7 py-4 mt-16 text-xl text-white whitespace-nowrap rounded-lg bg-red-700 bg-opacity-60 max-md:px-5 max-md:mt-10"
+                                                    onClick={() => setIosOpen(false)}>
+                                                    Cerrar
+                                                </button>
                                             </div>
-                                        )
-                                    }
-                           
+                                        </div>
+                                    )
+                                }
+
 
                             </div>
 

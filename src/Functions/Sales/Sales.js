@@ -67,8 +67,8 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
                     usedCars.push(data);
                 }
 
-                console.log("Listar Datos")
-                console.log(data)
+                // console.log("Listar Datos")
+                // console.log(data)
                 CarSale.push(data);
                 
             });
@@ -92,15 +92,28 @@ export const ListCarSale = async (setLisCarNew, setLisCarUsed, setListCar) => {
 
 export const ReservaCar = async(reservationData) => {
 
-
     try {
 
     //   await dbFire.collection('ReservationCar').add(reservationData);
-    
+ 
     const docRef = await addDoc(collection(dbFire, "ReservationCar"),reservationData);
 
     //   alert('Reservation successfully saved!');
     } catch (error) {
          console.error("Error saving reservation: ", error);
     }   
+
+
   };
+
+  export const ListReservaCar = async () => {
+    const snapshot = await getDocs(collection(dbFire, 'ReservationCar'));
+    const reservas = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+    return reservas;
+};
+
+
+
