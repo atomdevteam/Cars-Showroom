@@ -90,7 +90,7 @@ const ReservationModal = ({ showModal, handleClose, reserva }) => {
 
                             <div className="flex gap-3 mt-1">
                                 <div className="text-lg font-bold text-white max-md:text-xl">Precio:</div>
-                                <div className="text-lg text-white text-opacity-50 max-md:text-xl">{reserva?.informationVehicle.precio}</div>
+                                <div className="text-lg text-white text-opacity-50 max-md:text-xl">${Formatnumber(reserva?.informationVehicle.precio)}</div>
                             </div>
 
                             <div className="flex gap-3 mt-1">
