@@ -200,8 +200,11 @@ const Recomendado = () => {
 
                             Mapear cada elemento del array y renderizarlos */}
                             {SeeCar.map((car, index) => (
+
                                 <div key={index} className="flex flex-col  max-md:ml-0 max-md:w-full">
+                                 
                                     <div className="flex overflow-hidden relative flex-col rounded-lg grow pt-20 text-lg text-white aspect-[1.15] max-md:mt-6">
+                                      
                                         <button onClick={() => handleOpenModal(car)}>
                                             <img
                                                 loading="lazy"
@@ -216,6 +219,7 @@ const Recomendado = () => {
                                             <div className="">{car.Sale.Precio.Precio}</div>
                                         </div>
                                     </div>
+
                                 </div>
                             ))}
                         </div>

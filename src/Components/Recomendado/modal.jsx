@@ -1,10 +1,8 @@
 // Modal.js
 import React, { useState, useEffect } from 'react';
-// import './Modal.css';
 import { IoMdClose } from "react-icons/io";
 import { FaEdit } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import FormularioReserva from '../FormularioReserva/FormularioReserva';
 import { useContextCar } from '../../Context/Context';
 
 const Modal = ({ showModal, handleClose}) => {
@@ -60,6 +58,7 @@ const Modal = ({ showModal, handleClose}) => {
                                 <div className="self-center mt-8 w-full max-w-[502px] max-md:mt-10 max-md:max-w-full">
                                     <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                                         <div className="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
+
                                             <div className="flex flex-col grow whitespace-nowrap ">
                                                 <div className="flex gap-3.5">
                                                     <div className="text-2xl font-bold text-white max-md:text-xl">Color:</div>
@@ -74,7 +73,9 @@ const Modal = ({ showModal, handleClose}) => {
                                                     <div className="text-2xl text-white text-opacity-50 max-md:text-xl">{CarAvailable?.Sale?.DetalleMotor?.TipoCombustimble}</div>
                                                 </div>
                                             </div>
+
                                         </div>
+
                                         <div className="flex flex-col ml-5 w-[44%] max-md:ml-0 max-md:w-full">
                                             <div className="flex flex-col max-md:mt-10">
                                                 <div className="flex gap-3.5">
